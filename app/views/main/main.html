@@ -1,8 +1,7 @@
 <h1>main</h1>
 <ul class="menu">
   <li><a href="#!/main">main</a></li>
-  <li><a href="#!/login">login</a></li>
-  <li><a href="#!/dashboard">dashboard</a></li>
+  <li ng-show="storageusername"><a href="#!/dashboard">dashboard</a></li>
   <div ng-show="!storageusername">
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
   </div>
