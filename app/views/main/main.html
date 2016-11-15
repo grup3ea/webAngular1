@@ -1,0 +1,51 @@
+<h1>main</h1>
+<ul class="menu">
+  <li><a href="#!/main">main</a></li>
+  <li><a href="#!/login">login</a></li>
+  <li><a href="#!/dashboard">dashboard</a></li>
+  <div ng-show="!storageusername">
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+  </div>
+  <div ng-show="storageusername">
+    username: <b>{{storageusername.name}}</b>
+    <button ng-click="logout()" class="cancelbtn" style="width:auto;">Logout</button>
+  </div>
+</ul>
+
+
+<h1>Aquí va la pàgina principal</h1>
+<p>amb un diseny bo</p>
+
+
+
+
+
+
+
+<!-- modal login start -->
+<div id="id01" class="modal">
+
+  <form class="modal-content animate">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input ng-model="loginData.name" type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input ng-model="loginData.password" type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit" ng-click="doLogin()">Login</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <a href="#!/signup" class="button">Signup</a>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+<!-- modal login end -->

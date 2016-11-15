@@ -1,0 +1,30 @@
+<h1>signup</h1>
+
+<form ng-submit="doSignup()">
+  <div class="list">
+    <label class="item item-input">
+      <span class="input-label">Name*</span>
+      <input type="text" ng-model="signupData.name">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Password*</span>
+      <input type="password" ng-model="signupData.password">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Email*</span>
+      <input type="email" ng-model="signupData.email">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Description*</span>
+      <input type="text" ng-model="signupData.description">
+    </label>
+    <p>Avatar*: <b>{{signupData.avatar}}</b></p>
+    <img ng-repeat="avatar in avatars" ng-click="avatarSelect('{{avatar}}')" ng-src="img/avatars/{{avatar}}.png" class="o-imgSelectAvatar" >
+
+    <label class="item">
+      <button class="button button-block button-positive" type="submit">Signup</button>
+    </label>
+  </div>
+</form>
+
+<a href="#" class="cancelbtn">Cancel</a>
