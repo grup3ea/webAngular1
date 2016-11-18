@@ -1,21 +1,37 @@
-<form action="action_page.php">
- <div class="imgcontainer">
-   <img src="img_avatar2.png" alt="Avatar" class="avatar">
- </div>
+<div ng-include="'views/menu.htm'"></div>
 
- <div class="container">
-   <label><b>Username</b></label>
-   <input type="text" placeholder="Enter Username" name="uname" required>
+  <div class="row">
+    <div class="col s12 m12 l4 offset-l4">
+        <div class="card">
 
-   <label><b>Password</b></label>
-   <input type="password" placeholder="Enter Password" name="psw" required>
+            <div class="card-content">
+                <div class="card-title">
+                    <span class="card-title">Login</span>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input ng-model="loginData.name" id="username" type="text" class="validate">
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input ng-model="loginData.password" id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-action">
+              <a href="#" class="waves-effect waves-light btn red">Cancel</a>
+              <a ng-click="doLogin()" class="waves-effect waves-light btn right">Login</a>
+            </div>
+        </div>
 
-   <button type="submit">Login</button>
-   <input type="checkbox" checked="checked"> Remember me
- </div>
-
- <div class="container" style="background-color:#f1f1f1">
-   <button type="button" class="cancelbtn">Cancel</button>
-   <span class="psw">Forgot <a href="#">password?</a></span>
- </div>
-</form>
+        <div class="container" style="background-color:#f1f1f1">
+          <a href="#!/signup" class="button">Signup</a>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </div>
+</div>

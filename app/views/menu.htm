@@ -5,9 +5,10 @@
       <li><a href="#">Company</a></li>
       <span ng-show="!storageusername">
         <li><a href="#!/signup">Signup</a></li>
-        <li><a onclick="document.getElementById('id01').style.display='block'">Login</a></li>
+        <li><a href="#!/login">Login</a></li>
       </span>
       <span ng-show="storageusername">
+        <li><a href="#!/users">Users</a></li>
         <li><a href="#!/dashboard">dashboard</a></li>
         <li>user: <b>{{storageusername.name}}</b></li>
         <li><a ng-click="logout()">Logout</a></li>

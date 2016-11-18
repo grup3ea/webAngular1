@@ -1,0 +1,17 @@
+<div ng-include="'views/menu.htm'"></div>
+<h3>Users</h3>
+
+
+<ul class="collection">
+  <li ng-repeat="user in users" class="collection-item avatar">
+    <a ng-href="#/app/users/{{user.name}}">
+      <img ng-src="img/avatars/{{user.avatar}}.png" alt="" class="circle">
+      <span class="title">{{user.name}}</span>
+
+      <p>{{user.description}}<br>
+         {{user.role}}
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </a>
+  </li>
+</ul>

@@ -11,7 +11,7 @@ angular.module('myApp.main', ['ngRoute'])
 .controller('MainCtrl', function($scope, $http, $timeout, $window) {
 
     $scope.loginData = {};
-    $scope.storageusername=JSON.parse(localStorage.getItem("fs_userdata"));
+    $scope.storageusername=JSON.parse(localStorage.getItem("fs_web_userdata"));
 console.log($scope.storageusername);
     $scope.doLogin = function() {
       console.log('Doing login', $scope.loginData);
@@ -29,11 +29,11 @@ console.log($scope.storageusername);
               {
                   console.log("login successful. Response.data: ");
                   console.log(response.data);
-                  localStorage.setItem("fs_token", response.data.user.token);
-                  localStorage.setItem("fs_userdata", JSON.stringify(response.data.user));
+                  localStorage.setItem("fs_web_token", response.data.user.token);
+                  localStorage.setItem("fs_web_userdata", JSON.stringify(response.data.user));
 
                   $timeout(function() {
-                    $window.location.reload(true);
+                    $window.location="#!/dashboard";
                   }, 1000);
               }else{
                   console.log("login failed");
@@ -48,7 +48,7 @@ console.log($scope.storageusername);
       });
     };
     $scope.logout = function(){
-      localStorage.removeItem("fs_userdata");
+      localStorage.removeItem("fs_web_userdata");
       $timeout(function() {
         $window.location.reload(true);
       }, 1000);
