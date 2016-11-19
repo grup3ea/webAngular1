@@ -10,5 +10,7 @@ angular.module('myApp.dashboard', ['ngRoute'])
 }])
 
 .controller('DashboardCtrl', function($scope) {
-  $scope.storageusername=JSON.parse(localStorage.getItem("fs_web_userdata"));
+  $scope.storageuser=JSON.parse(localStorage.getItem("fs_web_userdata"));
+
+  
 });

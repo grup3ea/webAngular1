@@ -14,11 +14,11 @@ angular.module('myApp.login', ['ngRoute'])
       $scope.loginData = {};
       if(localStorage.getItem("fs_web_userdata"))
       {
-        $scope.storageusername=JSON.parse(localStorage.getItem("fs_web_userdata"));
+        $scope.storageuser=JSON.parse(localStorage.getItem("fs_web_userdata"));
         $window.location="#";
       }else{
       }
-  console.log($scope.storageusername);
+  console.log($scope.storageuser);
       $scope.doLogin = function() {
         console.log('Doing login', $scope.loginData);
 
@@ -43,7 +43,7 @@ angular.module('myApp.login', ['ngRoute'])
                     }, 1000);
                 }else{
                     console.log("login failed");
-                    $ionicLoading.show({ template: 'Login failed, user or password error.', noBackdrop: true, duration: 2000 });
+                    //$ionicLoading.show({ template: 'Login failed, user or password error.', noBackdrop: true, duration: 2000 });
                 }
 
 
