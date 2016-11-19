@@ -1,8 +1,10 @@
-<div ng-include="'views/sidenav.htm'"></div>
+<div id="wrapper">
+<div ng-include="'views/menu.htm'"></div>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
 
 <p>Dashboard</p>
 aquest és el dashboard de <b>{{storageusername.name}}</b>
-
 
 
 
@@ -19,3 +21,7 @@ aquest és el dashboard de <b>{{storageusername.name}}</b>
     </a>
   </li>
 </ul>
+
+    </div><!-- ./container-fluid -->
+  </div><!-- ./page-content-wrapper -->
+</div><!-- ./wrapper -->

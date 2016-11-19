@@ -11,6 +11,12 @@ angular.module('myApp.signup', ['ngRoute'])
 
 .controller('SignupCtrl', function($scope, $http, $timeout, $window) {
   $scope.signupData={};
+  if(localStorage.getItem("fs_web_userdata"))
+  {
+    $scope.storageuser=JSON.parse(localStorage.getItem("fs_web_userdata"));
+    $window.location="#";
+  }else{
+  }
 
   $scope.doSignup = function() {
     $scope.signupData.role="client";
@@ -26,15 +32,15 @@ angular.module('myApp.signup', ['ngRoute'])
               // success
               console.log("response: ");
               console.log(response.data);
-              
+
               $timeout(function() {
-                  $window.location="#";
+                  $window.location="#!/login";
               }, 1000);
 
       },
       function(response) { // optional
               // failed
-            console.log('Username already taken');
+            console.log('Email already in use');
       });
     }else{
       console.log('First complete all parameters');
@@ -55,41 +61,6 @@ angular.module('myApp.signup', ['ngRoute'])
     {
       return(false);
     }
-    if(obj.avatar==undefined)
-    {
-      return(false);
-    }
     return(true);
-  };
-  $scope.avatars=[
-    "turtle",
-    "cat",
-    "toucan",
-    "racoon",
-    "tiger",
-    "squirrel",
-    "sheep",
-    "penguin",
-    "panda",
-    "owl",
-    "pelican",
-    "whale",
-    "snake",
-    "mouse",
-    "giraffe",
-    "macaw",
-    "lion",
-    "llama",
-    "kangaroo",
-    "hen",
-    "frog",
-    "clown-fish",
-    "chameleon",
-    "octopus"
-  ];
-  $scope.avatarSelect = function(avat){
-    console.log(avat);
-    $scope.signupData.avatar=avat;
-    //alert($scope.signupData.avatar);
   };
 });

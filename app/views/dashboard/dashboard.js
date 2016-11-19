@@ -11,6 +11,8 @@ angular.module('myApp.dashboard', ['ngRoute'])
 
 .controller('DashboardCtrl', function($scope) {
   $scope.storageuser=JSON.parse(localStorage.getItem("fs_web_userdata"));
+  $scope.toggleSidebar = function(){//funcio de la barra lateral per desplegarla i plegarla
+    $("#wrapper").toggleClass("toggled");
+  };
 
-  
 });
