@@ -1,15 +1,13 @@
-# webAngular1
-web en angular1
+#Project EA 2016-17 Group 3
+##WEB
 
-per fer-ho funcionar:
-fer un git clone d'aquest repositori
+The technologies used are:
+ * AngularJS
+ * HTML 5
+ * CSS 3
+ * Bootstrap 3
+ 
+## How to start
 
-fer un:
-```
-npm install
-```
-i engegar:
-```
-npm start
-```
+```npm start```
 Now browse to the app at `http://localhost:8000`.
