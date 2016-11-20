@@ -11,8 +11,7 @@ angular.module('myApp', [
   'myApp.login',
   'myApp.signup',
   'myApp.dashboard',
-  'myApp.users',
-  'myApp.version'
+  'myApp.users'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
