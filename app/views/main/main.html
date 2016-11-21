@@ -1,72 +1,529 @@
-
 <div id="wrapper">
-<div ng-include="'views/menu.html'"></div>
-<div id="page-content-wrapper">
-  <div class="container-fluid">
+    <div ng-include="'views/menu_up.html'"></div>
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
 
 
-<h1>Aquí va la pàgina principal</h1>
-<p>amb un diseny bo</p>
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis, ante consectetur venenatis pretium, orci ipsum sollicitudin odio, in euismod nisl ligula sit amet tellus. Curabitur sed cursus nisi. Mauris id tincidunt orci, placerat tincidunt diam. Maecenas rhoncus eros mauris, commodo luctus enim egestas sit amet. Integer scelerisque enim sed suscipit placerat. Mauris eget nunc laoreet, fermentum dui a, viverra odio. Suspendisse enim lacus, posuere eu velit at, rhoncus efficitur leo. Donec ut venenatis enim, nec fermentum enim. Etiam tristique aliquam est, nec posuere arcu volutpat sed. Integer consectetur interdum quam, eget feugiat nunc euismod sed. Cras egestas congue ex ut auctor. Pellentesque enim metus, dapibus ac eleifend ac, lacinia et nisl. Aenean pellentesque metus sed tempus posuere.
+            <h1>Aquí va la pàgina principal</h1>
+            <p>amb un diseny bo</p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis, ante consectetur
+                venenatis pretium, orci ipsum sollicitudin odio, in euismod nisl ligula sit amet tellus. Curabitur sed
+                cursus nisi. Mauris id tincidunt orci, placerat tincidunt diam. Maecenas rhoncus eros mauris, commodo
+                luctus enim egestas sit amet. Integer scelerisque enim sed suscipit placerat. Mauris eget nunc laoreet,
+                fermentum dui a, viverra odio. Suspendisse enim lacus, posuere eu velit at, rhoncus efficitur leo. Donec
+                ut venenatis enim, nec fermentum enim. Etiam tristique aliquam est, nec posuere arcu volutpat sed.
+                Integer consectetur interdum quam, eget feugiat nunc euismod sed. Cras egestas congue ex ut auctor.
+                Pellentesque enim metus, dapibus ac eleifend ac, lacinia et nisl. Aenean pellentesque metus sed tempus
+                posuere.
 
-Nunc sollicitudin quam tincidunt, semper tellus eget, ornare massa. Aliquam pellentesque nibh sed nulla ullamcorper tincidunt. Nullam eget lectus nisi. Pellentesque vitae facilisis lacus. Sed fermentum felis finibus tortor tempor scelerisque. Nullam mi metus, efficitur sed lobortis vel, volutpat id erat. Sed ornare vulputate iaculis. Donec volutpat sapien at est luctus porta. Mauris molestie felis quis lorem rhoncus, vel sagittis dolor convallis.
+                Nunc sollicitudin quam tincidunt, semper tellus eget, ornare massa. Aliquam pellentesque nibh sed nulla
+                ullamcorper tincidunt. Nullam eget lectus nisi. Pellentesque vitae facilisis lacus. Sed fermentum felis
+                finibus tortor tempor scelerisque. Nullam mi metus, efficitur sed lobortis vel, volutpat id erat. Sed
+                ornare vulputate iaculis. Donec volutpat sapien at est luctus porta. Mauris molestie felis quis lorem
+                rhoncus, vel sagittis dolor convallis.
 
-Morbi lacinia tellus nec finibus bibendum. Nulla ligula nulla, luctus eget maximus sit amet, faucibus lacinia tellus. Phasellus pretium egestas sollicitudin. Aliquam lorem nisl, ornare sit amet eleifend laoreet, placerat id velit. Morbi luctus dapibus dapibus. Duis aliquam sapien nec turpis consectetur, convallis facilisis leo tempus. In hac habitasse platea dictumst. Maecenas non nisl sit amet nisi porttitor porta. Phasellus in lacinia leo, eu vehicula ipsum.
+                Morbi lacinia tellus nec finibus bibendum. Nulla ligula nulla, luctus eget maximus sit amet, faucibus
+                lacinia tellus. Phasellus pretium egestas sollicitudin. Aliquam lorem nisl, ornare sit amet eleifend
+                laoreet, placerat id velit. Morbi luctus dapibus dapibus. Duis aliquam sapien nec turpis consectetur,
+                convallis facilisis leo tempus. In hac habitasse platea dictumst. Maecenas non nisl sit amet nisi
+                porttitor porta. Phasellus in lacinia leo, eu vehicula ipsum.
 
-Cras dapibus mi nec odio luctus, quis lacinia arcu mollis. Nam in enim vel diam venenatis placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam hendrerit nunc sed urna efficitur sollicitudin. Quisque quis justo quis sem posuere sollicitudin. Duis dolor tortor, aliquet a quam quis, mattis venenatis nulla. Phasellus gravida elementum arcu, eget tincidunt tellus sodales vel. Vestibulum molestie, mauris eget semper accumsan, leo mauris sagittis ex, eget cursus eros massa a enim. Nullam id nibh cursus, commodo lectus id, vulputate mi. Vestibulum metus metus, auctor nec finibus a, dapibus nec ex. Fusce eget porttitor purus. In eget consequat purus, id auctor nisi. Maecenas semper, orci non semper consequat, ex tellus eleifend lorem, nec viverra urna nibh sed est.
-</p>
-
-
-
-
-
-
-<!-- modal login start -->
-<div id="id01" class="modal">
-
-  <div class="row">
-    <div class="col s12 m12 l12">
-        <div class="card">
-
-            <div class="card-content">
-                <div class="card-title">
-                    <span class="card-title">Login</span>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m12 l12">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input ng-model="loginData.name" id="username" type="text" class="validate">
-                        <label for="username">Username</label>
+                Cras dapibus mi nec odio luctus, quis lacinia arcu mollis. Nam in enim vel diam venenatis placerat.
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam
+                hendrerit nunc sed urna efficitur sollicitudin. Quisque quis justo quis sem posuere sollicitudin. Duis
+                dolor tortor, aliquet a quam quis, mattis venenatis nulla. Phasellus gravida elementum arcu, eget
+                tincidunt tellus sodales vel. Vestibulum molestie, mauris eget semper accumsan, leo mauris sagittis ex,
+                eget cursus eros massa a enim. Nullam id nibh cursus, commodo lectus id, vulputate mi. Vestibulum metus
+                metus, auctor nec finibus a, dapibus nec ex. Fusce eget porttitor purus. In eget consequat purus, id
+                auctor nisi. Maecenas semper, orci non semper consequat, ex tellus eleifend lorem, nec viverra urna nibh
+                sed est.
+            </p>
+            <!-- Start Trainer Section -->
+            <section id="mu-trainer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-trainer-area">
+                                <div class="mu-title">
+                                    <span class="mu-subtitle">Our Professionals</span>
+                                    <h2>Professional personal Trainers</h2>
+                                    <i class="fa fa-spoon"></i>
+                                    <span class="mu-title-bar"></span>
+                                </div>
+                                <div class="mu-traine-content">
+                                    <ul class="mu-chef-nav">
+                                        <li>
+                                            <div class="mu-trainer-chef">
+                                                <figure class="mu-single-trainer-img">
+                                                    <img src="assets/img/chef/chef-6.jpg" alt="trainer img">
+                                                </figure>
+                                                <div class="mu-single-trainer-info">
+                                                    <h4>Simon Jonson</h4>
+                                                    <span>Head Coach</span>
+                                                </div>
+                                                <div class="mu-single-traienr-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-trainer">
+                                                <figure class="mu-single-trainer-img">
+                                                    <img src="assets/img/chef/chef-2.jpg" alt="trainer img">
+                                                </figure>
+                                                <div class="mu-single-trainer-info">
+                                                    <h4>Kelly Wenzel</h4>
+                                                    <span>Olympic Weighlifting Specialist</span>
+                                                </div>
+                                                <div class="mu-single-trainer-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-trainer">
+                                                <figure class="mu-single-trainer-img">
+                                                    <img src="assets/img/chef/chef-3.jpg" alt="trainer img">
+                                                </figure>
+                                                <div class="mu-single-trainer-info">
+                                                    <h4>Greg Hong</h4>
+                                                    <span>Weight Loss Specialist</span>
+                                                </div>
+                                                <div class="mu-single-trainer-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-trainer">
+                                                <figure class="mu-single-trainer-img">
+                                                    <img src="assets/img/chef/chef-5.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-trainer-info">
+                                                    <h4>Marty Fukuda</h4>
+                                                    <span>Running Conditionning Specialist</span>
+                                                </div>
+                                                <div class="mu-single-trainer-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-trainer">
+                                                <figure class="mu-single-trainer-img">
+                                                    <img src="assets/img/chef/chef-6.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-trainer-info">
+                                                    <h4>Simon Jonson</h4>
+                                                    <span>Cardio Specialist</span>
+                                                </div>
+                                                <div class="mu-single-trainer-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-trainer">
+                                                <figure class="mu-single-trainer-img">
+                                                    <img src="assets/img/chef/chef-2.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-trainer-info">
+                                                    <h4>Kelly Wenzel</h4>
+                                                    <span>Gymnastics Specialist</span>
+                                                </div>
+                                                <div class="mu-single-trainer-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-trainer">
+                                                <figure class="mu-single-trainer-img">
+                                                    <img src="assets/img/chef/chef-3.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-trainer-info">
+                                                    <h4>Greg Hong</h4>
+                                                    <span>General Conditioning Specialist</span>
+                                                </div>
+                                                <div class="mu-single-trainer-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-trainer">
+                                                <figure class="mu-single-trainer-img">
+                                                    <img src="assets/img/chef/chef-5.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-chef-info">
+                                                    <h4>Marty Fukuda</h4>
+                                                    <span>General Conditioning Specialist</span>
+                                                </div>
+                                                <div class="mu-single-trainer-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12 m12 l12">
-                        <i class="material-icons prefix">vpn_key</i>
-                        <input ng-model="loginData.password" id="password" type="password" class="validate">
-                        <label for="password">Password</label>
+            </section>
+            <!-- End Trainer Section -->
+
+            <!-- Start Chef Section -->
+            <section id="mu-chef">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-chef-area">
+                                <div class="mu-title">
+                                    <span class="mu-subtitle">Our Professionals</span>
+                                    <h2>MASTER CHEFS</h2>
+                                    <i class="fa fa-spoon"></i>
+                                    <span class="mu-title-bar"></span>
+                                </div>
+                                <div class="mu-chef-content">
+                                    <ul class="mu-chef-nav">
+                                        <li>
+                                            <div class="mu-single-chef">
+                                                <figure class="mu-single-chef-img">
+                                                    <img src="assets/img/chef/chef-6.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-chef-info">
+                                                    <h4>Simon Jonson</h4>
+                                                    <span>Head Chef</span>
+                                                </div>
+                                                <div class="mu-single-chef-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-chef">
+                                                <figure class="mu-single-chef-img">
+                                                    <img src="assets/img/chef/chef-2.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-chef-info">
+                                                    <h4>Kelly Wenzel</h4>
+                                                    <span>Pizza Chef</span>
+                                                </div>
+                                                <div class="mu-single-chef-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-chef">
+                                                <figure class="mu-single-chef-img">
+                                                    <img src="assets/img/chef/chef-3.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-chef-info">
+                                                    <h4>Greg Hong</h4>
+                                                    <span>Grill Chef</span>
+                                                </div>
+                                                <div class="mu-single-chef-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-chef">
+                                                <figure class="mu-single-chef-img">
+                                                    <img src="assets/img/chef/chef-5.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-chef-info">
+                                                    <h4>Marty Fukuda</h4>
+                                                    <span>Burger Chef</span>
+                                                </div>
+                                                <div class="mu-single-chef-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-chef">
+                                                <figure class="mu-single-chef-img">
+                                                    <img src="assets/img/chef/chef-6.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-chef-info">
+                                                    <h4>Simon Jonson</h4>
+                                                    <span>Head Chef</span>
+                                                </div>
+                                                <div class="mu-single-chef-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-chef">
+                                                <figure class="mu-single-chef-img">
+                                                    <img src="assets/img/chef/chef-2.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-chef-info">
+                                                    <h4>Kelly Wenzel</h4>
+                                                    <span>Pizza Chef</span>
+                                                </div>
+                                                <div class="mu-single-chef-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-chef">
+                                                <figure class="mu-single-chef-img">
+                                                    <img src="assets/img/chef/chef-3.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-chef-info">
+                                                    <h4>Greg Hong</h4>
+                                                    <span>Grill Chef</span>
+                                                </div>
+                                                <div class="mu-single-chef-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="mu-single-chef">
+                                                <figure class="mu-single-chef-img">
+                                                    <img src="assets/img/chef/chef-5.jpg" alt="chef img">
+                                                </figure>
+                                                <div class="mu-single-chef-info">
+                                                    <h4>Marty Fukuda</h4>
+                                                    <span>Burger Chef</span>
+                                                </div>
+                                                <div class="mu-single-chef-social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-action">
-                <a ng-click="doLogin()" class="waves-effect waves-light btn">Login</a>
-            </div>
-        </div>
-    </div>
-</div>
+            </section>
+            <!-- End Chef Section -->
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <a href="#!/signup" class="button">Signup</a>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-</div>
-<!-- modal login end -->
+            <!-- Start Latest News -->
+            <section id="mu-latest-news">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-latest-news-area">
+                                <div class="mu-title">
+                                    <span class="mu-subtitle">Latest News</span>
+                                    <h2>FROM OUR BLOG</h2>
+                                    <i class="fa fa-spoon"></i>
+                                    <span class="mu-title-bar"></span>
+                                </div>
+                                <div class="mu-latest-news-content">
+                                    <div class="row">
+                                        <!-- start single blog -->
+                                        <div class="col-md-6">
+                                            <article class="mu-news-single">
+                                                <h3><a href="#">Nuevas Recetas!</a></h3>
+                                                <figure class="mu-news-img">
+                                                    <a href="#"><img src="assets/img/news/1.jpg" alt="img"></a>
+                                                </figure>
+                                                <div class="mu-news-single-content">
+                                                    <ul class="mu-meta-nav">
+                                                        <li>By Cook</li>
+                                                        <li>Date: May 10 2016</li>
+                                                    </ul>
+                                                    <p>Come sano plis.</p>
+                                                    <div class="mu-news-single-bottom">
+                                                        <a href="blog-single.html" class="mu-readmore-btn">Read More</a>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                        <!-- start single blog -->
+                                        <div class="col-md-6">
+                                            <article class="mu-news-single">
+                                                <h3><a href="#">Nuevas rutinas!</a></h3>
+                                                <figure class="mu-news-img">
+                                                    <a href="#"><img src="assets/img/news/2.jpg" alt="img"></a>
+                                                </figure>
+                                                <div class="mu-news-single-content">
+                                                    <ul class="mu-meta-nav">
+                                                        <li>By Trainer</li>
+                                                        <li>Date: May 10 2016</li>
+                                                    </ul>
+                                                    <p>Ponte en forma.</p>
+                                                    <div class="mu-news-single-bottom">
+                                                        <a href="blog-single.html" class="mu-readmore-btn">Read More</a>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+                                    <!-- Start brows more btn -->
+                                    <a href="blog-archive.html" class="mu-browsmore-btn">Browse more!</a>
+                                    <!-- End brows more btn -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Latest News -->
 
+            <!-- Start Contact section -->
+            <section id="mu-contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-contact-area">
+                                <div class="mu-title">
+                                    <span class="mu-subtitle">Get In Touch</span>
+                                    <h2>Contact Us</h2>
+                                    <i class="fa fa-spoon"></i>
+                                    <span class="mu-title-bar"></span>
+                                </div>
+                                <div class="mu-contact-content">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mu-contact-left">
+                                                <form class="mu-contact-form">
+                                                    <div class="form-group">
+                                                        <label for="name">Your Name</label>
+                                                        <input type="text" class="form-control" id="name"
+                                                               placeholder="Name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email">Email address</label>
+                                                        <input type="email" class="form-control" id="email"
+                                                               placeholder="Email">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="subject">Subject</label>
+                                                        <input type="text" class="form-control" id="subject"
+                                                               placeholder="Subject">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message">Message</label>
+                                                        <textarea class="form-control" id="message" cols="30" rows="10"
+                                                                  placeholder="Type Your Message"></textarea>
+                                                    </div>
+                                                    <button type="submit" class="mu-send-btn">Send Message</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mu-contact-right">
+                                                <div class="mu-contact-widget">
+                                                    <h3>Office Address</h3>
+                                                    <p>UPC Escola d'Enginyeria de Telecomunicació i Aeroespacial de
+                                                        Castelldefels.</p>
+                                                    <address>
+                                                        <p><i class="fa fa-phone"></i> (+34) 678 995 678</p>
+                                                        <p><i class="fa fa-envelope-o"></i>grup3ea@gmx.com</p>
+                                                        <p><i class="fa fa-map-marker"></i>Universitat Politècnica de
+                                                            Catalunya - Campus Nord, Esteve Terradas, 7, 08860
+                                                            Casteldefels, Barcelona</p>
+                                                    </address>
+                                                </div>
+                                                <div class="mu-contact-widget">
+                                                    <h3>Open Hours</h3>
+                                                    <address>
+                                                        <p><span>Monday - Friday</span> 9.00 am to 12 pm</p>
+                                                        <p><span>Saturday</span> 9.00 am to 10 pm</p>
+                                                        <p><span>Sunday</span> 10.00 am to 12 pm</p>
+                                                    </address>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Contact section -->
 
+            <!-- Start Map section -->
+            <section id="mu-map">
+                <iframe src="https://www.google.es/maps/place/UPC+Escola+d'Enginyeria+de+Telecomunicaci%C3%B3+i+Aeroespacial+de+Castelldefels/@41.2755935,1.9850266,17z/data=!3m2!4b1!5s0x12a482b2ea0051f7:0x3a0e7b7175167434!4m5!3m4!1s0x12a482b2ea99ef25:0x53aec7154de459b3!8m2!3d41.2755895!4d1.9872153"
+                        width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            </section>
+            <!-- End Map section -->
 
-
-</div><!-- ./container-fluid -->
-
-</div><!-- ./page-content-wrapper -->
+            <!-- Start Footer -->
+            <footer id="mu-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-footer-area">
+                                <div class="mu-footer-social">
+                                    <a href="#"><span class="fa fa-facebook"></span></a>
+                                    <a href="#"><span class="fa fa-twitter"></span></a>
+                                    <a href="#"><span class="fa fa-google-plus"></span></a>
+                                    <a href="#"><span class="fa fa-linkedin"></span></a>
+                                    <a href="#"><span class="fa fa-youtube"></span></a>
+                                </div>
+                                <div class="mu-footer-copyright">
+                                    <p>Designed by <a rel="nofollow" href="Max">Max</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </div><!-- ./container-fluid -->
+    </div><!-- ./page-content-wrapper -->
 </div><!-- ./wrapper -->
