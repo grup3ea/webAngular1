@@ -7,8 +7,11 @@ var urlapi = "http://localhost:3005/api/";
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
     'ngRoute',
+    'ngMaterial',
+    'myApp.sidenav',
     'myApp.main',
     'myApp.login',
+    'myApp.logout',
     'myApp.signup',
     'myApp.dashboard',
     'myApp.users',

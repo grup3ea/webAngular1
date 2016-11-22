@@ -1,0 +1,47 @@
+<div ng-controller="SidenavCtrl" layout="column" style="height: 80px;" ng-cloak>
+
+  <section layout="row" flex>
+
+    <md-sidenav class="md-sidenav-left"
+                md-component-id="left"
+                md-whiteframe="4">
+
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+      </md-toolbar>
+
+      <md-content>
+        <md-list flex>
+          <md-list-item class="md-2-line" ng-repeat="option in options" ng-href="#!{{option.link}}">
+            <img ng-src="{{option.icon}}" class="md-avatar" alt="{{option.description}}" />
+            <div class="md-list-item-text" layout="column">
+              <h3>{{ option.title }}</h3>
+            </div>
+          </md-list-item>
+
+
+
+        </md-list>
+        <md-button ng-click="toggleLeft()" class="md-accent">
+          Close this Sidenav
+        </md-button>
+      </md-content>
+
+    </md-sidenav>
+
+    <md-content flex layout-padding>
+
+      <div layout="column" layout-align="top center">
+        <div>
+          <md-button ng-click="toggleLeft()" class="md-raised">
+            Toggle Sidenav
+          </md-button>
+        </div>
+
+      </div>
+
+    </md-content>
+
+  </section>
+
+</div>

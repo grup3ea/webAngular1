@@ -8,8 +8,6 @@ angular.module('myApp.main', ['ngRoute'])
     }])
     .controller('MainCtrl', function ($scope, $http, $timeout, $window) {
         $scope.loginData = {};
-        $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-        console.log($scope.storageuser);
         $scope.logout = function () {
             localStorage.removeItem("fs_web_userdata");
             $timeout(function () {

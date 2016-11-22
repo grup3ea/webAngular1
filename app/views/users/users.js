@@ -17,7 +17,7 @@ angular.module('myApp.users', ['ngRoute'])
 
         }
 
-        $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+      /*  $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));*/
         $scope.users = {};
         $http.get(urlapi + 'users/clients')
             .success(function (data, status, headers, config) {
