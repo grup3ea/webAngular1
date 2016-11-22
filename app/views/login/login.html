@@ -1,30 +1,27 @@
-<div ng-include="'views/sidenav.html'"></div>
-
-<div class="col-sm-4"></div>
-
-<div class="col-sm-4">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h2>Login</h2>
-      <form>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input ng-model="loginData.email" type="email" class="form-control" id="email" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input ng-model="loginData.password" type="password" class="form-control" id="pwd" placeholder="Enter password">
-        </div>
-        <div class="checkbox">
-          <label><input type="checkbox"> Remember me</label>
-        </div>
-        <a  ng-href="#" class="btn btn-danger">Cancel</a>
-        <button  ng-click="doLogin()" class="btn btn-success pull-right">Login</button>
-      </form>
-      <br>
-      <a href="#!/signup" class=" pull-right">Not registered yet? Signup!</a>
-    </div><!-- ./panel-body -->
-  </div><!-- ./panel -->
-</div><!-- ./col-sm-4 -->
-
-<div class="col-sm-4"></div>
+<div layout="column" flex id="content" role="main">
+	<md-content layout="vertical" flex id="content">
+		<div layout="row" layout-align="center center" layout-fill>
+			<md-whiteframe class="md-whiteframe-z1" layout="column" flex="30" layout-padding>
+				<md-content md-theme="docs-dark">
+					<md-input-container>
+						<label>Email</label>
+						<input ng-model="loginData.email">
+					</md-input-container>
+					<md-input-container>
+						<label>Password</label>
+						<input ng-model="loginData.password" type="password">
+					</md-input-container>
+					<md-input-container layout-align="center center">
+						<div layout="row" layout-sm="column" layout-margin>
+              <md-button href="#!/main" class="md-raised md-warn" flex="50" flex-sm="100">Cancel</md-button>
+							<md-button ng-click="doLogin()" class="md-raised" flex="50" flex-sm="100">Login</md-button>
+						</div>
+					</md-input-container>
+          <md-input-container>
+            <a href="#!/signup">Not registered? Signup!</a>
+          </md-input-container>
+				</md-content>
+			</md-whiteframe>
+		</div>
+	</md-content>
+</div>

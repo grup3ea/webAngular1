@@ -1,23 +1,6 @@
-<div id="wrapper">
-    <div ng-include="'views/sidenav.html'"></div>
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <p>Dashboard</p>
-            aquest és el dashboard de <b>{{storageusername.name}}</b>
-            <ul class="collection">
-                <li ng-repeat="user in users" class="collection-item avatar">
-                    <a ng-href="#/app/users/{{user.name}}">
-                        <img ng-src="img/avatars/{{user.avatar}}.png" alt="" class="circle">
-                        <span class="title">{{user.name}}</span>
 
-                        <p>{{user.description}}<br>
-                            {{user.role}}
-                        </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                    </a>
-                </li>
-            </ul>
-        </div><!-- ./container-fluid -->
-        <div ui-calendar ng-model="eventSources"></div>
-    </div><!-- ./page-content-wrapper -->
-</div><!-- ./wrapper -->
+<div ng-include="'views/sidenav.html'"></div>
+<p>Dashboard</p>
+aquí va el dashboard
+
+<div ui-calendar ng-model="eventSources"></div>

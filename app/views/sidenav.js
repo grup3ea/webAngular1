@@ -22,31 +22,37 @@ angular.module('myApp.sidenav', ['ngRoute'])
         $scope.loginData = {};
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         console.log($scope.storageuser);
-
+        var pathImg="img/essential/";
         $scope.options=[
+          {
+            title: "Dashboard",
+            description: "description",
+            link: "/dashboard",
+            icon: pathImg + "stopwatch-4.png"
+          },
           {
             title: "Users",
             description: "description",
             link: "/users",
-            icon: "img/user.png"
+            icon: pathImg + "users-1.png"
           },
           {
             title: "Trainers",
             description: "description",
             link: "/trainers",
-            icon: "img/user.png"
+            icon: pathImg + "television-1.png"
           },
           {
             title: "Settings",
             description: "description",
-            link: "/main",
-            icon: "img/user.png"
+            link: "/settings",
+            icon: pathImg + "settings.png"
           },
           {
             title: "Logout",
             description: "description",
             link: "/logout",
-            icon: "img/user.png"
+            icon: pathImg + "power.png"
           }
         ];
 

@@ -31,7 +31,7 @@ angular.module('myApp.login', ['ngRoute'])
                             localStorage.setItem("fs_web_token", response.data.user.token);
                             localStorage.setItem("fs_web_userdata", JSON.stringify(response.data.user));
                             $timeout(function () {
-                                $window.location.reload(true);
+                                $window.location="#!/users";
                             }, 1000);
                         } else {
                             console.log("login failed");

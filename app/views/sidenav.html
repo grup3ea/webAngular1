@@ -1,11 +1,11 @@
-<div ng-controller="SidenavCtrl" layout="column" style="height: 80px;" ng-cloak>
+<div ng-show="storageuser" ng-controller="SidenavCtrl" layout="column" style="height: 50px;" ng-cloak>
 
   <section layout="row" flex>
 
     <md-sidenav class="md-sidenav-left"
                 md-component-id="left"
                 md-whiteframe="4">
-
+      <!-- això és la part del sidenav -->
       <md-toolbar class="md-theme-indigo">
         <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
       </md-toolbar>
@@ -23,18 +23,18 @@
 
         </md-list>
         <md-button ng-click="toggleLeft()" class="md-accent">
-          Close this Sidenav
+          Close menu
         </md-button>
       </md-content>
 
     </md-sidenav>
 
-    <md-content flex layout-padding>
-
-      <div layout="column" layout-align="top center">
+    <md-content flex>
+      <!-- això és lu que es veu a dalt de la pàgina -->
+      <div layout="column" layout-align="top left">
         <div>
-          <md-button ng-click="toggleLeft()" class="md-raised">
-            Toggle Sidenav
+          <md-button ng-click="toggleLeft()" class="md-raised md-primary">
+            Menu
           </md-button>
         </div>
 
