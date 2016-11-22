@@ -21,8 +21,10 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <!-- Theme color -->
     <link id="switcher" href="assets/css/default-theme.css" rel="stylesheet">
-       <!-- Main style sheet -->
+    <!-- Main style sheet -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Angular Calendar -->
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
 
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
@@ -42,6 +44,11 @@
     <br><br>
     <div ng-view></div>
 </div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Moment js -->
+<script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
 <!-- Angular js -->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
@@ -56,12 +63,12 @@
 <script src="views/users/users.js"></script>
 <script src="views/trainers/trainers.js"></script>
 <!-- External js -->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap js -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
+<!-- Calendar js -->
+<script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 angular.module('myApp.trainers', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/trainer', {
+        $routeProvider.when('/trainers', {
             templateUrl: 'views/users/trainers.html',
             controller: 'TrainersCtrl'
         });

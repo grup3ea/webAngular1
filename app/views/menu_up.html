@@ -11,7 +11,7 @@
             </button>
 
             <a ng-show="storageuser" ng-click="toggleSidebar()" class="navbar-brand btn btn-default" id="menu-toggle">
-                Menu Lateral
+                Side Menu
             </a>
             <a class="navbar-brand" href="#">
                 FoodSport
@@ -21,11 +21,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
+<!--                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Company</a></li>
                 <li ng-show="!storageuser">
                     <a href="#!/signup">
                         Signup
@@ -35,11 +34,6 @@
                     <a href="#!/login">
                         <span class="glyphicon glyphicon-user"></span>
                         Login
-                    </a>
-                </li>
-                <li ng-show="storageuser">
-                    <a href="#!/users">
-                        Users
                     </a>
                 </li>
                 <li ng-show="storageuser">
@@ -64,9 +58,9 @@
 <!-- Sidebar -->
 <div ng-show="storageuser" id="sidebar-wrapper">
     <ul class="sidebar-nav">
-        <li class="sidebar-brand">
+        <li class="sidebar-brand" ng-show="storageuser">
             <a href="#">
-                Start Bootstrap
+                Show Dashboard
             </a>
         </li>
         <li ng-show="storageuser">
@@ -74,26 +68,8 @@
                 Users
             </a>
         </li>
-        <li>
-            <a href="#">Dashboard</a>
-        </li>
-        <li>
-            <a href="#">Shortcuts</a>
-        </li>
-        <li>
-            <a href="#">Overview</a>
-        </li>
-        <li>
-            <a href="#">Events</a>
-        </li>
-        <li>
-            <a href="#">About</a>
-        </li>
-        <li>
-            <a href="#">Services</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
+        <li ng-show="storageuser">
+            <a href="#!trainers">Trainers</a>
         </li>
     </ul>
 </div>
