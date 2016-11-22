@@ -14,10 +14,6 @@
     "bootstrap":"3.3.7",
     "jquery":"3.1.1",
     "modernizr":"3.3.1",
-    "fontawesome":"4.7.0",
-    "bootstrap-datepicker":"1.6.4",
-    "slick":"",
-    "waypoints":"4.0.1",
-    "jquery.counterup":"2.0.5"
+    "fontawesome":"4.7.0"
   }
 }

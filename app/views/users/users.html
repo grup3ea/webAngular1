@@ -1,26 +1,17 @@
 <div id="wrapper">
-<div ng-include="'views/menu_up.html'"></div>
-<div id="page-content-wrapper">
-  <div class="container-fluid">
-
-
-
-
-<h3>Users</h3>
-
-
-
-<ul class="list-group">
- <li ng-repeat="user in users" class="list-group-item">
-   {{user.name}}
-   <small>
-      {{user.role}}
-    </small>
-   <span class="badge">{{user.email}}</span>
- </li>
-</ul>
-
-
-</div><!-- ./container-fluid -->
-</div><!-- ./page-content-wrapper -->
+    <div ng-include="'views/menu_up.html'"></div>
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <h3>Users</h3>
+            <ul class="list-group">
+                <li ng-repeat="user in users" class="list-group-item">
+                    {{user.name}}
+                    <small>
+                        {{user.role}}
+                    </small>
+                    <span class="badge">{{user.email}}</span>
+                </li>
+            </ul>
+        </div><!-- ./container-fluid -->
+    </div><!-- ./page-content-wrapper -->
 </div><!-- ./wrapper -->
