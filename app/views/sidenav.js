@@ -31,6 +31,12 @@ angular.module('myApp.sidenav', ['ngRoute'])
             icon: pathImg + "stopwatch-4.png"
           },
           {
+            title: "Profile",
+            description: "description",
+            link: "/profile",
+            icon: pathImg + "user.png"
+          },
+          {
             title: "Users",
             description: "description",
             link: "/users",
@@ -55,5 +61,6 @@ angular.module('myApp.sidenav', ['ngRoute'])
             icon: pathImg + "power.png"
           }
         ];
+        console.log($scope.options);
 
     });
