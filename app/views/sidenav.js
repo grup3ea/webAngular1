@@ -37,16 +37,16 @@ angular.module('myApp.sidenav', ['ngRoute'])
             icon: pathImg + "user.png"
           },
           {
-            title: "Users",
+            title: "Training",
             description: "description",
-            link: "/users",
-            icon: pathImg + "users-1.png"
+            link: "/training",
+            icon: pathImg + "training.png"
           },
           {
-            title: "Trainers",
+            title: "Diet",
             description: "description",
-            link: "/trainers",
-            icon: pathImg + "television-1.png"
+            link: "/diet",
+            icon: pathImg + "apple.png"
           },
           {
             title: "Settings",

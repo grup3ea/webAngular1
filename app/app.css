@@ -29,3 +29,21 @@
     width: 45px!important;
     height: 45px!important;
 }
+
+.o-sidenav{
+  position: fixed;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+
+  width: 170px;
+
+  left: 0;
+  top: 0;
+
+  z-index: 60;
+
+  height: 100%;
+}

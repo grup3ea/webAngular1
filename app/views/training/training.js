@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.trainers', ['ngRoute'])
+angular.module('myApp.training', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/trainers', {
-            templateUrl: 'views/trainers/trainers.html',
-            controller: 'TrainersCtrl'
+        $routeProvider.when('/training', {
+            templateUrl: 'views/training/training.html',
+            controller: 'TrainingCtrl'
         });
     }])
 
-    .controller('TrainersCtrl', function ($scope, $http) {
+    .controller('TrainingCtrl', function ($scope, $http) {
         if (localStorage.getItem('fs_web_token')) {// adding token to the headers
             $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
             //el .common serveix per als gets

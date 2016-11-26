@@ -14,12 +14,16 @@ angular.module('myApp', [
     'myApp.logout',
     'myApp.signup',
     'myApp.dashboard',
-    'myApp.users',
-    'myApp.trainers',
+    'myApp.diet',
+    'myApp.training',
     'myApp.settings',
     'ui.calendar'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
-
-    $routeProvider.otherwise({redirectTo: '/main'});
+    if(JSON.parse(localStorage.getItem("fs_web_userdata")))
+    {
+      $routeProvider.otherwise({redirectTo: '/dashboard'});
+    }else{
+      $routeProvider.otherwise({redirectTo: '/main'});
+    }
 }]);

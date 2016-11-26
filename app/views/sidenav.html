@@ -1,16 +1,6 @@
-<div ng-show="storageuser" ng-controller="SidenavCtrl" layout="column" style="height: 50px;" ng-cloak>
-
-  <section layout="row" flex>
-
-    <md-sidenav class="md-sidenav-left"
-                md-component-id="left"
-                md-whiteframe="4">
-      <!-- això és la part del sidenav -->
-      <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
-      </md-toolbar>
-
+<div ng-show="storageuser" ng-controller="SidenavCtrl" class="o-sidenav md-whiteframe-4dp">
       <md-content>
+        <h1 class="md-toolbar-tools">FoodSports</h1>
         <md-list flex>
           <md-list-item class="md-2-line" ng-repeat="option in options" ng-href="#!{{option.link}}">
             <img ng-src="{{option.icon}}" class="md-avatar" alt="{{option.description}}" />
@@ -18,30 +8,6 @@
               <h3>{{ option.title }}</h3>
             </div>
           </md-list-item>
-
-
-
         </md-list>
-        <md-button ng-click="toggleLeft()" class="md-accent">
-          Close menu
-        </md-button>
       </md-content>
-
-    </md-sidenav>
-
-    <md-content flex>
-      <!-- això és lu que es veu a dalt de la pàgina -->
-      <div layout="column" layout-align="top left">
-        <div>
-          <md-button ng-click="toggleLeft()" class="md-raised md-primary">
-            Menu
-          </md-button>
-        </div>
-
-      </div>
-
-    </md-content>
-
-  </section>
-
 </div>
