@@ -3,14 +3,61 @@
     <div id="page-content-wrapper">
         <div class="container-fluid">
 
-            <h1>Aquí va la pàgina principal</h1>
+            <h1>Inici</h1>
             <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
               <md-button href="#!/login" class="md-raised md-primary" style="background: green">Login</md-button>
               <md-button href="#!/signup" class="md-raised md-primary">Signup</md-button>
             </section>
-
-
+            
             <!-- Start Trainer Section -->
+            <!-- https://material.angularjs.org/latest/demo/gridList -->
+            <section id="mu-trainer2">
+                <h2>Our Professionals</h2>
+                <h3>Professional personal Trainers</h3>
+                <div ng-controller="MainCtrl as appCtrl" ng-cloak>
+                    <md-grid-list
+                            md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+                            md-row-height-gt-md="1:1" md-row-height="2:2"
+                            md-gutter="12px" md-gutter-gt-sm="8px" >
+                        <md-grid-tile class="gray"
+                                      md-rowspan="2" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1">
+                                <img src="assets/img/chef/chef-6.jpg" alt="trainer img">
+                            <md-grid-tile-footer>
+                                <div><h3>Simon Jonson</h3>
+                                    <span>Head Coach</span></div>
+                            </md-grid-tile-footer>
+                        </md-grid-tile>
+                        <md-grid-tile class="red"
+                                      md-rowspan="2" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1">
+                            <img src="assets/img/chef/chef-6.jpg" alt="trainer img">
+                            <md-grid-tile-footer>
+                                <div><h3>Kelly Wenzel</h3>
+                                    <span>Olympic Weighlifting Specialist</span></div>
+                            </md-grid-tile-footer>
+                        </md-grid-tile>
+                        <md-grid-tile class="orange"
+                                      md-rowspan="2" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1">
+                            <img src="assets/img/chef/chef-6.jpg" alt="trainer img">
+                            <md-grid-tile-footer>
+                                <div><h3>Greg Hong</h3>
+                                    <span>Weight Loss Specialist</span></div>
+                            </md-grid-tile-footer>
+                        </md-grid-tile>
+                        <md-grid-tile class="blue"
+                                      md-rowspan="2" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1">
+                            <img src="assets/img/chef/chef-6.jpg" alt="trainer img">
+                            <md-grid-tile-footer>
+                                <div><h3>Marty Fukuda</h3>
+                                    <span>Running Conditionning Specialist</span></div>
+                            </md-grid-tile-footer>
+                        </md-grid-tile>
+                    </md-grid-list>
+                </div>
+            </section>
+
+
+            <!-- Bootstrap -->
+            <!--
             <section id="mu-trainer">
                 <div class="container">
                     <div class="row">
@@ -106,7 +153,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- End Trainer Section -->
 
             <!-- Start Chef Section -->

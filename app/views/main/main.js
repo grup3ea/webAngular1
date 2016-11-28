@@ -1,5 +1,5 @@
 'use strict';
-angular.module('myApp.main', ['ngRoute'])
+angular.module('myApp.main', ['ngRoute','ngMaterial'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/main', {
             templateUrl: 'views/main/main.html',
