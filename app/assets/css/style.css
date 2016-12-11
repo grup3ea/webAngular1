@@ -1211,130 +1211,8 @@ display: flex;
 }
 
 /*==================
-  TRAINER SECTION
-====================*/
-
-#mu-trainer {
-  display: inline;
-  float: right;
-  padding: 100px 0;
-  width: 100%;
-}
-#mu-trainer .mu-trainer-area {
-  display: inline;
-  float: left;
-  width: 100%;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content {
-  display: inline;
-  float: left;
-  margin-top: 30px;
-  padding-bottom: 60px;
-  width: 100%;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav {
-  display: inline;
-  float: left;
-  text-align: center;
-  width: 100%;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li {
-  background-color: #f8f8f8;
-  display: inline-block;
-  margin: 0 5px;
-  width: 22%;
-  overflow: hidden;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li:first-child {
-  margin-left: 0;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li:last-child {
-  margin-right: 0;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li .mu-single-trainer {
-  display: inline;
-  float: left;
-  width: 100%;
-  position: relative;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li .mu-single-trainer:hover .mu-single-trainer-social {
-  bottom: 0;
-  opacity: 1;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li .mu-single-trainer .mu-single-trainer-img {
-  display: inline;
-  float: left;
-  width: 100%;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li .mu-single-trainer .mu-single-trainer-img img {
-  width: 100%;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li .mu-single-trainer .mu-single-trainer-info {
-  display: inline;
-  float: left;
-  padding: 10px 10px 20px;
-  width: 100%;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li .mu-single-trainer .mu-single-trainer-info h4 {
-  margin-bottom: 5px;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li .mu-single-trainer .mu-single-trainer-info span {
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li .mu-single-trainer .mu-trainer-chef-social {
-  background-color: #000;
-  position: absolute;
-  bottom: -100%;
-  left: 0;
-  right: 0;
-  padding: 23px 20px;
-  text-align: center;
-  opacity: 0;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li .mu-single-trainer .mu-single-trainer-social a {
-  display: inline-block;
-  margin: 0 5px;
-  padding: 5px;
-  text-align: center;
-  width: 35px;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li .mu-single-trainer .mu-trainer-trainer-social a:hover, #mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-list li .mu-single-trainer .mu-single-trainer-social a:focus {
-  color: #fff;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-dots {
-  text-align: center;
-  margin-bottom: -30px;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-dots li {
-  border-radius: 50%;
-  width: 20px;
-  display: inline-block;
-  float: none;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-}
-#mu-trainer .mu-trainer-area .mu-trainer-content .mu-trainer-nav .slick-dots li button {
-  display: none;
-}
-
-/*==================
   CHEF SECTION
 ====================*/
-
 #mu-chef {
   display: inline;
   float: left;
@@ -1342,11 +1220,10 @@ display: flex;
   width: 100%;
 }
 #mu-chef .mu-chef-area {
-   display: inline;
-   float: left;
-   width: 100%;
- }
-
+  display: inline;
+  float: left;
+  width: 100%;
+}
 #mu-chef .mu-chef-area .mu-chef-content {
   display: inline;
   float: left;
