@@ -16,13 +16,14 @@ angular.module('myApp.training', ['ngRoute'])
             $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');
         }
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_trainerdata"));
-        $scope.users = {};
-        $http.get(urlapi + 'users/trainers')
+
+        $scope.trainers = {};
+        $http.get(urlapi + 'trainers')
             .success(function (data) {
                 console.log('data success');
                 console.log(data); // for browser console
-                $scope.users = data; // for UI
-                localStorage.setItem('fs_web_users', JSON.stringify($scope.users));
+                $scope.trainers = data; // for UI
+                localStorage.setItem('fs_web_trainers', JSON.stringify($scope.trainers));
             })
             .error(function (data, status) {
                 console.log('data error');

@@ -20,19 +20,4 @@ angular.module('myApp.main', ['ngRoute', 'ngMaterial'])
                 $window.location.reload(true);
             }, 1000);
         };
-        $scope.trainers = {};
-        $http.get(urlapi + '/trainers')
-            .success(function (data) {
-                console.log('data success');
-                console.log(data); // for browser console
-                $scope.trainers = data; // for UI
-                localStorage.setItem('fs_web_trainers', JSON.stringify($scope.trainers));
-            })
-            .error(function (data, status) {
-                console.log('data error');
-                console.log(status);
-                console.log(data);
-            })
-            .then(function (result) {
-            });
     });
