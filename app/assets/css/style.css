@@ -7,6 +7,59 @@
 
 */
 
+
+
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+
+.o-imgSelectAvatar{
+  width: 45px!important;
+  height: 45px!important;
+}
+
+.o-sidenav{
+  position: fixed;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+
+  width: 170px;
+
+  left: 0;
+  top: 0;
+
+  z-index: 60;
+
+  height: 100%;
+}
+
+
 /* Table of Content
 ==================================================
 #BASIC TYPOGRAPHY
@@ -1050,7 +1103,6 @@ display: flex;
   TESTIMONIAL SECTION
 ====================*/
 #mu-client-testimonial {
-  background-image: url("assets/img/testimonial-bg.jpg");
   background-size: cover;
   background-attachment: fixed;
   display: inline;
