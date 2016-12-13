@@ -1,31 +1,42 @@
+<div id="wrapper">
+  <div id="sidebar-wrapper">
+    <div ng-include="'views/sidenav.html'">
 
-<p>Dashboard</p>
-aquí va el dashboard
-<div layout="row">
-  <div flex>
-    <md-content>
-      <md-card>
-        <md-card-actions>
-          <canvas id="bar" class="chart chart-bar"
-          chart-data="data" chart-labels="labels" chart-series="series">
-          </canvas>
-        </md-card-actions>
-      </md-card>
-    </md-content>
-  </div><!-- /flex -->
-  <div flex>
-    <md-content>
-      <md-card>
-        <md-card-actions>
-          <canvas id="bar" class="chart chart-doughnut"
-          chart-data="data" chart-labels="labels" chart-series="series">
-          </canvas>
-        </md-card-actions>
-      </md-card>
-    </md-content>
-  </div><!-- /flex -->
-</div><!-- /layour="row" -->
+    </div>
+  </div>
+  <div id="page-content-wrapper" style="margin-left: 180px">
+    <div class="container-fluid">
+
+      <p>Dashboard</p>
+      aquí va el dashboard
+      <div layout="row">
+        <div flex>
+          <md-content>
+            <md-card>
+              <md-card-actions>
+                <canvas id="bar" class="chart chart-bar"
+                        chart-data="data" chart-labels="labels" chart-series="series">
+                </canvas>
+              </md-card-actions>
+            </md-card>
+          </md-content>
+        </div><!-- /flex -->
+        <div flex>
+          <md-content>
+            <md-card>
+              <md-card-actions>
+                <canvas id="bar" class="chart chart-doughnut"
+                        chart-data="data" chart-labels="labels" chart-series="series">
+                </canvas>
+              </md-card-actions>
+            </md-card>
+          </md-content>
+        </div><!-- /flex -->
+      </div><!-- /layour="row" -->
+    </div>
+  </div>
+</div>
 
 
-<!--fullcalendar comentat de moment
-<div ui-calendar ng-model="eventSources"></div>-->
+  <!--fullcalendar comentat de moment
+  <div ui-calendar ng-model="eventSources"></div>-->
