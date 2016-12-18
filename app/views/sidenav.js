@@ -63,4 +63,8 @@ angular.module('myApp.sidenav', ['ngRoute'])
         ];
         console.log($scope.options);
 
+        $scope.logout=function(){
+          localStorage.removeItem("fs_web_token");
+          $window.location.reload(true);
+        };
     });

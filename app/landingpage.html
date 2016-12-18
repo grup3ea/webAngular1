@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FoodSports</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/theme-color/green-theme.css">
+    <link rel="stylesheet" href="./bower_components/fontawesome/css/font-awesome.css">
+
+    <!-- Angular-Material -->
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+
+    <!-- Angular Calendar -->
+    <link rel="stylesheet" href="./bower_components/fullcalendar/dist/fullcalendar.css"/>
+
+
+</head>
+
+<body ng-app="landingpageApp" ng-controller="landingpageCtrl">
+<div id="wrapper">
+
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+
+            <!-- Start header section -->
+            <!-- Need to add improved routing -->
+            <header id="mu-header">
+                <nav class="navbar navbar-default mu-main-navbar" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- LOGO -->
+                            <!--  Image based logo  -->
+                            <a class="navbar-brand" href="#mu-slider"><img src="../../img/logo.png" alt="Logo img"></a>
+                            <!--  Text based logo  -->
+                            <!--           <a class="navbar-brand" href="index.html"><span>FoodSports</span></a>   -->
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul id="top-menu" class="nav navbar-nav navbar-right mu-main-nav">
+                                <li><a href="#mu-slider">HOME</a></li>
+                                <li><a href="#mu-about-us">ABOUT US</a></li>
+                                <li><a href="#mu-restaurant-menu">MENU</a></li>
+                                <li><a href="#mu-gallery">GALLERY</a></li>
+                                <li><a href="#mu-chef">OUR COOKS</a></li>
+                                <li><a href="#mu-trainer">OUR TRAINERS</a></li>
+
+                                <li><a href="index.html"><b>ACCES APP</b></a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </nav>
+            </header>
+            <!-- End header section -->
+
+            <!-- Start slider  -->
+            <!-- Make it really a slider -->
+            <section id="mu-slider">
+                <div class="mu-slider-area">
+                    <!-- Top slider -->
+                    <div class="mu-top-slider">
+                        <!-- Top slider single slide -->
+                        <div class="mu-top-slider-single">
+                            <img src="../../img/slider/landscape-mountains-nature-clouds.jpg" alt="img">
+                            <!-- Top slider content -->
+                            <div class="mu-top-slider-content">
+                                <span class="mu-slider-small-title">Welcome</span>
+                                <h2 class="mu-slider-title">TO FOODSPORTS</h2>
+                                <p>This is the place you have been looking for.</p>
+                                <a href="#" class="mu-readmore-btn">READ MORE</a>
+                            </div>
+                            <!-- / Top slider content -->
+                        </div>
+                        <!-- / Top slider single slide -->
+
+                    </div>
+                </div>
+            </section>
+            <!-- End slider  -->
+
+            <!-- Start About us -->
+            <!-- Static information for general info -->
+            <section id="mu-about-us">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-about-us-area">
+                                <div class="mu-title">
+                                    <span class="mu-subtitle">Discover</span>
+                                    <h2>ABOUT US</h2>
+                                    <i class="fa fa-spoon"></i>
+                                    <span class="mu-title-bar"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mu-about-us-left">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam minus
+                                                aliquid, itaque illum assumenda repellendus dolorem, dolore numquam
+                                                totam saepe, porro delectus, libero enim odio quo. Explicabo ex sapiente
+                                                sit eligendi, facere voluptatum! Quia vero rerum sunt porro architecto
+                                                corrupti eaque corporis eum, enim soluta, perferendis dignissimos,
+                                                repellendus, beatae laboriosam.</p>
+                                            <ul>
+                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia.</li>
+                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia.</li>
+                                            </ul>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque similique
+                                                molestias est quod reprehenderit, quibusdam nam qui, quam magnam.
+                                                Ex.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mu-about-us-right">
+                                            <ul class="mu-abtus-slider">
+                                                <li><img src="../../img/user.png" alt="img"></li>
+                                                <li><img src="../../img/user.png" alt="img"></li>
+                                                <li><img src="../../img/user.png" alt="img"></li>
+                                                <li><img src="../../img/user.png" alt="img"></li>
+                                                <li><img src="../../img/user.png" alt="img"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End About us -->
+
+            <!-- Start Client Testimonial section -->
+            <!-- This can be some of the client publications -->
+            <section id="mu-client-testimonial">
+                <div class="mu-overlay">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mu-client-testimonial-area">
+                                    <div class="mu-title">
+                                        <span class="mu-subtitle">Testimonials</span>
+                                        <h2>What Customers Say</h2>
+                                        <i class="fa fa-spoon"></i>
+                                        <span class="mu-title-bar"></span>
+                                    </div>
+                                    <!-- testimonial content -->
+                                    <div class="mu-testimonial-content">
+                                        <!-- testimonial slider -->
+                                        <ul class="mu-testimonial-slider">
+                                            <li>
+                                                <div class="mu-testimonial-single">
+                                                    <div class="mu-testimonial-info">
+                                                        <p>Simplement m'encanta</p>
+                                                    </div>
+                                                    <div class="mu-testimonial-bio">
+                                                        <p>- Arnau</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Client Testimonial section -->
+
+            <!-- Start Trainer Section -->
+            <section id="mu-trainer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-trainer-area">
+                                <div class="mu-title">
+                                    <span class="mu-subtitle">Our Professionals</span>
+                                    <h2>MASTER TRAINERS</h2>
+                                    <i class="fa fa-spoon"></i>
+                                    <span class="mu-title-bar"></span>
+                                </div>
+                                <div class="mu-trainer-content">
+                                    <ul class="mu-trainer-nav">
+                                      <li ng-repeat="trainer in trainers">
+                                          <div class="col-md-3">
+                                              <div class="mu-single-trainer">
+                                                  <figure class="mu-single-trainer-img">
+                                                      <img ng-src="img/user.png" alt="{{item.who}}" height="100" width="100" />
+                                                  </figure>
+                                                  <div class="mu-single-trainer-info">
+                                                      <h4>{{trainer.name}}</h4>
+                                                      <span>{{trainer.discipline}}</span>
+                                                      <span>{{trainer.email}}</span>
+                                                  </div>
+                                                  <div class="mu-single-trainer-social">
+                                                      <a href="#"><i class="fa fa-facebook"></i></a>
+                                                      <a href="#"><i class="fa fa-twitter"></i></a>
+                                                      <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                      <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Trainer Section -->
+
+            <!-- Start Restaurant Menu -->
+            <!-- Query DB for our diets -->
+            <section id="mu-restaurant-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-restaurant-menu-area">
+                                <div class="mu-title">
+                                    <span class="mu-subtitle">Discover</span>
+                                    <h2>OUR MENU</h2>
+                                    <i class="fa fa-spoon"></i>
+                                    <span class="mu-title-bar"></span>
+                                </div>
+                                <div class="mu-restaurant-menu-content">
+                                    <ul class="nav nav-tabs mu-restaurant-menu">
+                                        <li class="active"><a href="#breakfast" data-toggle="tab">Breakfast</a></li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="breakfast">
+                                            <div class="mu-tab-content-area">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mu-tab-content-left">
+                                                            <ul class="mu-menu-item-nav">
+                                                                <li>
+                                                                    <div class="media">
+                                                                        <div class="media-left">
+                                                                            <a href="#">
+                                                                                <img class="media-object"
+                                                                                     src=""
+                                                                                     alt="img">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="media-body">
+                                                                            <h4 class="media-heading"><a href="#">English
+                                                                                Breakfast</a></h4>
+                                                                            <span class="mu-menu-price">$15.85</span>
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur
+                                                                                adipisicing elit. Facere nulla aliquid
+                                                                                praesentium dolorem commodi illo.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="media">
+                                                                        <div class="media-left">
+                                                                            <a href="#">
+                                                                                <img class="media-object"
+                                                                                     src=""
+                                                                                     alt="img">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="media-body">
+                                                                            <h4 class="media-heading"><a href="#">Chines
+                                                                                Breakfast</a></h4>
+                                                                            <span class="mu-menu-price">$11.95</span>
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur
+                                                                                adipisicing elit. Facere nulla aliquid
+                                                                                praesentium dolorem commodi illo.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="media">
+                                                                        <div class="media-left">
+                                                                            <a href="#">
+                                                                                <img class="media-object"
+                                                                                     src=""
+                                                                                     alt="img">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="media-body">
+                                                                            <h4 class="media-heading"><a href="#">Indian
+                                                                                Breakfast</a></h4>
+                                                                            <span class="mu-menu-price">$15.85</span>
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur
+                                                                                adipisicing elit. Facere nulla aliquid
+                                                                                praesentium dolorem commodi illo.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mu-tab-content-right">
+                                                            <ul class="mu-menu-item-nav">
+                                                                <li>
+                                                                    <div class="media">
+                                                                        <div class="media-left">
+                                                                            <a href="#">
+                                                                                <img class="media-object"
+                                                                                     src=""
+                                                                                     alt="img">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="media-body">
+                                                                            <h4 class="media-heading"><a href="#">English
+                                                                                Breakfast</a></h4>
+                                                                            <span class="mu-menu-price">$15.85</span>
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur
+                                                                                adipisicing elit. Facere nulla aliquid
+                                                                                praesentium dolorem commodi illo.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="media">
+                                                                        <div class="media-left">
+                                                                            <a href="#">
+                                                                                <img class="media-object"
+                                                                                     src=""
+                                                                                     alt="img">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="media-body">
+                                                                            <h4 class="media-heading"><a href="#">Chinese
+                                                                                Breakfast</a></h4>
+                                                                            <span class="mu-menu-price">$11.95</span>
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur
+                                                                                adipisicing elit. Facere nulla aliquid
+                                                                                praesentium dolorem commodi illo.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="media">
+                                                                        <div class="media-left">
+                                                                            <a href="#">
+                                                                                <img class="media-object"
+                                                                                     src=""
+                                                                                     alt="img">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="media-body">
+                                                                            <h4 class="media-heading"><a href="#">Indian
+                                                                                Breakfast</a></h4>
+                                                                            <span class="mu-menu-price">$15.85</span>
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur
+                                                                                adipisicing elit. Facere nulla aliquid
+                                                                                praesentium dolorem commodi illo.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Restaurant Menu -->
+
+            <!-- Start Subscription section -->
+            <!-- This will send to our email data of request info from external user -->
+            <section id="mu-subscription">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-subscription-area">
+                                <form class="mu-subscription-form">
+                                    <input type="text" placeholder="Type Your Email Address">
+                                    <button class="mu-readmore-btn" type="Submit">SUBSCRIBE</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Subscription section -->
+
+            <!-- Start Chef Section -->
+            <!-- Query DB for our chefs -->
+            <section id="mu-chef">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-chef-area">
+                                <div class="mu-title">
+                                    <span class="mu-subtitle">Our Professionals</span>
+                                    <h2>MASTER CHEFS</h2>
+                                    <i class="fa fa-spoon"></i>
+                                    <span class="mu-title-bar"></span>
+                                </div>
+                                <div class="mu-chef-content">
+                                    <ul class="mu-chef-nav">
+                                        <li>
+                                            <div class="col-md-3">
+                                                <div class="mu-single-chef">
+                                                    <figure class="mu-single-chef-img">
+                                                        <img src="../../img/chefs/1.jpg" alt="chef img" height="100"
+                                                             width="100">
+                                                    </figure>
+                                                    <div class="mu-single-chef-info">
+                                                        <h4>Simon Jonson</h4>
+                                                        <span>Head Chef</span>
+                                                    </div>
+                                                    <div class="mu-single-chef-social">
+                                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="col-md-3">
+                                                <div class="mu-single-chef">
+                                                    <figure class="mu-single-chef-img">
+                                                        <img src="../../img/chefs/2.png" alt="chef img" height="100"
+                                                             width="100">
+                                                    </figure>
+                                                    <div class="mu-single-chef-info">
+                                                        <h4>Kelly Wenzel</h4>
+                                                        <span>Pizza Chef</span>
+                                                    </div>
+                                                    <div class="mu-single-chef-social">
+                                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="col-md-3">
+                                                <div class="mu-single-chef">
+                                                    <figure class="mu-single-chef-img">
+                                                        <img src="../../img/chefs/3.png" alt="chef img" height="100"
+                                                             width="100">
+                                                    </figure>
+                                                    <div class="mu-single-chef-info">
+                                                        <h4>Greg Hong</h4>
+                                                        <span>Grill Chef</span>
+                                                    </div>
+                                                    <div class="mu-single-chef-social">
+                                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="col-md-3">
+                                                <div class="mu-single-chef">
+                                                    <figure class="mu-single-chef-img">
+                                                        <img src="../../img/chefs/4.jpg" alt="chef img" height="100"
+                                                             width="100">
+                                                    </figure>
+                                                    <div class="mu-single-chef-info">
+                                                        <h4>Marty Fukuda</h4>
+                                                        <span>Burger Chef</span>
+                                                    </div>
+                                                    <div class="mu-single-chef-social">
+                                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Chef Section -->
+
+            <!-- Start Latest News -->
+            <!-- Blog in progress might or mightn't do -->
+            <section id="mu-latest-news">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-latest-news-area">
+                                <div class="mu-title">
+                                    <span class="mu-subtitle">Latest News</span>
+                                    <h2>From our blog</h2>
+                                    <i class="fa fa-spoon"></i>
+                                    <span class="mu-title-bar"></span>
+                                </div>
+                                <div class="mu-latest-news-content">
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <article class="mu-news-single">
+                                                <h3><a href="#">Nuevas Recetas!</a></h3>
+                                                <figure class="mu-news-img">
+                                                    <a href="#"><img src="../../img/news/newsrecipes.jpg" alt="img"></a>
+                                                </figure>
+                                                <div class="mu-news-single-content">
+                                                    <ul class="mu-meta-nav">
+                                                        <li>By Cook</li>
+                                                        <li>Date: May 10 2016</li>
+                                                    </ul>
+                                                    <p>Come sano plis.</p>
+                                                    <div class="mu-news-single-bottom">
+                                                        <a href="blog-single.html" class="mu-readmore-btn">Read More</a>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <article class="mu-news-single">
+                                                <h3><a href="#">Nuevas rutinas!</a></h3>
+                                                <figure class="mu-news-img">
+                                                    <a href="#"><img src="../../img/news/newsoly.jpg" alt="img"></a>
+                                                </figure>
+                                                <div class="mu-news-single-content">
+                                                    <ul class="mu-meta-nav">
+                                                        <li>By Trainer</li>
+                                                        <li>Date: May 10 2016</li>
+                                                    </ul>
+                                                    <p>Ponte en forma.</p>
+                                                    <div class="mu-news-single-bottom">
+                                                        <a href="blog-single.html" class="mu-readmore-btn">Read More</a>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+
+                                    <a href="blog-archive.html" class="mu-browsmore-btn">Browse more!</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Latest News -->
+
+            <!-- Start Gallery -->
+            <!-- Maybe query DB for images from server? -->
+            <section id="mu-gallery">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-gallery-area">
+                                <div class="mu-title">
+                                    <span class="mu-subtitle">Discover</span>
+                                    <h2>Our Gallery</h2>
+                                    <i class="fa fa-spoon"></i>
+                                    <span class="mu-title-bar"></span>
+                                </div>
+                                <div class="mu-gallery-content">
+
+                                    <!-- Start gallery image -->
+                                    <div class="mu-gallery-body">
+                                        <!-- start single gallery image -->
+                                        <div class="mu-single-gallery col-md-4">
+                                            <div class="mu-single-gallery-item">
+                                                <figure class="mu-single-gallery-img">
+                                                    <a href="#"><img alt="img" src="../../img/gallery/1.jpg"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <!-- End single gallery image -->
+                                        <!-- start single gallery image -->
+                                        <div class="mu-single-gallery col-md-4">
+                                            <div class="mu-single-gallery-item">
+                                                <figure class="mu-single-gallery-img">
+                                                    <a href="#"><img alt="img" src="../../img/gallery/2.jpg"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <!-- End single gallery image -->
+                                        <!-- start single gallery image -->
+                                        <div class="mu-single-gallery col-md-4">
+                                            <div class="mu-single-gallery-item">
+                                                <figure class="mu-single-gallery-img">
+                                                    <a href="#"><img alt="img" src="../../img/gallery/3.jpg"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <!-- End single gallery image -->
+                                        <!-- start single gallery image -->
+                                        <div class="mu-single-gallery col-md-4">
+                                            <div class="mu-single-gallery-item">
+                                                <figure class="mu-single-gallery-img">
+                                                    <a href="#"><img alt="img" src="../../img/gallery/4.jpg"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <!-- End single gallery image -->
+                                        <!-- start single gallery image -->
+                                        <div class="mu-single-gallery col-md-4">
+                                            <div class="mu-single-gallery-item">
+                                                <figure class="mu-single-gallery-img">
+                                                    <a href="#"><img alt="img" src="../../img/gallery/5.jpg"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <!-- End single gallery image -->
+                                        <!-- start single gallery image -->
+                                        <div class="mu-single-gallery col-md-4">
+                                            <div class="mu-single-gallery-item">
+                                                <figure class="mu-single-gallery-img">
+                                                    <a href="#"><img alt="img" src="../../img/gallery/6.jpg"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <!-- End single gallery image -->
+                                        <!-- start single gallery image -->
+                                        <div class="mu-single-gallery col-md-4">
+                                            <div class="mu-single-gallery-item">
+                                                <figure class="mu-single-gallery-img">
+                                                    <a href="#"><img alt="img" src="../../img/gallery/7.jpg"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <!-- End single gallery image -->
+                                        <!-- start single gallery image -->
+                                        <div class="mu-single-gallery col-md-4">
+                                            <div class="mu-single-gallery-item">
+                                                <figure class="mu-single-gallery-img">
+                                                    <a href="#"><img alt="img" src="../../img/gallery/8.jpg"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <!-- End single gallery image -->
+                                        <!-- start single gallery image -->
+                                        <div class="mu-single-gallery col-md-4">
+                                            <div class="mu-single-gallery-item">
+                                                <figure class="mu-single-gallery-img">
+                                                    <a href="#"><img alt="img" src="../../img/gallery/9.jpg"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        <!-- End single gallery image -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Gallery -->
+
+            <!-- Start Contact section -->
+            <section id="mu-contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-contact-area">
+                                <div class="mu-title">
+                                    <span class="mu-subtitle">Get In Touch</span>
+                                    <h2>Contact Us</h2>
+                                    <i class="fa fa-spoon"></i>
+                                    <span class="mu-title-bar"></span>
+                                </div>
+                                <div class="mu-contact-content">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mu-contact-left">
+                                                <form class="mu-contact-form">
+                                                    <div class="form-group">
+                                                        <label for="name">Your Name</label>
+                                                        <input type="text" class="form-control" id="name"
+                                                               placeholder="Name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email">Email address</label>
+                                                        <input type="email" class="form-control" id="email"
+                                                               placeholder="Email">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="subject">Subject</label>
+                                                        <input type="text" class="form-control" id="subject"
+                                                               placeholder="Subject">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message">Message</label>
+                                                        <textarea class="form-control" id="message" cols="30" rows="10"
+                                                                  placeholder="Type Your Message"></textarea>
+                                                    </div>
+                                                    <button type="submit" class="mu-send-btn">Send Message</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mu-contact-right">
+                                                <div class="mu-contact-widget">
+                                                    <h3>Office Address</h3>
+                                                    <p>Universitat Politècnica de Catalunya - Campus Nord.</p>
+                                                    <address>
+                                                        <p><i class="fa fa-phone"></i> (850) 457 6688</p>
+                                                        <p><i class="fa fa-envelope-o"></i>info@foodsports.com</p>
+                                                        <p><i class="fa fa-map-marker"></i>Carrer Esteve Terradas, 7,
+                                                            08860 Casteldefels, Barcelona, España</p>
+                                                    </address>
+                                                </div>
+                                                <div class="mu-contact-widget">
+                                                    <h3>Open Hours</h3>
+                                                    <address>
+                                                        <p><span>Monday - Friday</span> 9.00 am to 12 pm</p>
+                                                        <p><span>Saturday</span> 9.00 am to 10 pm</p>
+                                                        <p><span>Sunday</span> 10.00 am to 12 pm</p>
+                                                    </address>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Contact section -->
+
+            <!-- Start Map section -->
+            <section id="mu-map">
+                <iframe src="https://www.google.com/maps/embed/v1/place?q=EETAC&zoom=17&key=AIzaSyATr0W50ndOAyVoCMBqEmHKP2ebra2N9Us">
+                </iframe>
+            </section>
+            <!-- End Map section -->
+
+            <!-- Start Footer -->
+            <footer id="mu-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-footer-area">
+                                <div class="mu-footer-social">
+                                    <a href="https://twitter.com/grup3ea"><span class="fa fa-twitter"></span></a>
+                                    <a href="#"><span class="fa fa-linkedin"></span></a>
+                                    <a href="https://github.com/grup3ea"><span class="fa fa-github"></span></a>
+                                </div>
+                                <div class="mu-footer-copyright">
+                                    <p>Designed by <a rel="nofollow" href="http://eetac.upc.edu/en">Group 3 EA</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+
+        </div>
+        <!-- ./container-fluid -->
+
+    </div>
+    <!-- ./page-content-wrapper -->
+
+</div>
+<!-- ./wrapper -->
+
+
+<!-- Angular js -->
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-route/angular-route.js"></script>
+
+<!-- landingpage app and controller -->
+<script src="landingpage.js"></script>
+
+<!-- JQuery -->
+<script src="./bower_components/jquery/dist/jquery.js"></script>
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- BootStrap -->
+<script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+
+</body>
+</html>

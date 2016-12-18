@@ -24,6 +24,6 @@ angular.module('myApp', [
     {
       $routeProvider.otherwise({redirectTo: '/dashboard'});
     }else{
-      $routeProvider.otherwise({redirectTo: '/main'});
+      $routeProvider.otherwise({redirectTo: '/dashboard'});
     }
 }]);
