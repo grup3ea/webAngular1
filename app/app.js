@@ -20,10 +20,10 @@ angular.module('myApp', [
     'ui.calendar'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
-    if(JSON.parse(localStorage.getItem("fs_web_userdata")))
+    if(localStorage.getItem("fs_web_token"))
     {
       $routeProvider.otherwise({redirectTo: '/dashboard'});
     }else{
-      $routeProvider.otherwise({redirectTo: '/dashboard'});
+      $routeProvider.otherwise({redirectTo: '/login'});
     }
 }]);

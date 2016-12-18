@@ -38,8 +38,19 @@
 
 <!--<div ng-include="'views/sidenav.html'"></div>
 <div style="margin-left: 180px;" ng-view></div> -->
-<div ng-view></div>
 
+<div id="wrapper">
+  <div id="sidebar-wrapper">
+    <div ng-include="'views/sidenav.html'"></div>
+  </div>
+  <div id="page-content-wrapper" style="margin-left: 180px">
+    <div class="container-fluid">
+
+      <div ng-view></div>
+
+    </div>
+  </div>
+</div>
 
 <!-- Moment js -->
 <script type="text/javascript" src="./bower_components/moment/min/moment.min.js"></script>
@@ -84,8 +95,6 @@
 <script type="text/javascript" src="./bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <script type="text/javascript" src="./bower_components/fullcalendar/dist/gcal.js"></script>
 
-<!-- Custom js -->
-<!--<script src="assets/js/custom.js"></script>-->
 
 </body>
 </html>

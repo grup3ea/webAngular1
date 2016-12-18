@@ -8,6 +8,7 @@ angular.module('myApp.logout', ['ngRoute'])
     }])
     .controller('LogoutCtrl', function ($scope, $timeout, $window) {
       console.log("logout");
+        localStorage.removeItem("fs_web_token");
         localStorage.removeItem("fs_web_userdata");
-        $window.location="#!/main";
+        $window.location="/";
     });

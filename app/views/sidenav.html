@@ -1,4 +1,4 @@
-<div ng-show="storageuser" ng-controller="SidenavCtrl" class="o-sidenav md-whiteframe-4dp">
+<div ng-hide="!storageuser" ng-controller="SidenavCtrl" class="o-sidenav md-whiteframe-4dp">
       <md-content style="position: relative; top: 100px;">
         <h1 class="md-toolbar-tools">FoodSports</h1>
         <md-list flex>
@@ -8,7 +8,7 @@
               <h3>{{ option.title }}</h3>
             </div>
           </md-list-item>
-          <md-list-item class="md-2-line" ng-repeat="option in options" ng-click="logout()">
+          <md-list-item class="md-2-line" ng-click="logout()">
             <img ng-src="img/essential/power.png" class="md-avatar" alt="logout" />
             <div class="md-list-item-text" layout="column">
               <h3>Logout</h3>

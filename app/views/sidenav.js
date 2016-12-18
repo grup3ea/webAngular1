@@ -7,6 +7,24 @@ angular.module('myApp.sidenav', ['ngRoute'])
         });
     }])
     .controller('SidenavCtrl', function ($scope, $http, $timeout, $window, $mdSidenav) {
+      if(localStorage.getItem("fs_web_token"))
+      {
+        console.log("user logged");
+        $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+        console.log("storageuser");
+        console.log($scope.storageuser);
+      }else{
+        if(($window.location=="#!/login")||($window.location=="#!/signup"))
+        {
+          console.log("user not logged");
+          $window.location='/';
+        }
+      }
+
+
+
+
+
       $scope.toggleLeft = buildToggler('left');
       $scope.toggleRight = buildToggler('right');
 
@@ -20,8 +38,6 @@ angular.module('myApp.sidenav', ['ngRoute'])
       /* lu comú amb totes les views de la webapp
         posat aquí al menú */
         $scope.loginData = {};
-        $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-        console.log($scope.storageuser);
         var pathImg="img/essential/";
         $scope.options=[
           {
@@ -53,18 +69,13 @@ angular.module('myApp.sidenav', ['ngRoute'])
             description: "description",
             link: "/settings",
             icon: pathImg + "settings.png"
-          },
-          {
-            title: "Logout",
-            description: "description",
-            link: "/logout",
-            icon: pathImg + "power.png"
           }
         ];
         console.log($scope.options);
 
         $scope.logout=function(){
           localStorage.removeItem("fs_web_token");
+          localStorage.removeItem("fs_web_userdata");
           $window.location.reload(true);
         };
     });
