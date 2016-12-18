@@ -13,6 +13,8 @@ angular.module('myApp.sidenav', ['ngRoute'])
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         console.log("storageuser");
         console.log($scope.storageuser);
+
+
       }else{
         if(($window.location=="#!/login")||($window.location=="#!/signup"))
         {
@@ -20,7 +22,6 @@ angular.module('myApp.sidenav', ['ngRoute'])
           $window.location='/';
         }
       }
-
 
 
 
@@ -76,6 +77,7 @@ angular.module('myApp.sidenav', ['ngRoute'])
         $scope.logout=function(){
           localStorage.removeItem("fs_web_token");
           localStorage.removeItem("fs_web_userdata");
-          $window.location.reload(true);
+
+          $window.location = "landingpage.html";
         };
     });

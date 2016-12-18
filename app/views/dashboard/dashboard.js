@@ -9,9 +9,9 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
     .controller('DashboardCtrl', function ($scope,$compile,uiCalendarConfig , $http, $window) {
         if (localStorage.getItem('fs_web_token')) {// adding token to the headers
           console.log("user logged");
-            $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
+      /*      $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
             //el .common serveix per als gets
-            $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');
+            $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');*/
         }else{
           console.log("no logged");
           $window.location = "#!/login";

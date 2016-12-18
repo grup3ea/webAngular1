@@ -9,12 +9,12 @@ angular.module('myApp.diet', ['ngRoute'])
         });
     }])
     .controller('DietCtrl', function ($scope, $http) {
-        if (localStorage.getItem('fs_web_token')) {// adding token to the headers
+        /*if (localStorage.getItem('fs_web_token')) {// adding token to the headers
             $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
             //el .common serveix per als gets
             $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');
 
-        }
+        }*/
         $scope.diets = {};
         $http.get(urlapi + 'diets')
             .success(function (data) {
