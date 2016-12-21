@@ -14,11 +14,10 @@ angular.module('myApp.signup', ['ngRoute'])
         } else {
         }
         $scope.doSignup = function () {
-            $scope.signupData.role = "client";
             console.log('Doing signup', $scope.signupData);
             if ($scope.emptyParams($scope.signupData)) {
                 $http({
-                    url: urlapi + 'register',
+                    url: urlapi + $scope.signupData.role+'s/register',
                     method: "POST",
                     data: $scope.signupData
                 })

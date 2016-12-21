@@ -17,7 +17,7 @@ angular.module('myApp.login', ['ngRoute'])
         $scope.doLogin = function () {
             console.log('Doing login', $scope.loginData);
             $http({
-                url: urlapi + 'login',
+                url: urlapi + $scope.loginData.role+ 's/login',
                 method: "POST",
                 data: $scope.loginData
             })
@@ -28,7 +28,7 @@ angular.module('myApp.login', ['ngRoute'])
                         if (response.data.success == true) {
                             console.log("login successful. Response.data: ");
                             console.log(response.data);
-                            localStorage.setItem("fs_web_token", response.data.user.token);
+                            localStorage.setItem("fs_web_token", response.data.token);
                             localStorage.setItem("fs_web_userdata", JSON.stringify(response.data.user));
                             $timeout(function () {
                                 $window.location="#!/dashboard";

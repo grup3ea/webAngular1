@@ -35,30 +35,32 @@
 
 <br><br><br><br><br><br><br>
 
-<div layout="column" flex id="content" role="main">
-	<md-content layout="vertical" flex id="content">
-		<div layout="row" layout-align="center center" layout-fill>
-			<md-whiteframe class="md-whiteframe-z1" layout="column" flex="30" layout-padding>
-				<md-content md-theme="docs-dark">
-					<md-input-container>
+<md-card flex md-whiteframe="6">
+      <md-content class="md-padding">
+        <p>
+					<md-input-container class="md-block">
 						<label>Email</label>
 						<input ng-model="loginData.email">
 					</md-input-container>
-					<md-input-container>
+					<md-input-container class="md-block">
 						<label>Password</label>
 						<input ng-model="loginData.password" type="password">
 					</md-input-container>
+
+          <md-select ng-model="loginData.role" value="user" class="md-no-underline" required>
+            <md-option value="user" selected>User</md-option>
+            <md-option value="trainer">Trainer</md-option>
+            <md-option value="chef">Chef</md-option>
+          </md-select>
 					<md-input-container layout-align="center center">
 						<div layout="row" layout-sm="column" layout-margin>
-              <md-button href="#!/main" class="md-raised md-warn" flex="50" flex-sm="100">Cancel</md-button>
-							<md-button ng-click="doLogin()" class="md-raised" flex="50" flex-sm="100">Login</md-button>
+              <md-button href="landingpage.html" class="md-raised" md-colors="{background: 'red'}" flex="50" flex-sm="100">Cancel</md-button>
+							<md-button ng-click="doLogin()" class="md-raised" md-colors="{background: 'green'}" flex="50" flex-sm="100">Login</md-button>
 						</div>
 					</md-input-container>
-          <md-input-container>
-            <a href="#!/signup">Not registered? Signup!</a>
-          </md-input-container>
-				</md-content>
-			</md-whiteframe>
-		</div>
-	</md-content>
-</div>
+				</p>
+      </md-content>
+	<md-card-actions layout="row" layout-align="end center">
+			<a href="#!/signup">Not registered? Signup!</a>
+	</md-card-actions>
+</md-card>
