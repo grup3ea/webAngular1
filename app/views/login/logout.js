@@ -10,5 +10,6 @@ angular.module('myApp.logout', ['ngRoute'])
       console.log("logout");
         localStorage.removeItem("fs_web_token");
         localStorage.removeItem("fs_web_userdata");
+        localStorage.removeItem("fs_web_role");
         $window.location="/";
     });

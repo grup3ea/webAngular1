@@ -6,7 +6,7 @@ angular.module('myApp.login', ['ngRoute'])
             controller: 'LoginCtrl'
         });
     }])
-    .controller('LoginCtrl', function ($scope, $http, $timeout, $window) {
+    .controller('LoginCtrl', function ($scope, $http, $timeout, $window, $mdToast) {
         $scope.loginData = {};
         if (localStorage.getItem("fs_web_userdata")) {
             $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
@@ -35,6 +35,12 @@ angular.module('myApp.login', ['ngRoute'])
                             }, 1000);
                         } else {
                             console.log("login failed");
+                            $mdToast.show(
+                               $mdToast.simple()
+                                  .textContent('Account not found')
+                                  .position("bottom right")
+                                  .hideDelay(3000)
+                            );
                             //$ionicLoading.show({ template: 'Login failed, user or password error.', noBackdrop: true, duration: 2000 });
                         }
                     },
@@ -42,11 +48,11 @@ angular.module('myApp.login', ['ngRoute'])
                         // failed
                         console.log(response);
                     });
-        };
+        };/*
         $scope.logout = function () {
             localStorage.removeItem("fs_web_userdata");
             $timeout(function () {
                 $window.location.reload(true);
             }, 1000);
-        };
+        };*/
     });
