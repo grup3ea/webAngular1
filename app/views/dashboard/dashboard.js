@@ -78,7 +78,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
                         .position("bottom right")
                         .hideDelay(3000)
                   );
-                  //post new routine
+                  //POST NEW ROUTINE
                   $http({
                       url: urlapi + 'routines',
                       method: "POST",
@@ -88,7 +88,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
                       // success
                       console.log("response: ");
                       console.log(response.data);
-                      $window.location = "#!/routine/"+response._id;
+                      $window.location = "#!/routine/"+response.data._id;
                   },
                   function (response) {
                     $mdToast.show(

@@ -82,6 +82,17 @@ angular.module('myApp.routine', ['ngRoute'])
               // success
               console.log("day added, response: ");
               console.log(response.data);
+              $scope.routine=response.data;
+              $scope.newDay={};
+              $scope.exercises=[{
+                title: '',
+                description: '',
+                img: '',
+                weight: '',
+                distance: '',
+                reps: '',
+                series: ''
+              }];
               //$window.location = "#!/routine/"+response._id;
           },
           function (response) {
