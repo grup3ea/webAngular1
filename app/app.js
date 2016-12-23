@@ -21,11 +21,18 @@ angular.module('myApp', [
     'ui.calendar'
 ]).config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {
     $locationProvider.hashPrefix('!');
-    if(localStorage.getItem("fs_web_token"))
+    if((localStorage.getItem("fs_web_token"))&&(JSON.parse(localStorage.getItem("fs_web_userdata"))!="null"))
     {
+      console.log("app, user logged");
+      console.log(localStorage.getItem("fs_web_userdata"));
       $routeProvider.otherwise({redirectTo: '/dashboard'});
     }else{
-      $routeProvider.otherwise({redirectTo: '/login'});
+      if((window.location!="#!/login")||(window.location!="#!/signup"))
+      {
+        console.log("app, user no logged");
+        window.location="#!/login";
+        $routeProvider.otherwise({redirectTo: '/login'});
+      }
     }
     $httpProvider.interceptors.push('httpInterceptor');
 }]).factory('httpInterceptor', function httpInterceptor ($q, $window, $location) {

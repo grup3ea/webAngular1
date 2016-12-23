@@ -8,12 +8,6 @@ angular.module('myApp.login', ['ngRoute'])
     }])
     .controller('LoginCtrl', function ($scope, $http, $timeout, $window, $mdToast) {
         $scope.loginData = {};
-        if (localStorage.getItem("fs_web_userdata")) {
-            $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-            $window.location = "#";
-        } else {
-        }
-        console.log($scope.storageuser);
         $scope.doLogin = function () {
             console.log('Doing login', $scope.loginData);
             $http({
@@ -26,8 +20,6 @@ angular.module('myApp.login', ['ngRoute'])
             console.log("response: ");
             console.log(response.data);
             if (response.data.success == true) {
-                console.log("login successful. Response.data: ");
-                console.log(response.data);
                 localStorage.setItem("fs_web_token", response.data.token);
                 localStorage.setItem("fs_web_userdata", JSON.stringify(response.data.user));
                 $timeout(function () {
