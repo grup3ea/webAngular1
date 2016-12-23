@@ -11,8 +11,8 @@ angular.module('myApp.sidenav', ['ngRoute'])
       {
         console.log("user logged");
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-        console.log("storageuser");
-        console.log($scope.storageuser);
+        //console.log("storageuser");
+        //console.log($scope.storageuser);
 
 
       }else{

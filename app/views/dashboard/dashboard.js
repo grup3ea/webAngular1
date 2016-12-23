@@ -6,10 +6,11 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
             controller: 'DashboardCtrl'
         });
     }])
-    .controller('DashboardCtrl', function ($scope,$compile,uiCalendarConfig , $http, $window) {
+    .controller('DashboardCtrl', function ($scope,$compile,uiCalendarConfig,
+      $http, $window, $mdDialog, $mdToast) {
         if (localStorage.getItem('fs_web_token')) {// adding token to the headers
           console.log("user logged");
-      /*      $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
+            /*$http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
             //el .common serveix per als gets
             $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');*/
         }else{
@@ -56,6 +57,56 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
             .then(function (result) {
                 //users = result.data;
             });
+
+            //newRoutine dialog
+            $scope.showPrompt = function(ev) {
+              // Appending dialog to document.body to cover sidenav in docs app
+              var confirm = $mdDialog.prompt()
+                .title('Add new routine')
+                .textContent('Name the routine')
+                .placeholder('Routine name')
+                .ariaLabel('Dog name')
+                .initialValue('')
+                .targetEvent(ev)
+                .ok('Create Routine')
+                .cancel('Cancel');
+
+              $mdDialog.show(confirm).then(function(result) {
+                  $mdToast.show(
+                     $mdToast.simple()
+                        .textContent('Creating new routine: ' + result)
+                        .position("bottom right")
+                        .hideDelay(3000)
+                  );
+                  //post new routine
+                  $http({
+                      url: urlapi + 'routines',
+                      method: "POST",
+                      data: {"title": result}
+                  })
+                  .then(function (response) {
+                      // success
+                      console.log("response: ");
+                      console.log(response.data);
+                      $window.location = "#!/routine/"+response._id;
+                  },
+                  function (response) {
+                    $mdToast.show(
+                       $mdToast.simple()
+                          .textContent('Failed on generating new routine')
+                          .position("bottom right")
+                          .hideDelay(3000)
+                    );
+                  });
+              }, function() {
+                $mdToast.show(
+                   $mdToast.simple()
+                      .textContent('New Routine canceled')
+                      .position("bottom right")
+                      .hideDelay(3000)
+                );
+              });
+            };
           /* end SECCIÓ TRAINER */
         }else if($scope.storageuser.role=="chef")
         {

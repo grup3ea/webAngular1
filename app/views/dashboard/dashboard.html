@@ -88,7 +88,7 @@
           </md-card-title-text>
         </md-card-title>
         <md-list flex>
-          <md-list-item class="md-3-line" ng-repeat="routine in storageuser.routines" ng-click="null">
+          <md-list-item class="md-3-line" ng-repeat="routine in storageuser.routines" ng-click="null" ng-href="#!/routine/{{routine._id}}">
             <img ng-src="img/routine.png" class="md-avatar" alt="{{item.who}}" />
             <div class="md-list-item-text" layout="column">
               <h3>{{routine.title}}</h3>
@@ -98,8 +98,8 @@
           </md-list-item>
         </md-list>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button>Add Routine</md-button>
           <md-button>Delete Routine</md-button>
+          <md-button ng-click="showPrompt($event)">Add Routine</md-button>
         </md-card-actions>
       </md-card>
     </div><!-- end of COLUMN -->

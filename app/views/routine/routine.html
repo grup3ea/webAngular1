@@ -1,0 +1,81 @@
+<md-content>
+  <h3>Routine</h3>
+</md-content>
+
+
+  <md-content class="md-padding" layout-xs="column" layout="column">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">
+              {{routine.title}}
+            </span>
+            <span class="md-subhead">
+              {{routine.description}}
+            </span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='trainer'">
+          <md-button>Edit</md-button>
+          <md-button>Delete Routine</md-button>
+        </md-card-actions>
+      </md-card>
+      <md-card>
+        <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="{{day.title}}" ng-repeat="day in routine.days">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab One</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="New Day" ng-show="storageuser.role=='trainer'">
+        <md-content class="md-padding">
+          <md-input-container class="md-block">
+						<label>New day title</label>
+						<input ng-model="newDay.title">
+					</md-input-container>
+          <md-input-container class="md-block">
+						<label>New day description</label>
+						<input ng-model="newDay.description">
+					</md-input-container>
+          <p>Exercises</p>
+          <hr>
+          <div ng-repeat="exercise in exercises" layout="row">
+            <md-input-container class="md-block" flex-gt-sm class="md-block">
+  						<label>Exercise title</label>
+  						<input ng-model="exercise.title">
+  					</md-input-container>
+            <md-input-container class="md-block" flex-gt-sm class="md-block">
+  						<label>Exercise description</label>
+  						<input ng-model="exercise.description">
+  					</md-input-container>
+            <md-input-container class="md-block" flex-gt-sm class="md-block">
+  						<label>Exercise weight</label>
+  						<input ng-model="exercise.weight">
+  					</md-input-container>
+            <md-input-container class="md-block" flex-gt-sm class="md-block">
+  						<label>Exercise distance</label>
+  						<input ng-model="exercise.distance">
+  					</md-input-container>
+            <md-input-container class="md-block" flex-gt-sm class="md-block">
+  						<label>Exercise reps</label>
+  						<input ng-model="exercise.reps">
+  					</md-input-container>
+            <md-input-container class="md-block" flex-gt-sm class="md-block">
+  						<label>Exercise series</label>
+  						<input ng-model="exercise.series">
+  					</md-input-container>
+            <md-button ng-click="delExercise(exercise)" title="delete exercise" class="md-block" ng-show="exercises.length>1">
+              <img src="img/trash_grey.png"></img>
+            </md-button>
+          </div>
+          <md-button ng-click="addExercise()" title="new exercise">+</md-button>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="addDay()" class="md-raised" md-colors="{background: 'green'}">Add Day</md-button>
+          </md-card-actions>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+      </md-card>
+  </md-content>
+</div>

@@ -21,18 +21,18 @@ angular.module('myApp.signup', ['ngRoute'])
                     method: "POST",
                     data: $scope.signupData
                 })
-                    .then(function (response) {
-                            // success
-                            console.log("response: ");
-                            console.log(response.data);
-                            $timeout(function () {
-                                $window.location = "#!/login";
-                            }, 1000);
-                        },
-                        function (response) { // optional
-                            // failed
-                            console.log('Email already in use');
-                        });
+                .then(function (response) {
+                        // success
+                        console.log("response: ");
+                        console.log(response.data);
+                        $timeout(function () {
+                            $window.location = "#!/login";
+                        }, 1000);
+                    },
+                    function (response) { // optional
+                        // failed
+                        console.log('Email already in use');
+                    });
             } else {
                 console.log('First complete all parameters');
             }

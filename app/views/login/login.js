@@ -21,33 +21,33 @@ angular.module('myApp.login', ['ngRoute'])
                 method: "POST",
                 data: $scope.loginData
             })
-                .then(function (response) {
-                        // success
-                        console.log("response: ");
-                        console.log(response.data);
-                        if (response.data.success == true) {
-                            console.log("login successful. Response.data: ");
-                            console.log(response.data);
-                            localStorage.setItem("fs_web_token", response.data.token);
-                            localStorage.setItem("fs_web_userdata", JSON.stringify(response.data.user));
-                            $timeout(function () {
-                                $window.location="#!/dashboard";
-                            }, 1000);
-                        } else {
-                            console.log("login failed");
-                            $mdToast.show(
-                               $mdToast.simple()
-                                  .textContent('Account not found')
-                                  .position("bottom right")
-                                  .hideDelay(3000)
-                            );
-                            //$ionicLoading.show({ template: 'Login failed, user or password error.', noBackdrop: true, duration: 2000 });
-                        }
-                    },
-                    function (response) { // optional
-                        // failed
-                        console.log(response);
-                    });
+            .then(function (response) {
+            // success
+            console.log("response: ");
+            console.log(response.data);
+            if (response.data.success == true) {
+                console.log("login successful. Response.data: ");
+                console.log(response.data);
+                localStorage.setItem("fs_web_token", response.data.token);
+                localStorage.setItem("fs_web_userdata", JSON.stringify(response.data.user));
+                $timeout(function () {
+                    $window.location="#!/dashboard";
+                }, 1000);
+            } else {
+                console.log("login failed");
+                $mdToast.show(
+                   $mdToast.simple()
+                      .textContent('Account not found')
+                      .position("bottom right")
+                      .hideDelay(3000)
+                );
+                //$ionicLoading.show({ template: 'Login failed, user or password error.', noBackdrop: true, duration: 2000 });
+            }
+          },
+          function (response) { // optional
+              // failed
+              console.log(response);
+          });
         };/*
         $scope.logout = function () {
             localStorage.removeItem("fs_web_userdata");
