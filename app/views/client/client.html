@@ -1,0 +1,25 @@
+  <md-content class="md-padding" layout-xs="column" layout="column">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">
+              {{client.name}}
+            </span>
+            <span class="md-subhead">
+              {{client.description}}
+            </span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='trainer'">
+          <md-button>Messages</md-button>
+          <md-button>Delete Client</md-button>
+        </md-card-actions>
+        <md-card-content ng-show="client.routines">
+          Client routines:
+          <div ng-repeat="routine in client.routines">
+            {{routine.title}}
+          </div>
+        </md-card-content>
+      </md-card>
+  </md-content>
+</div>

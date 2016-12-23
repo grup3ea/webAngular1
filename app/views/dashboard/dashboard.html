@@ -44,7 +44,7 @@
           </md-card-title-text>
         </md-card-title>
         <md-list flex>
-          <md-list-item class="md-3-line" ng-repeat="client in storageuser.clients" ng-click="null">
+          <md-list-item class="md-3-line" ng-repeat="client in storageuser.clients" ng-href="#!/client/{{client._id}}">
             <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
             <div class="md-list-item-text" layout="column">
               <h3>{{client.name}}</h3>

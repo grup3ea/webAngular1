@@ -75,7 +75,11 @@
               <img src="img/trash_grey.png"></img>
             </md-button>
           </div>
-          <md-button ng-click="addExercise()" title="new exercise">+</md-button>
+          <div layout="row">
+            <md-button ng-click="addExercise()" title="new exercise" flex="grow">
+              <h4>+</h4>
+            </md-button>
+          </div>
           <md-card-actions layout="row" layout-align="end center">
             <md-button ng-click="addDay()" class="md-raised" md-colors="{background: 'green'}">Add Day</md-button>
           </md-card-actions>
