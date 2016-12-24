@@ -32,56 +32,8 @@
               </div>
             </md-list-item>
           </md-list>
-        </md-content>
-      </md-tab>
-      <md-tab label="New Day" ng-show="storageuser.role=='trainer'">
-        <md-content class="md-padding">
-          <md-input-container class="md-block">
-						<label>New day title</label>
-						<input ng-model="newDay.title">
-					</md-input-container>
-          <md-input-container class="md-block">
-						<label>New day description</label>
-						<input ng-model="newDay.description">
-					</md-input-container>
-          <p>Exercises</p>
-          <hr>
-          <div ng-repeat="exercise in exercises" layout="row">
-            <md-input-container class="md-block" flex-gt-sm class="md-block">
-  						<label>Exercise title</label>
-  						<input ng-model="exercise.title">
-  					</md-input-container>
-            <md-input-container class="md-block" flex-gt-sm class="md-block">
-  						<label>Exercise description</label>
-  						<input ng-model="exercise.description">
-  					</md-input-container>
-            <md-input-container class="md-block" flex-gt-sm class="md-block">
-  						<label>Exercise weight</label>
-  						<input ng-model="exercise.weight">
-  					</md-input-container>
-            <md-input-container class="md-block" flex-gt-sm class="md-block">
-  						<label>Exercise distance</label>
-  						<input ng-model="exercise.distance">
-  					</md-input-container>
-            <md-input-container class="md-block" flex-gt-sm class="md-block">
-  						<label>Exercise reps</label>
-  						<input ng-model="exercise.reps">
-  					</md-input-container>
-            <md-input-container class="md-block" flex-gt-sm class="md-block">
-  						<label>Exercise series</label>
-  						<input ng-model="exercise.series">
-  					</md-input-container>
-            <md-button ng-click="delExercise(exercise)" title="delete exercise" class="md-block" ng-show="exercises.length>1">
-              <img src="img/trash_grey.png"></img>
-            </md-button>
-          </div>
-          <div layout="row">
-            <md-button ng-click="addExercise()" title="new exercise" flex="grow">
-              <h4>+</h4>
-            </md-button>
-          </div>
           <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-click="addDay()" class="md-raised" md-colors="{background: 'green'}">Add Day</md-button>
+            <md-button ng-click="" class="md-raised" md-colors="{background: 'blue'}">Mark day as completed</md-button>
           </md-card-actions>
         </md-content>
       </md-tab>

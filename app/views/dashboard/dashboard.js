@@ -36,7 +36,23 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
         if($scope.storageuser.role=="user")
         {
           /* SECCiÓ USER */
-
+          console.log("agafant l'user del server");
+          $http.get(urlapi + 'users/'+ $scope.storageuser._id)
+            .then(function (data) {
+                console.log('data success');
+                console.log(data); // for browser console
+                //$scope.trainers = data.data; // for UI
+                //localStorage.setItem('fs_web_trainers', JSON.stringify($scope.trainers));
+                localStorage.setItem("fs_web_userdata", JSON.stringify(data.data));
+                $scope.storageuser=data.data;
+            }, function (data, status) {
+                console.log('data error');
+                console.log(status);
+                console.log(data);
+            })
+            .then(function (result) {
+                //users = result.data;
+            });
           /* end SECCIÓ USER */
         }else if($scope.storageuser.role=="trainer")
         {

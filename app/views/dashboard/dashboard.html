@@ -1,34 +1,89 @@
 <!-- DASHBOARD USER -->
-    <div class="container-fluid" ng-show="storageuser.role=='user'">
-      <p>Dashboard</p>
-      aquí va el dashboard
-      <div layout="row">
-        <div flex>
-          <md-content>
-            <md-card>
-              <md-card-actions>
-                <canvas id="bar" class="chart chart-bar"
-                        chart-data="data" chart-labels="labels" chart-series="series">
-                </canvas>
-              </md-card-actions>
-            </md-card>
-          </md-content>
-        </div><!-- /flex -->
-        <div flex>
-          <md-content>
-            <md-card>
-              <md-card-actions>
-                <canvas id="bar" class="chart chart-doughnut"
-                        chart-data="data" chart-labels="labels" chart-series="series">
-                </canvas>
-              </md-card-actions>
-            </md-card>
-          </md-content>
-        </div><!-- /flex -->
-      </div><!-- /layour="row" -->
-    </div>
+<div ng-show="storageuser.role=='user'">
+
+  <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">
+              Routines
+            </span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-list flex>
+          <md-list-item class="md-3-line" ng-repeat="routine in storageuser.routines" ng-click="null" ng-href="#!/routine/{{routine._id}}">
+            <img ng-src="img/routine.png" class="md-avatar" alt="{{item.who}}" />
+            <div class="md-list-item-text" layout="column">
+              <h3>{{routine.title}}</h3>
+              <h4>{{routine.description}}</h4>
+              <p>{{routine.price}}</p>
+            </div>
+          </md-list-item>
+        </md-list>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Search Clients</md-button>
+          <md-button>Delete contract</md-button>
+        </md-card-actions>
+      </md-card>
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">
+              Graphs (per ara són hardcoded, però seran sobre la info dels clients, o econòmics)
+            </span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions>
+          <canvas id="bar" class="chart chart-bar"
+                  chart-data="data" chart-labels="labels" chart-series="series">
+          </canvas>
+        </md-card-actions>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>opció1</md-button>
+          <md-button>opció2</md-button>
+        </md-card-actions>
+      </md-card>
+    </div><!-- end of COLUMN -->
+    <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">
+              Diets
+            </span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-list flex>
+          <md-list-item class="md-3-line" ng-repeat="diet in storageuser.diets" ng-click="null" ng-href="#!/diet/{{diet._id}}">
+            <img ng-src="img/essential/apple.png" class="md-avatar" alt="{{item.who}}" />
+            <div class="md-list-item-text" layout="column">
+              <h3>{{diet.title}}</h3>
+              <h4>{{diet.description}}</h4>
+              <p>{{diet.price}}</p>
+            </div>
+          </md-list-item>
+        </md-list>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Delete Routine</md-button>
+          <md-button ng-click="showPrompt($event)">Add Routine</md-button>
+        </md-card-actions>
+      </md-card>
+    </div><!-- end of COLUMN -->
+  </md-content>
+</div>
 <!-- end DASHBOARD USER-->
 
+<!--
+
+
+user (client)
+****************
+trainer
+
+
+(separador amb espai, pq es pugui trobar fàcil visualment on comença i on acaba el dashboard de l'user i el dashboard del trainer)
+-->
 
 <!-- DASHBOARD TRAINER -->
 <div ng-show="storageuser.role=='trainer'">
@@ -88,7 +143,7 @@
           </md-card-title-text>
         </md-card-title>
         <md-list flex>
-          <md-list-item class="md-3-line" ng-repeat="routine in storageuser.routines" ng-click="null" ng-href="#!/routine/{{routine._id}}">
+          <md-list-item class="md-3-line" ng-repeat="routine in storageuser.routines" ng-click="null" ng-href="#!/editRoutine/{{routine._id}}">
             <img ng-src="img/routine.png" class="md-avatar" alt="{{item.who}}" />
             <div class="md-list-item-text" layout="column">
               <h3>{{routine.title}}</h3>
