@@ -15,6 +15,7 @@ angular.module('myApp', [
     'myApp.signup',
     'myApp.dashboard',
     'myApp.routine',
+    'myApp.trainer',
     'myApp.editRoutine',
     'myApp.client',
     'myApp.diet',
@@ -23,7 +24,7 @@ angular.module('myApp', [
     'ui.calendar'
 ]).config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {
     $locationProvider.hashPrefix('!');
-    if((localStorage.getItem("fs_web_token"))&&(JSON.parse(localStorage.getItem("fs_web_userdata"))!="null"))
+    if((localStorage.getItem("fs_web_token"))&&(JSON.parse(localStorage.getItem("fs_web_userdata"))!="null")&&(JSON.parse(localStorage.getItem("fs_web_userdata"))!=null))
     {
       /*console.log("app, user logged");
       console.log(localStorage.getItem("fs_web_userdata"));*/
@@ -38,6 +39,9 @@ angular.module('myApp', [
       if((window.location!="#!/login")||(window.location!="#!/signup"))
       {
         console.log("app, user no logged");
+
+        localStorage.removeItem("fs_web_token");
+        localStorage.removeItem("fs_web_userdata");
         window.location="#!/login";
         $routeProvider.otherwise({redirectTo: '/login'});
       }

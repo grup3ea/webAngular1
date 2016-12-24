@@ -1,0 +1,31 @@
+  <md-content class="md-padding" layout-xs="column" layout="column">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">
+              {{trainer.name}}
+            </span>
+            <span class="md-subhead">
+              {{trainer.discipline}}
+            </span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='user'">
+          <md-button>Send message</md-button>
+          <md-button ng-click="sendPetition()">Ask for routine (send petition)</md-button>
+        </md-card-actions>
+
+        <md-list flex>
+          Trainer clients:
+          <md-list-item class="md-3-line" ng-repeat="client in trainer.clients">
+            <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
+            <div class="md-list-item-text" layout="column">
+              <h3>{{client.client.name}}</h3>
+              <h4>{{client.client.description}}</h4>
+              <p>points: {{client.client.points.total}}</p>
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-card>
+  </md-content>
+</div>

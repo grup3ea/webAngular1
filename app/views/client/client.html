@@ -11,8 +11,9 @@
           </md-card-title-text>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='trainer'">
-          <md-button>Messages</md-button>
           <md-button>Delete Client</md-button>
+          <md-button>Messages</md-button>
+          <md-button ng-click="addRoutine($event)">Add Routine</md-button>
         </md-card-actions>
         <md-card-content ng-show="client.routines">
           Client routines:

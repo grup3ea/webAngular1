@@ -99,13 +99,14 @@ trainer
           </md-card-title-text>
         </md-card-title>
         <md-list flex>
-          <md-list-item class="md-3-line" ng-repeat="client in storageuser.clients" ng-href="#!/client/{{client._id}}">
+          <md-list-item class="md-3-line" ng-repeat="client in storageuser.clients" ng-href="#!/client/{{client.client._id}}">
             <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
             <div class="md-list-item-text" layout="column">
-              <h3>{{client.name}}</h3>
-              <h4>{{client.email}}</h4>
-              <p>{{client.discipline}}</p>
-              <p>points: {{client.points.total}}</p>
+              <h3>{{client.client.name}}</h3>
+              <h4>{{client.client.email}}</h4>
+              <p>{{client.client.discipline}}</p>
+              <p>points: {{client.client.points.total}}</p>
+              <p>client since: {{client.date}}</p>
             </div>
           </md-list-item>
         </md-list>
@@ -113,6 +114,34 @@ trainer
           <md-button>Search Clients</md-button>
           <md-button>Delete contract</md-button>
         </md-card-actions>
+      </md-card>
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">
+              Clients Petitions
+            </span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-list flex>
+          <md-list-item class="md-3-line" ng-repeat="petition in storageuser.clientsPetitions" ng-show="petition.state=='pendent'">
+            <img ng-src="img/user.png" class="md-avatar"/>
+            <div class="md-list-item-text" layout="column">
+              <h3>{{petition.clientid.name}}</h3>
+              <h4>state: {{petition.state}}</h4>
+              <p>{{petition.message}}</p>
+                <md-button class="md-icon-button md-secondary" title="view user">
+                  <img ng-src="img/view.png" class="md-avatar o_imgBtn1"/>
+                </md-button>
+                <md-button class="md-icon-button md-secondary" title="decline">
+                  <img ng-src="img/decline.png" class="md-avatar o_imgBtn1"/>
+                </md-button>
+                <md-button ng-click="acceptPetition($event, petition._id)" class="md-icon-button md-secondary" title="accept">
+                  <img ng-src="img/accept.png" class="md-avatar o_imgBtn1"/>
+                </md-button>
+            </div>
+          </md-list-item>
+        </md-list>
       </md-card>
       <md-card>
         <md-card-title>
@@ -152,10 +181,6 @@ trainer
             </div>
           </md-list-item>
         </md-list>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>Delete Routine</md-button>
-          <md-button ng-click="showPrompt($event)">Add Routine</md-button>
-        </md-card-actions>
       </md-card>
     </div><!-- end of COLUMN -->
   </md-content>
