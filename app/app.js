@@ -25,8 +25,14 @@ angular.module('myApp', [
     $locationProvider.hashPrefix('!');
     if((localStorage.getItem("fs_web_token"))&&(JSON.parse(localStorage.getItem("fs_web_userdata"))!="null"))
     {
-      console.log("app, user logged");
-      console.log(localStorage.getItem("fs_web_userdata"));
+      /*console.log("app, user logged");
+      console.log(localStorage.getItem("fs_web_userdata"));*/
+      console.log(window.location.hash);
+      if(window.location.hash=="#!/login")
+      {
+        window.location='#!/dashboard';
+      }
+
       $routeProvider.otherwise({redirectTo: '/dashboard'});
     }else{
       if((window.location!="#!/login")||(window.location!="#!/signup"))

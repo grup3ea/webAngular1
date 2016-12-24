@@ -22,9 +22,10 @@ angular.module('myApp.login', ['ngRoute'])
             if (response.data.success == true) {
                 localStorage.setItem("fs_web_token", response.data.token);
                 localStorage.setItem("fs_web_userdata", JSON.stringify(response.data.user));
-                $timeout(function () {
-                    $window.location="#!/dashboard";
-                }, 1000);
+                window.location.reload();
+                /*$timeout(function () {
+                    $window.location="#!/dashboard"; //peta pq fa la petició un cop al dashboard sense afegir el token, pq no ha afegit els httpProviders
+                }, 1000);*/
             } else {
                 console.log("login failed");
                 $mdToast.show(

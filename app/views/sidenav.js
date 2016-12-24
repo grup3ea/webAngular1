@@ -12,7 +12,6 @@ angular.module('myApp.sidenav', ['ngRoute'])
         console.log("user logged");
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
 
-
       }else{
         if(($window.location=="#!/login")||($window.location=="#!/signup"))
         {
@@ -73,9 +72,28 @@ angular.module('myApp.sidenav', ['ngRoute'])
         console.log($scope.options);
 
         $scope.logout=function(){
-          localStorage.removeItem("fs_web_token");
-          localStorage.removeItem("fs_web_userdata");
+          //EL LOGOUT NO VA A LA API, per això aquí està comentat el post
+              /*$http({
+                  url: urlapi + 'logout',
+                  method: "POST",
+                  data: {"logout":"true"}
+              })
+              .then(function (response) {
+              // success
+              console.log("response: ");
+              console.log(response.data);
+              if (response.data.success == true) {*/
+                localStorage.removeItem("fs_web_token");
+                localStorage.removeItem("fs_web_userdata");
+                $window.location = "landingpage.html";
+              /*} else {
+                  console.log("login failed");
+              }
+            },
+            function (response) { // optional
+                // failed
+                console.log(response);
+            });*/
+          };
 
-          $window.location = "landingpage.html";
-        };
     });

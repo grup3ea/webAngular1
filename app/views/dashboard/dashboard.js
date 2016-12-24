@@ -36,7 +36,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
         if($scope.storageuser.role=="user")
         {
           /* SECCiÓ USER */
-          console.log("agafant l'user del server");
+          //console.log("agafant l'user del server " + $scope.storageuser.name + $scope.storageuser._id);
           $http.get(urlapi + 'users/'+ $scope.storageuser._id)
             .then(function (data) {
                 console.log('data success');
