@@ -58,18 +58,6 @@ angular.module('myApp.sidenav', ['ngRoute'])
                 description: "description",
                 link: "/settings",
                 icon: pathImg + "settings.png"
-            },
-            {
-                title: "My Profile",
-                description: "profile",
-                link: "/profile",
-                icon: pathImg + "profile.png"
-            },
-            {
-                title: "Edit Profile",
-                description: "edit profile",
-                link: "/editProfile",
-                icon: pathImg + "editProfile.png"
             }
         ];
         console.log($scope.options);
