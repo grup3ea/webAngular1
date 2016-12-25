@@ -16,7 +16,10 @@ angular.module('myApp', [
     'myApp.dashboard',
     'myApp.routine',
     'myApp.trainer',
+    'myApp.editTrainer',
+    'myApp.editUser',
     'myApp.editRoutine',
+    'myApp.user',
     'myApp.client',
     'myApp.diet',
     'myApp.training',
@@ -26,8 +29,6 @@ angular.module('myApp', [
     $locationProvider.hashPrefix('!');
     if((localStorage.getItem("fs_web_token"))&&(JSON.parse(localStorage.getItem("fs_web_userdata"))!="null")&&(JSON.parse(localStorage.getItem("fs_web_userdata"))!=null))
     {
-      /*console.log("app, user logged");
-      console.log(localStorage.getItem("fs_web_userdata"));*/
       console.log(window.location.hash);
       if(window.location.hash=="#!/login")
       {
@@ -71,7 +72,6 @@ angular.module('myApp', [
 		init: function () {
 			$http.defaults.headers.common['X-Access-Token'] = localStorage.getItem("fs_web_token");
 			$http.defaults.headers.post['X-Access-Token'] = localStorage.getItem("fs_web_token");
-      //console.log($http.defaults.headers.post['X-Access-Token']);
 		}
 	};
 })

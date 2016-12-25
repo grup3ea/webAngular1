@@ -8,29 +8,43 @@
                 <span class="md-subhead">
               {{user.description}}
             </span>
+                <span class="md-subhead">
+              {{user.email}}
+            </span>
+                <span class="md-subhead">
+              {{user.image}}
+            </span>
             </md-card-title-text>
         </md-card-title>
 
 
         <md-list flex>
-            User trainers:
+            <h2>User trainers:</h2>
             <md-list-item class="md-3-line" ng-repeat="trainer in user.trainers">
-                <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
+                <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}"/>
                 <div class="md-list-item-text" layout="column">
-                    <h3>{{user.user.name}}</h3>
-                    <h4>{{user.trainer.description}}</h4>
-
+                    <h4>{{user.user.trainer.name}}</h4>
+                    <h4>{{user.user.trainer.discipline}}</h4>
                 </div>
             </md-list-item>
         </md-list>
         <md-list flex>
-            User diets:
-            <md-list-item class="md-3-line" ng-repeat="diet in user.diets">
-                <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
+            <h2>User Routines:</h2>
+            <md-list-item class="md-3-line" ng-repeat="routine in user.user.routines">
+                <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}"/>
                 <div class="md-list-item-text" layout="column">
-                    <h3>{{user.user.diet}}</h3>
-                    <h4>{{user.user.description}}</h4>
-                    <p>points: {{user.user.points.total}}</p>
+                    <h4>{{user.user.routine.title}}</h4>
+                    <h4>{{user.user.routine.description}}</h4>
+                </div>
+            </md-list-item>
+        </md-list>
+        <md-list flex>
+            <h2>User diets:</h2>
+            <md-list-item class="md-3-line" ng-repeat="diet in user.user.diets">
+                <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}"/>
+                <div class="md-list-item-text" layout="column">
+                    <h4>{{user.user.diet.title}}</h4>
+                    <h4>{{user.user.diet.description}}</h4>
                 </div>
             </md-list-item>
         </md-list>

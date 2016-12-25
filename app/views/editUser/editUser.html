@@ -1,58 +1,59 @@
 <md-content class="md-padding" layout-xs="column" layout="column">
     <md-card>
         <md-card-title>
-            <md-card-title-text>
-            <span class="md-headline">
-              {{user.trainer}}
-            </span>
-                <span class="md-subhead">
-              {{user.name}}
-            </span>
-            </md-card-title-text>
+            <md-content class="md-padding">
+                <h1 class="md-display-2">User Profile</h1>
+            </md-content>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='client'">
-            <md-button>Edit</md-button>
-            <md-button>Save Changes</md-button>
         </md-card-actions>
         <md-tabs md-dynamic-height md-border-bottom>
             <md-tab label="{{user.name}}">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">{{user.description}}</h1>
+                    <h2 class="md-display-2">User</h2>
                 </md-content>
             </md-tab>
-            <md-tab label="New Day" ng-show="storageuser.role=='client'">
+            <md-tab label="User" ng-show="storageuser.role=='client'">
                 <md-content class="md-padding">
-                    <md-input-container class="md-block">
+                    <md-input-container class="md-block" flex-gt-sm="">
                         <label>New Name</label>
-                        <input ng-model="trainer.name">
+                        <input ng-model="user.name">
                     </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>New Description</label>
-                        <input ng-model="trainer.name">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>New Email</label>
+                        <input ng-model="user.email">
                     </md-input-container>
-                    <p>Clients</p>
-                    <hr>
-                    <md-button ng-click="delTrainer(trainer)" title="delete trainer" class="md-block"
-                               ng-show="trainers.length>1">
-                        <img> src="img/trash_grey.png"</img>
-                    </md-button>
-                    </div>
-                    <div layout="row">
-                        <md-button ng-click="addTrainer()" title="new trainer" flex="grow">
-                            <h4>+</h4>
-                        </md-button>
-                    </div>
-                    <md-button ng-click="delDiet(diet)" title="delete diet" class="md-block"
-                               ng-show="diets.length>1">
-                        <img> src="img/trash_grey.png"</img>
-                    </md-button>
-                    </div>
-                    <div layout="row">
-                        <md-button ng-click="addDiet()" title="new diet" flex="grow">
-                            <h4>+</h4>
-                        </md-button>
-                    </div>
             </md-tab>
+            <md-tab>
+                <md-input-container class="md-block" flex-gt-sm="">
+                    <label>Description</label>
+                    <textarea ng-model="user.description" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
+                </md-input-container>
+            </md-tab>
+            <md-input-container class="md-block">
+                <label>Avatar</label>
+                <md-button aria-label="upload image">Upload...</md-button>
+            </md-input-container>
+            <md-tab label="{{user.attributes}}">
+                <md-content class="md-padding">
+                    <h2 class="md-display-2">Attributes</h2>
+                </md-content>
+            </md-tab>
+            <md-tab label="Attributes">
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text" layout="column">
+                        <p>Height: {{user.attributes.height}}</p>
+                        <p>New Height: <input ng-model="user.attributes.height"></p>
+                        <p>Weight: {{user.attributes.weight}}</p>
+                        <p>New Weight: <input ng-model="user.attributes.height"></p>
+                        <p>Gender: {{user.attributes.gender}}</p>
+                        <p>New Gender: <input ng-model="user.attributes.gender"></p>
+                        <p>Age: {{user.attributes.age}}</p>
+                        <p>New Age: <input ng-model="user.attributes.age"></p>
+                    </div>
+                </md-list-item>
+            </md-tab>
+            <md-button><h3>Save Changes</h3></md-button>
         </md-tabs>
     </md-card>
 </md-content>
