@@ -4,7 +4,7 @@ angular.module('myApp.editRoutine', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/editRoutine/:routineid', {
-            templateUrl: 'views/editRoutine/editRoutine.html',
+            templateUrl: 'views/editRoutine/editTrainer.html',
             controller: 'EditRoutineCtrl'
         });
     }])

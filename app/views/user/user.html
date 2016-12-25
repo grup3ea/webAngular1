@@ -1,0 +1,40 @@
+<md-content class="md-padding" layout-xs="column" layout="column">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+            <span class="md-headline">
+              {{user.name}}
+            </span>
+                <span class="md-subhead">
+              {{user.description}}
+            </span>
+            </md-card-title-text>
+        </md-card-title>
+
+
+        <md-list flex>
+            User trainers:
+            <md-list-item class="md-3-line" ng-repeat="trainer in user.trainers">
+                <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{user.user.name}}</h3>
+                    <h4>{{user.trainer.description}}</h4>
+
+                </div>
+            </md-list-item>
+        </md-list>
+        <md-list flex>
+            User diets:
+            <md-list-item class="md-3-line" ng-repeat="diet in user.diets">
+                <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{user.user.diet}}</h3>
+                    <h4>{{user.user.description}}</h4>
+                    <p>points: {{user.user.points.total}}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+
+    </md-card>
+</md-content>
+</div>
