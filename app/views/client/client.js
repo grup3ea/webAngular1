@@ -83,7 +83,7 @@ angular.module('myApp.client', ['ngRoute'])
                     // success
                     console.log("response: ");
                     console.log(response.data);
-                    $window.location = "#!/routine/"+response.data._id;
+                    $window.location = "#!/editRoutine/"+response.data._id;
                 },
                 function (response) {
                   $mdToast.show(
