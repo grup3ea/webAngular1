@@ -40,7 +40,7 @@
         </md-list>
         <md-list flex>
             <h2>User diets:</h2>
-            <md-list-item class="md-3-line" ng-repeat="diet in user.user.diets">
+            <md-list-item class="md-3-line" ng-repeat="diet in user.diets">
                 <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}"/>
                 <div class="md-list-item-text" layout="column">
                     <h4>{{user.diet.title}}</h4>
@@ -48,7 +48,24 @@
                 </div>
             </md-list-item>
         </md-list>
-
+        <h2>User Attributes:</h2>
+        <md-tab label="Attributes">
+            <md-list-item class="md-2-line">
+                <div class="md-list-item-text" layout="column">
+                    <p>Height: {{user.attributes.height}}</p>
+                    <p>New Height: <input ng-model="user.attributes.height"></p>
+                    <p>Weight: {{user.attributes.weight}}</p>
+                    <p>New Weight: <input ng-model="user.attributes.height"></p>
+                    <p>Gender: {{user.attributes.gender}}</p>
+                    <p>New Gender: <input ng-model="user.attributes.gender"></p>
+                    <p>Age: {{user.attributes.age}}</p>
+                    <p>New Age: <input ng-model="user.attributes.age"></p>
+                </div>
+            </md-list-item>
+        </md-tab>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-href="#!/editUser/{{user._id}}">Edit Profile</md-button>
+        </md-card-actions>
     </md-card>
 </md-content>
 </div>

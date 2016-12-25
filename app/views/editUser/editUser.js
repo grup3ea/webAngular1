@@ -10,8 +10,8 @@ angular.module('myApp.editUser', ['ngRoute'])
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         if ($scope.storageuser.role != "user") {
             window.location = "#!/dashboard";
-        }
-        $scope.routine = {};
+        };
+
         $http.get(urlapi + 'user/' + $routeParams.userid)
             .then(function (data) {
                 $scope.routine = data.data;
@@ -31,6 +31,4 @@ angular.module('myApp.editUser', ['ngRoute'])
             gender: '',
             age: ''
         }];
-        $scope.editAttributes = [{}];
-        scope.editUser = [{}];
     });
