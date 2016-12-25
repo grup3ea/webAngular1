@@ -23,18 +23,18 @@
             <md-list-item class="md-3-line" ng-repeat="trainer in user.trainers">
                 <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}"/>
                 <div class="md-list-item-text" layout="column">
-                    <h4>{{user.user.trainer.name}}</h4>
-                    <h4>{{user.user.trainer.discipline}}</h4>
+                    <h4>{{user.trainer.name}}</h4>
+                    <h4>{{user.trainer.discipline}}</h4>
                 </div>
             </md-list-item>
         </md-list>
         <md-list flex>
             <h2>User Routines:</h2>
-            <md-list-item class="md-3-line" ng-repeat="routine in user.user.routines">
-                <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}"/>
+            <md-list-item class="md-3-line" ng-repeat="routine in user.routines">
+                <img ng-src="img/routine.png" class="md-avatar" alt="{{item.who}}"/>
                 <div class="md-list-item-text" layout="column">
-                    <h4>{{user.user.routine.title}}</h4>
-                    <h4>{{user.user.routine.description}}</h4>
+                    <h4>{{user.routine.title}}</h4>
+                    <h4>{{user.routine.description}}</h4>
                 </div>
             </md-list-item>
         </md-list>
@@ -43,8 +43,8 @@
             <md-list-item class="md-3-line" ng-repeat="diet in user.user.diets">
                 <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}"/>
                 <div class="md-list-item-text" layout="column">
-                    <h4>{{user.user.diet.title}}</h4>
-                    <h4>{{user.user.diet.description}}</h4>
+                    <h4>{{user.diet.title}}</h4>
+                    <h4>{{user.diet.description}}</h4>
                 </div>
             </md-list-item>
         </md-list>

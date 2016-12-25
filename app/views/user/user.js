@@ -13,7 +13,7 @@ angular.module('myApp.user', ['ngRoute'])
             .then(function (data) {
                 console.log('data success');
                 console.log(data); // for browser console
-                $scope.trainer = data.data; // for UI
+                $scope.user = data.data; // for UI
             }, function (data, status) {
                 console.log('data error');
                 console.log(status);
