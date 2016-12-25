@@ -1,0 +1,49 @@
+<md-content class="md-padding" layout-xs="column" layout="column">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+            <span class="md-headline">
+              {{trainer.trainer}}
+            </span>
+                <span class="md-subhead">
+              {{trainer.name}}
+            </span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='trainer'">
+        </md-card-actions>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="{{trainer.name}}">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">{{trainer.description}}</h1>
+                </md-content>
+            </md-tab>
+            <md-tab label="New Day" ng-show="storageuser.role=='trainer'">
+                <md-content class="md-padding">
+                    <md-input-container class="md-block">
+                        <label>New Name</label>
+                        <input ng-model="trainer.name">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>New Description</label>
+                        <input ng-model="trainer.name">
+                    </md-input-container>
+                    <p>Clients</p>
+                    <hr>
+                    <md-button>Edit Client Routine</md-button>
+                    <md-button>Delete Client Routine</md-button>
+                    <md-button ng-click="delClient(client)" title="delete client" class="md-block"
+                               ng-show="clients.length>1">
+                        <img> src="img/trash_grey.png"</img>
+                    </md-button>
+                    </div>
+                    <div layout="row">
+                        <md-button ng-click="addClient()" title="new client" flex="grow">
+                            <h4>+</h4>
+                        </md-button>
+                    </div>
+            </md-tab>
+        </md-tabs>
+    </md-card>
+</md-content>
+</div>
