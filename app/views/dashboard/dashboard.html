@@ -23,17 +23,31 @@
             </md-card>
             <md-card flex-xs flex-gt-xs="40">
                 <md-card-title>
-                    <md-card-title-text>
-            <span class="md-headline">
-              User Profile
-            </span>
-                    </md-card-title-text>
+                  <md-card-title-text>
+                    <span class="md-headline">{{storageuser.name}}</span>
+                    <span class="md-subhead">{{storageuser.points.total}} points</span>
+                    <p>{{storageuser.email}}</p>
+                    <p ng-show="storageuser.attributes.height">
+                      {{storageuser.attributes.height}} metters
+                    </p>
+                    <p ng-show="storageuser.attributes.weight">
+                      {{storageuser.attributes.weight}} Kg
+                    </p>
+                    <p ng-show="storageuser.attributes.gender">
+                      {{storageuser.attributes.gender}}
+                    </p>
+                    <p ng-show="storageuser.attributes.age">
+                      {{storageuser.attributes.age}} years old
+                    </p>
+                  </md-card-title-text>
+                  <md-card-title-media>
+                    <div class="md-media-lg card-media">
+                      <img ng-src="img/user.png" />
+                    </div>
+                  </md-card-title-media>
                 </md-card-title>
-                <md-tab>
-                    {{user.image}}
-                </md-tab>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-href="#!/user/{{user._id}}">Full Profile</md-button>
+                    <md-button ng-href="#!/user/{{storageuser._id}}">Full Profile</md-button>
                 </md-card-actions>
             </md-card>
         </div><!-- end of COLUMN -->

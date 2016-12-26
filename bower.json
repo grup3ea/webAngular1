@@ -10,11 +10,12 @@
     "angular-route": "1.5.9",
     "angular-loader": "1.5.9",
     "angular-mocks": "1.5.9",
-    "bootstrap":"3.3.6",
+    "bootstrap": "3.3.6",
     "fontawesome": "4.7.0",
     "angular-ui-calendar": "latest",
     "angular-material": "^1.1.1",
     "angular-chart.js": "^1.0.3",
-    "jquery": "latest"
+    "jquery": "latest",
+    "cloudinary_ng": "^1.0.0"
   }
 }
