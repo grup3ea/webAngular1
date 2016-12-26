@@ -24,6 +24,30 @@ angular.module('myApp.editTrainer', ['ngRoute'])
             discipline: '',
             description: ''
         }];
-        $scope.editProfile = function () {
+        $scope.editTrainerProfile = function () {
+            var trainer = {
+                "trainerModel": {
+                    "name": $scope.trainer.name,
+                    "description": $scope.trainer.description,
+                    "email": $scope.trainer.email,
+                    "discipline": $scope.trainer.discipline,
+                }
+            };
+            $http({
+                url: urlapi + 'trainer/' + $routeParams.trainerid,
+                method: "PUT",
+                data: trainer
+            })
+                .then(function (response) {
+                        $scope.trainer = response.data;
+                    },
+                    function () {
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent('Failed on updating trainer')
+                                .position("bottom right")
+                                .hideDelay(3000)
+                        );
+                    });
         };
     });

@@ -183,6 +183,21 @@ trainer
             </md-card>
         </div><!-- end of COLUMN -->
         <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
+            <md-card flex-xs flex-gt-xs="40">
+                <md-card-title>
+                    <md-card-title-text>
+            <span class="md-headline">
+              Trainer Profile
+            </span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-tab>
+                    {{user.image}}
+                </md-tab>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-href="#!/user/{{user._id}}">Full Profile</md-button>
+                </md-card-actions>
+            </md-card>
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
