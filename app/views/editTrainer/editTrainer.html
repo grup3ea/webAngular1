@@ -7,13 +7,13 @@
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='trainer'">
         </md-card-actions>
-        <md-tabs md-dynamic-height md-border-bottom>
-            <md-tab label="{{trainer.name}}">
+        <md-list md-dynamic-height md-border-bottom>
+            <md-list-item label="{{trainer.name}}">
                 <md-content class="md-padding">
-                    <h2 class="md-display-2">Trainer</h2>
+                    <h2 class="md-display-1">Trainer</h2>
                 </md-content>
-            </md-tab>
-            <md-tab label="Trainer" ng-show="storageuser.role=='trainer'">
+            </md-list-item>
+            <md-list-item label="Trainer" ng-show="storageuser.role=='trainer'">
                 <md-content class="md-padding">
                     <md-input-container class="md-block" flex-gt-sm="">
                         <label>New Name</label>
@@ -23,20 +23,21 @@
                         <label>New Email</label>
                         <input ng-model="trainer.email">
                     </md-input-container>
-            </md-tab>
-            <md-tab>
+            </md-list-item>
+            <md-list-item>
                 <md-input-container class="md-block" flex-gt-sm="">
                     <label>Description</label>
-                    <textarea ng-model="trainer.description" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
+                    <textarea ng-model="trainer.description" md-maxlength="150" rows="5"
+                              md-select-on-focus=""></textarea>
                 </md-input-container>
-            </md-tab>
+            </md-list-item>
             <md-input-container class="md-block">
                 <label>Avatar</label>
                 <md-button aria-label="upload image">Upload...</md-button>
                 <input ng-model="trainer.image">
             </md-input-container>
             <md-button ng-click="editTrainerProfile()"><h3>Save Changes</h3></md-button>
-        </md-tabs>
+        </md-list>
     </md-card>
 </md-content>
 </div>

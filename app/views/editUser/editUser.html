@@ -13,14 +13,14 @@
                     <h4 class="md-display-1">User</h4>
                 </md-content>
             </md-list-item>
-            <md-list-item label="User" ng-show="storageuser.role=='client'">
+            <md-list-item label="User" ng-show="storageuser.role=='user'">
                 <md-content class="md-padding">
                     <md-input-container class="md-block" flex-gt-sm="">
-                        <label>{{user.name}}New Name</label>
+                        <label>New Name</label>
                         <input ng-model="user.name">
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-sm="">
-                        <label>{{user.email}}New Email</label>
+                        <label>New Email</label>
                         <input ng-model="user.email">
                     </md-input-container>
             </md-list-item>
@@ -49,11 +49,11 @@
                         <p>Gender: {{user.attributes.gender}}</p>
                         <p>New Gender: <input ng-model="user.attributes.gender"></p>
                         <p>Age: {{user.attributes.age}}</p>
-                        <p>New Age:<input ng-model="user.attributes.age"></p>
+                        <p>New Age:    <input ng-model="user.attributes.age"></p>
                     </div>
                 </md-list-item>
             </md-list-item>
-                <md-button ng-click="updateUser()" class="md-raised md-primary"><h3>Save Changes</h3></md-button>
+            <md-button ng-click="updateUser()" class="md-raised md-primary"><h3>Save Changes</h3></md-button>
         </md-list>
     </md-card>
 </md-content>
