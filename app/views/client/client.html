@@ -17,9 +17,17 @@
         </md-card-actions>
         <md-card-content ng-show="client.routines">
           Client routines:
-          <div ng-repeat="routine in client.routines">
-            {{routine.title}}
-          </div>
+          <md-list flex>
+              <md-list-item class="md-3-line" ng-repeat="routine in client.routines" ng-click="null"
+                            ng-href="#!/editRoutine/{{routine._id}}">
+                  <img ng-src="img/routine.png" class="md-avatar" alt="{{item.who}}"/>
+                  <div class="md-list-item-text" layout="column">
+                      <h3>{{routine.title}}</h3>
+                      <h4>{{routine.description}}</h4>
+                      <p>{{routine.price}}</p>
+                  </div>
+              </md-list-item>
+          </md-list>
         </md-card-content>
       </md-card>
   </md-content>

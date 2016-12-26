@@ -36,29 +36,6 @@
 }
 
 
-.o-imgSelectAvatar{
-  width: 45px!important;
-  height: 45px!important;
-}
-
-.o-sidenav{
-  position: fixed;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
-
-  width: 170px;
-
-  left: 0;
-  top: 0;
-
-  z-index: 60;
-
-  height: 100%;
-}
-
 
 /* Table of Content
 ==================================================
@@ -263,7 +240,7 @@ img {
  	display: inline-block;
  	font-weight: 700;
  	font-size: 35px;
- 	margin-top: 5px;	
+ 	margin-top: 5px;
 }
 .mu-main-navbar .navbar-header .navbar-brand-small {
   height: 20px;
@@ -983,8 +960,8 @@ RESERVATION SECTION
 
 .portfolio-detail{
 	display: none;
-	float: left;	
-	text-align: center;	
+	float: left;
+	text-align: center;
 	width: 100%;
 }
 
@@ -1046,7 +1023,7 @@ display: flex;
 .portfolio-popup-inner h2{
 	color: #000;
 	margin-bottom: 10px;
-	margin-top: 15px;	
+	margin-top: 15px;
 }
 
 .modal-close-btn{
@@ -1094,7 +1071,7 @@ display: flex;
 	border-color: #000;
 	color: #000;
 	text-decoration: none;
-	
+
 }
 
 
@@ -2190,7 +2167,7 @@ display: flex;
 		padding-top: 27.3%;
 	}
 	/*   portfolio plugin */
-	
+
 	.portfolio-popup-area {
 		padding: 20px 5%;
 	}
@@ -2310,8 +2287,8 @@ display: flex;
   }
  	/*   edited v1.1 */
 	.mu-main-navbar .navbar-header .navbar-brand span{
-		margin-top: 2px;	
-		padding-left: 10px;	
+		margin-top: 2px;
+		padding-left: 10px;
 	}
 }
 @media (max-width: 640px) {
@@ -2372,18 +2349,18 @@ display: flex;
   #mu-blog-banner .mu-blog-banner-area {
     min-height: 220px;
   }
-  
+
    /*   edited v1.1 */
 	#mu-gallery .mu-gallery-area .mu-gallery-content .mu-gallery-body .mu-single-gallery .mu-single-gallery-item .mu-single-gallery-info {
 		padding-top: 36.3%;
 	}
-	
+
 	/* 	portfolio plugin */
-	
+
 	#portfolio-popup.portfolio-popup-show{
 		display: block;
 	}
-	
+
 	.portfolio-popup-inner img {
 		max-width: 80%;
 	}
@@ -2499,19 +2476,19 @@ display: flex;
   #mu-restaurant-menu .mu-restaurant-menu-area .mu-restaurant-menu-content .mu-restaurant-menu li {
     margin-bottom: 10px;
   }
-  .mu-blog-related-post .mu-blog-related-post-area {   
-    margin-top: 30px;   
+  .mu-blog-related-post .mu-blog-related-post-area {
+    margin-top: 30px;
   }
    /*   portfolio plugin */
   .portfolio-popup-inner img {
 		max-width: 80%;
 		padding-top: 50px;
 	}
-	
+
 	.portfolio-popup-inner h2{
-		font-size: 20px;	
+		font-size: 20px;
 	}
-	
+
 	.portfolio-popup-inner p{
 		font-size: 14px;
 	}
@@ -2647,7 +2624,7 @@ display: flex;
   #mu-blog-banner .mu-blog-banner-area {
     padding: 25% 0;
   }
-  .mu-news-single .mu-news-single-content .mu-meta-nav li {   
+  .mu-news-single .mu-news-single-content .mu-meta-nav li {
     border-right: none;
   }
 }

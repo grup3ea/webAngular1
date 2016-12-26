@@ -1,5 +1,5 @@
-<div ng-controller="SidenavCtrl">
-  <div ng-show="storageuser" class="o-sidenav md-whiteframe-4dp">
+<div ng-controller="SidenavCtrl" ng-show="storageuser">
+  <div class="o_sidenav md-whiteframe-4dp">
         <md-content style="position: relative; top: 100px;">
           <md-list flex>
             <md-list-item class="md-2-line" ng-repeat="option in options" ng-href="#!{{option.link}}">
@@ -17,17 +17,17 @@
           </md-list>
         </md-content>
   </div>
-<md-toolbar md-colors="{background: 'teal'}">
-  <div class="md-toolbar-tools">
-  <h2>FoodSports</h2>
-  <span flex="75"></span>
-  <md-list-item flex class="md-2-line contact-item">
-    <img ng-src="img/user.png" class="md-avatar" alt="{{contact.name}}" />
-    <div class="md-list-item-text compact">
-      <h3>{{storageuser.name}}</h3>
-      <p>{{storageuser.points.total}} points</p>
+  <md-toolbar md-colors="{background: 'teal'}">
+    <div class="md-toolbar-tools">
+      <h2>FoodSports</h2>
+      <span flex="75"></span>
+      <md-list-item flex class="md-2-line contact-item">
+        <img ng-src="img/user.png" class="md-avatar" alt="{{contact.name}}" />
+        <div class="md-list-item-text compact">
+          <h3>{{storageuser.name}}</h3>
+          <p>{{storageuser.points.total}} points</p>
+        </div>
+      </md-list-item>
     </div>
-  </md-list-item>
-</div>
-</md-toolbar>
+  </md-toolbar>
 </div>
