@@ -117,7 +117,7 @@ angular.module('myApp.editRoutine', ['ngRoute', 'ngFileUpload'])
                     file: file
                   },
                   headers: {
-                   'Content-Type': undefined
+                   'X-Access-Token': undefined
                   },
                 }).progress(function (e) {
                   file.progress = Math.round((e.loaded * 100.0) / e.total);

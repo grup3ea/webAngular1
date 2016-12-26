@@ -48,7 +48,7 @@ angular.module('myApp', [
         $routeProvider.otherwise({redirectTo: '/login'});
       }
     }
-    $httpProvider.interceptors.push('httpInterceptor');
+    //$httpProvider.interceptors.push('httpInterceptor');
 }])
 .config(['cloudinaryProvider', function (cloudinaryProvider) {
   cloudinaryProvider
@@ -77,8 +77,8 @@ angular.module('myApp', [
 .factory('api', function ($http) {
 	return {
 		init: function () {
-			$http.defaults.headers.common['X-Access-Token'] = localStorage.getItem("fs_web_token");
-			$http.defaults.headers.post['X-Access-Token'] = localStorage.getItem("fs_web_token");
+      $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem("fs_web_token");
+      $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem("fs_web_token");
 		}
 	};
 })
