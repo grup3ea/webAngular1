@@ -7,6 +7,7 @@ var urlapi = "http://localhost:3005/api/";
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
     'ngRoute',
+    'cloudinary',
     'ngMaterial',
     'myApp.sidenav',
     'myApp.main',
@@ -48,7 +49,13 @@ angular.module('myApp', [
       }
     }
     $httpProvider.interceptors.push('httpInterceptor');
-}]).factory('httpInterceptor', function httpInterceptor ($q, $window, $location) {
+}])
+.config(['cloudinaryProvider', function (cloudinaryProvider) {
+  cloudinaryProvider
+      .set("cloud_name", "dr9eawlpy")
+      .set("upload_preset", "wbb0h4me");
+}])
+.factory('httpInterceptor', function httpInterceptor ($q, $window, $location) {
   return {
     request: function(config) {
       return config;

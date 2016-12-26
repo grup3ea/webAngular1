@@ -1,12 +1,12 @@
 'use strict';
-angular.module('myApp.editRoutine', ['ngRoute'])
+angular.module('myApp.editRoutine', ['ngRoute', 'ngFileUpload'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/editRoutine/:routineid', {
             templateUrl: 'views/editRoutine/editRoutine.html',
             controller: 'EditRoutineCtrl'
         });
     }])
-    .controller('EditRoutineCtrl', function ($scope, $http, $routeParams, $mdToast) {
+    .controller('EditRoutineCtrl', function ($scope, $http, $routeParams, $mdToast, $rootScope, $location, Upload, cloudinary) {
         /*if (localStorage.getItem('fs_web_token')) {// adding token to the headers
          $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
          //el .common serveix per als gets
@@ -29,15 +29,7 @@ angular.module('myApp.editRoutine', ['ngRoute'])
             })
             .then(function (result) {
             });
-        $scope.exercises = [{
-            title: '',
-            description: '',
-            img: '',
-            weight: '',
-            distance: '',
-            reps: '',
-            series: ''
-        }];
+        $scope.exercises = [{}];
         $scope.addExercise = function () {
             $scope.exercises.push({
                 title: '',
@@ -46,7 +38,8 @@ angular.module('myApp.editRoutine', ['ngRoute'])
                 weight: '',
                 distance: '',
                 reps: '',
-                series: ''
+                series: '',
+                imgfile: {}
             });
         };
         $scope.delExercise = function (exerciseToDel) {
@@ -99,4 +92,45 @@ angular.module('myApp.editRoutine', ['ngRoute'])
                         );
                     });
         };
+
+
+
+
+
+        /* cloudinary */
+          $scope.uploadFiles = function(files){
+
+            var d = new Date();
+            $scope.title = "Image (" + d.getDate() + " - " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")";
+
+            $scope.files = files;
+            if (!$scope.files) return;
+            angular.forEach(files, function(file){
+              if (file && !file.$error) {
+                console.log(file);
+                file.upload = Upload.upload({
+                  url: "https://api.cloudinary.com/v1_1/" + cloudinary.config().cloud_name + "/upload",
+                  data: {
+                    upload_preset: cloudinary.config().upload_preset,
+                    tags: 'myphotoalbum',
+                    context: 'photo=' + $scope.title,
+                    file: file
+                  },
+                  headers: {
+                   'Content-Type': undefined
+                  },
+                }).progress(function (e) {
+                  file.progress = Math.round((e.loaded * 100.0) / e.total);
+                  file.status = "Uploading... " + file.progress + "%";
+                }).success(function (data, status, headers, config) {
+                  $rootScope.photos = $rootScope.photos || [];
+                  data.context = {custom: {photo: $scope.title}};
+                  file.result = data;
+                  $rootScope.photos.push(data);
+                }).error(function (data, status, headers, config) {
+                  file.result = data;
+                });
+              }
+            });
+          };
     });
