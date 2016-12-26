@@ -20,11 +20,11 @@
         <md-card-content>
         <md-list flex>
             <h2 class="md-headline">User trainers:</h2>
-            <md-list-item class="md-3-line" ng-repeat="trainer in user.trainers">
+            <md-list-item class="md-3-line" ng-repeat="trainer in user.trainers ">
                 <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}"/>
                 <div class="md-list-item-text" layout="column">
-                    <h4>{{user.trainer.name}}</h4>
-                    <h4>{{user.trainer.discipline}}</h4>
+                    <h4>{{user.trainers.name}}</h4>
+                    <h4>{{user.trainers.discipline}}</h4>
                 </div>
             </md-list-item>
         </md-list>
