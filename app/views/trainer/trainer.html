@@ -3,10 +3,10 @@
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">
-              {{trainer.name}}
+              <b>{{trainer.name}}</b>
             </span>
             <span class="md-subhead">
-              {{trainer.discipline}}
+              <i>{{trainer.discipline}}</i>
             </span>
           </md-card-title-text>
         </md-card-title>
@@ -14,9 +14,9 @@
           <md-button>Send message</md-button>
           <md-button ng-click="sendPetition()">Ask for routine (send petition)</md-button>
         </md-card-actions>
-
+        <md-card-content>
         <md-list flex>
-          Trainer clients:
+          <h3>Trainer clients</h3>
           <md-list-item class="md-3-line" ng-repeat="client in trainer.clients">
             <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
             <div class="md-list-item-text" layout="column">
@@ -26,6 +26,7 @@
             </div>
           </md-list-item>
         </md-list>
+        </md-card-content>
       </md-card>
     <md-card-actions layout="row" layout-align="end center">
       <md-button ng-href="#!/editTrainer/{{trainer._id}}">Edit Profile</md-button>
