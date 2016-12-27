@@ -21,7 +21,7 @@
           <md-list class="md-dense" flex>
             <md-subheader class="md-no-sticky">{{day.description}}</md-subheader>
             <md-list-item class="md-3-line" ng-repeat="exercise in day.exercises">
-              <img ng-src="img/exercise.png" class="md-avatar" alt="{{item.who}}" />
+              <img ng-src="{{exercise.img}}" class="md-avatar" alt="{{item.who}}" />
               <div class="md-list-item-text" layout="column">
                 <h3>{{exercise.title}}</h3>
                 <h4>{{exercise.description}}</h4>

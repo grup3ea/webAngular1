@@ -98,14 +98,13 @@ angular.module('myApp.editRoutine', ['ngRoute', 'ngFileUpload'])
 
 
         /* cloudinary */
-          $scope.uploadFiles = function(files){
-
+          $scope.uploadFile = function(file, index){
+            console.log(index);
             var d = new Date();
             $scope.title = "Image (" + d.getDate() + " - " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")";
 
-            $scope.files = files;
-            if (!$scope.files) return;
-            angular.forEach(files, function(file){
+            $scope.exercises[index].imgfile = file;
+            if (!$scope.exercises[index].imgfile) return;
               if (file && !file.$error) {
                 console.log(file);
                 file.upload = Upload.upload({
@@ -123,6 +122,8 @@ angular.module('myApp.editRoutine', ['ngRoute', 'ngFileUpload'])
                   file.progress = Math.round((e.loaded * 100.0) / e.total);
                   file.status = "Uploading... " + file.progress + "%";
                 }).success(function (data, status, headers, config) {
+                  console.log(data.url);
+                  $scope.exercises[index].img=data.url;
                   $rootScope.photos = $rootScope.photos || [];
                   data.context = {custom: {photo: $scope.title}};
                   file.result = data;
@@ -131,6 +132,5 @@ angular.module('myApp.editRoutine', ['ngRoute', 'ngFileUpload'])
                   file.result = data;
                 });
               }
-            });
           };
     });
