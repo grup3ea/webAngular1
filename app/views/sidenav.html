@@ -22,7 +22,8 @@
       <h2>FoodSports</h2>
       <span flex="75"></span>
       <md-list-item flex class="md-2-line contact-item">
-        <img ng-src="img/user.png" class="md-avatar" alt="{{contact.name}}" />
+        <img ng-hide="storageuser.avatar" ng-src="img/user.png" class="md-avatar" alt="{{contact.name}}" />
+        <img ng-show="storageuser.avatar" ng-src="{{storageuser.avatar}}" class="md-avatar" alt="{{contact.name}}" />
         <div class="md-list-item-text compact">
           <h3>{{storageuser.name}}</h3>
           <p>{{storageuser.points.total}} points</p>

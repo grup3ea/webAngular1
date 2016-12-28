@@ -6,7 +6,7 @@ angular.module('myApp.editUser', ['ngRoute'])
             controller: 'EditUserCtrl'
         });
     }])
-    .controller('EditUserCtrl', function ($scope, $http, $routeParams, $mdToast) {
+    .controller('EditUserCtrl', function ($scope, $http, $routeParams, $mdToast, $rootScope, $location, Upload, cloudinary) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         if ($scope.storageuser.role != "user") {
             window.location = "#!/dashboard";
@@ -15,6 +15,8 @@ angular.module('myApp.editUser', ['ngRoute'])
         $http.get(urlapi + 'users/' + $routeParams.userid)
             .then(function (data) {
                 $scope.user = data.data;
+                localStorage.setItem("fs_web_userdata", JSON.stringify(data.data));
+                $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
             }, function (data, status) {
             })
             .then(function (result) {
@@ -29,6 +31,8 @@ angular.module('myApp.editUser', ['ngRoute'])
                 .then(function (response) {
                   console.log(response);
                         $scope.user = response.data;
+                        localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
+                        $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
                         $mdToast.show(
                             $mdToast.simple()
                                 .textContent('User updated')
@@ -45,4 +49,41 @@ angular.module('myApp.editUser', ['ngRoute'])
                         );
                     });
         };
+
+        /* cloudinary */
+          $scope.uploadFile = function(file, index){
+            console.log(index);
+            var d = new Date();
+            $scope.title = "Image (" + d.getDate() + " - " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")";
+
+            $scope.user.imgfile = file;
+            if (!$scope.user.imgfile) return;
+              if (file && !file.$error) {
+                console.log(file);
+                file.upload = Upload.upload({
+                  url: "https://api.cloudinary.com/v1_1/" + cloudinary.config().cloud_name + "/upload",
+                  data: {
+                    upload_preset: cloudinary.config().upload_preset,
+                    tags: 'myphotoalbum',
+                    context: 'photo=' + $scope.title,
+                    file: file
+                  },
+                  headers: {
+                   'X-Access-Token': undefined
+                  },
+                }).progress(function (e) {
+                  file.progress = Math.round((e.loaded * 100.0) / e.total);
+                  file.status = "Uploading... " + file.progress + "%";
+                }).success(function (data, status, headers, config) {
+                  console.log(data.url);
+                  $scope.user.avatar=data.url;
+                  $rootScope.photos = $rootScope.photos || [];
+                  data.context = {custom: {photo: $scope.title}};
+                  file.result = data;
+                  $rootScope.photos.push(data);
+                }).error(function (data, status, headers, config) {
+                  file.result = data;
+                });
+              }
+          };/* end of cloudinary */
     });

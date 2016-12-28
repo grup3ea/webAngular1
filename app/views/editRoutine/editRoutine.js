@@ -132,5 +132,5 @@ angular.module('myApp.editRoutine', ['ngRoute', 'ngFileUpload'])
                   file.result = data;
                 });
               }
-          };
+          };/* end of cloudinary */
     });
