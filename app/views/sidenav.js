@@ -28,6 +28,7 @@ angular.module('myApp.sidenav', ['ngRoute'])
          posat aquí al menú */
         $scope.loginData = {};
         var pathImg = "img/essential/";
+
         $scope.options = [
             {
                 title: "Dashboard",
@@ -38,7 +39,7 @@ angular.module('myApp.sidenav', ['ngRoute'])
             {
                 title: "Profile",
                 description: "description",
-                link: "/user/" +$scope.storageuser._id,
+                link: "/"+$scope.storageuser.role +"/" +$scope.storageuser._id,
                 icon: pathImg + "user.png"
             },
             {

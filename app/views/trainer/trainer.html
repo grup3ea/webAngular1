@@ -14,6 +14,9 @@
           <md-button>Send message</md-button>
           <md-button ng-click="sendPetition()">Ask for routine (send petition)</md-button>
         </md-card-actions>
+        <md-card-actions ng-show="storageuser.role=='trainer'" layout="row" layout-align="end center">
+          <md-button ng-href="#!/editTrainer/{{trainer._id}}">Edit Profile</md-button>
+        </md-card-actions>
         <md-card-content>
         <md-list flex>
           <h3>Trainer clients</h3>
@@ -28,8 +31,5 @@
         </md-list>
         </md-card-content>
       </md-card>
-    <md-card-actions layout="row" layout-align="end center">
-      <md-button ng-href="#!/editTrainer/{{trainer._id}}">Edit Profile</md-button>
-    </md-card-actions>
   </md-content>
 </div>
