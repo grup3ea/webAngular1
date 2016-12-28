@@ -52,17 +52,25 @@
             <div layout-gt-sm="row">
                 <md-list-item label="Attributes">
                     <md-list-item class="md-2-line">
-                        <div class="md-list-item-text" layout="column">
-                            <p>Height: {{user.attributes.height}}</p>
-                            <p>New Height: <input ng-model="user.attributes.height"></p>
-                            <p>Weight: {{user.attributes.weight}}</p>
-                            <p>New Weight: <input ng-model="user.attributes.weight"></p>
-                            <p>Gender: {{user.attributes.gender}}</p>
-                            <p>New Gender: <input ng-model="user.attributes.gender"></p>
-                            <p>Age: {{user.attributes.age}}</p>
-                            <p>New Age: <input ng-model="user.attributes.age"></p>
+                        <div class="md-list-item-text" layout="row">
                             <md-input-container>
-                                <label>Enter date</label>
+                                <label>Height</label>
+                                <input ng-model="user.attributes.height">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Weight</label>
+                                <input ng-model="user.attributes.weight">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Gender</label>
+                                <input ng-model="user.attributes.gender">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Age</label>
+                                <input ng-model="user.attributes.age">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Enter date</label><!-- això no sé q és, el user.age fora del attributes no està definit al model del backend -->
                                 <md-datepicker ng-model="user.age"></md-datepicker>
                             </md-input-container>
                         </div>
@@ -70,10 +78,10 @@
                 </md-list-item>
             </div>
             <md-input-container class="md-block">
-            <md-button ng-click="updateUser()" class="md-raised md-primary"><h3>Save Changes</h3></md-button>
+            <md-button ng-click="updateUser()" class="md-raised md-primary">
+              Save Changes
+            </md-button>
             </md-input-container>
         </form>
     </div>
 </md-content>
-
-

@@ -6,53 +6,35 @@ angular.module('myApp.editUser', ['ngRoute'])
             controller: 'EditUserCtrl'
         });
     }])
-    .controller('EditUserCtrl', function ($scope, $http, $routeParams) {
+    .controller('EditUserCtrl', function ($scope, $http, $routeParams, $mdToast) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         if ($scope.storageuser.role != "user") {
             window.location = "#!/dashboard";
         };
-
-        $http.get(urlapi + 'user/' + $routeParams.userid)
+        $scope.user={};
+        $http.get(urlapi + 'users/' + $routeParams.userid)
             .then(function (data) {
-                $scope.routine = data.data;
+                $scope.user = data.data;
             }, function (data, status) {
             })
             .then(function (result) {
             });
-        $scope.user = [{
-            name: '',
-            email: '',
-            description: '',
-            image: '',
-            attributes: [{
-                weight: '',
-                height: '',
-                gender: '',
-                age: ''
-            }]
-        }];
+
         $scope.updateUser = function () {
-            var user = {
-                "userModel": {
-                    "name": $scope.user.name,
-                    "description": $scope.user.description,
-                    "email": $scope.user.email,
-                    "image": $scope.user.image,
-                    "attributes": {
-                        "weight" : $scope.user.attributes.weight,
-                        "height" : $scope.user.attributes.height,
-                        "gender" : $scope.user.attributes.gender,
-                        "age" : $scope.user.attributes.age,
-                    }
-                }
-            };
             $http({
-                url: urlapi + 'user/' + $routeParams.userid,
+                url: urlapi + 'users/' + $routeParams.userid,
                 method: "PUT",
-                data: user
+                data: $scope.user
             })
                 .then(function (response) {
+                  console.log(response);
                         $scope.user = response.data;
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent('User updated')
+                                .position("bottom right")
+                                .hideDelay(3000)
+                        );
                     },
                     function () {
                         $mdToast.show(
