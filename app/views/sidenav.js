@@ -51,7 +51,7 @@ angular.module('myApp.sidenav', ['ngRoute'])
             {
                 title: "Diet",
                 description: "description",
-                link: "/diet",
+                link: "/userDiet",
                 icon: pathImg + "apple.png"
             },
             {

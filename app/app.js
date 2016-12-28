@@ -22,6 +22,7 @@ angular.module('myApp', [
     'myApp.editRoutine',
     'myApp.user',
     'myApp.client',
+    'myApp.userDiet',
     'myApp.diet',
     'myApp.training',
     'myApp.settings',

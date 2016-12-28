@@ -1,0 +1,18 @@
+<h3>Diet - pàgina de la dieta que té l'user triada</h3>
+<p>
+  Aquí es veu la dieta. Si encara no tens dieta assignada, veus les opcions de dieta a triar.
+</p>
+
+<md-content>
+  <h3>Diets</h3>
+  <md-list flex>
+    <md-list-item class="md-3-line" ng-repeat="diet in diets" ng-click="null" ng-href="#!/diet/{{diet._id}}">
+      <img ng-src="img/user.png" class="md-avatar"/>
+      <div class="md-list-item-text" layout="column">
+        <h3>{{diet.name}}</h3>
+        <h4>{{diet.description}}</h4>
+        <p>{{diet.day}}</p>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>
