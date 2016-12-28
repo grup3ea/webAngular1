@@ -209,7 +209,8 @@ trainer
                 </md-card-title-text>
                 <md-card-title-media>
                   <div class="md-media-lg card-media">
-                    <img ng-src="img/user.png" />
+                    <img ng-hide="storageuser.avatar" ng-src="img/user.png" />
+                    <img ng-show="storageuser.avatar" ng-src="{{storageuser.avatar}}" />
                   </div>
                 </md-card-title-media>
               </md-card-title>
