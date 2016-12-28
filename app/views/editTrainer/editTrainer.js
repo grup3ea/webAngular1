@@ -6,40 +6,36 @@ angular.module('myApp.editTrainer', ['ngRoute'])
             controller: 'EditTrainerCtrl'
         });
     }])
-    .controller('EditTrainerCtrl', function ($scope, $http, $routeParams) {
+    .controller('EditTrainerCtrl', function ($scope, $http, $routeParams, $mdToast, $rootScope, $location, Upload, cloudinary) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         if ($scope.storageuser.role != "trainer") {
             window.location = "#!/dashboard";
         }
-        $http.get(urlapi + 'trainer/' + $routeParams.trainerid)
+        $scope.trainer={};
+        $http.get(urlapi + 'trainers/' + $routeParams.trainerid)
             .then(function (data) {
                 $scope.trainer = data.data;
             }, function (data, status) {
             })
             .then(function (result) {
             });
-        $scope.trainer = [{
-            name: '',
-            email: '',
-            discipline: '',
-            description: ''
-        }];
-        $scope.editTrainerProfile = function () {
-            var trainer = {
-                "trainerModel": {
-                    "name": $scope.trainer.name,
-                    "description": $scope.trainer.description,
-                    "email": $scope.trainer.email,
-                    "discipline": $scope.trainer.discipline,
-                }
-            };
+
+        $scope.updateTrainer = function () {
             $http({
-                url: urlapi + 'trainer/' + $routeParams.trainerid,
+                url: urlapi + 'trainers/' + $routeParams.trainerid,
                 method: "PUT",
-                data: trainer
+                data: $scope.trainer
             })
                 .then(function (response) {
                         $scope.trainer = response.data;
+                        localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
+                        $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent('Trainer updated')
+                                .position("bottom right")
+                                .hideDelay(3000)
+                        );
                     },
                     function () {
                         $mdToast.show(
@@ -50,4 +46,41 @@ angular.module('myApp.editTrainer', ['ngRoute'])
                         );
                     });
         };
+
+        /* cloudinary */
+          $scope.uploadFile = function(file, index){
+            console.log(index);
+            var d = new Date();
+            $scope.title = "Image (" + d.getDate() + " - " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")";
+
+            $scope.trainer.imgfile = file;
+            if (!$scope.trainer.imgfile) return;
+              if (file && !file.$error) {
+                console.log(file);
+                file.upload = Upload.upload({
+                  url: "https://api.cloudinary.com/v1_1/" + cloudinary.config().cloud_name + "/upload",
+                  data: {
+                    upload_preset: cloudinary.config().upload_preset,
+                    tags: 'myphotoalbum',
+                    context: 'photo=' + $scope.title,
+                    file: file
+                  },
+                  headers: {
+                   'X-Access-Token': undefined
+                  },
+                }).progress(function (e) {
+                  file.progress = Math.round((e.loaded * 100.0) / e.total);
+                  file.status = "Uploading... " + file.progress + "%";
+                }).success(function (data, status, headers, config) {
+                  console.log(data.url);
+                  $scope.trainer.avatar=data.url;
+                  $rootScope.photos = $rootScope.photos || [];
+                  data.context = {custom: {photo: $scope.title}};
+                  file.result = data;
+                  $rootScope.photos.push(data);
+                }).error(function (data, status, headers, config) {
+                  file.result = data;
+                });
+              }
+          };/* end of cloudinary */
     });

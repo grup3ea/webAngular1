@@ -42,7 +42,8 @@
                   </md-card-title-text>
                   <md-card-title-media>
                     <div class="md-media-lg card-media">
-                      <img ng-src="img/user.png" />
+                      <img ng-hide="storageuser.avatar" ng-src="img/user.png" />
+                      <img ng-show="storageuser.avatar" ng-src="{{storageuser.avatar}}" />
                     </div>
                   </md-card-title-media>
                 </md-card-title>
@@ -132,7 +133,8 @@ trainer
                 <md-list flex>
                     <md-list-item class="md-3-line" ng-repeat="client in storageuser.clients"
                                   ng-href="#!/client/{{client.client._id}}">
-                        <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}"/>
+                        <img  ng-hide="client.client.avatar" ng-src="img/user.png" class="md-avatar"/>
+                        <img  ng-show="client.client.avatar" ng-src="{{client.client.avatar}}" class="md-avatar" alt="{{item.who}}"/>
                         <div class="md-list-item-text" layout="column">
                             <h3>{{client.client.name}}</h3>
                             <h4>{{client.client.email}}</h4>

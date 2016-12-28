@@ -8,6 +8,19 @@
             <span class="md-subhead">
               {{routine.description}}
             </span>
+            <span class="md-headline">
+              <h3>Trainer:</h3>
+              <md-list-item class="md-3-line"
+                            ng-href="#!/trainer/{{routine.trainer._id}}">
+                  <img ng-hide="routine.trainer.avatar" ng-src="img/user.png" class="md-avatar"/>
+                  <img ng-show="routine.trainer.avatar" ng-src="{{routine.trainer.avatar}}" class="md-avatar" alt="{{item.who}}"/>
+                  <div class="md-list-item-text" layout="column">
+                      <h3>{{routine.trainer.name}}</h3>
+                      <h4>{{routine.trainer.email}}</h4>
+                      <p>{{routine.trainer.discipline}}</p>
+                  </div>
+              </md-list-item>
+            </span>
           </md-card-title-text>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='trainer'">
