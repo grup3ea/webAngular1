@@ -15,6 +15,8 @@ angular.module('myApp.diet', ['ngRoute'])
             $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');
 
         }*/
+        $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+
         $scope.diet = {};
       $http.get(urlapi + 'diets/' + $routeParams.dietid)
           .then(function (data) {

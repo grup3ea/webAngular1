@@ -5,9 +5,12 @@
             <span class="md-headline">
               Diet Title: {{diet.title}}
             </span>
+            <span class="md-subhead">
+              Description: {{diet.description}}
+            </span>
             <span class="md-headline">
               <md-list-item class="md-3-line"
-                            ng-href="#!/client/{{diet.client._id}}">
+                            ng-href="#!/client/{{diet.client._id}}" ng-show="diet.clients">
                   <img ng-hide="diet.client.avatar" ng-src="img/user.png" class="md-avatar"/>
                   <img ng-show="diet.client.avatar" ng-src="{{diet.client.avatar}}" class="md-avatar" alt="{{item.who}}"/>
                   <div class="md-list-item-text" layout="column">
@@ -17,9 +20,6 @@
                       <p>points: {{diet.client.points.total}}</p>
                   </div>
               </md-list-item>
-            </span>
-            <span class="md-subhead">
-              Description: {{diet.description}}
             </span>
           </md-card-title-text>
         </md-card-title>
@@ -57,7 +57,7 @@
 						<label>New day description</label>
 						<input ng-model="newDay.description">
 					</md-input-container>
-          <p>Exercises</p>
+          <p>Meals</p>
           <hr>
           <div ng-repeat="exercise in exercises" layout="row">
             <md-input-container class="md-block" flex-gt-sm class="md-block">

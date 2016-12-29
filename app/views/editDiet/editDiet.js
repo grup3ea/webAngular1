@@ -13,7 +13,7 @@ angular.module('myApp.editDiet', ['ngRoute', 'ngFileUpload'])
          $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');
          }*/
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-        if ($scope.storageuser.role != "trainer") {
+        if ($scope.storageuser.role != "chef") {
             window.location = "#!/dashboard";
         }
         $scope.diet = {};
@@ -29,5 +29,5 @@ angular.module('myApp.editDiet', ['ngRoute', 'ngFileUpload'])
             })
             .then(function (result) {
             });
-        
+
     });

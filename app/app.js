@@ -24,6 +24,7 @@ angular.module('myApp', [
     'myApp.client',
     'myApp.userDiet',
     'myApp.diet',
+    'myApp.editDiet',
     'myApp.training',
     'myApp.settings',
     'ui.calendar'
