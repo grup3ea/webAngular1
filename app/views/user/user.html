@@ -1,9 +1,15 @@
+
 <md-content class="md-padding" layout-xs="column" layout="column">
     <md-card>
+        <md-toolbar layout="row" class="md-hue-4">
+            <div class="md-toolbar-tools">
+                <span>User Profile</span>
+            </div>
+        </md-toolbar>
         <md-card-title>
             <md-card-title-text>
             <span class="md-headline" style="font-weight: bold">
-              {{user.name}}
+              Name: {{user.name}}
             </span>
                 <span class="md-subhead">
               {{user.description}}
@@ -16,7 +22,6 @@
             </span>
             </md-card-title-text>
         </md-card-title>
-
         <md-card-content>
         <md-list flex>
             <h2 class="md-headline">User trainers</h2>
@@ -47,22 +52,36 @@
                     <h4>{{diet.description}}</h4>
                 </div>
             </md-list-item>
+
         </md-list>
-        <h2 class="md-headline">User attributes</h2>
-        <md-tab label="Attributes">
-            <md-list-item class="md-2-line">
-                <div class="md-list-item-text" layout="column">
-                    <p>Height: {{user.attributes.height}}</p>
-                    <p>New Height: <input ng-model="user.attributes.height"></p>
-                    <p>Weight: {{user.attributes.weight}}</p>
-                    <p>New Weight: <input ng-model="user.attributes.height"></p>
-                    <p>Gender: {{user.attributes.gender}}</p>
-                    <p>New Gender: <input ng-model="user.attributes.gender"></p>
-                    <p>Age: {{user.attributes.age}}</p>
-                    <p>New Age: <input ng-model="user.attributes.age"></p>
-                </div>
-            </md-list-item>
-        </md-tab>
+            <h2 class="md-headline">User attributes</h2>
+            <md-list class="md-dense" flex>
+                <md-list-item class="md-3-line">
+                    <div class="md-list-item-text" layout="column">
+                        <h3>Height</h3>
+                        <p>{{storageuser.attributes.height}} meters</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line">
+                    <div class="md-list-item-text" layout="column">
+                        <h3>Weight</h3>
+                        <p>{{storageuser.attributes.weight}} Kg</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line">
+                    <div class="md-list-item-text" layout="column">
+                        <h3>Gender</h3>
+                        <p>{{storageuser.attributes.gender}}</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-3-line">
+                    <div class="md-list-item-text" layout="column">
+                        <h3>Age</h3>
+                        <p>{{storageuser.attributes.age}} years old</p>
+                    </div>
+                </md-list-item>
+
+
         </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
             <md-button ng-href="#!/editUser/{{user._id}}">Edit Profile</md-button>
