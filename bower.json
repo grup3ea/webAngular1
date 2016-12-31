@@ -3,7 +3,7 @@
   "description": "FoodSports Front-End",
   "version": "0.0.0",
   "homepage": "https://github.com/grup3ea/webAngular1",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE.md",
   "private": true,
   "dependencies": {
     "angular": "1.5.9",

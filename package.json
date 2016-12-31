@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Web project for EA to apply in FoodSport",
   "repository": "https://github.com/grup3ea/webAngular1",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
     "bower": "1.8.0",
     "http-server": "0.9.0"
