@@ -22,10 +22,11 @@ angular.module('myApp', [
     'myApp.editRoutine',
     'myApp.user',
     'myApp.client',
-    'myApp.userDiet',
+    'myApp.eating',
     'myApp.diet',
     'myApp.editDiet',
     'myApp.training',
+    'myApp.trainersSearcher',
     'myApp.settings',
     'ui.calendar'
 ]).config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {

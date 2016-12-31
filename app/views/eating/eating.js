@@ -1,14 +1,14 @@
 'use strict';
 
-angular.module('myApp.userDiet', ['ngRoute'])
+angular.module('myApp.eating', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/userDiet', {
-            templateUrl: 'views/userDiet/userDiet.html',
-            controller: 'UserDietCtrl'
+        $routeProvider.when('/eating', {
+            templateUrl: 'views/eating/eating.html',
+            controller: 'EatingCtrl'
         });
     }])
-    .controller('UserDietCtrl', function ($scope, $http) {
+    .controller('EatingCtrl', function ($scope, $http) {
         /*if (localStorage.getItem('fs_web_token')) {// adding token to the headers
             $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
             //el .common serveix per als gets

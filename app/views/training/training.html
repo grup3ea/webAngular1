@@ -1,9 +1,3 @@
-<md-content>
-  <h3>Trainers</h3>
-  <p>
-    Aquí veus l'entrenament personal. Si no tens entrenament assignat, se't mostren requadres amb diferents entrenadors personals i plans d'entrenament per triar.
-  </p>
-</md-content>
 <md-content><!--aquí anirà ng-show="!storageuser.trainers" -->
   <h3>Trainers</h3>
   <md-list flex>
@@ -15,5 +9,21 @@
         <p>{{trainer.discipline}}</p>
       </div>
     </md-list-item>
+  </md-list>
+  <md-card-actions layout="row" layout-align="end center">
+      <md-button ng-href="#!/trainersSearcher">Search by discipline</md-button>
+  </md-card-actions>
+
+  <md-list flex>
+    Routines
+      <md-list-item class="md-3-line" ng-repeat="routine in storageuser.routines" ng-click="null"
+                    ng-href="#!/routine/{{routine._id}}">
+          <img ng-src="img/routine.png" class="md-avatar" alt="{{item.who}}"/>
+          <div class="md-list-item-text" layout="column">
+              <h3>{{routine.title}}</h3>
+              <h4>{{routine.description}}</h4>
+              <p>{{routine.price}}</p>
+          </div>
+      </md-list-item>
   </md-list>
 </md-content>
