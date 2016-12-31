@@ -1,0 +1,12 @@
+<md-content><!--aquí anirà ng-show="!storageuser.trainers" -->
+  <h3>Notifications</h3>
+  <md-list flex>
+    <md-list-item class="md-3-line" ng-repeat="notification in notifications" ng-href="#!/{{notification.link}}">
+      <img ng-src="img/notification.png" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>{{notification.message}}</h3>
+        <h4>{{notification.date}}</h4>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>

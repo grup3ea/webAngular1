@@ -15,6 +15,7 @@ angular.module('myApp', [
     'myApp.logout',
     'myApp.signup',
     'myApp.dashboard',
+    'myApp.notifications',
     'myApp.routine',
     'myApp.trainer',
     'myApp.editTrainer',
