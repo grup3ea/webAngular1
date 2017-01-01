@@ -1,15 +1,19 @@
 'use strict';
-angular.module('myApp.login', ['ngRoute'])
+angular.module('myApp.login', ['ngRoute', 'ng.deviceDetector'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/login', {
             templateUrl: 'views/login/login.html',
             controller: 'LoginCtrl'
         });
     }])
-    .controller('LoginCtrl', function ($scope, $http, $timeout, $window, $mdToast) {
+    .controller('LoginCtrl', function ($scope, $http, $timeout, $window, $mdToast, deviceDetector) {
+      var vm = this;
+      vm.data = deviceDetector;
+      console.log("userAgent: " + vm.data.raw.userAgent);
         $scope.loginData = {};
         $scope.doLogin = function () {
             console.log('Doing login', $scope.loginData);
+            $scope.loginData.userAgent=vm.data.raw.userAgent;//aquí li afegin el userAgent al post del loginData
             $http({
                 url: urlapi + $scope.loginData.role+ 's/login',
                 method: "POST",
