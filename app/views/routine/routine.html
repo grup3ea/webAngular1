@@ -1,4 +1,9 @@
   <md-content class="md-padding" layout-xs="column" layout="column">
+      <md-toolbar layout="row" class="md-hue-4">
+          <div class="md-toolbar-tools">
+              <span>Routines</span>
+          </div>
+      </md-toolbar>
       <md-card>
         <md-card-title>
           <md-card-title-text>
@@ -30,13 +35,13 @@
         <md-tabs md-dynamic-height md-border-bottom>
       <md-tab label="{{day.title}}" ng-repeat="day in routine.days">
         <md-content class="md-padding">
-          <h1 class="md-display-2">{{day.title}}</h1>
+          <h2 class="md-display-1">{{day.title}}</h2>
           <md-list class="md-dense" flex>
             <md-subheader class="md-no-sticky">{{day.description}}</md-subheader>
             <md-list-item class="md-3-line" ng-repeat="exercise in day.exercises">
               <img ng-src="{{exercise.img}}" class="md-avatar" alt="{{item.who}}" />
               <div class="md-list-item-text" layout="column">
-                <h3>{{exercise.title}}</h3>
+                <h>{{exercise.title}}</h>
                 <h4>{{exercise.description}}</h4>
                 <p ng-show="exercise.weight">weight: {{exercise.weight}}</p>
                 <p ng-show="exercise.distance">distance: {{exercise.distance}}</p>

@@ -1,5 +1,10 @@
 <md-content><!--aquí anirà ng-show="!storageuser.trainers" -->
-  <h3>Trainers</h3>
+    <md-toolbar layout="row" class="md-hue-3">
+        <div class="md-toolbar-tools">
+            <span>Available Trainers</span>
+        </div>
+    </md-toolbar>
+    <md-subheader class="md-primary">Choose your desired trainer!</md-subheader>
   <md-list flex>
     <md-list-item class="md-3-line" ng-repeat="trainer in trainers" ng-href="#!/trainer/{{trainer._id}}">
       <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
@@ -11,11 +16,15 @@
     </md-list-item>
   </md-list>
   <md-card-actions layout="row" layout-align="end center">
-      <md-button ng-href="#!/trainersSearcher">Search by discipline</md-button>
+      <md-button ng-href="#!/trainersSearcher" class="md-raised" md-colors="{background: 'green'}">Search by discipline</md-button>
   </md-card-actions>
 
   <md-list flex>
-    Routines
+      <md-toolbar layout="row" class="md-hue-3">
+          <div class="md-toolbar-tools">
+              <span>Routines</span>
+          </div>
+      </md-toolbar>
       <md-list-item class="md-3-line" ng-repeat="routine in storageuser.routines" ng-click="null"
                     ng-href="#!/routine/{{routine._id}}">
           <img ng-src="img/routine.png" class="md-avatar" alt="{{item.who}}"/>

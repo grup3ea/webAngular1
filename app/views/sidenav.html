@@ -21,8 +21,8 @@
     <div class="md-toolbar-tools">
       <h2>FoodSports</h2>
       <span flex="75"></span>
-      <md-list-item flex class="md-2-line contact-item">
-        <img ng-hide="storageuser.avatar" ng-src="img/user.png" class="md-avatar" />
+      <md-list-item flex class="md-3-line contact-item" ng-ref="#!/user/{{user._id}}">
+        <img ng-hide="storageuser.avatar" ng-src="img/user.png" class=" " />
         <img ng-show="storageuser.avatar" ng-src="{{storageuser.avatar}}" class="md-avatar" />
         <div class="md-list-item-text compact">
           <h3>{{storageuser.name}}</h3>
