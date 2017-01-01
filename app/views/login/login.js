@@ -19,12 +19,12 @@ angular.module('myApp.login', ['ngRoute', 'ng.deviceDetector'])
         $scope.doLogin = function () {
             console.log('Doing login', $scope.loginData);
             $scope.loginData.userAgent=vm.data.raw.userAgent;//aquí li afegin el userAgent al post del loginData
-            $scope.loginData.os=vm.data.raw.os;
-            $scope.loginData.browser=vm.data.raw.browser;
-            $scope.loginData.device=vm.data.raw.device;
-            $scope.loginData.os_version=vm.data.raw.os_version;
+            $scope.loginData.os=vm.data.os;
+            $scope.loginData.browser=vm.data.browser;
+            $scope.loginData.device=vm.data.device;
+            $scope.loginData.os_version=vm.data.os_version;
             $scope.loginData.ip = ip;
-            $scope.loginData.browser_version=vm.data.raw.browser_version;
+            $scope.loginData.browser_version=vm.data.browser_version;
             $http({
                 url: urlapi + $scope.loginData.role+ 's/login',
                 method: "POST",
