@@ -7,9 +7,14 @@ angular.module('myApp.login', ['ngRoute', 'ng.deviceDetector'])
         });
     }])
     .controller('LoginCtrl', function ($scope, $http, $timeout, $window, $mdToast, deviceDetector) {
-      var vm = this;
-      vm.data = deviceDetector;
-      console.log("userAgent: " + vm.data.raw.userAgent);
+        var vm = this;
+        vm.data = deviceDetector;
+        var ip = $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
+            ip = JSON.stringify(data);
+            console.log(ip);
+        });
+
+        console.log("userAgent: " + vm.data.raw.userAgent);
         $scope.loginData = {};
         $scope.doLogin = function () {
             console.log('Doing login', $scope.loginData);
