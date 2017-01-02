@@ -36,18 +36,19 @@
                     </md-list-item>
             </md-content>
         </md-tab>
-        <md-tab label="Unlogin from Other Devices">
+        <md-tab label="Active Logged Sessions">
             <md-content class="md-padding">
                 <h1 class="md-display-1">Select the device from which you wish to end the session</h1>
                 <md-subheader class="md-no-sticky">Here will appear a list of tokens and their respective device ID
                 </md-subheader>
-                <md-list-item>
-                    <p> This Device </p>
+                <md-list-item class="md-3-line" ng-repeat="token in storageuser.tokens">
+                    <div class="md-list-item-text">
+                      <h2> {{token.browser}} </h2>
+                      <p>{{token.lastLogin | date: 'dd/MM/yyyy HH:mm'}}</p>
+                      <p>{{token.os}}</p>
+                      <p>{{token.userAgent}}</p>
+                    </div>
                     <md-checkbox class="md-secondary" ng-model="device.todelete"></md-checkbox>
-                </md-list-item>
-                <md-list-item>
-                <p> This Device </p>
-                <md-checkbox class="md-secondary" ng-model="device.todelete1"></md-checkbox>
                 </md-list-item>
                 <md-divider></md-divider>
                 <md-button class="md-raised" ng-click="deleteSession()" md-colors="{background: 'red'}">Delete Selected Sessions</md-button>
