@@ -39,20 +39,35 @@
         <md-tab label="Active Logged Sessions">
             <md-content class="md-padding">
                 <h1 class="md-display-1">Select the device from which you wish to end the session</h1>
-                <md-subheader class="md-no-sticky">Here will appear a list of tokens and their respective device ID
+                <md-subheader class="md-no-sticky">
+                  Here will appear a list of tokens and their respective device ID
                 </md-subheader>
-                <md-list-item class="md-3-line" ng-repeat="token in storageuser.tokens">
+
+                <md-list-item class="md-3-line" ng-repeat="token in storageuser.tokens" ng-show="currentSession.raw.userAgent==token.userAgent">
                     <div class="md-list-item-text">
                       <h2> {{token.browser}} </h2>
                       <p>{{token.lastLogin | date: 'dd/MM/yyyy HH:mm'}}</p>
                       <p>{{token.os}}</p>
                       <p>{{token.userAgent}}</p>
                     </div>
-                    <md-checkbox class="md-secondary" ng-model="device.todelete"></md-checkbox>
+                    <div class="md-secondary" ng-show="currentSession.raw.userAgent==token.userAgent">Current Session</div>
                 </md-list-item>
+                
+                <md-list-item class="md-3-line" ng-repeat="token in storageuser.tokens" ng-hide="currentSession.raw.userAgent==token.userAgent">
+                    <div class="md-list-item-text">
+                      <h2> {{token.browser}} </h2>
+                      <p>{{token.lastLogin | date: 'dd/MM/yyyy HH:mm'}}</p>
+                      <p>{{token.os}}</p>
+                      <p>{{token.userAgent}}</p>
+                    </div>
+                    <md-checkbox class="md-secondary" ng-model="token.todelete"></md-checkbox>
+                </md-list-item>
+
                 <md-divider></md-divider>
-                <md-button class="md-raised" ng-click="deleteSession()" md-colors="{background: 'red'}">Delete Selected Sessions</md-button>
-            </md-content>
+                <md-card-actions layout="row" layout-align="end center">
+                  <md-button class="md-raised" ng-click="deleteSelectedSessions()" md-colors="{background: 'red'}">Delete Selected Sessions</md-button>
+                </md-card-actions>
+              </md-content>
             <!--   <md-subheader class="md-no-sticky">Here will appear a list of tokens and their respective device ID</md-subheader>
                <md-list-item ng-repeat="device in devices">
                    <p> {{ device.name }} </p>
