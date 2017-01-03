@@ -72,30 +72,44 @@
           </div>
         </md-card-title-media>
         <md-card-content>
-        <md-list flex>
+        <md-list flex ng-show="user.timeline[0]">
+            <h2 class="md-headline">Timeline</h2>
+            <md-list-item class="md-3-line" ng-repeat="post in user.timeline">
+                <img ng-show="post.photo" ng-src="{{post.photo}}" class="md-avatar"/>
+                <div class="md-list-item-text" layout="column">
+                    <h4>{{post.title}}</h4>
+                    <p>{{post.content}}</p>
+                    <p>{{post.mark}}</p>
+                    <md-card-actions layout="row" layout-align="end center">
+                        {{post.date | date: "dd/MM/yyyy, HH:mm"}}
+                    </md-card-actions>
+                </div>
+            </md-list-item>
+        </md-list>
+        <md-list flex ng-show="user.trainers[0]">
             <h2 class="md-headline">User trainers</h2>
             <md-list-item class="md-3-line" ng-repeat="trainer in user.trainers" ng-href="#!/trainer/{{trainer._id}}">
-                <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}"/>
+                <img ng-src="img/user.png" class="md-avatar"/>
                 <div class="md-list-item-text" layout="column">
                     <h4>{{trainer.name}}</h4>
-                    <h4>{{trainer.discipline}}</h4>
+                    <p>{{trainer.discipline}}</p>
                 </div>
             </md-list-item>
         </md-list>
-        <md-list flex>
+        <md-list flex ng-show="user.routines[0]">
             <h2 class="md-headline">User routines</h2>
             <md-list-item class="md-3-line" ng-repeat="routine in user.routines" ng-href="#!/routine/{{routine._id}}">
-                <img ng-src="img/routine.png" class="md-avatar" alt="{{item.who}}"/>
+                <img ng-src="img/routine.png" class="md-avatar"/>
                 <div class="md-list-item-text" layout="column">
                     <h4>{{routine.title}}</h4>
-                    <h4>{{routine.description}}</h4>
+                    <p>{{routine.description}}</p>
                 </div>
             </md-list-item>
         </md-list>
-        <md-list flex>
+        <md-list flex ng-show="user.diets[0]">
             <h2 class="md-headline">User diets</h2>
             <md-list-item class="md-3-line" ng-repeat="diet in user.diets" ng-href="#!/diet/{{diet._id}}">
-                <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}"/>
+                <img ng-src="img/user.png" class="md-avatar"/>
                 <div class="md-list-item-text" layout="column">
                     <h4>{{diet.title}}</h4>
                     <h4>{{diet.description}}</h4>
