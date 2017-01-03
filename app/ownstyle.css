@@ -15,6 +15,34 @@
   width: 45px!important;
   height: 45px!important;
 }
+.o_imgProfile{
+  width: 80px!important;
+  /*height: 80px!important;*/
+}
+
+/* img de portada d'user */
+.thumbnailBackground {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.thumbnailBackground img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+.thumbnailAvatar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.thumbnailAvatar img {
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+/* end of img de portada d'user */
 
 .o_sidenav{
   position: fixed;
