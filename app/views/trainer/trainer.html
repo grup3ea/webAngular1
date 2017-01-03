@@ -1,27 +1,46 @@
   <md-content class="md-padding" layout-xs="column" layout="column">
       <md-card>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">
-              <b>{{trainer.name}}</b>
-            </span>
-            <span class="md-subhead">
-              <i>{{trainer.discipline}}</i>
-            </span>
-          </md-card-title-text>
-        </md-card-title>
+        <div class="thumbnailBackground">
+          <a ng-click="showBackgroundImgDialog($event)">
+            <img ng-hide="trainer.background" ng-src="img/background.jpg" class="md-card-image" />
+            <img ng-show="trainer.background" ng-src="{{trainer.background}}" class="md-card-image" />
+          </a>
+        </div>
+        <md-card-actions ng-show="storageuser.role=='trainer'" layout="row" layout-align="end center">
+          <md-button ng-href="#!/editTrainer/{{trainer._id}}">Edit Profile</md-button>
+        </md-card-actions>
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='user'">
           <md-button>Send message</md-button>
           <md-button ng-click="sendPetition()">Ask for routine (send petition)</md-button>
         </md-card-actions>
-        <md-card-actions ng-show="storageuser.role=='trainer'" layout="row" layout-align="end center">
-          <md-button ng-href="#!/editTrainer/{{trainer._id}}">Edit Profile</md-button>
-        </md-card-actions>
+        <md-card-title>
+          <md-card-title-text>
+            <md-content class="md-padding" layout-xs="row" layout="row">
+              <div flex-xs flex-gt-xs="30" layout="column"><!-- start of COLUMN -->
+                <div class="thumbnailAvatar">
+                  <a ng-click="showAvatarImgDialog($event)">
+                    <img ng-hide="trainer.avatar" ng-src="img/user.png" class="md-card-image" />
+                    <img ng-show="trainer.avatar" ng-src="{{trainer.avatar}}" class="md-card-image" />
+                  </a>
+                </div>
+              </div>
+              <div flex-xs flex-gt-xs="70" layout="column"><!-- start of COLUMN -->
+                <span class="md-headline">
+                  <b>{{trainer.name}}</b>
+                </span>
+                <span class="md-subhead">
+                  <i>{{trainer.discipline}}</i>
+                </span>
+              </div>
+            </md-content>
+          </md-card-title-text>
+        </md-card-title>
         <md-card-content>
         <md-list flex>
           <h3>Trainer clients</h3>
           <md-list-item class="md-3-line" ng-repeat="client in trainer.clients">
-            <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
+            <img ng-show="client.avatar" ng-src="{{client.avatar}}" class="md-avatar" />
+            <img ng-hide="client.avatar" ng-src="img/user.png" class="md-avatar" />
             <div class="md-list-item-text" layout="column">
               <h3>{{client.client.name}}</h3>
               <h4>{{client.client.description}}</h4>

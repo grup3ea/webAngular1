@@ -74,5 +74,43 @@ angular.module('myApp.trainer', ['ngRoute'])
                   .hideDelay(3000)
             );
           });
+        };//end of send petition
+
+
+
+        $scope.showBackgroundImgDialog = function(ev) {
+          $mdDialog.show({
+            controller: DialogController,
+            templateUrl: 'views/trainer/backgroundImg.tmpl.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+          });
         };
+        $scope.showAvatarImgDialog = function(ev) {
+          $mdDialog.show({
+            controller: DialogController,
+            templateUrl: 'views/trainer/avatarImg.tmpl.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+          });
+        };
+        function DialogController($scope, $mdDialog) {
+
+          $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+          $scope.hide = function() {
+            $mdDialog.hide();
+          };
+
+          $scope.cancel = function() {
+            $mdDialog.cancel();
+          };
+
+          $scope.answer = function(answer) {
+            $mdDialog.hide(answer);
+          };
+        }
     });
