@@ -63,3 +63,8 @@
 
   height: 100%;
 }
+
+.o_toolbarTitle{
+  background: #e6e6e6!important;
+  color: #000000!important;
+}

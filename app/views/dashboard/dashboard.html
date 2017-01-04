@@ -3,7 +3,7 @@
     <md-content class="md-padding" layout-xs="row" layout="column">
         <div flex-xs flex-gt-xs="100" layout="row"><!-- start of COLUMN -->
             <md-card flex-xs flex-gt-xs="60">
-                <md-toolbar layout="row" class="md-hue-3">
+                <md-toolbar layout="row" class="o_toolbarTitle">
                     <div class="md-toolbar-tools">
                         <span>User Graphs</span>
                     </div>
@@ -24,7 +24,7 @@
                 </md-card-actions>
             </md-card>
             <md-card flex-xs flex-gt-xs="40">
-                <md-toolbar layout="row" class="md-hue-3">
+                <md-toolbar layout="row" class="o_toolbarTitle">
                     <div class="md-toolbar-tools">
                         <span>User Profile</span>
                     </div>
@@ -74,7 +74,7 @@
         </div><!-- end of COLUMN -->
         <div flex-xs flex-gt-xs="100" layout="row"><!-- start of COLUMN -->
             <md-card flex-xs flex-gt-xs="50">
-                <md-toolbar layout="row" class="md-hue-3">
+                <md-toolbar layout="row" class="o_toolbarTitle">
                     <div class="md-toolbar-tools">
                         <span>Routines</span>
                     </div>
@@ -96,7 +96,7 @@
                 </md-card-actions>
             </md-card>
             <md-card flex-xs flex-gt-xs="50">
-                <md-toolbar layout="row" class="md-hue-3">
+                <md-toolbar layout="row" class="o_toolbarTitle">
                     <div class="md-toolbar-tools">
                         <span>Diets</span>
                     </div>
@@ -139,13 +139,13 @@ trainer
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
             <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-            <span class="md-headline">
-              Clients
-            </span>
-                    </md-card-title-text>
-                </md-card-title>
+                <md-card-title-text>
+                  <md-toolbar layout="row" class="o_toolbarTitle">
+                      <div class="md-toolbar-tools">
+                          <span>Clients</span>
+                      </div>
+                  </md-toolbar>
+                </md-card-title-text>
                 <md-list flex>
                     <md-list-item class="md-3-line" ng-repeat="client in storageuser.clients"
                                   ng-href="#!/client/{{client.client._id}}">
@@ -167,13 +167,11 @@ trainer
                 </md-card-actions>
             </md-card>
             <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-            <span class="md-headline">
-              Clients Petitions
-            </span>
-                    </md-card-title-text>
-                </md-card-title>
+                <md-toolbar layout="row" class="o_toolbarTitle">
+                    <div class="md-toolbar-tools">
+                        <span>Clients Petitions</span>
+                    </div>
+                </md-toolbar>
                 <md-list flex>
                     <md-list-item class="md-3-line" ng-repeat="petition in storageuser.clientsPetitions"
                                   ng-show="petition.state=='pendent'">
@@ -197,13 +195,13 @@ trainer
                 </md-list>
             </md-card>
             <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-            <span class="md-headline">
-              Graphs (per ara són hardcoded, però seran sobre la info dels clients, o econòmics)
-            </span>
-                    </md-card-title-text>
-                </md-card-title>
+                <md-toolbar layout="row" class="o_toolbarTitle">
+                    <div class="md-toolbar-tools">
+                      <span>
+                        Graphs (per ara són hardcoded, però seran sobre la info dels clients, o econòmics)
+                      </span>
+                    </div>
+                </md-toolbar>
                 <md-card-actions>
                     <canvas id="bar" class="chart chart-line"
                             chart-data="data" chart-labels="labels" chart-series="series">
@@ -217,6 +215,11 @@ trainer
         </div><!-- end of COLUMN -->
         <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
             <md-card flex-xs flex-gt-xs="40">
+              <md-toolbar layout="row" class="o_toolbarTitle">
+                  <div class="md-toolbar-tools">
+                      <span>User Profile</span>
+                  </div>
+              </md-toolbar>
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">{{storageuser.name}}</span>
@@ -236,13 +239,11 @@ trainer
                 </md-card-actions>
             </md-card>
             <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-            <span class="md-headline">
-              Routines
-            </span>
-                    </md-card-title-text>
-                </md-card-title>
+              <md-toolbar layout="row" class="o_toolbarTitle">
+                  <div class="md-toolbar-tools">
+                      <span>Routines</span>
+                  </div>
+              </md-toolbar>
                 <md-list flex>
                     <md-list-item class="md-3-line" ng-repeat="routine in storageuser.routines" ng-click="null"
                                   ng-href="#!/editRoutine/{{routine._id}}">
