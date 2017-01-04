@@ -98,7 +98,7 @@
                             </div>
                         </md-toolbar>
                         <md-card-actions layout="row" layout-align="center">
-                            <md-button ng-href="#!/eating" class="md-raised">Get a Training!</md-button>
+                            <md-button ng-href="#!/training" class="md-raised">Get a Training!</md-button>
                         </md-card-actions>
                         <md-list flex ng-show="user.trainers[0]">
                             <h2 class="md-headline">User trainer</h2>
@@ -131,24 +131,24 @@
             </div>
         </md-card-title-media>
         <md-card-content>
-            <md-list flex ng-show="user.timeline[0]">
-                <md-toolbar layout="row" class="md-hue-4">
-                    <div class="md-toolbar-tools">
-                        <span>Timeline</span>
-                    </div>
-                </md-toolbar>
-                <md-list-item class="md-3-line" ng-repeat="post in user.timeline">
-                    <img ng-show="post.photo" ng-src="{{post.photo}}" class="md-avatar"/>
-                    <div class="md-list-item-text" layout="column">
-                        <h4>{{post.title}}</h4>
-                        <p>{{post.content}}</p>
-                        <p>{{post.mark}}</p>
-                        <md-card-actions layout="row" layout-align="end center">
-                            {{post.date | date: "dd/MM/yyyy, HH:mm"}}
-                        </md-card-actions>
-                    </div>
-                </md-list-item>
-            </md-list>
+            <md-card ng-repeat="post in user.timeline | orderBy: '-date'">
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">{{post.title}}</span>
+                </md-card-title-text>
+              </md-card-title>
+              <img ng-src="{{post.photo}}" class="md-card-image">
+              <md-card-content>
+                <p>{{post.content}}</p>
+                <p>{{post.mark}}</p>
+                <md-card-actions layout="row" layout-align="end center">
+                    {{post.date | date: "dd/MM/yyyy, HH:mm"}}
+                </md-card-actions>
+              </md-card-content>
+              <md-card-actions layout="row" layout-align="end center">
+                  <img ng-src="img/likeEmpty.png" />
+              </md-card-actions>
+            </md-card>
         </md-card-content>
     </md-card>
 </md-content>
