@@ -59,4 +59,43 @@ angular.module('myApp.user', ['ngRoute'])
             $mdDialog.hide(answer);
           };
         }
+
+
+
+        //publication likes
+        $scope.arrayObjectIndexOf = function(myArray, searchTerm, property) {
+            if(myArray){
+                for(var i = 0, len = myArray.length; i < len; i++) {
+                    if (myArray[i][property] === searchTerm){
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        };
+        $scope.sendLikeToPublication = function(publication){
+            $http({
+                url: urlapi + 'publications/'+publication._id+'/like',
+                method: "POST"
+            })
+            .then(function (response) {
+              console.log(response);
+                    /*localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
+                    $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));*/
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .textContent('liked publication')
+                            .position("bottom right")
+                            .hideDelay(3000)
+                    );
+                },
+                function () {
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .textContent('Failed on posting like publication')
+                            .position("bottom right")
+                            .hideDelay(3000)
+                    );
+                });
+      };/* end of sendNewPost */
     });

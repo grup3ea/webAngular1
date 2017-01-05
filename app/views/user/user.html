@@ -131,22 +131,26 @@
             </div>
         </md-card-title-media>
         <md-card-content>
-            <md-card ng-repeat="post in user.timeline | orderBy: '-date'">
+            <md-card ng-repeat="publication in user.publications | orderBy: '-date'">
               <md-card-title>
                 <md-card-title-text>
-                  <span class="md-headline">{{post.title}}</span>
+                  <span class="md-headline">{{publication.title}}</span>
                 </md-card-title-text>
               </md-card-title>
-              <img ng-src="{{post.photo}}" class="md-card-image">
+              <img ng-src="{{publication.photo}}" class="md-card-image">
               <md-card-content>
-                <p>{{post.content}}</p>
-                <p>{{post.mark}}</p>
+                <p>{{publication.content}}</p>
+                <p>{{publication.mark}}</p>
                 <md-card-actions layout="row" layout-align="end center">
-                    {{post.date | date: "dd/MM/yyyy, HH:mm"}}
+                    {{publication.date | date: "dd/MM/yyyy, HH:mm"}}
                 </md-card-actions>
               </md-card-content>
               <md-card-actions layout="row" layout-align="end center">
-                  <img ng-src="img/likeEmpty.png" />
+                  <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id, '')==-1"
+                  ng-src="img/likeEmpty.png" class="o_cursorPointer"
+                  ng-click="sendLikeToPublication(publication)"/>
+                  <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id, '')!=-1"
+                  ng-src="img/like.png" class="o_cursorPointer" />
               </md-card-actions>
             </md-card>
         </md-card-content>

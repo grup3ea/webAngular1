@@ -46,6 +46,9 @@
 }
 /* end of img de portada d'user */
 
+.o_cursorPointer{
+  cursor: pointer;
+}
 .o_sidenav{
   position: fixed;
   display: -webkit-flex;

@@ -25,14 +25,11 @@ angular.module('myApp.trainersSearcher', ['ngRoute'])
       ];
       $scope.trainers={};
       $scope.searchDiscipline = function(discipline){
-        $scope.choosenDiscipline={
-          discipline: discipline.name
-        };
+        $scope.choosenDiscipline=discipline.name;
         console.log($scope.choosenDiscipline);
         $http({
-            url: urlapi + 'trainers/searchByDiscipline',
-            method: "POST",
-            data: $scope.choosenDiscipline
+            url: urlapi + 'trainers/searchByDiscipline/' + discipline.name,
+            method: "GET"
         })
         .then(function(data) {
                 // success
