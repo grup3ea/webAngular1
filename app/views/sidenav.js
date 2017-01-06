@@ -165,9 +165,9 @@ angular.module('myApp.sidenav', ['ngRoute'])
             /* end of cloudinary */
             $scope.sendNewPost = function(){
                 $http({
-                    url: urlapi + 'users/addPostToTimeline',
+                    url: urlapi + 'publications',
                     method: "POST",
-                    data: {"newHistory": $scope.newPost}
+                    data: $scope.newPost
                 })
                 .then(function (response) {
                   console.log(response);
