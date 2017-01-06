@@ -1,12 +1,12 @@
 'use strict';
-angular.module('myApp.sidenav', ['ngRoute'])
+angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/sidenav', {
             templateUrl: 'views/sidenav.html',
             controller: 'SidenavCtrl'
         });
     }])
-    .controller('SidenavCtrl', function ($scope, $http, $timeout, $window, $mdSidenav, $mdDialog) {
+    .controller('SidenavCtrl', function ($scope, $http, $timeout, $window, $mdSidenav, $mdDialog, toastr) {
         if (localStorage.getItem("fs_web_token")) {
             console.log("user logged");
             $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
@@ -107,7 +107,7 @@ angular.module('myApp.sidenav', ['ngRoute'])
             //
           });
         };
-        function newPostCtrl($scope, $mdDialog, $mdToast, $rootScope, $location, Upload, cloudinary) {
+        function newPostCtrl($scope, $mdDialog, $rootScope, $location, Upload, cloudinary, toastr) {
 
           $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
 
@@ -173,21 +173,11 @@ angular.module('myApp.sidenav', ['ngRoute'])
                   console.log(response);
                         /*localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
                         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));*/
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent('New post added to your timeline')
-                                .position("bottom right")
-                                .hideDelay(3000)
-                        );
+                        toastr.success('New post added to your timeline');
                         $scope.postSended(response.data);
                     },
                     function () {
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent('Failed on updating user')
-                                .position("bottom right")
-                                .hideDelay(3000)
-                        );
+                        toastr.error('Failed on adding post to your timeline');
                     });
           };/* end of sendNewPost */
         }/* end of newPostCtrl */

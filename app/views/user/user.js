@@ -6,7 +6,7 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             controller: 'UserCtrl'
         });
     }])
-    .controller('UserCtrl', function ($scope, $http, $routeParams, $mdToast, $mdDialog, toastr) {
+    .controller('UserCtrl', function ($scope, $http, $routeParams, $mdDialog, toastr) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         $scope.user = {};
         $http.get(urlapi + 'users/' + $routeParams.userid)
@@ -102,14 +102,6 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             })
             .then(function (data) {
               console.log(data.data);
-                    /*localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
-                    $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));*/
-                    /*$mdToast.show(
-                        $mdToast.simple()
-                            .textContent('liked publication')
-                            .position("bottom right")
-                            .hideDelay(3000)
-                    );*/
                     toastr.success('liked publication');
                     $scope.user = data.data;
                     if($scope.user._id==$scope.storageuser._id)
@@ -119,12 +111,7 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
                     }
                 },
                 function () {
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .textContent('Failed on posting like publication')
-                            .position("bottom right")
-                            .hideDelay(3000)
-                    );
+                    toastr.error('Failed on posting like publication');
                 });
         };/* end of sendLikeToPublication */
         $scope.sendDislikeToPublication = function(publication, index){
@@ -136,14 +123,6 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             })
             .then(function (data) {
               console.log(data.data);
-                    /*localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
-                    $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));*/
-                    /*$mdToast.show(
-                        $mdToast.simple()
-                            .textContent('disliked publication')
-                            .position("bottom right")
-                            .hideDelay(3000)
-                    );*/
                     toastr.success('disliked publication');
                     $scope.user = data.data;
                     if($scope.user._id==$scope.storageuser._id)
@@ -153,12 +132,8 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
                     }
                 },
                 function () {
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .textContent('Failed on posting like publication')
-                            .position("bottom right")
-                            .hideDelay(3000)
-                    );
+
+                      toastr.error('Failed on posting dislike publication');
                 });
         };/* end of sendDislikeToPublication */
     });
