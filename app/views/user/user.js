@@ -66,14 +66,15 @@ angular.module('myApp.user', ['ngRoute'])
         $scope.arrayObjectIndexOf = function(myArray, searchTerm, property) {
             if(myArray){
                 for(var i = 0, len = myArray.length; i < len; i++) {
-                    if (myArray[i][property] === searchTerm){
+                    if (myArray[i] === searchTerm){
                         return i;
                     }
                 }
             }
             return -1;
         };
-        $scope.sendLikeToPublication = function(publication){
+        $scope.sendLikeToPublication = function(publication, index){
+          console.log("like - " + publication.title);
             $http({
                 url: urlapi + 'publications/'+publication._id+'/like',
                 method: "POST"
@@ -88,6 +89,7 @@ angular.module('myApp.user', ['ngRoute'])
                             .position("bottom right")
                             .hideDelay(3000)
                     );
+                    $scope.user.publications[index]=response.data;
                 },
                 function () {
                     $mdToast.show(
@@ -97,5 +99,32 @@ angular.module('myApp.user', ['ngRoute'])
                             .hideDelay(3000)
                     );
                 });
-      };/* end of sendNewPost */
+        };/* end of sendLikeToPublication */
+        $scope.sendDislikeToPublication = function(publication, index){
+          console.log("dislike - " + publication.title);
+            $http({
+                url: urlapi + 'publications/'+publication._id+'/dislike',
+                method: "POST"
+            })
+            .then(function (response) {
+              console.log(response);
+                    /*localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
+                    $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));*/
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .textContent('liked publication')
+                            .position("bottom right")
+                            .hideDelay(3000)
+                    );
+                    $scope.user.publications[index]=response.data;
+                },
+                function () {
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .textContent('Failed on posting like publication')
+                            .position("bottom right")
+                            .hideDelay(3000)
+                    );
+                });
+        };/* end of sendDislikeToPublication */
     });

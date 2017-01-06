@@ -148,9 +148,10 @@
               <md-card-actions layout="row" layout-align="end center">
                   <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id, '')==-1"
                   ng-src="img/likeEmpty.png" class="o_cursorPointer"
-                  ng-click="sendLikeToPublication(publication)"/>
+                  ng-click="sendLikeToPublication(publication, $index)" />
                   <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id, '')!=-1"
-                  ng-src="img/like.png" class="o_cursorPointer" />
+                  ng-src="img/like.png" class="o_cursorPointer"
+                  ng-click="sendDislikeToPublication(publication, $index)" />
               </md-card-actions>
             </md-card>
         </md-card-content>
