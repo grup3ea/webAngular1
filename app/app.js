@@ -54,6 +54,18 @@ angular.module('myApp', [
     }
     //$httpProvider.interceptors.push('httpInterceptor');
 }])
+.config(function(toastrConfig) {
+  angular.extend(toastrConfig, {
+    autoDismiss: false,
+    containerId: 'toast-container',
+    maxOpened: 0,
+    newestOnTop: true,
+    positionClass: 'toast-bottom-right',
+    preventDuplicates: false,
+    preventOpenDuplicates: false,
+    target: 'body'
+  });
+})
 .config(['cloudinaryProvider', function (cloudinaryProvider) {
   cloudinaryProvider
       .set("cloud_name", "dr9eawlpy")

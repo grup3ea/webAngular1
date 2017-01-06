@@ -1,12 +1,12 @@
 'use strict';
-angular.module('myApp.user', ['ngRoute'])
+angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/user/:userid', {
             templateUrl: 'views/user/user.html',
             controller: 'UserCtrl'
         });
     }])
-    .controller('UserCtrl', function ($scope, $http, $routeParams, $mdToast, $mdDialog) {
+    .controller('UserCtrl', function ($scope, $http, $routeParams, $mdToast, $mdDialog, toastr) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         $scope.user = {};
         $http.get(urlapi + 'users/' + $routeParams.userid)
@@ -74,22 +74,24 @@ angular.module('myApp.user', ['ngRoute'])
             return -1;
         };
         $scope.sendLikeToPublication = function(publication, index){
+          console.log(index);
           console.log("like - " + publication.title);
             $http({
                 url: urlapi + 'publications/'+publication._id+'/like',
                 method: "POST"
             })
-            .then(function (response) {
-              console.log(response);
+            .then(function (data) {
+              console.log(data.data);
                     /*localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
                     $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));*/
-                    $mdToast.show(
+                    /*$mdToast.show(
                         $mdToast.simple()
                             .textContent('liked publication')
                             .position("bottom right")
                             .hideDelay(3000)
-                    );
-                    $scope.user.publications[index]=response.data;
+                    );*/
+                    toastr.success('liked publication');
+                    $scope.user = data.data;
                 },
                 function () {
                     $mdToast.show(
@@ -101,22 +103,24 @@ angular.module('myApp.user', ['ngRoute'])
                 });
         };/* end of sendLikeToPublication */
         $scope.sendDislikeToPublication = function(publication, index){
+          console.log(index);
           console.log("dislike - " + publication.title);
             $http({
                 url: urlapi + 'publications/'+publication._id+'/dislike',
                 method: "POST"
             })
-            .then(function (response) {
-              console.log(response);
+            .then(function (data) {
+              console.log(data.data);
                     /*localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
                     $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));*/
-                    $mdToast.show(
+                    /*$mdToast.show(
                         $mdToast.simple()
-                            .textContent('liked publication')
+                            .textContent('disliked publication')
                             .position("bottom right")
                             .hideDelay(3000)
-                    );
-                    $scope.user.publications[index]=response.data;
+                    );*/
+                    toastr.success('disliked publication');
+                    $scope.user = data.data;
                 },
                 function () {
                     $mdToast.show(
