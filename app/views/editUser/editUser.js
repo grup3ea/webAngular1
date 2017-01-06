@@ -55,10 +55,17 @@ angular.module('myApp.editUser', ['ngRoute'])
         //$scope.storageuser.birthday = birthday; Necesitamos tener en algun sitio la variable de birthday para calcular la edad
         //$scope.user.age = calculateAge(birthday);
 
-        $scope.calculateAge = function calculateAge(birthday) { // birthday is a date
-            var ageDifMs = Date.now() - birthday.getTime();
-            var ageDate = new Date(ageDifMs); // miliseconds from epoch
-            return Math.abs(ageDate.getUTCFullYear() - 1970);
+        $scope.calculateAge = function calculateAge(birthdate) {
+            console.log(birthdate)
+            var datet = new Date(birthdate)
+            console.log(datet.getTime());
+            var age = Date.now() - datet;
+            var agedate = new Date(age);
+
+            console.log(Math.abs(agedate.getUTCFullYear() - 1970))
+            age = Math.abs(agedate.getUTCFullYear() - 1970);
+            return age;// birthday is a date
+
         };
 
         /* cloudinary */

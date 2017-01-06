@@ -105,16 +105,18 @@
                 </div>
                 <div layout="row" layout-wrap>
                     <div flex="33">
-                        <datepicker>
-                            <input ng-model="birthday" date-max-limit="01/01/2018" type="text"/>
+                        <label>You were born on:</label>
+                        <datepicker date-format="fullDate">
+                            <input ng-model="user.birthdate" type="text"/>
                         </datepicker>
                     </div>
                 </div>
                 <div flex="33">
-                    <label>Age: </label>{{calculateAge(birthday)}}
+
+                    <label>Age: {{calculateAge(user.birthdate)}}</label>
                 </div>
                 <md-input-container class="md-block">
-                    <md-button ng-click="updateUser()"  class="md-raised md-primary">
+                    <md-button ng-click="updateUser()" class="md-raised md-primary">
                         Save Changes
                     </md-button>
                 </md-input-container>
@@ -122,3 +124,4 @@
         </div>
     </md-content>
 </md-content>
+
