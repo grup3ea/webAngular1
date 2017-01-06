@@ -23,6 +23,7 @@ angular.module('myApp', [
     'myApp.editUser',
     'myApp.editRoutine',
     'myApp.user',
+    'myApp.network',
     'myApp.client',
     'myApp.eating',
     'myApp.diet',

@@ -1,0 +1,18 @@
+<md-content>
+  <h3>Network</h3>
+  <p>
+    vale, aquí la idea és que apareguin les publicacions dels users que segueixes fent following
+    i un buscador per buscar users que encara no segueixis, i et porta al perfil de l'user perquè el puguis seguir
+  </p>
+  <h3>Users</h3>
+  <md-list flex>
+    <md-list-item class="md-3-line" ng-repeat="user in users" ng-href="#!/user/{{user._id}}">
+      <img ng-src="{{user.avatar}}" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>{{user.name}}</h3>
+        <h4>{{user.role}}</h4>
+        <p>{{user.email}}</p>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>

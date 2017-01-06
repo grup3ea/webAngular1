@@ -43,6 +43,12 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
                 icon: pathImg + "user.png"
             },
             {
+                title: "Network",
+                description: "description",
+                link: "/network",
+                icon: pathImg + "network.png"
+            },
+            {
                 title: "Training",
                 description: "description",
                 link: "/training",
