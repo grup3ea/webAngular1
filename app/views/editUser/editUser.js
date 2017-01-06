@@ -10,8 +10,9 @@ angular.module('myApp.editUser', ['ngRoute'])
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         if ($scope.storageuser.role != "user") {
             window.location = "#!/dashboard";
-        };
-        $scope.user={};
+        }
+        ;
+        $scope.user = {};
         $http.get(urlapi + 'users/' + $routeParams.userid)
             .then(function (data) {
                 $scope.user = data.data;
@@ -21,7 +22,6 @@ angular.module('myApp.editUser', ['ngRoute'])
             })
             .then(function (result) {
             });
-
         $scope.updateUser = function () {
             $http({
                 url: urlapi + 'users/' + $routeParams.userid,
@@ -29,7 +29,7 @@ angular.module('myApp.editUser', ['ngRoute'])
                 data: $scope.user
             })
                 .then(function (response) {
-                  console.log(response);
+                        console.log(response);
                         $scope.user = response.data;
                         localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
                         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
@@ -39,7 +39,7 @@ angular.module('myApp.editUser', ['ngRoute'])
                                 .position("bottom right")
                                 .hideDelay(3000)
                         );
-                        window.location="#!/user/" + $scope.storageuser._id;
+                        window.location = "#!/user/" + $scope.storageuser._id;
                     },
                     function () {
                         $mdToast.show(
@@ -51,76 +51,84 @@ angular.module('myApp.editUser', ['ngRoute'])
                     });
         };
 
+        /**Age Calculation from Birthday**/
+        //$scope.storageuser.birthday = birthday; Necesitamos tener en algun sitio la variable de birthday para calcular la edad
+        //$scope.user.age = calculateAge(birthday);
+
+        $scope.calculateAge = function calculateAge(birthday) { // birthday is a date
+            var ageDifMs = Date.now() - birthday.getTime();
+            var ageDate = new Date(ageDifMs); // miliseconds from epoch
+            return Math.abs(ageDate.getUTCFullYear() - 1970);
+        };
+
         /* cloudinary */
-          $scope.uploadFileAvatar = function(file, index){
+        $scope.uploadFileAvatar = function (file, index) {
             console.log(index);
             var d = new Date();
             $scope.title = "Image (" + d.getDate() + " - " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")";
-
             $scope.user.imgfileAvatar = file;
             if (!$scope.user.imgfileAvatar) return;
-              if (file && !file.$error) {
+            if (file && !file.$error) {
                 console.log(file);
                 file.upload = Upload.upload({
-                  url: "https://api.cloudinary.com/v1_1/" + cloudinary.config().cloud_name + "/upload",
-                  data: {
-                    upload_preset: cloudinary.config().upload_preset,
-                    tags: 'myphotoalbum',
-                    context: 'photo=' + $scope.title,
-                    file: file
-                  },
-                  headers: {
-                   'X-Access-Token': undefined
-                  },
+                    url: "https://api.cloudinary.com/v1_1/" + cloudinary.config().cloud_name + "/upload",
+                    data: {
+                        upload_preset: cloudinary.config().upload_preset,
+                        tags: 'myphotoalbum',
+                        context: 'photo=' + $scope.title,
+                        file: file
+                    },
+                    headers: {
+                        'X-Access-Token': undefined
+                    },
                 }).progress(function (e) {
-                  file.progress = Math.round((e.loaded * 100.0) / e.total);
-                  file.status = "Uploading... " + file.progress + "%";
+                    file.progress = Math.round((e.loaded * 100.0) / e.total);
+                    file.status = "Uploading... " + file.progress + "%";
                 }).success(function (data, status, headers, config) {
-                  console.log(data.url);
-                  $scope.user.avatar=data.url;
-                  $rootScope.photos = $rootScope.photos || [];
-                  data.context = {custom: {photo: $scope.title}};
-                  file.result = data;
-                  $rootScope.photos.push(data);
+                    console.log(data.url);
+                    $scope.user.avatar = data.url;
+                    $rootScope.photos = $rootScope.photos || [];
+                    data.context = {custom: {photo: $scope.title}};
+                    file.result = data;
+                    $rootScope.photos.push(data);
                 }).error(function (data, status, headers, config) {
-                  file.result = data;
+                    file.result = data;
                 });
-              }
-          };
-          $scope.uploadFileBackground = function(file, index){
+            }
+        };
+        $scope.uploadFileBackground = function (file, index) {
             console.log(index);
             var d = new Date();
             $scope.title = "Image (" + d.getDate() + " - " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")";
-
             $scope.user.imgfileBackground = file;
             if (!$scope.user.imgfileBackground) return;
-              if (file && !file.$error) {
+            if (file && !file.$error) {
                 console.log(file);
                 file.upload = Upload.upload({
-                  url: "https://api.cloudinary.com/v1_1/" + cloudinary.config().cloud_name + "/upload",
-                  data: {
-                    upload_preset: cloudinary.config().upload_preset,
-                    tags: 'myphotoalbum',
-                    context: 'photo=' + $scope.title,
-                    file: file
-                  },
-                  headers: {
-                   'X-Access-Token': undefined
-                  },
+                    url: "https://api.cloudinary.com/v1_1/" + cloudinary.config().cloud_name + "/upload",
+                    data: {
+                        upload_preset: cloudinary.config().upload_preset,
+                        tags: 'myphotoalbum',
+                        context: 'photo=' + $scope.title,
+                        file: file
+                    },
+                    headers: {
+                        'X-Access-Token': undefined
+                    },
                 }).progress(function (e) {
-                  file.progress = Math.round((e.loaded * 100.0) / e.total);
-                  file.status = "Uploading... " + file.progress + "%";
+                    file.progress = Math.round((e.loaded * 100.0) / e.total);
+                    file.status = "Uploading... " + file.progress + "%";
                 }).success(function (data, status, headers, config) {
-                  console.log(data.url);
-                  $scope.user.background=data.url;
-                  $rootScope.photos = $rootScope.photos || [];
-                  data.context = {custom: {photo: $scope.title}};
-                  file.result = data;
-                  $rootScope.photos.push(data);
+                    console.log(data.url);
+                    $scope.user.background = data.url;
+                    $rootScope.photos = $rootScope.photos || [];
+                    data.context = {custom: {photo: $scope.title}};
+                    file.result = data;
+                    $rootScope.photos.push(data);
                 }).error(function (data, status, headers, config) {
-                  file.result = data;
+                    file.result = data;
                 });
-              }
-          };
-          /* end of cloudinary */
+            }
+        };
+        /* end of cloudinary */
     });

@@ -99,22 +99,22 @@
                                     <label>Gender</label>
                                     <input ng-model="user.attributes.gender">
                                 </md-input-container>
-                                <md-input-container>
-                                    <label>Age</label>
-                                    <input ng-model="user.attributes.age">
-                                </md-input-container>
-                                <md-input-container>
-                                    <label>Enter date</label>
-                                    <!-- això no sé q és, el user.age fora del attributes no està definit al model del backend -->
-                                    <!-- La idea d'això es que se't obri un calendari i puguis posar la teva data de naixement i partir d'alla se't dedueix la edat-->
-                                    <md-datepicker ng-model="user.age"></md-datepicker>
-                                </md-input-container>
                             </div>
                         </md-list-item>
                     </md-list-item>
                 </div>
+                <div layout="row" layout-wrap>
+                    <div flex="33">
+                        <datepicker>
+                            <input ng-model="birthday" date-max-limit="01/01/2018" type="text"/>
+                        </datepicker>
+                    </div>
+                </div>
+                <div flex="33">
+                    <label>Age: </label>{{calculateAge(birthday)}}
+                </div>
                 <md-input-container class="md-block">
-                    <md-button ng-click="updateUser()" class="md-raised md-primary">
+                    <md-button ng-click="updateUser()"  class="md-raised md-primary">
                         Save Changes
                     </md-button>
                 </md-input-container>

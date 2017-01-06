@@ -8,6 +8,7 @@ var urlapi = "http://localhost:3005/api/";
 angular.module('myApp', [
     'ngRoute',
     'cloudinary',
+    '720kb.datepicker',
     'ngMaterial',
     'myApp.sidenav',
     'myApp.main',
