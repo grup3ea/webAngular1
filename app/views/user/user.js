@@ -14,6 +14,11 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
                 console.log('data success');
                 console.log(data); // for browser console
                 $scope.user = data.data; // for UI
+                if($scope.user._id==$scope.storageuser._id)
+                {
+                  localStorage.setItem("fs_web_userdata", JSON.stringify($scope.user));
+                  $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+                }
             }, function (data, status) {
                 console.log('data error');
                 console.log(status);
@@ -44,8 +49,23 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
           });
         };
-        function DialogController($scope, $mdDialog) {
-
+        $scope.showImgComplete = function(ev, urlimg) {
+          console.log(urlimg);
+          $mdDialog.show({
+            controller: DialogController,
+            templateUrl: 'views/user/imgComplete.tmpl.html',
+            locals: {
+              urlImg: urlimg
+            },
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+          });
+        };
+        function DialogController($scope, $mdDialog, locals) {
+          console.log(locals);
+          $scope.urlImg=locals.urlImg;
           $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
           $scope.hide = function() {
             $mdDialog.hide();
@@ -92,6 +112,11 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
                     );*/
                     toastr.success('liked publication');
                     $scope.user = data.data;
+                    if($scope.user._id==$scope.storageuser._id)
+                    {
+                      localStorage.setItem("fs_web_userdata", JSON.stringify($scope.user));
+                      $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+                    }
                 },
                 function () {
                     $mdToast.show(
@@ -121,6 +146,11 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
                     );*/
                     toastr.success('disliked publication');
                     $scope.user = data.data;
+                    if($scope.user._id==$scope.storageuser._id)
+                    {
+                      localStorage.setItem("fs_web_userdata", JSON.stringify($scope.user));
+                      $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+                    }
                 },
                 function () {
                     $mdToast.show(
