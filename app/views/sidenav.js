@@ -187,4 +187,12 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
                     });
           };/* end of sendNewPost */
         }/* end of newPostCtrl */
+
+
+        /* searchbox */
+        $scope.searchstring="";
+        $scope.goSearch = function(){
+          $window.location = "#!/search/"+ $scope.searchstring;
+        };/* end of doSearch */
+        /* /searchbox */
     });

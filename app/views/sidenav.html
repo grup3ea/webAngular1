@@ -20,6 +20,14 @@
   <md-toolbar md-colors="{background: 'teal'}">
     <div class="md-toolbar-tools">
       <h2>FoodSports</h2>
+      <span flex="10"></span>
+      <md-list-item>
+        <md-input-container class="md-block">
+          <label>Search</label>
+          <input ng-model="searchstring">
+        </md-input-container>
+        <md-button ng-click="goSearch()">Search!</md-button>
+      </md-list-item>
       <span flex="75"></span>
       <md-list-item flex class="md-3-line contact-item" ng-href="#!/{{storageuser.role}}/{{storageuser._id}}">
         <img ng-hide="storageuser.avatar" ng-src="img/user.png" class=" " />

@@ -1,7 +1,7 @@
 <md-content layout-xs="column" layout="column">
   <div class="thumbnailBackground">
-      <a ng-click="showImgComplete($event, storageuser.background)">
-          <img ng-src="{{storageuser.background}}" class="md-card-image"/>
+      <a ng-click="showImgComplete($event, user.background)">
+          <img ng-src="{{user.background}}" class="md-card-image"/>
       </a>
   </div>
   <md-card-actions layout="row" layout-align="end center" ng-show="user._id==storageuser._id">
@@ -13,8 +13,8 @@
         <md-card-content>
           <h2>{{user.name}}</h2>
           <div class="thumbnailAvatar">
-              <a ng-click="showImgComplete($event, storageuser.avatar)">
-                  <img ng-src="{{storageuser.avatar}}" class="md-card-image"/>
+              <a ng-click="showImgComplete($event, user.avatar)">
+                  <img ng-src="{{user.avatar}}" class="md-card-image"/>
               </a>
           </div>
           <span class="md-subhead">
@@ -37,25 +37,25 @@
               <md-list-item class="md-3-line">
                   <div class="md-list-item-text" layout="column">
                       <h3>Height</h3>
-                      <p>{{storageuser.attributes.height}} meters</p>
+                      <p>{{user.attributes.height}} meters</p>
                   </div>
               </md-list-item>
               <md-list-item class="md-3-line">
                   <div class="md-list-item-text" layout="column">
                       <h3>Weight</h3>
-                      <p>{{storageuser.attributes.weight}} Kg</p>
+                      <p>{{user.attributes.weight}} Kg</p>
                   </div>
               </md-list-item>
               <md-list-item class="md-3-line">
                   <div class="md-list-item-text" layout="column">
                       <h3>Gender</h3>
-                      <p>{{storageuser.attributes.gender}}</p>
+                      <p>{{user.attributes.gender}}</p>
                   </div>
               </md-list-item>
               <md-list-item class="md-3-line">
                   <div class="md-list-item-text" layout="column">
                       <h3>Age</h3>
-                      <p>{{storageuser.attributes.age}} years old</p>
+                      <p>{{user.attributes.age}} years old</p>
                   </div>
               </md-list-item>
           </md-list>
