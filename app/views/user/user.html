@@ -1,164 +1,168 @@
 <md-content layout-xs="column" layout="column">
-  <div class="thumbnailBackground">
-      <a ng-click="showImgComplete($event, user.background)">
-          <img ng-src="{{user.background}}" class="md-card-image"/>
-      </a>
-  </div>
-  <md-card-actions layout="row" layout-align="end center" ng-show="user._id==storageuser._id">
-      <md-button ng-href="#!/editUser/{{user._id}}">Edit Profile</md-button>
-  </md-card-actions>
-  <md-content class="md-padding" layout-xs="row" layout="row">
-    <div flex-xs flex-gt-xs="30" layout="column"><!-- start of COLUMN -->
-      <md-card>
-        <md-card-content>
-          <h2>
-              {{user.name}}
-              <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)==-1"
-              ng-click="doFollow()">Follow</md-button>
+    <div class="thumbnailBackground">
+        <a ng-click="showImgComplete($event, user.background)">
+            <img ng-src="{{user.background}}" class="md-card-image"/>
+        </a>
+    </div>
+    <md-card-actions layout="row" layout-align="end center" ng-show="user._id==storageuser._id">
+        <md-button ng-href="#!/editUser/{{user._id}}">Edit Profile</md-button>
+    </md-card-actions>
+    <md-content class="md-padding" layout-xs="row" layout="row">
+        <div flex-xs flex-gt-xs="30" layout="column"><!-- start of COLUMN -->
+            <md-card>
+                <md-card-content>
+                    <h2>
+                        {{user.name}}
+                        <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)==-1"
+                                   ng-click="doFollow()">Follow
+                        </md-button>
 
-              <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)!=-1"
-              ng-click="doUnfollow()">Unfollow</md-button>
-          </h2>
-          <div class="thumbnailAvatar">
-              <a ng-click="showImgComplete($event, user.avatar)">
-                  <img ng-src="{{user.avatar}}" class="md-card-image"/>
-              </a>
-          </div>
-          <span class="md-subhead">
+                        <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)!=-1"
+                                   ng-click="doUnfollow()">Unfollow
+                        </md-button>
+                    </h2>
+                    <div class="thumbnailAvatar">
+                        <a ng-click="showImgComplete($event, user.avatar)">
+                            <img ng-src="{{user.avatar}}" class="md-card-image"/>
+                        </a>
+                    </div>
+                    <span class="md-subhead">
             {{user.description}}
           </span>
-          <span class="md-subhead">
+                    <span class="md-subhead">
             {{user.email}}
           </span>
-          <span class="md-subhead">
+                    <span class="md-subhead">
             {{user.image}}
           </span>
-          <span class="md-subhead">
+                    <span class="md-subhead">
             followers: {{user.followers.length}}
           </span>
-          <span class="md-subhead">
+                    <span class="md-subhead">
             followers: {{user.following.length}}
           </span>
-          <h3 class="md-headline">User attributes</h3>
-          <md-list class="md-dense" flex>
-              <md-list-item class="md-3-line">
-                  <div class="md-list-item-text" layout="column">
-                      <h3>Height</h3>
-                      <p>{{user.attributes.height}} meters</p>
-                  </div>
-              </md-list-item>
-              <md-list-item class="md-3-line">
-                  <div class="md-list-item-text" layout="column">
-                      <h3>Weight</h3>
-                      <p>{{user.attributes.weight}} Kg</p>
-                  </div>
-              </md-list-item>
-              <md-list-item class="md-3-line">
-                  <div class="md-list-item-text" layout="column">
-                      <h3>Gender</h3>
-                      <p>{{user.attributes.gender}}</p>
-                  </div>
-              </md-list-item>
-              <md-list-item class="md-3-line">
-                  <div class="md-list-item-text" layout="column">
-                      <h3>Age</h3>
-                      <p>{{user.attributes.age}} years old</p>
-                  </div>
-              </md-list-item>
-          </md-list>
-        </md-card-content>
-      </md-card>
-      <div><!-- training -->
-        <md-card>
-          <md-card-content>
-        <md-toolbar layout="row" class="md-hue-4">
-            <div class="md-toolbar-tools">
-                <span>Trainings</span>
-            </div>
-        </md-toolbar>
-        <md-card-actions layout="row" layout-align="center" ng-show="user._id==storageuser._id">
-            <md-button ng-href="#!/training" class="md-raised">Get a Training!</md-button>
-        </md-card-actions>
-        <md-list flex ng-show="user.trainers[0]">
-            <h2 class="md-headline">User trainer</h2>
-            <md-list-item class="md-3-line" ng-repeat="trainer in user.trainers"
-                          ng-href="#!/trainer/{{trainer._id}}">
-                <img ng-src="{{trainer.avatar}}" class="md-avatar"/>
-                <div class="md-list-item-text" layout="column">
-                    <h4>{{trainer.name}}</h4>
-                    <p>{{trainer.description}}</p>
-                </div>
-            </md-list-item>
-        </md-list>
-        <md-list flex ng-show="user.routines[0]">
-            <h2 class="md-headline">User routines</h2>
-            <md-list-item class="md-3-line" ng-repeat="routine in user.routines"
-                          ng-href="#!/routine/{{routine._id}}">
-                <img ng-src="img/routine.png" class="md-avatar"/>
-                <div class="md-list-item-text" layout="column">
-                    <h4>{{routine.title}}</h4>
-                    <p>{{routine.description}}</p>
-                </div>
-            </md-list-item>
-        </md-list>
-      </md-card-content>
-        </md-card>
-      </div><!-- /training -->
-      <div><!-- diet -->
-        <md-card>
-          <md-card-content>
-            <md-toolbar layout="row" class="md-hue-3">
-                <div class="md-toolbar-tools">
-                    <span>Diets</span>
-                </div>
-            </md-toolbar>
-            <md-card-actions layout="row" layout-align="center" ng-show="user._id==storageuser._id">
-                <md-button ng-href="#!/eating" class="md-raised">Get a Diet!</md-button>
-            </md-card-actions>
-            <md-list flex ng-show="user.diets[0]">
-                <h2 class="md-headline">User diets</h2>
-                <md-list-item class="md-3-line" ng-repeat="diet in user.diets" ng-href="#!/diet/{{diet._id}}">
-                    <img ng-src="img/user.png" class="md-avatar"/>
-                    <div class="md-list-item-text" layout="column">
-                        <h4>{{diet.title}}</h4>
-                        <h4>{{diet.description}}</h4>
-                    </div>
-                </md-list-item>
-            </md-list>
-          </md-card-content>
-        </md-card>
-      </div><!-- /diet -->
-    </div><!-- /column -->
-    <!-- publications -->
-    <div flex-xs flex-gt-xs="70" layout="column"><!-- start of COLUMN publications-->
-      <md-card ng-repeat="publication in user.publications | orderBy: '-date'">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">{{publication.title}}</span>
-          </md-card-title-text>
+                    <h3 class="md-headline">User attributes</h3>
+                    <md-list class="md-dense" flex>
+                        <md-list-item class="md-3-line">
+                            <div class="md-list-item-text" layout="column">
+                                <h3>Height</h3>
+                                <p>{{user.attributes.height}} meters</p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-3-line">
+                            <div class="md-list-item-text" layout="column">
+                                <h3>Weight</h3>
+                                <p>{{user.attributes.weight}} Kg</p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-3-line">
+                            <div class="md-list-item-text" layout="column">
+                                <h3>Gender</h3>
+                                <p>{{user.attributes.gender}}</p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-3-line">
+                            <div class="md-list-item-text" layout="column">
+                                <h3>Age</h3>
+                                <p>{{user.attributes.age}} years old</p>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </md-card-content>
+            </md-card>
+            <div><!-- training -->
+                <md-card>
+                    <md-card-content>
+                        <md-toolbar layout="row" class="md-hue-4">
+                            <div class="md-toolbar-tools">
+                                <span>Trainings</span>
+                            </div>
+                        </md-toolbar>
+                        <md-card-actions layout="row" layout-align="center" ng-show="user._id==storageuser._id">
+                            <md-button ng-href="#!/training" class="md-raised">Get a Training!</md-button>
+                        </md-card-actions>
+                        <md-list flex ng-show="user.trainers[0]">
+                            <h2 class="md-headline">User trainer</h2>
+                            <md-list-item class="md-3-line" ng-repeat="trainer in user.trainers"
+                                          ng-href="#!/trainer/{{trainer._id}}">
+                                <img ng-src="{{trainer.avatar}}" class="md-avatar"/>
+                                <div class="md-list-item-text" layout="column">
+                                    <h4>{{trainer.name}}</h4>
+                                    <p>{{trainer.description}}</p>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                        <md-list flex ng-show="user.routines[0]">
+                            <h2 class="md-headline">User routines</h2>
+                            <md-list-item class="md-3-line" ng-repeat="routine in user.routines"
+                                          ng-href="#!/routine/{{routine._id}}">
+                                <img ng-src="img/routine.png" class="md-avatar"/>
+                                <div class="md-list-item-text" layout="column">
+                                    <h4>{{routine.title}}</h4>
+                                    <p>{{routine.description}}</p>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </md-card-content>
+                </md-card>
+            </div><!-- /training -->
+            <div><!-- diet -->
+                <md-card>
+                    <md-card-content>
+                        <md-toolbar layout="row" class="md-hue-3">
+                            <div class="md-toolbar-tools">
+                                <span>Diets</span>
+                            </div>
+                        </md-toolbar>
+                        <md-card-actions layout="row" layout-align="center" ng-show="user._id==storageuser._id">
+                            <md-button ng-href="#!/eating" class="md-raised">Get a Diet!</md-button>
+                        </md-card-actions>
+                        <md-list flex ng-show="user.diets[0]">
+                            <h2 class="md-headline">User diets</h2>
+                            <md-list-item class="md-3-line" ng-repeat="diet in user.diets"
+                                          ng-href="#!/diet/{{diet._id}}">
+                                <img ng-src="img/user.png" class="md-avatar"/>
+                                <div class="md-list-item-text" layout="column">
+                                    <h4>{{diet.title}}</h4>
+                                    <h4>{{diet.description}}</h4>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </md-card-content>
+                </md-card>
+            </div><!-- /diet -->
+        </div><!-- /column -->
+        <!-- publications -->
+        <div flex-xs flex-gt-xs="70" layout="column"><!-- start of COLUMN publications-->
+            <md-card ng-repeat="publication in user.publications | orderBy: '-date'">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{publication.title}}</span>
+                    </md-card-title-text>
 
-          <md-card-actions layout="row" layout-align="end center">
-              {{publication.date | date: "dd/MM/yyyy, HH:mm"}}
-          </md-card-actions>
-        </md-card-title>
-        <img ng-click="showImgComplete($event, publication.photo)" ng-src="{{publication.photo}}" class="md-card-image">
-        <md-card-content>
-          <p>{{publication.content}}</p>
-          <p>{{publication.mark}}</p>
-        </md-card-content>
+                    <md-card-actions layout="row" layout-align="end center">
+                        {{publication.date | date: "dd/MM/yyyy, HH:mm"}}
+                    </md-card-actions>
+                </md-card-title>
+                <img ng-click="showImgComplete($event, publication.photo)" ng-src="{{publication.photo}}"
+                     class="md-card-image">
+                <md-card-content>
+                    <p>{{publication.content}}</p>
+                    <p>{{publication.mark}}</p>
+                </md-card-content>
 
-        <md-card-actions layout="row" layout-align="end center">
-            {{publication.likes.length}} likes
-        </md-card-actions>
-        <md-card-actions layout="row" layout-align="end center">
-            <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id)==-1"
-            ng-src="img/likeEmpty.png" class="o_cursorPointer"
-            ng-click="sendLikeToPublication(publication, $index)" />
-            <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id)!=-1"
-            ng-src="img/like.png" class="o_cursorPointer"
-            ng-click="sendDislikeToPublication(publication, $index)" />
-        </md-card-actions>
-      </md-card>
-    </div><!-- /publications -->
-  </md-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    {{publication.likes.length}} likes
+                </md-card-actions>
+                <md-card-actions layout="row" layout-align="end center">
+                    <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id)==-1"
+                         ng-src="img/likeEmpty.png" class="o_cursorPointer"
+                         ng-click="sendLikeToPublication(publication, $index)"/>
+                    <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id)!=-1"
+                         ng-src="img/like.png" class="o_cursorPointer"
+                         ng-click="sendDislikeToPublication(publication, $index)"/>
+                </md-card-actions>
+            </md-card>
+        </div><!-- /publications -->
+    </md-content>
 </md-content>

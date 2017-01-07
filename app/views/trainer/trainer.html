@@ -15,6 +15,11 @@
         </md-card-actions>
         <md-card-title>
           <md-card-title-text>
+            <md-toolbar layout="row" class="md-hue-3">
+              <div class="md-toolbar-tools">
+                <span>Trainer Profile</span>
+              </div>
+            </md-toolbar>
             <md-content class="md-padding" layout-xs="row" layout="row">
               <div flex-xs flex-gt-xs="30" layout="column"><!-- start of COLUMN -->
                 <div class="thumbnailAvatar">
@@ -25,12 +30,32 @@
                 </div>
               </div>
               <div flex-xs flex-gt-xs="70" layout="column"><!-- start of COLUMN -->
-                <span class="md-headline">
-                  <b>{{trainer.name}}</b>
-                </span>
-                <span class="md-subhead">
-                  <i>{{trainer.discipline}}</i>
-                </span>
+                <md-list class="md-dense" flex>
+                  <md-list-item class="md-4-line">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Name</h3>
+                      <p>{{trainer.name}}</p>
+                    </div>
+                  </md-list-item>
+                  <md-list-item class="md-4-line">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Email</h3>
+                      <p>{{trainer.email}}</p>
+                    </div>
+                  </md-list-item>
+                  <md-list-item class="md-4-line">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Description</h3>
+                      <p>{{trainer.description}}</p>
+                    </div>
+                  </md-list-item>
+                  <md-list-item class="md-4-line">
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Disciplines</h3>
+                      <p>{{trainer.disciplines}}</p>
+                    </div>
+                  </md-list-item>
+                </md-list>
               </div>
             </md-content>
           </md-card-title-text>
@@ -48,6 +73,19 @@
             </div>
           </md-list-item>
         </md-list>
+        </md-card-content>
+        <md-card-content>
+          <md-list flex>
+            <h3>Trainer Routines</h3>
+            <md-list-item class="md-3-line" ng-repeat="routine in trainer.routines">
+              <img ng-show="routine.image" ng-src="{{client.avatar}}" class="md-avatar" />
+              <img ng-hide="routine.image" ng-src="img/routine.png" class="md-avatar" />
+              <div class="md-list-item-text" layout="column">
+                <h3>{{trainer.routine.title}}</h3>
+                <h4>{{trainer.routine.description}}</h4>
+              </div>
+            </md-list-item>
+          </md-list>
         </md-card-content>
       </md-card>
   </md-content>
