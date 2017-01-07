@@ -83,7 +83,7 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
 
 
         //publication likes
-        $scope.arrayObjectIndexOf = function(myArray, searchTerm, property) {
+        $scope.arrayObjectIndexOf = function(myArray, searchTerm) {
             if(myArray){
                 for(var i = 0, len = myArray.length; i < len; i++) {
                     if (myArray[i] === searchTerm){
@@ -136,4 +136,39 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
                       toastr.error('Failed on posting dislike publication');
                 });
         };/* end of sendDislikeToPublication */
+
+
+        /* followers following system */
+        $scope.doFollow = function(){
+            $http({
+                url: urlapi + 'users/follow',
+                method: "POST",
+                data: {userid: $scope.user._id}
+            })
+            .then(function (data) {
+                console.log(data.data);
+                $scope.user = data.data;
+            },
+            function () {
+
+                  toastr.error('Failed on following user');
+            });
+        };
+        $scope.doUnfollow = function(){
+
+          toastr.warning('Encara no disponible');
+            /*$http({
+                url: urlapi + 'users/unfollow',
+                method: "POST",
+                data: {userid: $scope.user._id}
+            })
+            .then(function (data) {
+                console.log(data.data);
+                $scope.user = data.data;
+            },
+            function () {
+
+                  toastr.error('Failed on posting dislike publication');
+            });*/
+        };
     });

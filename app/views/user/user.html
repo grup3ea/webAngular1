@@ -11,7 +11,14 @@
     <div flex-xs flex-gt-xs="30" layout="column"><!-- start of COLUMN -->
       <md-card>
         <md-card-content>
-          <h2>{{user.name}}</h2>
+          <h2>
+              {{user.name}}
+              <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)==-1"
+              ng-click="doFollow()">Follow</md-button>
+
+              <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)!=-1"
+              ng-click="doUnfollow()">Unfollow</md-button>
+          </h2>
           <div class="thumbnailAvatar">
               <a ng-click="showImgComplete($event, user.avatar)">
                   <img ng-src="{{user.avatar}}" class="md-card-image"/>
@@ -76,7 +83,7 @@
             <h2 class="md-headline">User trainer</h2>
             <md-list-item class="md-3-line" ng-repeat="trainer in user.trainers"
                           ng-href="#!/trainer/{{trainer._id}}">
-                <img ng-src="img/trainer.png" class="md-avatar"/>
+                <img ng-src="{{trainer.avatar}}" class="md-avatar"/>
                 <div class="md-list-item-text" layout="column">
                     <h4>{{trainer.name}}</h4>
                     <p>{{trainer.description}}</p>
@@ -144,10 +151,10 @@
             {{publication.likes.length}} likes
         </md-card-actions>
         <md-card-actions layout="row" layout-align="end center">
-            <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id, '')==-1"
+            <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id)==-1"
             ng-src="img/likeEmpty.png" class="o_cursorPointer"
             ng-click="sendLikeToPublication(publication, $index)" />
-            <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id, '')!=-1"
+            <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id)!=-1"
             ng-src="img/like.png" class="o_cursorPointer"
             ng-click="sendDislikeToPublication(publication, $index)" />
         </md-card-actions>
