@@ -33,7 +33,8 @@ angular.module('myApp', [
     'myApp.trainersSearcher',
     'myApp.settings',
     'ui.calendar'
-]).config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {
+]).config(['$locationProvider', '$routeProvider', '$httpProvider', '$mdAriaProvider', function ($locationProvider, $routeProvider, $httpProvider, $mdAriaProvider) {
+    $mdAriaProvider.disableWarnings();
     $locationProvider.hashPrefix('!');
     if((localStorage.getItem("fs_web_token"))&&(JSON.parse(localStorage.getItem("fs_web_userdata"))!="null")&&(JSON.parse(localStorage.getItem("fs_web_userdata"))!=null))
     {
