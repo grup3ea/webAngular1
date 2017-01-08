@@ -49,10 +49,10 @@
                                     <p>{{trainer.description}}</p>
                                 </div>
                             </md-list-item>
-                            <md-list-item class="md-4-line">
-                                <div class="md-list-item-text" layout="column">
+                            <md-list-item class="md-4-line" >
+                                <div class="md-list-item-text" layout="column" >
                                     <h3>Disciplines</h3>
-                                    <p>{{trainer.disciplines}}</p>
+                                    <p ng-repeat="discipline in trainer.disciplines" >{{discipline}}</p>
                                 </div>
                             </md-list-item>
                         </md-list>
