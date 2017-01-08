@@ -4,15 +4,62 @@
     vale, aquí la idea és que apareguin les publicacions dels users que segueixes fent following
     i un buscador per buscar users que encara no segueixis, i et porta al perfil de l'user perquè el puguis seguir
   </p>
-  <h3>Users following</h3>
-  <md-list flex>
-    <md-list-item class="md-3-line" ng-repeat="user in storageuser.following" ng-href="#!/user/{{user._id}}">
-      <img ng-src="{{user.avatar}}" class="md-avatar" />
-      <div class="md-list-item-text" layout="column">
-        <h3>{{user.name}}</h3>
-        <h4>{{user.role}}</h4>
-        <p>{{user.email}}</p>
-      </div>
-    </md-list-item>
-  </md-list>
+  <md-content class="md-padding" layout-xs="row" layout="row">
+      <div flex-xs flex-gt-xs="60" layout="column"><!-- start of COLUMN -->
+          <md-card ng-repeat="publication in newsfeed | orderBy: '-date'">
+              <md-toolbar layout="row" class="o_toolbarTitle">
+                  <div class="md-toolbar-tools">
+                      <span>
+                          <md-list-item>
+                              <img ng-src="{{publication.user.avatar}}" class="md-avatar" />
+                              {{publication.user.name}}
+                          </md-list-item>
+                      </span>
+                  </div>
+              </md-toolbar>
+              <md-card-title>
+                  <md-card-title-text>
+                      <span class="md-headline">{{publication.title}}</span>
+                  </md-card-title-text>
+
+                  <md-card-actions layout="row" layout-align="end center">
+                      {{publication.date | date: "dd/MM/yyyy, HH:mm"}}
+                  </md-card-actions>
+              </md-card-title>
+              <img ng-click="showImgComplete($event, publication.photo)" ng-src="{{publication.photo}}"
+                   class="md-card-image" style="padding:10px;">
+              <md-card-content>
+                  <p>{{publication.content}}</p>
+                  <p>{{publication.mark}}</p>
+              </md-card-content>
+
+              <md-card-actions layout="row" layout-align="end center">
+                  {{publication.likes.length}} likes
+              </md-card-actions>
+              <md-card-actions layout="row" layout-align="end center">
+                  <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id)==-1"
+                       ng-src="img/likeEmpty.png" class="o_cursorPointer"
+                       ng-click="sendLikeToPublication(publication, $index)"/>
+                  <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id)!=-1"
+                       ng-src="img/like.png" class="o_cursorPointer"
+                       ng-click="sendDislikeToPublication(publication, $index)"/>
+              </md-card-actions>
+          </md-card>
+      </div><!-- end of COLUMN -->
+      <div flex-xs flex-gt-xs="40" layout="column"><!-- start of COLUMN -->
+          <md-card>
+              <h3>Users following</h3>
+              <md-list flex>
+                <md-list-item class="md-3-line" ng-repeat="user in storageuser.following" ng-href="#!/user/{{user._id}}">
+                  <img ng-src="{{user.avatar}}" class="md-avatar" />
+                  <div class="md-list-item-text" layout="column">
+                    <h3>{{user.name}}</h3>
+                    <h4>{{user.role}}</h4>
+                    <p>{{user.email}}</p>
+                  </div>
+                </md-list-item>
+              </md-list>
+          </md-card>
+      </div><!-- end of COLUMN -->
+  </md-content><!-- end of row of columns -->
 </md-content>
