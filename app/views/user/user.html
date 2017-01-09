@@ -13,13 +13,15 @@
                 <md-card-content>
                     <h2>
                         {{user.name}}
-                        <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)==-1"
-                                   ng-click="doFollow()">Follow
-                        </md-button>
+                        <div ng-hide="user._id==storageuser._id">
+                            <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)==-1"
+                                       ng-click="doFollow()">Follow
+                            </md-button>
 
-                        <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)!=-1"
-                                   ng-click="doUnfollow()">Unfollow
-                        </md-button>
+                            <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)!=-1"
+                                       ng-click="doUnfollow()">Unfollow
+                            </md-button>
+                        </div>
                     </h2>
                     <div class="thumbnailAvatar">
                         <a ng-click="showImgComplete($event, user.avatar)">
