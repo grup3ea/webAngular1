@@ -5,12 +5,12 @@
     i un buscador per buscar users que encara no segueixis, i et porta al perfil de l'user perquè el puguis seguir
   </p>
   <md-content class="md-padding" layout-xs="row" layout="row">
-      <div flex-xs flex-gt-xs="60" layout="column"><!-- start of COLUMN -->
+      <div flex-xs flex-gt-xs="70" layout="column"><!-- start of COLUMN -->
           <md-card ng-repeat="publication in newsfeed | orderBy: '-date'">
               <md-toolbar layout="row" class="o_toolbarTitle">
                   <div class="md-toolbar-tools">
                       <span>
-                          <md-list-item>
+                          <md-list-item ng-href="#!/user/{{publication.user._id}}">
                               <img ng-src="{{publication.user.avatar}}" class="md-avatar" />
                               {{publication.user.name}}
                           </md-list-item>
@@ -52,7 +52,7 @@
               </md-card-actions>
           </md-card>
       </div><!-- end of COLUMN -->
-      <div flex-xs flex-gt-xs="40" layout="column"><!-- start of COLUMN -->
+      <div flex-xs flex-gt-xs="30" layout="column"><!-- start of COLUMN -->
           <md-card>
               <h3>Users following</h3>
               <md-list flex>

@@ -157,6 +157,10 @@
                     {{publication.likes.length}} likes
                 </md-card-actions>
                 <md-card-actions layout="row" layout-align="end center">
+                    <img ng-src="img/trash_grey.png" class="o_cursorPointer" title="delete"
+                    ng-show="publication.user==storageuser._id"
+                    ng-click="deletePublication($event, publication._id)" />
+
                     <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id)==-1"
                          ng-src="img/likeEmpty.png" class="o_cursorPointer"
                          ng-click="sendLikeToPublication(publication, $index)"/>

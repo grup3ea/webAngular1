@@ -9,7 +9,7 @@ angular.module('myApp.network', ['ngRoute', 'ngAnimate', 'toastr'])
         });
     }])
 
-    .controller('NetworkCtrl', function ($scope, $http, $mdDialog, toastr) {
+    .controller('NetworkCtrl', function ($scope, $http, $mdDialog, toastr, $route) {
       $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
 
       $http.get(urlapi + 'users/'+ $scope.storageuser._id + '/network')
@@ -157,6 +157,7 @@ angular.module('myApp.network', ['ngRoute', 'ngAnimate', 'toastr'])
                             console.log("response: ");
                             console.log(response.data);
                             toastr.success('Publication deleted!');
+                            $route.reload();
                         },
                         function (response) {
                             toastr.error('Failed on deleting publication');

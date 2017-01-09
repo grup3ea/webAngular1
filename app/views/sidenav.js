@@ -6,7 +6,7 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
             controller: 'SidenavCtrl'
         });
     }])
-    .controller('SidenavCtrl', function ($scope, $http, $timeout, $window, $mdSidenav, $mdDialog, toastr) {
+    .controller('SidenavCtrl', function ($scope, $http, $timeout, $window, $mdSidenav, $mdDialog, toastr, $route) {
         if (localStorage.getItem("fs_web_token")) {
             // USER LOGUEJAT
             console.log("user logged");
@@ -169,6 +169,8 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
                             $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));*/
                             toastr.success('New post added to your timeline');
                             $scope.postSended(response.data);
+
+                            $route.reload();
                         },
                         function () {
                             toastr.error('Failed on adding post to your timeline');
