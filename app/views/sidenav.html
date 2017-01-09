@@ -1,52 +1,67 @@
 <div ng-controller="SidenavCtrl" ng-show="storageuser">
-  <div class="o_sidenav md-whiteframe-4dp">
-        <md-content style="position: relative; top: 100px;">
-          <md-list flex>
-            <md-list-item class="md-2-line" ng-repeat="option in options" ng-href="#!{{option.link}}">
-              <img ng-src="{{option.icon}}" class="md-avatar" alt="{{option.description}}" />
-              <div class="md-list-item-text" layout="column">
-                <h3>{{ option.title }}</h3>
-              </div>
-            </md-list-item>
-            <md-list-item class="md-2-line" ng-click="logout()">
-              <img src="img/essential/power.png" class="md-avatar" alt="logout" />
-              <div class="md-list-item-text" layout="column">
-                <h3>Logout</h3>
-              </div>
-            </md-list-item>
-          </md-list>
-        </md-content>
-  </div>
-  <md-toolbar md-colors="{background: 'teal'}">
-    <div class="md-toolbar-tools">
-      <h2>FoodSports</h2>
-      <span flex="10"></span>
-      <md-list-item>
-        <md-input-container class="md-block">
-          <label>Search</label>
-          <input ng-model="searchstring">
-        </md-input-container>
-        <md-button ng-click="goSearch()">Search!</md-button>
-      </md-list-item>
-      <span flex="75"></span>
-      <md-list-item flex class="md-3-line contact-item" ng-href="#!/{{storageuser.role}}/{{storageuser._id}}">
-        <img ng-hide="storageuser.avatar" ng-src="img/user.png" class=" " />
-        <img ng-show="storageuser.avatar" ng-src="{{storageuser.avatar}}" class="md-avatar" />
-        <div class="md-list-item-text compact">
-          <h3>{{storageuser.name}}</h3>
-          <p ng-show="storageuser.points.total">{{storageuser.points.total}} points</p>
-        </div>
-      </md-list-item>
-      <md-list-item flex class="md-2-line contact-item" ng-show="storageuser.notifications[0]" href="#!/notifications">
-        <img ng-src="img/notification.png" class="md-avatar" />
-        <div class="md-list-item-text compact">
-          <h3>{{storageuser.notifications.length}}</h3>
-        </div>
-      </md-list-item>
-
-      <md-list-item flex class="md-2-line contact-item" ng-click="showNewPostDialog()">
-        <img ng-src="img/newpost.png" class="md-avatar" title="new post" />
-      </md-list-item>
+    <div class="o_sidenav md-whiteframe-4dp">
+        <md-sidenav
+                class="md-sidenav-left"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-md')"
+                md-whiteframe="4">
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools">FoodSports</h1>
+            </md-toolbar>
+            <md-content>
+                <md-list flex>
+                    <md-list-item class="md-2-line" ng-repeat="option in options" ng-href="#!{{option.link}}">
+                        <img ng-src="{{option.icon}}" class="md-avatar" alt="{{option.description}}"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{ option.title }}</h3>
+                        </div>
+                    </md-list-item>
+                    <md-list-item class="md-2-line" ng-click="logout()">
+                        <img src="img/essential/power.png" class="md-avatar" alt="logout"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Logout</h3>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </md-sidenav>
     </div>
-  </md-toolbar>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button ng-source="" aria-label="Landing Page">
+                Home
+            </md-button>
+            <h2>
+                <span></span>
+            </h2>
+            <span flex="10"></span>
+            <md-list-item>
+                <md-input-container md-no-float class="md-block">
+                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                    <input ng-model="searchstring" type="search" placeholder="Search">
+                </md-input-container>
+                <md-button class="md-raised" ng-click="goSearch()">Search!</md-button>
+            </md-list-item>
+            <span flex="75"></span>
+            <md-list-item flex class="md-2-line contact-item" ng-href="#!/{{storageuser.role}}/{{storageuser._id}}">
+                <img ng-hide="storageuser.avatar" ng-src="img/user.png" class=" "/>
+                <img ng-show="storageuser.avatar" ng-src="{{storageuser.avatar}}" class="md-avatar"/>
+                <div class="md-list-item-text compact">
+                    <h3>{{storageuser.name}}</h3>
+                    <p ng-show="storageuser.points.total">{{storageuser.points.total}} points</p>
+                </div>
+            </md-list-item>
+            <md-list-item flex class="md-2-line contact-item" ng-show="storageuser.notifications[0]"
+                          href="#!/notifications">
+                <img ng-src="img/notification.png" class="md-avatar"/>
+                <div class="md-list-item-text compact">
+                    <h3>{{storageuser.notifications.length}}</h3>
+                </div>
+            </md-list-item>
+
+            <md-list-item flex class="md-2-line contact-item" ng-click="showNewPostDialog()">
+                <img ng-src="img/newpost.png" class="md-avatar" title="new post"/>
+            </md-list-item>
+        </div>
+    </md-toolbar>
 </div>

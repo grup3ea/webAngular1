@@ -1,6 +1,6 @@
 <!-- DASHBOARD USER -->
 <div ng-show="storageuser.role=='user'">
-    <md-content class="md-padding" layout-xs="row" layout="column">
+    <md-content>
         <div flex-xs flex-gt-xs="100" layout="row"><!-- start of COLUMN -->
             <md-card flex-xs flex-gt-xs="60">
                 <md-toolbar layout="row" class="o_toolbarTitle">
@@ -140,11 +140,11 @@ trainer
         <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
             <md-card>
                 <md-card-title-text>
-                  <md-toolbar layout="row" class="o_toolbarTitle">
-                      <div class="md-toolbar-tools">
-                          <span>Clients</span>
-                      </div>
-                  </md-toolbar>
+                    <md-toolbar layout="row" class="o_toolbarTitle">
+                        <div class="md-toolbar-tools">
+                            <span>Clients</span>
+                        </div>
+                    </md-toolbar>
                 </md-card-title-text>
                 <md-list flex>
                     <md-list-item class="md-3-line" ng-repeat="client in storageuser.clients"
@@ -215,11 +215,11 @@ trainer
         </div><!-- end of COLUMN -->
         <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
             <md-card flex-xs flex-gt-xs="40">
-              <md-toolbar layout="row" class="o_toolbarTitle">
-                  <div class="md-toolbar-tools">
-                      <span>User Profile</span>
-                  </div>
-              </md-toolbar>
+                <md-toolbar layout="row" class="o_toolbarTitle">
+                    <div class="md-toolbar-tools">
+                        <span>User Profile</span>
+                    </div>
+                </md-toolbar>
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">{{storageuser.name}}</span>
@@ -239,11 +239,11 @@ trainer
                 </md-card-actions>
             </md-card>
             <md-card>
-              <md-toolbar layout="row" class="o_toolbarTitle">
-                  <div class="md-toolbar-tools">
-                      <span>Routines</span>
-                  </div>
-              </md-toolbar>
+                <md-toolbar layout="row" class="o_toolbarTitle">
+                    <div class="md-toolbar-tools">
+                        <span>Routines</span>
+                    </div>
+                </md-toolbar>
                 <md-list flex>
                     <md-list-item class="md-3-line" ng-repeat="routine in storageuser.routines" ng-click="null"
                                   ng-href="#!/editRoutine/{{routine._id}}">
