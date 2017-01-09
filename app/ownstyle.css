@@ -80,6 +80,10 @@
     la 'b' és de background, si és una 'f' és de font
     a part podem posar ColorDark o ColorLight per fer un color més fosc o més clar
 */
+.o_bSidenav{
+    background: rgb(45,62,78)!important;
+    color: #ffffff!important;
+}
 .o_fWhiteLight{
     color: #c6ccd2!important;
 }

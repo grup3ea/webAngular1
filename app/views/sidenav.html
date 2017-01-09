@@ -1,14 +1,14 @@
 <div ng-controller="SidenavCtrl" ng-show="storageuser">
-    <div class="o_sidenav md-whiteframe-8dp o_bBlueDark">
+    <div class="o_sidenav md-whiteframe-8dp o_bSidenav">
         <md-sidenav
-                class="md-sidenav-left o_bBlueDark"
+                class="md-sidenav-left o_bSidenav"
                 md-component-id="left"
                 md-is-locked-open="$mdMedia('gt-md')"
                 md-whiteframe="8">
-            <md-toolbar class="o_bBlueDark">
+            <md-toolbar class="o_bSidenav">
                 <h1 class="md-toolbar-tools o_fWhiteLight">FoodSports</h1>
             </md-toolbar>
-            <md-content class="o_bBlueDark">
+            <md-content class="o_bSidenav">
                 <md-list flex>
                     <md-list-item class="md-2-line" ng-repeat="option in options" ng-href="#!{{option.link}}">
                         <img ng-src="{{option.icon}}" class="md-avatar" alt="{{option.description}}"/>
