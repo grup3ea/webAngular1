@@ -1,32 +1,32 @@
 <div ng-controller="SidenavCtrl" ng-show="storageuser">
-    <div class="o_sidenav md-whiteframe-4dp">
+    <div class="o_sidenav md-whiteframe-8dp o_bDarkBlue">
         <md-sidenav
-                class="md-sidenav-left"
+                class="md-sidenav-left o_bDarkBlue"
                 md-component-id="left"
                 md-is-locked-open="$mdMedia('gt-md')"
-                md-whiteframe="4">
-            <md-toolbar class="md-theme-indigo">
-                <h1 class="md-toolbar-tools">FoodSports</h1>
+                md-whiteframe="8">
+            <md-toolbar class="o_bDarkBlue">
+                <h1 class="md-toolbar-tools o_fWhiteLight">FoodSports</h1>
             </md-toolbar>
-            <md-content>
+            <md-content class="o_bDarkBlue">
                 <md-list flex>
                     <md-list-item class="md-2-line" ng-repeat="option in options" ng-href="#!{{option.link}}">
                         <img ng-src="{{option.icon}}" class="md-avatar" alt="{{option.description}}"/>
                         <div class="md-list-item-text" layout="column">
-                            <h3>{{ option.title }}</h3>
+                            <h3 class="o_fWhiteLight">{{ option.title }}</h3>
                         </div>
                     </md-list-item>
                     <md-list-item class="md-2-line" ng-click="logout()">
                         <img src="img/essential/power.png" class="md-avatar" alt="logout"/>
                         <div class="md-list-item-text" layout="column">
-                            <h3>Logout</h3>
+                            <h3 class="o_fWhiteLight">Logout</h3>
                         </div>
                     </md-list-item>
                 </md-list>
             </md-content>
         </md-sidenav>
     </div>
-    <md-toolbar>
+    <md-toolbar md-colors="{background: 'blue-grey-50'}" md-whiteframe="4">
         <div class="md-toolbar-tools">
             <md-button ng-source="" aria-label="Landing Page">
                 Home

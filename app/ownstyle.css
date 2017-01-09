@@ -66,8 +66,31 @@
 
   height: 100%;
 }
-
-.o_toolbarTitle{
+.o_bDarkBlue{
+    background: rgb(45,62,78)!important;
+    color: #ffffff!important;
+}
+.o_fWhiteLight{
+    color: #c6ccd2!important;
+}
+.o_bGrey{
   background: #e6e6e6!important;
   color: #000000!important;
+}
+/* backgrounds color: bColor */
+.o_bRed{
+    background: rgb(252,87,85)!important;
+    color: #ffffff!important;
+}
+.o_bGreen{
+    background: rgb(123,195,70)!important;
+    color: #ffffff!important;
+}
+.o_bBlue{
+    background: rgb(104,195,240)!important;
+    color: #ffffff!important;
+}
+.o_bYellow{
+    background: rgb(251,187,61)!important;
+    color: #ffffff!important;
 }
