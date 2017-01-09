@@ -6,7 +6,7 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             controller: 'UserCtrl'
         });
     }])
-    .controller('UserCtrl', function ($scope, $http, $routeParams, $mdDialog, toastr, $route) {
+    .controller('UserCtrl', function ($scope, $http, $routeParams, $mdDialog, toastr, $route, $filter) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         $scope.user = {};
         $http.get(urlapi + 'users/' + $routeParams.userid)
@@ -103,11 +103,12 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             .then(function (data) {
               console.log(data.data);
                     toastr.success('liked publication');
-                    $scope.user = data.data;
-                    if($scope.user._id==$scope.storageuser._id)
+                    for(var i=0; i<$scope.user.publications.length; i++)
                     {
-                      localStorage.setItem("fs_web_userdata", JSON.stringify($scope.user));
-                      $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+                        if($scope.user.publications[i]._id==data.data._id)
+                        {//dins de la publication en concret
+                            $scope.user.publications[i]=data.data;
+                        }
                     }
                 },
                 function () {
@@ -124,11 +125,12 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             .then(function (data) {
               console.log(data.data);
                     toastr.success('disliked publication');
-                    $scope.user = data.data;
-                    if($scope.user._id==$scope.storageuser._id)
+                    for(var i=0; i<$scope.user.publications.length; i++)
                     {
-                      localStorage.setItem("fs_web_userdata", JSON.stringify($scope.user));
-                      $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+                        if($scope.user.publications[i]._id==data.data._id)
+                        {//dins de la publication en concret
+                            $scope.user.publications[i]=data.data;
+                        }
                     }
                 },
                 function () {

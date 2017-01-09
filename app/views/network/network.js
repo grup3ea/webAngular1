@@ -102,11 +102,12 @@ angular.module('myApp.network', ['ngRoute', 'ngAnimate', 'toastr'])
             .then(function (data) {
               console.log(data.data);
                     toastr.success('liked publication');
-                    $scope.user = data.data;
-                    if($scope.user._id==$scope.storageuser._id)
+                    for(var i=0; i<$scope.newsfeed.length; i++)
                     {
-                      localStorage.setItem("fs_web_userdata", JSON.stringify($scope.user));
-                      $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+                        if($scope.newsfeed[i]._id==data.data._id)
+                        {//dins de la publication en concret
+                            $scope.newsfeed[i]=data.data;
+                        }
                     }
                 },
                 function () {
@@ -123,11 +124,12 @@ angular.module('myApp.network', ['ngRoute', 'ngAnimate', 'toastr'])
             .then(function (data) {
               console.log(data.data);
                     toastr.success('disliked publication');
-                    $scope.user = data.data;
-                    if($scope.user._id==$scope.storageuser._id)
+                    for(var i=0; i<$scope.newsfeed.length; i++)
                     {
-                      localStorage.setItem("fs_web_userdata", JSON.stringify($scope.user));
-                      $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+                        if($scope.newsfeed[i]._id==data.data._id)
+                        {//dins de la publication en concret
+                            $scope.newsfeed[i]=data.data;
+                        }
                     }
                 },
                 function () {

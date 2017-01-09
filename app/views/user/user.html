@@ -160,7 +160,7 @@
                 </md-card-actions>
                 <md-card-actions layout="row" layout-align="end center">
                     <img ng-src="img/trash_grey.png" class="o_cursorPointer" title="delete"
-                    ng-show="publication.user==storageuser._id"
+                    ng-show="user._id==storageuser._id"
                     ng-click="deletePublication($event, publication._id)" />
 
                     <img ng-show="arrayObjectIndexOf(publication.likes, storageuser._id)==-1"
