@@ -10,18 +10,21 @@
             </md-toolbar>
             <md-content class="o_bSidenav">
                 <md-list flex>
-                    <md-list-item class="md-2-line" ng-repeat="option in options" ng-href="#!{{option.link}}">
+                    <md-divider></md-divider>
+                    <md-list-item class="md-3-line" ng-repeat="option in options" ng-href="#!{{option.link}}">
                         <img ng-src="{{option.icon}}" class="md-avatar" alt="{{option.description}}"/>
                         <div class="md-list-item-text" layout="column">
                             <h3 class="o_fWhiteLight">{{ option.title }}</h3>
                         </div>
+                        <md-divider></md-divider>
                     </md-list-item>
-                    <md-list-item class="md-2-line" ng-click="logout()">
+                    <md-list-item class="md-3-line" ng-click="logout()">
                         <img src="img/sidenav/logout.png" class="md-avatar" alt="logout"/>
                         <div class="md-list-item-text" layout="column">
                             <h3 class="o_fWhiteLight">Logout</h3>
                         </div>
                     </md-list-item>
+                    <md-divider></md-divider>
                 </md-list>
             </md-content>
         </md-sidenav>
