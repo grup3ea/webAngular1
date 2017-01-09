@@ -24,6 +24,7 @@ angular.module('myApp', [
     'myApp.editUser',
     'myApp.editRoutine',
     'myApp.user',
+    'myApp.follows',
     'myApp.network',
     'myApp.client',
     'myApp.eating',

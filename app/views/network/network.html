@@ -55,12 +55,20 @@
               <md-toolbar layout="row" class="o_bBlueDark">
                   <div class="md-toolbar-tools">
                     <span>
-                      Users following
+                        Users following
                     </span>
+                    <span flex></span>
+                    <span>{{storageuser.following.length}}</span>
                   </div>
               </md-toolbar>
               <md-list flex>
-                <md-list-item class="md-3-line" ng-repeat="user in storageuser.following" ng-href="#!/user/{{user._id}}">
+                  <md-button ng-href="#!/follows/{{storageuser._id}}">
+                      Users following
+                  </md-button>
+                  <md-button ng-click="orderByMe('name')">
+                      Sort
+                  </md-button>
+                <md-list-item class="md-3-line" ng-repeat="user in storageuser.following | orderBy:orderBy" ng-href="#!/user/{{user._id}}">
                   <img ng-src="{{user.avatar}}" class="md-avatar" />
                   <div class="md-list-item-text" layout="column">
                     <h3>{{user.name}}</h3>

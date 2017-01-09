@@ -37,12 +37,17 @@
             <h2>
                 <span></span>
             </h2>
-            <span flex="10"></span>
+            <span flex="15"></span>
             <md-list-item>
-                <md-input-container md-no-float class="md-block">
+                <!--<md-input-container md-no-float class="md-block">
                     <input ng-model="searchstring" type="search" placeholder="Search">
-                </md-input-container>
-                <md-button class="md-raised" ng-click="goSearch()">Search!</md-button>
+                </md-input-container>-->
+                <input ng-model="searchstring" type="search"
+                placeholder="Search"
+                style="background:#ECEFF1; border:0px solid;">
+                <md-button ng-click="goSearch()">
+                    <img src="img/search.png" class=" "/>
+                </md-button>
             </md-list-item>
             <span flex="75"></span>
             <md-list-item flex class="md-2-line contact-item" ng-href="#!/{{storageuser.role}}/{{storageuser._id}}">

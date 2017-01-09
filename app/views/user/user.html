@@ -30,21 +30,25 @@
                             <img ng-src="{{user.avatar}}" class="md-card-image"/>
                         </a>
                     </div>
-                      <span class="md-subhead">
+                    <span class="md-subhead">
                         {{user.description}}
-                      </span>
-                                <span class="md-subhead">
+                    </span>
+                    <span class="md-subhead">
                         {{user.email}}
-                      </span>
-                                <span class="md-subhead">
+                    </span>
+                    <span class="md-subhead">
                         {{user.image}}
-                      </span>
-                                <span class="md-subhead">
-                        followers: {{user.followers.length}}
-                      </span>
-                                <span class="md-subhead">
-                        followers: {{user.following.length}}
-                      </span>
+                    </span>
+                    <span class="md-subhead">
+                        <md-button ng-href="#!/follows/{{user._id}}">
+                            following: {{user.following.length}}
+                        </md-button>
+                    </span>
+                    <span class="md-subhead">
+                        <md-button ng-href="#!/follows/{{user._id}}">
+                            followers: {{user.followers.length}}
+                        </md-button>
+                    </span>
                     <h3 class="md-headline">User attributes</h3>
                     <md-list class="md-dense" flex>
                         <md-list-item class="md-3-line">

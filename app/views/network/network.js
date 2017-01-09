@@ -168,4 +168,9 @@ angular.module('myApp.network', ['ngRoute', 'ngAnimate', 'toastr'])
                 toastr.info('Operation canceled');
             });
         };/* end of delete publication */
+
+
+        $scope.orderByMe = function(x) {
+          $scope.orderBy = x;
+        };
     });
