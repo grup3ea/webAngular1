@@ -16,43 +16,43 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
              posat aquí al menú */
             $scope.loginData = {};
             var pathImg = "img/essential/";
-
+            var sidenavImg="img/sidenav/";
             $scope.options = [
                 {
                     title: "Dashboard",
                     description: "description",
                     link: "/dashboard",
-                    icon: pathImg + "stopwatch-4.png"
+                    icon: sidenavImg + "dashboard.png"
                 },
                 {
                     title: "Profile",
                     description: "description",
                     link: "/"+$scope.storageuser.role +"/" +$scope.storageuser._id,
-                    icon: pathImg + "user.png"
+                    icon: sidenavImg + "profile.png"
                 },
                 {
                     title: "Network",
                     description: "description",
                     link: "/network",
-                    icon: pathImg + "network.png"
+                    icon: sidenavImg + "network.png"
                 },
                 {
                     title: "Training",
                     description: "description",
                     link: "/training",
-                    icon: pathImg + "training.png"
+                    icon: sidenavImg + "training.png"
                 },
                 {
                     title: "Diet",
                     description: "description",
                     link: "/eating",
-                    icon: pathImg + "apple.png"
+                    icon: sidenavImg + "diet.png"
                 },
                 {
                     title: "Settings",
                     description: "description",
                     link: "/settings",
-                    icon: pathImg + "settings.png"
+                    icon: sidenavImg + "settings.png"
                 }
             ];
             console.log($scope.options);

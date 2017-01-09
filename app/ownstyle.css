@@ -66,10 +66,20 @@
 
   height: 100%;
 }
-.o_bDarkBlue{
-    background: rgb(45,62,78)!important;
-    color: #ffffff!important;
-}
+
+/*
+    SISTEMA DE COLORS
+
+    users: blue
+    routines: red
+    diets: yellow
+
+    la nomenclatura és:
+    o_bColor
+    la 'o' és de 'own', per saber que és una classe pròpia nostra i que no colisioni amb les classes dels frameworks css
+    la 'b' és de background, si és una 'f' és de font
+    a part podem posar ColorDark o ColorLight per fer un color més fosc o més clar
+*/
 .o_fWhiteLight{
     color: #c6ccd2!important;
 }
@@ -90,7 +100,15 @@
     background: rgb(104,195,240)!important;
     color: #ffffff!important;
 }
+.o_bBlueDark{
+    background: rgb(72,118,180)!important;
+    color: #ffffff!important;
+}
 .o_bYellow{
     background: rgb(251,187,61)!important;
+    color: #ffffff!important;
+}
+.o_bOrange{
+    background: rgb(251, 126, 61)!important;
     color: #ffffff!important;
 }

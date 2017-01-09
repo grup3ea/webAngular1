@@ -1,9 +1,7 @@
 <md-content>
-  <h3>Network</h3>
-  <p>
-    vale, aquí la idea és que apareguin les publicacions dels users que segueixes fent following
-    i un buscador per buscar users que encara no segueixis, i et porta al perfil de l'user perquè el puguis seguir
-  </p>
+  <md-content class="md-padding" layout-xs="row" layout="row">
+      <h3>Network</h3>
+  </md-content>
   <md-content class="md-padding" layout-xs="row" layout="row">
       <div flex-xs flex-gt-xs="70" layout="column"><!-- start of COLUMN -->
           <md-card ng-repeat="publication in newsfeed | orderBy: '-date'">
@@ -54,7 +52,13 @@
       </div><!-- end of COLUMN -->
       <div flex-xs flex-gt-xs="30" layout="column"><!-- start of COLUMN -->
           <md-card>
-              <h3>Users following</h3>
+              <md-toolbar layout="row" class="o_bBlueDark">
+                  <div class="md-toolbar-tools">
+                    <span>
+                      Users following
+                    </span>
+                  </div>
+              </md-toolbar>
               <md-list flex>
                 <md-list-item class="md-3-line" ng-repeat="user in storageuser.following" ng-href="#!/user/{{user._id}}">
                   <img ng-src="{{user.avatar}}" class="md-avatar" />
