@@ -9,7 +9,7 @@
                 <h1 class="md-toolbar-tools o_fWhiteLight">FoodSports</h1>
             </md-toolbar>
             <md-content class="o_bSidenav">
-                <md-list flex>
+                <md-list class="md-dense" flex>
                     <md-divider></md-divider>
                     <md-list-item class="md-3-line" ng-repeat="option in options" ng-href="#!{{option.link}}">
                         <img ng-src="{{option.icon}}" class="md-avatar" alt="{{option.description}}"/>
@@ -29,7 +29,10 @@
             </md-content>
         </md-sidenav>
     </div>
-    <md-toolbar md-colors="{background: 'blue-grey-50'}" md-whiteframe="4">
+    <md-toolbar>
+        <!-- toolbar fake perquè ocupi l'espai i el contingut de la pàgina no es trepitgi amb la toolbar de debò que està fixed al top=0 -->
+    </md-toolbar>
+    <md-toolbar md-colors="{background: 'blue-grey-50'}" md-whiteframe="4" style="position:fixed; top:0; z-index:59;">
         <div class="md-toolbar-tools">
             <md-button ng-source="" aria-label="Landing Page">
                 Home
@@ -39,15 +42,12 @@
             </h2>
             <span flex="15"></span>
             <md-list-item>
-                <!--<md-input-container md-no-float class="md-block">
-                    <input ng-model="searchstring" type="search" placeholder="Search">
-                </md-input-container>-->
                 <input ng-model="searchstring" type="search"
                 placeholder="Search"
                 style="background:#ECEFF1; border:0px solid;">
-                <md-button ng-click="goSearch()">
-                    <img src="img/search.png" class=" "/>
-                </md-button>
+            </md-list-item>
+            <md-list-item flex class="md-2-line contact-item" ng-click="goSearch()">
+                <img src="img/search.png" />
             </md-list-item>
             <span flex="75"></span>
             <md-list-item flex class="md-2-line contact-item" ng-href="#!/{{storageuser.role}}/{{storageuser._id}}">

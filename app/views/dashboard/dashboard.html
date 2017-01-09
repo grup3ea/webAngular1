@@ -5,7 +5,7 @@
             <md-card flex-xs flex-gt-xs="60">
                 <md-toolbar layout="row" class="o_bGreen">
                     <div class="md-toolbar-tools">
-                        <span>User Graphs</span>
+                        <span>User Points</span>
                     </div>
                 </md-toolbar>
                 <md-card-title>
@@ -14,8 +14,8 @@
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-actions>
-                    <canvas id="bar" class="chart chart-line"
-                            chart-data="data" chart-labels="labels" chart-series="series">
+                    <canvas id="bar" class="chart chart-bar"
+                            chart-data="data" chart-labels="labels">
                     </canvas>
                 </md-card-actions>
                 <md-card-actions layout="row" layout-align="end center">
@@ -41,30 +41,23 @@
                         <span class="md-subhead">{{storageuser.points.total}} points</span>
                         <p>{{storageuser.email}}</p>
                         <md-list class="md-dense" flex>
-                            <md-list-item class="md-3-line">
-                                <div class="md-list-item-text" layout="column">
-                                    <h3>Height</h3>
-                                    <p>{{storageuser.attributes.height}} meters</p>
-                                </div>
+                            <md-list-item>
+                                <p>Height</p>
+                                <p>{{storageuser.attributes.height}} meters</p>
                             </md-list-item>
-                            <md-list-item class="md-3-line">
-                                <div class="md-list-item-text" layout="column">
-                                    <h3>Weight</h3>
-                                    <p>{{storageuser.attributes.weight}} Kg</p>
-                                </div>
+                            <md-list-item>
+                                <p>Weight</p>
+                                <p>{{storageuser.attributes.weight}} Kg</p>
                             </md-list-item>
-                            <md-list-item class="md-3-line">
-                                <div class="md-list-item-text" layout="column">
-                                    <h3>Gender</h3>
-                                    <p>{{storageuser.attributes.gender}}</p>
-                                </div>
+                            <md-list-item>
+                                <p>Gender</p>
+                                <p>{{storageuser.attributes.gender}}</p>
                             </md-list-item>
-                            <md-list-item class="md-3-line">
-                                <div class="md-list-item-text" layout="column">
-                                    <h3>Age</h3>
-                                    <p>{{storageuser.attributes.age}} years old</p>
-                                </div>
+                            <md-list-item>
+                                <p>Age</p>
+                                <p>{{storageuser.attributes.age}} years old</p>
                             </md-list-item>
+                        </md-list>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">

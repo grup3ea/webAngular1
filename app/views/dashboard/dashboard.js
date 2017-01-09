@@ -7,7 +7,8 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
         });
     }])
     .controller('DashboardCtrl', function ($scope, $compile, uiCalendarConfig,
-                                           $http, $window, $mdDialog, $mdToast) {
+                                           $http, $window, $mdDialog, $mdToast,
+                                            $filter) {
         if (localStorage.getItem('fs_web_token')) {// adding token to the headers
             console.log("user logged");
             /*$http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
@@ -18,15 +19,9 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
             $window.location = "#!/login";
         }
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-        /*
-         inici chart
-         */
-        $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-        $scope.series = ['Series A', 'Series B'];
-        $scope.data = [
-            [65, 59, 80, 81, 56, 55, 40],
-            [28, 48, 40, 19, 86, 27, 90]
-        ];
+        
+        $scope.data=[];
+        $scope.labels=[];
         /*
          /chart
          */
@@ -41,6 +36,36 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
                     //localStorage.setItem('fs_web_trainers', JSON.stringify($scope.trainers));
                     localStorage.setItem("fs_web_userdata", JSON.stringify(data.data));
                     $scope.storageuser = data.data;
+
+                    /* aquí generem la data de la gràfica */
+                    console.log("generant data de gràfic");
+                    $scope.data=[];
+                    $scope.labels=[];
+                    var actualDay=$scope.storageuser.points.history[0].date;
+                    var actualDayPoints=0;
+                    for(var i=0; i<$scope.storageuser.points.history.length; i++)
+                    {
+                        if($filter('date')(actualDay, 'dd.MM.y')==$filter('date')($scope.storageuser.points.history[i].date, 'dd.MM.y'))
+                        {
+                            actualDayPoints=(+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
+                            console.log("operació " + $scope.storageuser.points.history[i].value + " --> " + "total: " + actualDayPoints);
+                        }else{
+                            $scope.data.push(actualDayPoints);
+                            $scope.labels.push($filter('date')(actualDay, 'dd.MM.y'));
+                            console.log("guardant dades del dia fins ara. canvi de dia.");
+                            actualDayPoints=0;
+                            actualDayPoints=(+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
+                            actualDay=$scope.storageuser.points.history[i].date;
+                            console.log("dia nou: " + $filter('date')(actualDay, 'dd.MM.y'));
+                            console.log("operació " + $scope.storageuser.points.history[i].value + " --> " + "total: " + actualDayPoints);
+                        }
+                    }
+                    $scope.data.push(actualDayPoints);
+                    $scope.labels.push($filter('date')(actualDay, 'dd.MM.y'));
+                    console.log("algoritme de generació de la data del gràfic completat");
+                    console.log($scope.data);
+                    console.log($scope.labels);
+                    /* end of generació de les dades de la gràfica */
                 }, function (data, status) {
                     console.log('data error');
                     console.log(status);
