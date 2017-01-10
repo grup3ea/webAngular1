@@ -3,7 +3,7 @@
     <md-content>
         <div flex-xs flex-gt-xs="100" layout="row"><!-- start of COLUMN -->
             <md-card flex-xs flex-gt-xs="60">
-                <md-toolbar layout="row" class="o_bGreen">
+                <md-toolbar layout="row" class="o_bGreenDark">
                     <div class="md-toolbar-tools">
                         <span>User Points</span>
                     </div>
@@ -116,8 +116,8 @@
                     </div>
                 </md-toolbar>
                 <md-list flex>
-                    <md-list-item class="md-3-line" ng-repeat="mark in storageuser.marks" ng-click="null"
-                                  ng-href="#!/marks">
+                    <md-list-item class="md-3-line" ng-repeat="mark in storageuser.marks"
+                                  ng-href="#!/marks/{{storageuser._id}}">
                         <div class="md-list-item-text" layout="column">
                             <h3>{{mark.title}}</h3>
                             <p>{{mark.days[mark.days.length-1].date | date: "dd/MM/y"}}</p>
@@ -126,7 +126,7 @@
                     </md-list-item>
                 </md-list>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-href="#!/marks" class="md-raised">Go Marks Pannel</md-button>
+                    <md-button ng-href="#!/marks/{{storageuser._id}}" class="md-raised">Go Marks Pannel</md-button>
                 </md-card-actions>
             </md-card>
         </div><!-- end of COLUMN -->

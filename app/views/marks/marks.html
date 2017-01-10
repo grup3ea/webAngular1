@@ -10,42 +10,47 @@
   <md-content class="md-padding" layout-xs="row" layout="row">
       <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
           <md-card>
-              <md-toolbar layout="row" class="o_bGreen">
+              <md-toolbar layout="row" class="o_bOrange">
                   <div class="md-toolbar-tools">
                     <span>
-                      {{user.points.total}} Points
+                      {{user.marks.length}} Marks
                     </span>
                     <span flex></span>
                     <span>
-                        <md-button ng-click="orderByMe('concept')">
+                        <md-button ng-click="orderByMe('title')">
                           Sort Alphabetically
                         </md-button>
                     </span>
-                    <span>{{user.points.history.length}}</span>
+                    <span>{{user.marks.length}}</span>
                   </div>
               </md-toolbar>
               <md-list flex>
-                <md-list-item class="md-3-line" ng-repeat="reward in user.points.history | orderBy:orderBy" ng-href="#!/user/{{user._id}}">
-                  <div class="md-list-item-text" layout="column">
-                    <h3>{{reward.concept}}</h3>
-                    <h4>{{reward.value}}</h4>
-                    <p>{{reward.date}}</p>
-                  </div>
-                </md-list-item>
+                  <md-list-item class="md-3-line" ng-repeat="mark in user.marks" ng-click="generateGraph(mark)">
+                      <div class="md-list-item-text" layout="column">
+                          <h3>{{mark.title}}</h3>
+                          <div ng-repeat="day in mark.days">
+                              <p>{{day.date | date: "dd/MM/y"}}</p>
+                              <p>{{day.value}} {{mark.unit}}</p>
+                          </div>
+                      </div>
+                  </md-list-item>
               </md-list>
           </md-card>
       </div><!-- end of COLUMN -->
       <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
           <md-card>
-              <md-toolbar layout="row" class="o_bGreenDark">
+              <md-toolbar layout="row" class="o_bOrangeDark">
                   <div class="md-toolbar-tools">
-                      <span>User Points</span>
+                      <span>Mark history: {{markSelected}}</span>
                   </div>
               </md-toolbar>
               <md-card-actions>
-                  <canvas id="bar" class="chart chart-bar"
+                  <canvas id="bar" class="chart chart-line"
                           chart-data="data" chart-labels="labels">
                   </canvas>
+              </md-card-actions>
+              <md-card-actions layout="row" layout-align="end center">
+                  <md-button ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
               </md-card-actions>
           </md-card>
       </div><!-- end of COLUMN -->

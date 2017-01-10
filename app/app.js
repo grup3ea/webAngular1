@@ -17,6 +17,7 @@ angular.module('myApp', [
     'myApp.signup',
     'myApp.dashboard',
     'myApp.points',
+    'myApp.marks',
     'myApp.search',
     'myApp.notifications',
     'myApp.routine',

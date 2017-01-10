@@ -100,6 +100,10 @@
     background: rgb(123,195,70)!important;
     color: #ffffff!important;
 }
+.o_bGreenDark{
+    background: rgb(54,188,155)!important;
+    color: #ffffff!important;
+}
 .o_bBlue{
     background: rgb(104,195,240)!important;
     color: #ffffff!important;
@@ -114,5 +118,9 @@
 }
 .o_bOrange{
     background: rgb(251, 126, 61)!important;
+    color: #ffffff!important;
+}
+.o_bOrangeDark{
+    background: #FF7043!important;
     color: #ffffff!important;
 }
