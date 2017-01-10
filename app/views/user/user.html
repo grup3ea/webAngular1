@@ -16,38 +16,45 @@
                     </div>
                 </md-toolbar>
                 <md-card-content>
-                    <div ng-hide="user._id==storageuser._id">
-                        <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)==-1"
-                                   ng-click="doFollow()">Follow
+                    <div layout="row">
+                        <md-button class="o_bGreenDark" ng-href="#!/points/{{user._id}}">
+                            {{user.points.total}} points
                         </md-button>
+                        <div ng-hide="user._id==storageuser._id">
+                            <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)==-1"
+                                        class="o_bBlue"
+                                       ng-click="doFollow()">Follow
+                            </md-button>
 
-                        <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)!=-1"
-                                   ng-click="doUnfollow()">Unfollow
-                        </md-button>
+                            <md-button ng-show="arrayObjectIndexOf(user.followers, storageuser._id)!=-1"
+                                        class="o_bRedDark"
+                                       ng-click="doUnfollow()">Unfollow
+                            </md-button>
+                        </div>
                     </div>
                     <div class="thumbnailAvatar">
                         <a ng-click="showImgComplete($event, user.avatar)">
-                            <img ng-src="{{user.avatar}}" class="md-card-image"/>
+                            <img ng-src="{{user.avatar}}" style="width:100%;"/>
                         </a>
                     </div>
+
+                    <md-card-actions layout="row" layout-align="start center">
+                        <span class="md-subhead">
+                            <md-button ng-href="#!/follows/{{user._id}}" class="o_bBlueDark">
+                                following: {{user.following.length}}
+                            </md-button>
+                        </span>
+                        <span class="md-subhead">
+                            <md-button ng-href="#!/follows/{{user._id}}" class="o_bBlueDark">
+                                followers: {{user.followers.length}}
+                            </md-button>
+                        </span>
+                    </md-card-actions>
                     <span class="md-subhead">
                         {{user.description}}
                     </span>
                     <span class="md-subhead">
                         {{user.email}}
-                    </span>
-                    <span class="md-subhead">
-                        {{user.image}}
-                    </span>
-                    <span class="md-subhead">
-                        <md-button ng-href="#!/follows/{{user._id}}">
-                            following: {{user.following.length}}
-                        </md-button>
-                    </span>
-                    <span class="md-subhead">
-                        <md-button ng-href="#!/follows/{{user._id}}">
-                            followers: {{user.followers.length}}
-                        </md-button>
                     </span>
                     <h3 class="md-headline">User attributes</h3>
                     <md-list class="md-dense" flex>
@@ -78,6 +85,28 @@
                     </md-list>
                 </md-card-content>
             </md-card>
+            <div><!-- marks -->
+                <md-card>
+                    <md-toolbar layout="row" class="o_bOrange">
+                        <div class="md-toolbar-tools">
+                            <span>Last Marks</span>
+                        </div>
+                    </md-toolbar>
+                    <md-list flex>
+                        <md-list-item class="md-3-line" ng-repeat="mark in user.marks"
+                                      ng-href="#!/marks/{{user._id}}">
+                            <div class="md-list-item-text" layout="column">
+                                <h3>{{mark.title}}</h3>
+                                <p>{{mark.days[mark.days.length-1].date | date: "dd/MM/y"}}</p>
+                                <p>{{mark.days[mark.days.length-1].value}} {{mark.unit}}</p>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-href="#!/marks/{{user._id}}" class="md-raised">Go Marks Pannel</md-button>
+                    </md-card-actions>
+                </md-card>
+            </div><!-- end of marks -->
             <div><!-- training -->
                 <md-card>
                     <md-toolbar layout="row" class="o_bRed">

@@ -28,8 +28,11 @@
                 <md-list-item class="md-3-line" ng-repeat="reward in user.points.history | orderBy:orderBy" ng-href="#!/user/{{user._id}}">
                   <div class="md-list-item-text" layout="column">
                     <h3>{{reward.concept}}</h3>
-                    <h4>{{reward.value}}</h4>
-                    <p>{{reward.date}}</p>
+                    <h4>value of reward: <b>{{reward.value}} points</b></h4>
+                    <p>
+                        {{reward.date | date: "dd/MM/y"}}
+                        at {{reward.date | date: "HH:mm"}}h
+                    </p>
                   </div>
                 </md-list-item>
               </md-list>

@@ -150,6 +150,7 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             .then(function (data) {
                 console.log(data.data);
                 $scope.user = data.data;
+                $route.reload();
             },
             function () {
 
@@ -165,6 +166,7 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             .then(function (data) {
                 console.log(data.data);
                 $scope.user = data.data;
+                $route.reload();
             },
             function () {
 

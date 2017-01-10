@@ -25,7 +25,7 @@
                   </div>
               </md-toolbar>
               <md-list flex>
-                  <div layout="row">
+                  <div layout="row" ng-show="storageuser._id==user._id">
                       <md-button flex="grow" title="add new mark" ng-click="showNewMarkDialog($event)">
                           Add new mark
                       </md-button>
@@ -37,7 +37,9 @@
                               <p>{{day.date | date: "dd/MM/y"}}</p>
                               <p>{{day.value}} {{mark.unit}}</p>
                           </div>
-                          <md-button class="md-raised md-secondary" title="add day to mark" ng-click="showAddDayToMarkDialog($event, mark)">
+                          <md-button class="md-raised md-secondary" title="add day to mark"
+                                ng-click="showAddDayToMarkDialog($event, mark)"
+                                 ng-show="storageuser._id==user._id">
                               Add day to mark
                           </md-button>
                       </div>
@@ -58,7 +60,7 @@
                   </canvas>
               </md-card-actions>
               <md-card-actions layout="row" layout-align="end center">
-                  <md-button ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
+                  <md-button ng-href="#!/points/{{user._id}}">View all points history</md-button>
               </md-card-actions>
           </md-card>
       </div><!-- end of COLUMN -->
