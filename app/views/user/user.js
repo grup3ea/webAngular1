@@ -157,9 +157,7 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             });
         };
         $scope.doUnfollow = function(){
-
-          toastr.warning('Encara no disponible');
-            /*$http({
+            $http({
                 url: urlapi + 'users/unfollow',
                 method: "POST",
                 data: {userid: $scope.user._id}
@@ -170,8 +168,8 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             },
             function () {
 
-                  toastr.error('Failed on posting dislike publication');
-            });*/
+                  toastr.error('Failed on unfollowing user');
+            });
         };
 
 
