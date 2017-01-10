@@ -1,0 +1,17 @@
+<md-dialog>
+  <md-content class="md-padding">
+    <p>
+  		<md-input-container class="md-block">
+  			<label>Title</label>
+  			<input ng-model="newMark.title">
+  		</md-input-container>
+      <md-input-container class="md-block">
+          <label>Unit</label>
+          <input ng-model="newMark.unit">
+      </md-input-container>
+  	</p>
+  </md-content>
+  <md-card-actions layout="row" layout-align="end center">
+  		<md-button ng-click="sendNewMark()" class="md-raised" md-colors="{background: 'green'}" flex="50" flex-sm="100">Add New Mark</md-button>
+  </md-card-actions>
+</md-dialog>

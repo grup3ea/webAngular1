@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.marks', ['ngRoute', 'chart.js'])
+angular.module('myApp.marks', ['ngRoute', 'chart.js', 'ngAnimate', 'toastr'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/marks/:userid', {
@@ -9,7 +9,8 @@ angular.module('myApp.marks', ['ngRoute', 'chart.js'])
         });
     }])
 
-    .controller('MarksCtrl', function ($scope, $http, $routeParams, $filter) {
+    .controller('MarksCtrl', function ($scope, $http, $routeParams, $filter,
+                                    $mdDialog, toastr, $route) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         $scope.user = {};
         $http.get(urlapi + 'users/' + $routeParams.userid + '/network')
@@ -48,4 +49,111 @@ angular.module('myApp.marks', ['ngRoute', 'chart.js'])
             console.log($scope.labels);
             /* end of generació de les dades de la gràfica */
         };
+
+
+
+
+
+        $scope.showNewMarkDialog = function(ev) {
+          $mdDialog.show({
+            controller: newMarkCtrl,
+            templateUrl: 'views/marks/newmark.tmpl.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+          })
+          .then(function(data) {
+          }, function() {
+            //
+          });
+        };
+        function newMarkCtrl($scope, $mdDialog, $rootScope, $location, Upload, cloudinary, toastr) {
+
+            $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+
+            $scope.hide = function() {
+                $mdDialog.hide();
+            };
+
+            $scope.cancel = function() {
+                $mdDialog.cancel();
+            };
+
+            $scope.markSended = function(data) {
+                $mdDialog.hide(data);
+            };
+
+            $scope.sendNewMark = function(){
+                $http({
+                    url: urlapi + 'users/newMark',
+                    method: "POST",
+                    data: $scope.newMark
+                })
+                .then(function (response) {
+                    console.log(response);
+                    /*localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
+                    $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));*/
+                    toastr.success('New mark added to your marks');
+                    $scope.markSended(response.data);
+
+                    $route.reload();
+                },
+                function () {
+                    toastr.error('Failed on adding mark to your marks');
+                });
+            };/* end of sendNewMark */
+        }/* end of newMarkCtrl */
+        var markWhereAddingDay;
+        $scope.showAddDayToMarkDialog = function(ev, mark) {
+            markWhereAddingDay=mark;
+          $mdDialog.show({
+            controller: newAddDayToMarkCtrl,
+            templateUrl: 'views/marks/adddaytomark.tmpl.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+          })
+          .then(function(data) {
+          }, function() {
+            //
+          });
+        };
+        function newAddDayToMarkCtrl($scope, $mdDialog, $rootScope, $location, Upload, cloudinary, toastr) {
+
+          $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
+
+          $scope.hide = function() {
+            $mdDialog.hide();
+          };
+
+          $scope.cancel = function() {
+            $mdDialog.cancel();
+          };
+
+          $scope.markSended = function(data) {
+            $mdDialog.hide(data);
+          };
+
+            $scope.sendAddDayToMark = function(){
+                $http({
+                    url: urlapi + 'users/' + markWhereAddingDay._id + '/addDayToMark',
+                    method: "POST",
+                    data: $scope.newDay
+                })
+                .then(function (response) {
+                  console.log(response);
+                        /*localStorage.setItem("fs_web_userdata", JSON.stringify(response.data));
+                        $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));*/
+                        toastr.success('New mark added to your marks');
+                        $scope.markSended(response.data);
+
+                        $route.reload();
+                    },
+                    function () {
+                        toastr.error('Failed on adding mark to your marks');
+                    });
+          };/* end of sendNewPost */
+        }/* end of newPostCtrl */
     });

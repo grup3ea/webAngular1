@@ -25,6 +25,11 @@
                   </div>
               </md-toolbar>
               <md-list flex>
+                  <div layout="row">
+                      <md-button flex="grow" title="add new mark" ng-click="showNewMarkDialog($event)">
+                          Add new mark
+                      </md-button>
+                  </div>
                   <md-list-item class="md-3-line" ng-repeat="mark in user.marks" ng-click="generateGraph(mark)">
                       <div class="md-list-item-text" layout="column">
                           <h3>{{mark.title}}</h3>
@@ -32,6 +37,9 @@
                               <p>{{day.date | date: "dd/MM/y"}}</p>
                               <p>{{day.value}} {{mark.unit}}</p>
                           </div>
+                          <md-button class="md-raised md-secondary" title="add day to mark" ng-click="showAddDayToMarkDialog($event, mark)">
+                              Add day to mark
+                          </md-button>
                       </div>
                   </md-list-item>
               </md-list>

@@ -6,7 +6,8 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
             controller: 'SidenavCtrl'
         });
     }])
-    .controller('SidenavCtrl', function ($scope, $http, $timeout, $window, $mdSidenav, $mdDialog, toastr, $route) {
+    .controller('SidenavCtrl', function ($scope, $http, $timeout, $window,
+                                        $mdSidenav, $mdDialog, toastr, $route) {
         if (localStorage.getItem("fs_web_token")) {
             // USER LOGUEJAT
             console.log("user logged");
