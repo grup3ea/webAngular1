@@ -36,7 +36,7 @@ angular.module('myApp.editTrainer', ['ngRoute'])
                                 .position("bottom right")
                                 .hideDelay(3000)
                         );
-                        window.location="#!/trainer/" + $scope.storageuser._id;
+                        window.location="#!/user/" + $scope.storageuser._id;
                     },
                     function () {
                         $mdToast.show(

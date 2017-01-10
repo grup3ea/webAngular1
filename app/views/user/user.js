@@ -6,7 +6,7 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             controller: 'UserCtrl'
         });
     }])
-    .controller('UserCtrl', function ($scope, $http, $routeParams, $mdDialog, toastr, $route, $filter) {
+    .controller('UserCtrl', function ($scope, $http, $routeParams, $mdDialog, toastr, $route, $filter, $window) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         $scope.user = {};
         $http.get(urlapi + 'users/' + $routeParams.userid)
@@ -204,4 +204,51 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
                 toastr.info('Operation canceled');
             });
         };/* end of delete publication */
+
+
+
+        //TRAINER
+        $scope.sendPetition = function(ev) {
+          // Appending dialog to document.body to cover sidenav in docs app
+          var confirm = $mdDialog.prompt()
+            .title('Ask for routine')
+            .textContent('Describe the petition')
+            .placeholder('Hi, I want a routine to get prepared for an Ironman')
+            .ariaLabel('Dog name')
+            .initialValue('')
+            .targetEvent(ev)
+            .ok('Send Petition')
+            .cancel('Cancel');
+
+          $mdDialog.show(confirm).then(function(result) {
+
+              //POST PETITION
+              $http({
+                  url: urlapi + 'users/sendPetitionToTrainer/' + $scope.user._id,
+                  method: "POST",
+                  data: {"message": result}
+              })
+              .then(function (response) {
+                  // success
+                  console.log("response: ");
+                  console.log(response.data);
+                  $window.location = "#!/training";
+              },
+              function (response) {
+                $mdToast.show(
+                   $mdToast.simple()
+                      .textContent('Failed on generating new petition')
+                      .position("bottom right")
+                      .hideDelay(3000)
+                );
+              });
+          }, function() {
+            $mdToast.show(
+               $mdToast.simple()
+                  .textContent('Petition canceled')
+                  .position("bottom right")
+                  .hideDelay(3000)
+            );
+          });
+        };//end of send petition
     });

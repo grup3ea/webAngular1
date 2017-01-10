@@ -19,7 +19,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
             $window.location = "#!/login";
         }
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-        
+
         $scope.data=[];
         $scope.labels=[];
         /*
@@ -85,6 +85,36 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
                     //localStorage.setItem('fs_web_trainers', JSON.stringify($scope.trainers));
                     localStorage.setItem("fs_web_userdata", JSON.stringify(data.data));
                     $scope.storageuser = data.data;
+
+                    /* aquí generem la data de la gràfica */
+                    console.log("generant data de gràfic");
+                    $scope.data=[];
+                    $scope.labels=[];
+                    var actualDay=$scope.storageuser.points.history[0].date;
+                    var actualDayPoints=0;
+                    for(var i=0; i<$scope.storageuser.points.history.length; i++)
+                    {
+                        if($filter('date')(actualDay, 'dd.MM.y')==$filter('date')($scope.storageuser.points.history[i].date, 'dd.MM.y'))
+                        {
+                            actualDayPoints=(+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
+                            console.log("operació " + $scope.storageuser.points.history[i].value + " --> " + "total: " + actualDayPoints);
+                        }else{
+                            $scope.data.push(actualDayPoints);
+                            $scope.labels.push($filter('date')(actualDay, 'dd.MM.y'));
+                            console.log("guardant dades del dia fins ara. canvi de dia.");
+                            actualDayPoints=0;
+                            actualDayPoints=(+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
+                            actualDay=$scope.storageuser.points.history[i].date;
+                            console.log("dia nou: " + $filter('date')(actualDay, 'dd.MM.y'));
+                            console.log("operació " + $scope.storageuser.points.history[i].value + " --> " + "total: " + actualDayPoints);
+                        }
+                    }
+                    $scope.data.push(actualDayPoints);
+                    $scope.labels.push($filter('date')(actualDay, 'dd.MM.y'));
+                    console.log("algoritme de generació de la data del gràfic completat");
+                    console.log($scope.data);
+                    console.log($scope.labels);
+                    /* end of generació de les dades de la gràfica */
                 }, function (data, status) {
                     console.log('data error');
                     console.log(status);
