@@ -19,8 +19,7 @@
                     </canvas>
                 </md-card-actions>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button>opció1</md-button>
-                    <md-button>opció2</md-button>
+                    <md-button ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
                 </md-card-actions>
             </md-card>
             <md-card flex-xs flex-gt-xs="40">
@@ -66,7 +65,7 @@
             </md-card>
         </div><!-- end of COLUMN -->
         <div flex-xs flex-gt-xs="100" layout="row"><!-- start of COLUMN -->
-            <md-card flex-xs flex-gt-xs="50">
+            <md-card flex-xs flex-gt-xs="35">
                 <md-toolbar layout="row" class="o_bRed">
                     <div class="md-toolbar-tools">
                         <span>Routines</span>
@@ -88,7 +87,7 @@
                     <md-button class="md-raised">Search Trainers</md-button>
                 </md-card-actions>
             </md-card>
-            <md-card flex-xs flex-gt-xs="50">
+            <md-card flex-xs flex-gt-xs="35">
                 <md-toolbar layout="row" class="o_bYellow">
                     <div class="md-toolbar-tools">
                         <span>Diets</span>
@@ -108,6 +107,26 @@
                 <md-card-actions layout="row" layout-align="end center">
                     <md-button class="md-raised md-warn">Delete Diet</md-button>
                     <md-button ng-click="showPrompt($event)" class="md-raised">Add Diet (Buy)</md-button>
+                </md-card-actions>
+            </md-card>
+            <md-card flex-xs flex-gt-xs="30">
+                <md-toolbar layout="row" class="o_bOrange">
+                    <div class="md-toolbar-tools">
+                        <span>Last Marks</span>
+                    </div>
+                </md-toolbar>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="mark in storageuser.marks" ng-click="null"
+                                  ng-href="#!/marks">
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{mark.title}}</h3>
+                            <p>{{mark.days[mark.days.length-1].date | date: "dd/MM/y"}}</p>
+                            <p>{{mark.days[mark.days.length-1].value}} {{mark.unit}}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-href="#!/marks" class="md-raised">Go Marks Pannel</md-button>
                 </md-card-actions>
             </md-card>
         </div><!-- end of COLUMN -->
