@@ -3,8 +3,8 @@
 angular.module('myApp.trainer', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/trainer/:trainerid', {
-            templateUrl: 'views/trainer/trainer.html',
+        $routeProvider.when('/user/:trainerid', {
+            templateUrl: 'views/user/user.html',
             controller: 'TrainerCtrl'
         });
     }])

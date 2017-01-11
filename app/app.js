@@ -21,7 +21,6 @@ angular.module('myApp', [
     'myApp.search',
     'myApp.notifications',
     'myApp.routine',
-    'myApp.trainer',
     'myApp.editTrainer',
     'myApp.editUser',
     'myApp.editRoutine',

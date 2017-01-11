@@ -60,10 +60,7 @@ angular.module('myApp.routine', ['ngRoute'])
         //No tengo muy claro de donde sacar la DayId, wornking on it
         $scope.markDayAsCompleted = function () {
             var validation = {
-                "day": {
-                    "_id": $scope.routine.days._id,
-                    "done": "true"
-                }
+                "dayid" : $scope.days
             };
             $http({
                 url: urlapi + 'routines/completeDay/' + $routeParams.routineid,
