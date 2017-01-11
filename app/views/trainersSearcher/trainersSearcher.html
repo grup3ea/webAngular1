@@ -17,7 +17,7 @@
 <md-content><!--aquí anirà ng-show="!storageuser.trainers" -->
   <h3>Trainers of discipline: <b>{{choosenDiscipline}}</b></h3>
   <md-list flex>
-    <md-list-item class="md-3-line" ng-repeat="trainer in trainers" ng-href="#!/trainer/{{trainer._id}}">
+    <md-list-item class="md-3-line" ng-repeat="trainer in trainers" ng-href="#!/user/{{trainer._id}}">
       <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
       <div class="md-list-item-text" layout="column">
         <h3>{{trainer.name}}</h3>

@@ -25,6 +25,7 @@
         <md-tab label="{{day.title}}" ng-repeat="day in diet.days">
           <md-content class="md-padding">
             <h1 class="md-display-2">{{day.title}}</h1>
+            <h6> Has it been completed? {{day.done}}</h6>
             <md-list class="md-dense" flex>
               <md-subheader class="md-no-sticky">
                 {{day.description}}
@@ -42,7 +43,7 @@
               </md-list-item>
             </md-list>
             <md-card-actions layout="row" layout-align="end center">
-              <md-button ng-click="" class="md-raised" md-colors="{background: 'blue'}">Mark day as completed</md-button>
+              <md-button ng-click="markDayAsCompleted()" class="md-raised" md-colors="{background: 'blue'}">Mark day as completed</md-button>
             </md-card-actions>
           </md-content>
         </md-tab>

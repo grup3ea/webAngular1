@@ -31,4 +31,19 @@ angular.module('myApp.diet', ['ngRoute'])
           .then(function (result) {
           });
 
+        $scope.markDayAsCompleted = function (givenday) {
+            $http({
+                url: urlapi + 'diets/completeDay/' + $routeParams.dietid,
+                method: "POST",
+                data: {"dayid": givenday._id}
+            })
+                .then(function (response) {
+                    // success
+                    console.log("Dia completado, tus puntos tienes ya ");
+                    console.log(response.data);
+                    //aquí caldria igualar el response.data a la variable que estem mostrant al html
+                    //no sé què retorna la api, però cal guardar-ho a day.done
+                })
+        };
+
     });

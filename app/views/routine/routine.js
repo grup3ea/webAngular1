@@ -11,10 +11,10 @@ angular.module('myApp.routine', ['ngRoute'])
 
     .controller('RoutineCtrl', function ($scope, $http, $routeParams, $mdToast) {
         /*if (localStorage.getItem('fs_web_token')) {// adding token to the headers
-            $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
-            //el .common serveix per als gets
-            $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');
-        }*/
+         $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
+         //el .common serveix per als gets
+         $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');
+         }*/
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
 
         $scope.routine = {};
@@ -33,16 +33,6 @@ angular.module('myApp.routine', ['ngRoute'])
 
 
         $scope.exercises=[{
-          title: '',
-          description: '',
-          img: '',
-          weight: '',
-          distance: '',
-          reps: '',
-          series: ''
-        }];
-        $scope.addExercise = function(){
-          $scope.exercises.push({
             title: '',
             description: '',
             img: '',
@@ -50,59 +40,9 @@ angular.module('myApp.routine', ['ngRoute'])
             distance: '',
             reps: '',
             series: ''
-          });
-        };
-        $scope.delExercise = function(exerciseToDel){
-          var index = $scope.exercises.indexOf(exerciseToDel);
-          $scope.exercises.splice(index, 1);
-        };
-
-        //No tengo muy claro de donde sacar la DayId, wornking on it
-        $scope.markDayAsCompleted = function () {
-            var validation = {
-                "dayid" : $scope.days
-            };
-            $http({
-                url: urlapi + 'routines/completeDay/' + $routeParams.routineid,
-                method: "POST",
-                data: validation
-            })
-                .then(function (response) {
-                    // success
-                    console.log("Dia completado, tus puntos tienes ya ");
-                    console.log(response.data);
-                })
-        };
-
-
-
-        $scope.addDay = function(){
-          $mdToast.show(
-             $mdToast.simple()
-                .textContent('Adding new day')
-                .position("bottom right")
-                .hideDelay(3000)
-          );
-          var newd={
-            "day": {
-              "title": $scope.newDay.title,
-              "description": $scope.newDay.description,
-              "exercises": $scope.exercises
-            }
-          };
-          console.log(newd);
-          $http({
-              url: urlapi + 'routines/' + $routeParams.routineid + '/days',
-              method: "POST",
-              data: newd
-          })
-          .then(function (response) {
-              // success
-              console.log("day added, response: ");
-              console.log(response.data);
-              $scope.routine=response.data;
-              $scope.newDay={};
-              $scope.exercises=[{
+        }];
+        $scope.addExercise = function(){
+            $scope.exercises.push({
                 title: '',
                 description: '',
                 img: '',
@@ -110,16 +50,75 @@ angular.module('myApp.routine', ['ngRoute'])
                 distance: '',
                 reps: '',
                 series: ''
-              }];
-              //$window.location = "#!/routine/"+response._id;
-          },
-          function (response) {
+            });
+        };
+        $scope.delExercise = function(exerciseToDel){
+            var index = $scope.exercises.indexOf(exerciseToDel);
+            $scope.exercises.splice(index, 1);
+        };
+
+        //No tengo muy claro de donde sacar la DayId, wornking on it
+        $scope.markDayAsCompleted = function (givenday) {
+            $http({
+                url: urlapi + 'routines/completeDay/' + $routeParams.routineid,
+                method: "POST",
+                data: {"dayid": givenday._id}
+            })
+                .then(function (response) {
+                    // success
+                    console.log("Dia completado, tus puntos tienes ya ");
+                    console.log(response.data);
+                    //aquí caldria igualar el response.data a la variable que estem mostrant al html
+                    //no sé què retorna la api, però cal guardar-ho a day.done
+                })
+        };
+
+
+
+        $scope.addDay = function(){
             $mdToast.show(
-               $mdToast.simple()
-                  .textContent('Failed on generating new routine')
-                  .position("bottom right")
-                  .hideDelay(3000)
+                $mdToast.simple()
+                    .textContent('Adding new day')
+                    .position("bottom right")
+                    .hideDelay(3000)
             );
-          });
+            var newd={
+                "day": {
+                    "title": $scope.newDay.title,
+                    "description": $scope.newDay.description,
+                    "exercises": $scope.exercises
+                }
+            };
+            console.log(newd);
+            $http({
+                url: urlapi + 'routines/' + $routeParams.routineid + '/days',
+                method: "POST",
+                data: newd
+            })
+                .then(function (response) {
+                        // success
+                        console.log("day added, response: ");
+                        console.log(response.data);
+                        $scope.routine=response.data;
+                        $scope.newDay={};
+                        $scope.exercises=[{
+                            title: '',
+                            description: '',
+                            img: '',
+                            weight: '',
+                            distance: '',
+                            reps: '',
+                            series: ''
+                        }];
+                        //$window.location = "#!/routine/"+response._id;
+                    },
+                    function (response) {
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent('Failed on generating new routine')
+                                .position("bottom right")
+                                .hideDelay(3000)
+                        );
+                    });
         };
     });
