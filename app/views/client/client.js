@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.client', ['ngRoute'])
+angular.module('myApp.client', ['ngRoute', 'chart.js', 'ngAnimate'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/client/:clientid', {
@@ -9,12 +9,8 @@ angular.module('myApp.client', ['ngRoute'])
         });
     }])
 
-    .controller('ClientCtrl', function ($scope, $http, $routeParams, $mdToast, $mdDialog, $window) {
-        /*if (localStorage.getItem('fs_web_token')) {// adding token to the headers
-            $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
-            //el .common serveix per als gets
-            $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');
-        }*/
+    .controller('ClientCtrl', function ($scope, $http, $routeParams,
+        $mdToast, $mdDialog, $window, $filter) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
 
         //agafem la data del client
@@ -101,5 +97,26 @@ angular.module('myApp.client', ['ngRoute'])
                     .hideDelay(3000)
               );
             });
+          };
+
+
+          $scope.data=[];
+          $scope.labels=[];
+          $scope.generateGraph = function(mark){
+              $scope.markSelected=mark.title;
+              console.log($scope.markSelected);
+              /* aquí generem la data de la gràfica */
+              console.log("generant data de gràfic");
+              $scope.data=[];
+              $scope.labels=[];
+              for(var i=0; i<mark.days.length; i++)
+              {
+                  $scope.data.push(mark.days[i].value);
+                  $scope.labels.push($filter('date')(mark.days[i].date, 'dd.MM.y'));
+              }
+              console.log("algoritme de generació de la data del gràfic completat");
+              console.log($scope.data);
+              console.log($scope.labels);
+              /* end of generació de les dades de la gràfica */
           };
     });
