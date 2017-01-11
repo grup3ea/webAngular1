@@ -227,7 +227,7 @@ trainer
             </a>
         </div>
         <md-card-actions layout="row" layout-align="end center" ng-show="user._id==storageuser._id">
-            <md-button ng-href="#!/editTrainer/{{user._id}}">Edit Profile</md-button>
+            <md-button ng-href="#!/editUser/{{user._id}}">Edit Profile</md-button>
         </md-card-actions>
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='user'">
             <md-button>Send message</md-button>
@@ -283,7 +283,7 @@ trainer
                         <md-list class="md-dense" flex>
                             <md-list-item class="md-4-line">
                                 <div class="md-list-item-text" layout="column">
-                                    <p ng-repeat="discipline in user.disciplines">{{discipline}}</p>
+                                    <p ng-repeat="discipline in user.disciplines">{{discipline.name}}</p>
                                 </div>
                             </md-list-item>
                         </md-list>

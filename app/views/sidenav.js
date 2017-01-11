@@ -28,7 +28,7 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
                 {
                     title: "Profile",
                     description: "description",
-                    link: "/"+$scope.storageuser.role +"/" +$scope.storageuser._id,
+                    link: "/user/" +$scope.storageuser._id,
                     icon: sidenavImg + "profile.png"
                 },
                 {
