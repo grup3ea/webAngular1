@@ -1,19 +1,50 @@
-<md-toolbar layout="row"  class="o_bYellow">
-  <div class="md-toolbar-tools">
-    <span>Diet - pàgina de la dieta que té l'user triada</span>
-  </div>
-</md-toolbar>
-<md-subheader class="md-primary">Aquí es veu la dieta. Si encara no tens dieta assignada, veus les opcions de dieta a triar.</md-subheader>
 <md-content>
-  <h3>Diets</h3>
-  <md-list flex>
-    <md-list-item class="md-3-line" ng-repeat="diet in diets" ng-click="null" ng-href="#!/diet/{{diet._id}}">
-      <img ng-src="img/user.png" class="md-avatar"/>
-      <div class="md-list-item-text" layout="column">
-        <h3>{{diet.title}}</h3>
-        <h4>{{diet.description}}</h4>
-        <p>{{diet.day}}</p>
-      </div>
-    </md-list-item>
-  </md-list>
+    <!--aquí anirà ng-show="!storageuser.diets" -->
+    <div layout="row">
+        <div flex-xs flex-gt-xs="40" layout="column">
+            <!-- start of COLUMN -->
+            <md-card>
+                <md-toolbar layout="row" class="o_bYellowDark">
+                    <div class="md-toolbar-tools">
+                        <span>Available Diets</span>
+                    </div>
+                </md-toolbar>
+                <md-subheader class="md-primary">Choose your desired diet!</md-subheader>
+                <md-list flex>
+                    (es mostren totes les diets disponibles (falta posar paginació))
+                    <md-list-item class="md-3-line" ng-repeat="diet in diets" ng-click="null" ng-href="#!/diet/{{diet._id}}">
+                        <img ng-src="img/user.png" class="md-avatar" />
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{diet.title}}</h3>
+                            <h4>{{diet.description}}</h4>
+                            <p>{{diet.day}}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-href="#!/dietsSearcher" class="md-raised" md-colors="{background: 'green'}">Search by discipline</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+        <div flex-xs flex-gt-xs="60" layout="column">
+            <!-- start of COLUMN -->
+            <md-card>
+                <md-toolbar layout="row" class="o_bYellow">
+                    <div class="md-toolbar-tools">
+                        <span>Diets in contract</span>
+                    </div>
+                </md-toolbar>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="diet in user.diets" ng-click="null" ng-href="#!/diet/{{diet._id}}">
+                        <img ng-src="img/user.png" class="md-avatar" />
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{diet.title}}</h3>
+                            <h4>{{diet.description}}</h4>
+                            <p>{{diet.day}}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card>
+        </div>
+    </div>
 </md-content>

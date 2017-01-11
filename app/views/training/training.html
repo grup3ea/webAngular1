@@ -6,11 +6,12 @@
             <md-card>
                 <md-toolbar layout="row" class="o_bRed">
                     <div class="md-toolbar-tools">
-                        <span>Available Trainers (es mostren tots els trainers disponibles (falta posar paginació))</span>
+                        <span>Available Trainers</span>
                     </div>
                 </md-toolbar>
                 <md-subheader class="md-primary">Choose your desired trainer!</md-subheader>
                 <md-list flex>
+                    (es mostren tots els trainers disponibles (falta posar paginació))
                     <md-list-item class="md-3-line" ng-repeat="trainer in trainers" ng-href="#!/user/{{trainer._id}}">
                         <img ng-show="trainer.avatar" ng-src="{{trainer.avatar}}" class="md-avatar" />
                         <div class="md-list-item-text" layout="column">

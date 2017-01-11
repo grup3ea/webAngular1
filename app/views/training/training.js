@@ -10,11 +10,6 @@ angular.module('myApp.training', ['ngRoute'])
     }])
 
     .controller('TrainingCtrl', function($scope, $http) {
-        /*if (localStorage.getItem('fs_web_token')) {// adding token to the headers
-            $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
-            //el .common serveix per als gets
-            $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');
-        }*/
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
 
         $scope.trainers = {};
@@ -31,6 +26,7 @@ angular.module('myApp.training', ['ngRoute'])
             .then(function(result) {
                 //users = result.data;
             });
+        $scope.user={};
         $http.get(urlapi + 'users/' + $scope.storageuser._id)
             .then(function(data) {
                 console.log('data success');
