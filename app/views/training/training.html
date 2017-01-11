@@ -1,41 +1,70 @@
-<md-content><!--aquí anirà ng-show="!storageuser.trainers" -->
-    <md-toolbar layout="row" class="o_bRed">
-        <div class="md-toolbar-tools">
-            <span>Available Trainers</span>
+<md-content>
+    <!--aquí anirà ng-show="!storageuser.trainers" -->
+    <div layout="row">
+        <div flex-xs flex-gt-xs="40" layout="column">
+            <!-- start of COLUMN -->
+            <md-card>
+                <md-toolbar layout="row" class="o_bRed">
+                    <div class="md-toolbar-tools">
+                        <span>Available Trainers (es mostren tots els trainers disponibles (falta posar paginació))</span>
+                    </div>
+                </md-toolbar>
+                <md-subheader class="md-primary">Choose your desired trainer!</md-subheader>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="trainer in trainers" ng-href="#!/user/{{trainer._id}}">
+                        <img ng-show="trainer.avatar" ng-src="{{trainer.avatar}}" class="md-avatar" />
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{trainer.name}}</h3>
+                            <h4>{{trainer.email}}</h4>
+                            <div class="md-list-item-text" layout="column">
+                                <p ng-repeat="discipline in user.disciplines">{{discipline}}</p>
+                            </div>
+                        </div>
+                    </md-list-item>
+                </md-list>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-href="#!/trainersSearcher" class="md-raised" md-colors="{background: 'green'}">Search by discipline</md-button>
+                </md-card-actions>
+            </md-card>
         </div>
-    </md-toolbar>
-    <md-subheader class="md-primary">Choose your desired trainer!</md-subheader>
-  <md-list flex>
-    <md-list-item class="md-3-line" ng-repeat="trainer in trainers" ng-href="#!/user/{{trainer._id}}">
-      <img ng-show="trainer.avatar" ng-src="{{trainer.avatar}}" class="md-avatar" />
-      <img ng-hide="trainer.avatar" ng-src="img/user.png" class="md-avatar" />
-      <div class="md-list-item-text" layout="column">
-        <h3>{{trainer.name}}</h3>
-        <h4>{{trainer.email}}</h4>
-              <div class="md-list-item-text" layout="column" >
-                  <p ng-repeat="discipline in user.disciplines">{{discipline}}</p>
-              </div>
-      </div>
-    </md-list-item>
-  </md-list>
-  <md-card-actions layout="row" layout-align="end center">
-      <md-button ng-href="#!/trainersSearcher" class="md-raised" md-colors="{background: 'green'}">Search by discipline</md-button>
-  </md-card-actions>
-
-  <md-list flex>
-      <md-toolbar layout="row" class="o_bRed">
-          <div class="md-toolbar-tools">
-              <span>Routines</span>
-          </div>
-      </md-toolbar>
-      <md-list-item class="md-3-line" ng-repeat="routine in storageuser.routines" ng-click="null"
-                    ng-href="#!/routine/{{routine._id}}">
-          <img ng-src="img/routine.png" class="md-avatar" alt="{{item.who}}"/>
-          <div class="md-list-item-text" layout="column">
-              <h3>{{routine.title}}</h3>
-              <h4>{{routine.description}}</h4>
-              <p>{{routine.price}}</p>
-          </div>
-      </md-list-item>
-  </md-list>
+        <div flex-xs flex-gt-xs="60" layout="column">
+            <!-- start of COLUMN -->
+            <md-card>
+                <md-toolbar layout="row" class="o_bRedDark">
+                    <div class="md-toolbar-tools">
+                        <span>Trainers in contract</span>
+                    </div>
+                </md-toolbar>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="trainer in user.trainers" ng-href="#!/user/{{trainer._id}}">
+                        <img ng-show="trainer.avatar" ng-src="{{trainer.avatar}}" class="md-avatar" />
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{trainer.name}}</h3>
+                            <h4>{{trainer.email}}</h4>
+                            <div class="md-list-item-text" layout="column">
+                                <p ng-repeat="discipline in user.disciplines">{{discipline}}</p>
+                            </div>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card>
+            <md-card>
+                <md-toolbar layout="row" class="o_bRed">
+                    <div class="md-toolbar-tools">
+                        <span>Routines</span>
+                    </div>
+                </md-toolbar>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="routine in user.routines" ng-click="null" ng-href="#!/routine/{{routine._id}}">
+                        <img ng-src="img/routine.png" class="md-avatar" alt="{{item.who}}" />
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{routine.title}}</h3>
+                            <h4>{{routine.description}}</h4>
+                            <p>{{routine.price}}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card>
+        </div>
+    </div>
 </md-content>
