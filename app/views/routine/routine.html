@@ -35,7 +35,8 @@
         <md-tabs md-dynamic-height md-border-bottom>
       <md-tab label="{{day.title}}" ng-repeat="day in routine.days">
         <md-content class="md-padding">
-          <h2 class="md-display-1">{{day.title}}</h2>
+          <h3 class="md-display-1">{{day.title}}</h3>
+            <h6> Has it been completed? {{day.done}}</h6>
           <md-list class="md-dense" flex>
             <md-subheader class="md-no-sticky">{{day.description}}</md-subheader>
             <md-list-item class="md-3-line" ng-repeat="exercise in day.exercises">
@@ -51,7 +52,7 @@
             </md-list-item>
           </md-list>
           <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-click="" class="md-raised" md-colors="{background: 'blue'}">Mark day as completed</md-button>
+            <md-button ng-click="markDayAsCompleted()" class="md-raised" md-colors="{background: 'blue'}">Mark day as completed</md-button>
           </md-card-actions>
         </md-content>
       </md-tab>

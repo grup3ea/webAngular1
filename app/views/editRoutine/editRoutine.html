@@ -2,7 +2,7 @@
       <md-card>
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">
+            <span class="md-headline-3">
               Routine Title: {{routine.title}}
             </span>
             <span class="md-headline">
@@ -24,13 +24,13 @@
           </md-card-title-text>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='trainer'">
-          <md-button>Edit</md-button>
+          <md-button ng-ref="/#!/editRoutine/{{routine.client._id}}">Edit</md-button>
           <md-button>Delete Routine</md-button>
         </md-card-actions>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="{{day.title}}" ng-repeat="day in routine.days">
             <md-content class="md-padding">
-              <h1 class="md-display-2">{{day.title}}</h1>
+              <h1 class="md-display-1">{{day.title}}</h1>
               <md-list class="md-dense" flex>
                 <md-subheader class="md-no-sticky">{{day.description}}</md-subheader>
                 <md-list-item class="md-3-line" ng-repeat="exercise in day.exercises">
@@ -61,10 +61,10 @@
               <hr>
               <div ng-repeat="exercise in exercises" layout="row">
                 <md-input-container class="md-block" flex-gt-sm class="md-block">
-      						<label>Exercise Image</label>
+      						<label></label>
                   <div class="form_controls">
                       <div class="upload_button_holder">
-                          <div href="#" class="upload_button" ngf-select="uploadFile($file, $index)" title="upload" resetOnClick="true" > - </div>
+                          <md-button href="#" class="md-raised" ngf-select="uploadFile($file, $index)" title="upload" resetOnClick="true" > Exercise Image </md-button>
                       </div>
 
                   </div>

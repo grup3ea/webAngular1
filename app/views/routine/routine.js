@@ -57,6 +57,27 @@ angular.module('myApp.routine', ['ngRoute'])
           $scope.exercises.splice(index, 1);
         };
 
+        //No tengo muy claro de donde sacar la DayId, wornking on it
+        $scope.markDayAsCompleted = function () {
+            var validation = {
+                "day": {
+                    "_id": $scope.routine.days._id,
+                    "done": "true"
+                }
+            };
+            $http({
+                url: urlapi + 'routines/completeDay/' + $routeParams.routineid,
+                method: "POST",
+                data: validation
+            })
+                .then(function (response) {
+                    // success
+                    console.log("Dia completado, tus puntos tienes ya ");
+                    console.log(response.data);
+                })
+        };
+
+
 
         $scope.addDay = function(){
           $mdToast.show(
