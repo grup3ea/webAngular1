@@ -1,22 +1,94 @@
   <md-content class="md-padding" layout-xs="column" layout="column">
-      <md-card>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">
-              {{client.name}}
-            </span>
-            <span class="md-subhead">
-              {{client.description}}
-            </span>
-          </md-card-title-text>
-        </md-card-title>
+      <md-card layout="row">
+          <div flex-xs flex-gt-xs="30" layout="column"><!-- left column -->
+              <md-toolbar layout="row" class="o_bBlue">
+                  <div class="md-toolbar-tools">
+                      <span>{{client.name}}</span>
+                  </div>
+              </md-toolbar>
+            <md-card-content>
+                <md-button class="o_bBlue" ng-href="#!/user/{{client._id}}">
+                    View client Full profile
+                </md-button>
+                <div layout="row">
+                    <md-button class="o_bGreenDark" ng-href="#!/points/{{client._id}}">
+                        {{client.points.total}} points
+                    </md-button>
+                </div>
+                <div class="thumbnailAvatar">
+                    <a ng-click="showImgComplete($event, client.avatar)">
+                        <img ng-src="{{client.avatar}}" style="width:200px;" />
+                    </a>
+                </div>
+
+                <md-card-actions layout="row" layout-align="start center">
+                    <span class="md-subhead">
+                        <md-button ng-href="#!/follows/{{client._id}}" class="o_bBlueDark">
+                            following: {{client.following.length}}
+                        </md-button>
+                    </span>
+                    <span class="md-subhead">
+                        <md-button ng-href="#!/follows/{{client._id}}" class="o_bBlueDark">
+                            followers: {{client.followers.length}}
+                        </md-button>
+                    </span>
+                </md-card-actions>
+                <span class="md-subhead">
+                    {{client.description}}
+                </span>
+                <span class="md-subhead">
+                    {{client.email}}
+                </span>
+            </div><!-- end of left column -->
+            <div flex-xs flex-gt-xs="90" layout="column"><!-- column -->
+                <md-toolbar layout="row" class="o_bBlue">
+                    <div class="md-toolbar-tools">
+                        <span>Client attributes</span>
+                    </div>
+                </md-toolbar>
+                <md-list class="md-dense" flex>
+                    <md-list-item class="md-3-line">
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Height</h3>
+                            <p>{{client.attributes.height}} meters</p>
+                        </div>
+                    </md-list-item>
+                    <md-list-item class="md-3-line">
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Weight</h3>
+                            <p>{{client.attributes.weight}} Kg</p>
+                        </div>
+                    </md-list-item>
+                    <md-list-item class="md-3-line">
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Gender</h3>
+                            <p>{{client.attributes.gender}}</p>
+                        </div>
+                    </md-list-item>
+                    <md-list-item class="md-3-line">
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Age</h3>
+                            <p>{{client.attributes.age}} years old</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </div><!-- end of column -->
+        </md-card-content>
+    </md-card>
+    <md-card>
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='trainer'">
           <md-button>Delete Client</md-button>
           <md-button>Messages</md-button>
           <md-button ng-click="addRoutine($event)">Add Routine</md-button>
         </md-card-actions>
+    </md-card>
+    <md-card>
+        <md-toolbar layout="row" class="o_bRed">
+            <div class="md-toolbar-tools">
+                <span>Client Routines</span>
+            </div>
+        </md-toolbar>
         <md-card-content ng-show="client.routines">
-          Client routines:
           <md-list flex>
               <md-list-item class="md-3-line" ng-repeat="routine in client.routines" ng-click="null"
                             ng-href="#!/editRoutine/{{routine._id}}">
