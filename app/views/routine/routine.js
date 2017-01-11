@@ -58,22 +58,18 @@ angular.module('myApp.routine', ['ngRoute'])
         };
 
         //No tengo muy claro de donde sacar la DayId, wornking on it
-        $scope.markDayAsCompleted = function () {
-            var validation = {
-                "day": {
-                    "_id": $scope.routine.days._id,
-                    "done": "true"
-                }
-            };
+        $scope.markDayAsCompleted = function (givenday) {
             $http({
                 url: urlapi + 'routines/completeDay/' + $routeParams.routineid,
                 method: "POST",
-                data: validation
+                data: {"dayid": givenday._id}
             })
                 .then(function (response) {
                     // success
                     console.log("Dia completado, tus puntos tienes ya ");
                     console.log(response.data);
+                    //aquí caldria igualar el response.data a la variable que estem mostrant al html
+                    //no sé què retorna la api, però cal guardar-ho a day.done
                 })
         };
 
