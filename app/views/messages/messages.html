@@ -7,16 +7,11 @@
                     <span>
                       Conversations
                     </span>
-                    <span flex></span>
-                    <span>
-                        <md-button ng-click="orderByMe('concept')">
-                          Sort Alphabetically
-                        </md-button>
-                    </span>
                 </div>
             </md-toolbar>
             <md-list flex>
-                <md-list-item class="md-3-line" ng-repeat="conversation in conversations | orderBy:orderBy" ng-click="selectConversation(conversation)">
+                <md-list-item class="md-3-line" ng-repeat="conversation in conversations"
+                ng-click="selectConversation(conversation, $index)">
                     <img ng-src="{{conversation.userA.avatar}}" class="md-avatar"/>
                     <img ng-src="{{conversation.userB.avatar}}" class="md-avatar"/>
                     <div class="md-list-item-text" layout="column">
@@ -37,16 +32,28 @@
                     <span>Conversation</span>
                 </div>
             </md-toolbar>
-            <md-card-actions>
-
+            <md-card-actions style="max-height: 500px; overflow-y: scroll;" scroll-glue>
                     <md-list-item class="md-3-line" ng-repeat="message in selectedConversation.messages">
                         <img ng-src="{{message.user.avatar}}" class="md-avatar"/>
                         <div class="md-list-item-text" layout="column">
                             <h3>{{message.user.name}}</h3>
                             <p>{{message.content}}</p>
-
+                            <p class="md-secondary">{{message.date | date: "dd/MM/yyyy, HH:mm"}}</p>
                         </div>
                     </md-list-item>
+            </md-card-actions>
+            <md-card-actions ng-show="selectedConversation.messages">
+                <div layout-xs="row" layout="row">
+                    <div flex-xs flex-gt-xs="80" layout="column">
+                        <md-input-container class="md-block">
+                            <label>Message</label>
+                            <input ng-model="newMessage.message">
+                        </md-input-container>
+                    </div>
+                    <div flex-xs flex-gt-xs="20" layout="column">
+                        <md-button ng-click="sendMessage()" class="md-raised o_bGreenDark">Send!</md-button>
+                    </div>
+                </div>
             </md-card-actions>
         </md-card>
     </div>
