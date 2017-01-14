@@ -37,6 +37,11 @@
                               <p>{{day.date | date: "dd/MM/y"}}</p>
                               <p>{{day.value}} {{mark.unit}}</p>
                           </div>
+                          <md-button class="md-raised md-secondary" title="delete mark"
+                                ng-click="deleteMark($event, mark)"
+                                 ng-show="storageuser._id==user._id">
+                              Delete mark
+                          </md-button>
                           <md-button class="md-raised md-secondary" title="add day to mark"
                                 ng-click="showAddDayToMarkDialog($event, mark)"
                                  ng-show="storageuser._id==user._id">

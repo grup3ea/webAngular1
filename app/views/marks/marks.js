@@ -156,4 +156,37 @@ angular.module('myApp.marks', ['ngRoute', 'chart.js', 'ngAnimate', 'toastr'])
                     });
           };/* end of sendNewPost */
         }/* end of newPostCtrl */
+
+
+
+
+
+        $scope.deleteMark=function(ev, mark){
+            // Appending dialog to document.body to cover sidenav in docs app
+            var confirm = $mdDialog.confirm()
+                .title('Delete this mark?')
+                .textContent('Are you sure?')
+                .ariaLabel('Lucky day')
+                .targetEvent(ev)
+                .ok('Yes, delete')
+                .cancel('Cancel');
+            $mdDialog.show(confirm).then(function () {
+                $http({
+                    url: urlapi + 'users/marks/' + mark._id,
+                    method: "Delete"
+                })
+                    .then(function (response) {
+                            // success
+                            console.log("response: ");
+                            console.log(response.data);
+                            toastr.success('Routine deleted!');
+                            $route.reload();
+                        },
+                        function (response) {
+                            toastr.error('Failed on deleting routine');
+                        });
+            }, function () {
+                toastr.info('Operation canceled');
+            });
+        };
     });
