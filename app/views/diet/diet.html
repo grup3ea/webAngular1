@@ -1,17 +1,15 @@
-<md-toolbar layout="row" class="md-hue-3">
-  <div class="md-toolbar-tools">
-    <span>Diet</span>
-  </div>
-</md-toolbar>
 <md-subheader class="md-primary">Keep Track of your diet</md-subheader>
 
 <md-content class="md-padding" layout-xs="column" layout="column">
     <md-card>
+
+    <md-toolbar layout="row" class="o_bRedDark">
+        <div class="md-toolbar-tools">
+            <span>{{diet.title}}}</span>
+        </div>
+    </md-toolbar>
       <md-card-title>
         <md-card-title-text>
-          <span class="md-headline">
-            {{diet.title}}
-          </span>
           <span class="md-subhead">
             {{diet.description}}
           </span>
@@ -43,7 +41,10 @@
               </md-list-item>
             </md-list>
             <md-card-actions layout="row" layout-align="end center">
-              <md-button ng-click="markDayAsCompleted()" class="md-raised" md-colors="{background: 'blue'}">Mark day as completed</md-button>
+              <md-button ng-click="markDayAsCompleted(day)"
+              class="md-raised" md-colors="{background: 'blue'}"
+              ng-hide="day.done=='true'">Mark day as completed</md-button>
+              <div ng-show="day.done=='true'">Day done</div>
             </md-card-actions>
           </md-content>
         </md-tab>

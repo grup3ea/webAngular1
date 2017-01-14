@@ -1,15 +1,12 @@
   <md-content class="md-padding" layout-xs="column" layout="column">
-      <md-toolbar layout="row" class="md-hue-4">
-          <div class="md-toolbar-tools">
-              <span>Routines</span>
-          </div>
-      </md-toolbar>
       <md-card>
+          <md-toolbar layout="row" class="o_bRedDark">
+              <div class="md-toolbar-tools">
+                  <span>{{routine.title}}</span>
+              </div>
+          </md-toolbar>
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">
-              {{routine.title}}
-            </span>
             <span class="md-subhead">
               {{routine.description}}
             </span>
@@ -52,7 +49,10 @@
             </md-list-item>
           </md-list>
           <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-click="markDayAsCompleted(day)" class="md-raised" md-colors="{background: 'blue'}">Mark day as completed</md-button>
+            <md-button ng-click="markDayAsCompleted(day)"
+            class="md-raised" md-colors="{background: 'blue'}"
+            ng-hide="day.done=='true'">Mark day as completed</md-button>
+            <div ng-show="day.done=='true'">Day done</div>
           </md-card-actions>
         </md-content>
       </md-tab>

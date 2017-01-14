@@ -37,12 +37,11 @@ angular.module('myApp.diet', ['ngRoute'])
                 method: "POST",
                 data: {"dayid": givenday._id}
             })
-                .then(function (response) {
+                .then(function (data) {
                     // success
                     console.log("Dia completado, tus puntos tienes ya ");
-                    console.log(response.data);
-                    //aquí caldria igualar el response.data a la variable que estem mostrant al html
-                    //no sé què retorna la api, però cal guardar-ho a day.done
+                    console.log(data.data);
+                    $scope.diet = data.data; // for UI
                 })
         };
 
