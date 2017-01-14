@@ -12,7 +12,18 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
             // USER LOGUEJAT
             console.log("user logged");
             $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-
+            $http.get(urlapi + 'users/' + $scope.storageuser._id)
+                .then(function (data) {
+                    localStorage.setItem("fs_web_userdata", JSON.stringify(data.data));
+                    $scope.storageuser = data.data;
+                }, function (data, status) {
+                    console.log('data error');
+                    console.log(status);
+                    console.log(data);
+                })
+                .then(function (result) {
+                    //users = result.data;
+                });
             /* lu comú amb totes les views de la webapp
              posat aquí al menú */
             $scope.loginData = {};

@@ -18,7 +18,7 @@
   <h3>Trainers of discipline: <b>{{choosenDiscipline}}</b></h3>
   <md-list flex>
     <md-list-item class="md-3-line" ng-repeat="trainer in trainers" ng-href="#!/user/{{trainer._id}}">
-      <img ng-src="img/user.png" class="md-avatar" alt="{{item.who}}" />
+      <img ng-src="{{trainer.avatar}}" class="md-avatar" />
       <div class="md-list-item-text" layout="column">
         <h3>{{trainer.name}}</h3>
         <h4>{{trainer.email}}</h4>

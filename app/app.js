@@ -19,6 +19,7 @@ angular.module('myApp', [
     'myApp.points',
     'myApp.marks',
     'myApp.search',
+    'myApp.messages',
     'myApp.notifications',
     'myApp.routine',
     'myApp.editTrainer',

@@ -1,0 +1,55 @@
+<md-content class="md-padding" layout-xs="row" layout="row">
+    <div flex-xs flex-gt-xs="30" layout="column">
+        <!-- start of COLUMN -->
+        <md-card>
+            <md-toolbar layout="row" class="o_bGreen">
+                <div class="md-toolbar-tools">
+                    <span>
+                      Conversations
+                    </span>
+                    <span flex></span>
+                    <span>
+                        <md-button ng-click="orderByMe('concept')">
+                          Sort Alphabetically
+                        </md-button>
+                    </span>
+                </div>
+            </md-toolbar>
+            <md-list flex>
+                <md-list-item class="md-3-line" ng-repeat="conversation in conversations | orderBy:orderBy" ng-click="selectConversation(conversation)">
+                    <img ng-src="{{conversation.userA.avatar}}" class="md-avatar"/>
+                    <img ng-src="{{conversation.userB.avatar}}" class="md-avatar"/>
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{conversation.userA.name}}</h3>
+                        <h3>{{conversation.userB.name}}</h3>
+
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-card>
+    </div>
+    <!-- end of COLUMN -->
+    <div flex-xs flex-gt-xs="70" layout="column">
+        <!-- start of COLUMN -->
+        <md-card>
+            <md-toolbar layout="row" class="o_bGreenDark">
+                <div class="md-toolbar-tools">
+                    <span>Conversation</span>
+                </div>
+            </md-toolbar>
+            <md-card-actions>
+
+                    <md-list-item class="md-3-line" ng-repeat="message in selectedConversation.messages">
+                        <img ng-src="{{message.user.avatar}}" class="md-avatar"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{message.user.name}}</h3>
+                            <p>{{message.content}}</p>
+
+                        </div>
+                    </md-list-item>
+            </md-card-actions>
+        </md-card>
+    </div>
+    <!-- end of COLUMN -->
+</md-content>
+<!-- end of row of columns -->

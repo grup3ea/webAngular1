@@ -66,7 +66,9 @@
 
   height: 100%;
 }
-
+.o_floatRight{
+    float: right;
+}
 /*
     SISTEMA DE COLORS
 
@@ -96,12 +98,20 @@
     background: rgb(252,87,85)!important;
     color: #ffffff!important;
 }
+.o_bRedLight{
+    background: #E57373!important;
+    color: #ffffff!important;
+}
 .o_bRedDark{
     background: rgb(218, 89, 120)!important;
     color: #ffffff!important;
 }
 .o_bGreen{
     background: rgb(123,195,70)!important;
+    color: #ffffff!important;
+}
+.o_bGreenLight{
+    background: #81C784!important;
     color: #ffffff!important;
 }
 .o_bGreenDark{

@@ -100,6 +100,10 @@
                     <p ng-show="storageuser.points.total">{{storageuser.points.total}} points</p>
                 </div>
             </md-list-item>
+            <md-list-item flex class="md-2-line contact-item" ng-show="storageuser.conversations[0]"
+                          href="#!/messages">
+                <img ng-src="img/messages.png" class="md-avatar"/>
+            </md-list-item>
             <md-list-item flex class="md-2-line contact-item" ng-show="storageuser.notifications[0]"
                           href="#!/notifications">
                 <img ng-src="img/notification.png" class="md-avatar"/>
