@@ -25,7 +25,7 @@
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='trainer'">
           <md-button ng-ref="/#!/editRoutine/{{routine.client._id}}">Edit</md-button>
-          <md-button>Delete Routine</md-button>
+          <md-button ng-click="deleteRoutine($event)">Delete Routine</md-button>
         </md-card-actions>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="{{day.title}}" ng-repeat="day in routine.days">

@@ -16,47 +16,6 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
             /* lu comú amb totes les views de la webapp
              posat aquí al menú */
             $scope.loginData = {};
-            var pathImg = "img/essential/";
-            var sidenavImg="img/sidenav/";
-            $scope.options = [
-                {
-                    title: "Dashboard",
-                    description: "description",
-                    link: "/dashboard",
-                    icon: sidenavImg + "dashboard.png"
-                },
-                {
-                    title: "Profile",
-                    description: "description",
-                    link: "/user/" +$scope.storageuser._id,
-                    icon: sidenavImg + "profile.png"
-                },
-                {
-                    title: "Network",
-                    description: "description",
-                    link: "/network",
-                    icon: sidenavImg + "network.png"
-                },
-                {
-                    title: "Training",
-                    description: "description",
-                    link: "/training",
-                    icon: sidenavImg + "training.png"
-                },
-                {
-                    title: "Diet",
-                    description: "description",
-                    link: "/eating",
-                    icon: sidenavImg + "diet.png"
-                },
-                {
-                    title: "Settings",
-                    description: "description",
-                    link: "/settings",
-                    icon: sidenavImg + "settings.png"
-                }
-            ];
-            console.log($scope.options);
             $scope.logout = function () {
                 //EL LOGOUT NO VA A LA API, per això aquí està comentat el post
                 /*$http({

@@ -11,13 +11,55 @@
             <md-content class="o_bSidenav">
                 <md-list class="md-dense" flex>
                     <md-divider></md-divider>
-                    <md-list-item class="md-3-line" ng-repeat="option in options" ng-href="#!{{option.link}}">
-                        <img ng-src="{{option.icon}}" class="md-avatar" alt="{{option.description}}"/>
+                    <md-list-item class="md-3-line" ng-href="#!/dashboard">
+                        <img ng-src="img/sidenav/dashboard.png" class="md-avatar" alt="dashboard"/>
                         <div class="md-list-item-text" layout="column">
-                            <h3 class="o_fWhiteLight">{{ option.title }}</h3>
+                            <h3 class="o_fWhiteLight">Dashboard</h3>
                         </div>
-                        <md-divider></md-divider>
                     </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item class="md-3-line" ng-href="#!/user/{{storageuser._id}}">
+                        <img ng-src="img/sidenav/profile.png" class="md-avatar" alt="profile"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3 class="o_fWhiteLight">Profile</h3>
+                        </div>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item class="md-3-line" ng-href="#!/clients" ng-show="storageuser.role=='trainer'">
+                        <img ng-src="img/sidenav/training.png" class="md-avatar" alt="clients"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3 class="o_fWhiteLight">Clients</h3>
+                        </div>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item class="md-3-line" ng-href="#!/network">
+                        <img ng-src="img/sidenav/network.png" class="md-avatar" alt="network"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3 class="o_fWhiteLight">Network</h3>
+                        </div>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item class="md-3-line" ng-href="#!/training">
+                        <img ng-src="img/sidenav/training.png" class="md-avatar" alt="training"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3 class="o_fWhiteLight">Training</h3>
+                        </div>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item class="md-3-line" ng-href="#!/eating">
+                        <img ng-src="img/sidenav/diet.png" class="md-avatar" alt="eating"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3 class="o_fWhiteLight">Eating</h3>
+                        </div>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item class="md-3-line" ng-href="#!/settings">
+                        <img ng-src="img/sidenav/settings.png" class="md-avatar" alt="settings"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3 class="o_fWhiteLight">Settings</h3>
+                        </div>
+                    </md-list-item>
+                    <md-divider></md-divider>
                     <md-list-item class="md-3-line" ng-click="logout()">
                         <img src="img/sidenav/logout.png" class="md-avatar" alt="logout"/>
                         <div class="md-list-item-text" layout="column">

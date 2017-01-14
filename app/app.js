@@ -27,6 +27,7 @@ angular.module('myApp', [
     'myApp.user',
     'myApp.follows',
     'myApp.network',
+    'myApp.clients',
     'myApp.client',
     'myApp.eating',
     'myApp.diet',

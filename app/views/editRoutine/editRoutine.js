@@ -1,12 +1,13 @@
 'use strict';
-angular.module('myApp.editRoutine', ['ngRoute', 'ngFileUpload'])
+angular.module('myApp.editRoutine', ['ngRoute', 'ngFileUpload', 'ngAnimate', 'toastr'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/editRoutine/:routineid', {
             templateUrl: 'views/editRoutine/editRoutine.html',
             controller: 'EditRoutineCtrl'
         });
     }])
-    .controller('EditRoutineCtrl', function ($scope, $http, $routeParams, $mdToast, $rootScope, $location, Upload, cloudinary) {
+    .controller('EditRoutineCtrl', function ($scope, $http, $routeParams, $mdToast,
+        $rootScope, $location, Upload, cloudinary, $mdDialog, toastr) {
         /*if (localStorage.getItem('fs_web_token')) {// adding token to the headers
          $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
          //el .common serveix per als gets
@@ -91,6 +92,34 @@ angular.module('myApp.editRoutine', ['ngRoute', 'ngFileUpload'])
                                 .hideDelay(3000)
                         );
                     });
+        };
+        $scope.deleteRoutine=function(ev){
+            // Appending dialog to document.body to cover sidenav in docs app
+            var confirm = $mdDialog.confirm()
+                .title('Delete this routine?')
+                .textContent('Are you sure?')
+                .ariaLabel('Lucky day')
+                .targetEvent(ev)
+                .ok('Yes, delete')
+                .cancel('Cancel');
+            $mdDialog.show(confirm).then(function () {
+                $http({
+                    url: urlapi + 'routines/' + $scope.routine._id,
+                    method: "Delete"
+                })
+                    .then(function (response) {
+                            // success
+                            console.log("response: ");
+                            console.log(response.data);
+                            toastr.success('Routine deleted!');
+                            window.location="#!/clients";
+                        },
+                        function (response) {
+                            toastr.error('Failed on deleting routine');
+                        });
+            }, function () {
+                toastr.info('Operation canceled');
+            });
         };
 
 

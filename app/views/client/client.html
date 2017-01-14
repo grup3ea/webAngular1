@@ -80,15 +80,6 @@
         <div flex-xs flex-gt-xs="50" layout="column">
             <!-- start of COLUMN -->
             <div>
-                <md-toolbar layout="row" class="o_bOrangeDark">
-                    <div class="md-toolbar-tools">
-                        <span>Mark history: {{markSelected}}</span>
-                    </div>
-                </md-toolbar>
-                <canvas id="bar" class="chart chart-line" chart-data="data" chart-labels="labels">
-                </canvas>
-            </div>
-            <div>
                 <md-toolbar layout="row" class="o_bOrange">
                     <div class="md-toolbar-tools">
                         <span>
@@ -98,7 +89,7 @@
                         <span>{{client.marks.length}}</span>
                     </div>
                 </md-toolbar>
-                <md-list flex>
+                <md-list flex style="max-height: 200px; overflow-y: scroll;">
                     <md-list-item class="md-3-line" ng-repeat="mark in client.marks" ng-click="generateGraph(mark)">
                         <div class="md-list-item-text" layout="column">
                             <h3>{{mark.title}}</h3>
@@ -110,6 +101,15 @@
                     </md-list-item>
                 </md-list>
             </div>
+            <div>
+                <md-toolbar layout="row" class="o_bOrangeDark">
+                    <div class="md-toolbar-tools">
+                        <span>Mark history: {{markSelected}}</span>
+                    </div>
+                </md-toolbar>
+                <canvas id="bar" class="chart chart-line" chart-data="data" chart-labels="labels">
+                </canvas>
+            </div>
         </div>
         <!-- end of COLUMN -->
     </md-card>
@@ -117,13 +117,14 @@
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='trainer'">
             <md-button>Delete Client</md-button>
             <md-button>Messages</md-button>
-            <md-button ng-click="addRoutine($event)">Add Routine</md-button>
         </md-card-actions>
     </md-card>
     <md-card>
         <md-toolbar layout="row" class="o_bRed">
             <div class="md-toolbar-tools">
                 <span>Client Routines</span>
+                <span flex></span>
+                <span><md-button ng-click="addRoutine($event)">Add New Routine</md-button></span>
             </div>
         </md-toolbar>
         <md-card-content ng-show="client.routines">
