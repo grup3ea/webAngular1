@@ -93,6 +93,10 @@
   background: #e6e6e6!important;
   color: #000000!important;
 }
+.o_bGreyLight{
+  background: #CFD8DC!important;
+  color: #000000!important;
+}
 /* backgrounds color: bColor */
 .o_bRed{
     background: rgb(252,87,85)!important;

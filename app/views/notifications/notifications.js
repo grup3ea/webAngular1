@@ -16,8 +16,8 @@ angular.module('myApp.notifications', ['ngRoute'])
             $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');
         }*/
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-        $scope.notifications={};
-        $http.get(urlapi + $scope.storageuser.role + 's/'+ $scope.storageuser._id + "/getNotifications")
+        $scope.notifications=[];
+        $http.get(urlapi + "/notifications")
           .then(function (data) {
               console.log('data success');
               console.log(data); // for browser console
@@ -26,8 +26,5 @@ angular.module('myApp.notifications', ['ngRoute'])
               console.log('data error');
               console.log(status);
               console.log(data);
-          })
-          .then(function (result) {
-              //users = result.data;
           });
     });

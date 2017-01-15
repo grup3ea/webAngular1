@@ -24,6 +24,27 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
                 .then(function (result) {
                     //users = result.data;
                 });
+
+            $scope.timer = setInterval(function(){
+                $http.get(urlapi + "/notificationsNumber")//fem un get de les notificacions pendents
+                  .then(function (data) {
+                      console.log('notificationsNumber data success');
+                      console.log(data); // for browser console
+                      if($scope.storageuser.notifications<data.data)
+                      {
+                          toastr.info("new notification!");
+                      }
+                      $scope.storageuser.notifications=data.data;
+                  }, function (data, status) {
+                      console.log('data error');
+                      console.log(status);
+                      console.log(data);
+                  })
+                  .then(function (result) {
+                      //users = result.data;
+                  });
+            }, 10000);//cada deu o trenta segons
+
             /* lu comú amb totes les views de la webapp
              posat aquí al menú */
             $scope.loginData = {};

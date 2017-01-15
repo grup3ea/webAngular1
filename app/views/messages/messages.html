@@ -12,11 +12,11 @@
             <md-list flex>
                 <md-list-item class="md-3-line" ng-repeat="conversation in conversations"
                 ng-click="selectConversation(conversation, $index)">
-                    <img ng-src="{{conversation.userA.avatar}}" class="md-avatar"/>
-                    <img ng-src="{{conversation.userB.avatar}}" class="md-avatar"/>
+                    <img ng-show="storageuser._id==conversation.userB._id" ng-src="{{conversation.userA.avatar}}" class="md-avatar"/>
+                    <img ng-show="storageuser._id==conversation.userA._id" ng-src="{{conversation.userB.avatar}}" class="md-avatar"/>
                     <div class="md-list-item-text" layout="column">
-                        <h3>{{conversation.userA.name}}</h3>
-                        <h3>{{conversation.userB.name}}</h3>
+                        <h3 ng-show="storageuser._id==conversation.userB._id">{{conversation.userA.name}}</h3>
+                        <h3 ng-show="storageuser._id==conversation.userA._id">{{conversation.userB.name}}</h3>
 
                     </div>
                 </md-list-item>

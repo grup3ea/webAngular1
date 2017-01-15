@@ -22,13 +22,15 @@ angular.module('myApp.messages', ['ngRoute', 'chart.js', 'ngAnimate', 'toastr', 
         };
 
         $scope.sendMessage = function(){
-            $http({
-                url: urlapi + 'conversations/' + $scope.selectedConversation._id,
-                method: "POST",
-                data: $scope.newMessage
-            })
-            .then(function (data) {
-                  console.log(data);
+            if(($scope.newMessage.message!="")&&($scope.newMessage.message))
+            {//comprovem que realment hagi escrit missatge
+                $http({
+                    url: urlapi + 'conversations/' + $scope.selectedConversation._id,
+                    method: "POST",
+                    data: $scope.newMessage
+                })
+                .then(function (data) {
+                    console.log(data);
                     //toastr.success('message sent');
                     $scope.conversations = data.data; // for UI
                     $scope.selectedConversation=$scope.conversations[$scope.indexSelectedConversation];
@@ -37,10 +39,11 @@ angular.module('myApp.messages', ['ngRoute', 'chart.js', 'ngAnimate', 'toastr', 
                 function () {
                     toastr.error('Failed on sending message');
                 });
+            }
         };/* end of sendNewMessage */
 
 
-        $scope.conversations = {};
+        $scope.conversations = [];
         $scope.getConversations=function(){
             $http.get(urlapi + 'conversations')
             .then(function (data) {
@@ -66,7 +69,7 @@ angular.module('myApp.messages', ['ngRoute', 'chart.js', 'ngAnimate', 'toastr', 
                 {
                     $scope.getConversations();
                 }//s'ha d'acavar d'afinar això, ara cada cop que entres a la pàgina de messages, s'afegeix un nou timer als que ja teniem
-            }, 1000);//cada tres segons
+            }, 3000);//cada tres segons
         }else{
             console.log("not messages page");
         }
