@@ -1,3 +1,12 @@
+.o_gradient{
+    background: -moz-linear-gradient(90deg, #FFFFFF 0%, #E8FBFF 9%, #CBC5E3 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #CBC5E3), color-stop(91%, #E8FBFF), color-stop(100%, #FFFFFF)); /* safari4+,chrome */
+    background: -webkit-linear-gradient(90deg, #FFFFFF 0%, #E8FBFF 9%, #CBC5E3 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(90deg, #FFFFFF 0%, #E8FBFF 9%, #CBC5E3 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(90deg, #FFFFFF 0%, #E8FBFF 9%, #CBC5E3 100%); /* ie10+ */
+    background: linear-gradient(0deg, #FFFFFF 0%, #E8FBFF 9%, #CBC5E3 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CBC5E3', endColorstr='#FFFFFF',GradientType=0 ); /* ie6-9 */
+}
 .o_imgBtn1{
   width: 20px;
 }

@@ -235,20 +235,27 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
                   $window.location = "#!/training";
               },
               function (response) {
-                $mdToast.show(
-                   $mdToast.simple()
-                      .textContent('Failed on generating new petition')
-                      .position("bottom right")
-                      .hideDelay(3000)
-                );
+                  toastr.error('Failed on generating new petition');
               });
           }, function() {
-            $mdToast.show(
-               $mdToast.simple()
-                  .textContent('Petition canceled')
-                  .position("bottom right")
-                  .hideDelay(3000)
-            );
+              toastr.info('Petition canceled');
           });
         };//end of send petition
+
+        $scope.sendMessage = function(ev) {
+            $http({
+                url: urlapi + 'conversations',
+                method: "POST",
+                data: {"userB": $routeParams.userid}
+            })
+            .then(function (response) {
+                // success
+                console.log("response: ");
+                console.log(response.data);
+                $window.location = "#!/messages";
+            },
+            function (response) {
+                toastr.error('Failed on generating new petition');
+            });
+        };//end of send message
     });

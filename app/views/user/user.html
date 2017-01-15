@@ -17,7 +17,7 @@
                             <span>{{user.name}}</span>
                             <span flex></span>
                             <span>
-                                <md-button class="o_bBlue" ng-click="">
+                                <md-button class="o_bBlue" ng-click="sendMessage()">
                                     Send message
                                 </md-button>
                             </span>
@@ -236,7 +236,9 @@ trainer
             <md-button ng-href="#!/editUser/{{user._id}}">Edit Profile</md-button>
         </md-card-actions>
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='user'">
-            <md-button>Send message</md-button>
+            <md-button class="o_bBlue" ng-click="sendMessage()">
+                Send message
+            </md-button>
             <md-button ng-click="sendPetition()">Ask for routine (send petition)</md-button>
         </md-card-actions>
         <md-content class="md-padding" layout-xs="row" layout="row">

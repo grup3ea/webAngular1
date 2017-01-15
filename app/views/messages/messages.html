@@ -29,7 +29,23 @@
         <md-card>
             <md-toolbar layout="row" class="o_bGreenDark">
                 <div class="md-toolbar-tools">
-                    <span>Conversation</span>
+                        <md-list-item class="md-3-line" ng-href="#!/user/{{selectedConversation.userA._id}}"
+                            ng-show="storageuser._id==selectedConversation.userB._id">
+                            <img ng-src="{{selectedConversation.userA.avatar}}" class="md-avatar"/>
+                            <div class="md-list-item-text" layout="column">
+                                <h3>{{selectedConversation.userA.name}}</h3>
+
+                            </div>
+                        </md-list-item>
+
+                        <md-list-item class="md-3-line" ng-href="#!/user/{{selectedConversation.userB._id}}"
+                            ng-show="storageuser._id==selectedConversation.userA._id">
+                            <img ng-src="{{selectedConversation.userB.avatar}}" class="md-avatar"/>
+                            <div class="md-list-item-text" layout="column">
+                                <h3>{{selectedConversation.userB.name}}</h3>
+
+                            </div>
+                        </md-list-item>
                 </div>
             </md-toolbar>
             <md-card-actions style="max-height: 500px; overflow-y: scroll;" scroll-glue>

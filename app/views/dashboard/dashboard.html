@@ -1,6 +1,6 @@
 <!-- DASHBOARD USER -->
 <div ng-show="storageuser.role=='user'">
-    <md-content>
+    <md-content class="md-padding">
         <div flex-xs flex-gt-xs="100" layout="row"><!-- start of COLUMN -->
             <md-card flex-xs flex-gt-xs="60">
                 <md-toolbar layout="row" class="o_bGreenDark">
@@ -40,24 +40,14 @@
                         <span class="md-headline">{{storageuser.surname}}</span>
                         <span class="md-subhead">{{storageuser.points.total}} points</span>
                         <p>{{storageuser.email}}</p>
-                        <md-list class="md-dense" flex>
-                            <md-list-item>
-                                <p>Height</p>
-                                <p>{{storageuser.attributes.height}} meters</p>
-                            </md-list-item>
-                            <md-list-item>
-                                <p>Weight</p>
-                                <p>{{storageuser.attributes.weight}} Kg</p>
-                            </md-list-item>
-                            <md-list-item>
-                                <p>Gender</p>
-                                <p>{{storageuser.attributes.gender}}</p>
-                            </md-list-item>
-                            <md-list-item>
-                                <p>Age</p>
-                                <p>{{storageuser.attributes.age}} years old</p>
-                            </md-list-item>
-                        </md-list>
+                        <span>Height</span>
+                        <span class="md-subhead">{{storageuser.attributes.height}} meters</span>
+                        <span>Weight</span>
+                        <span class="md-subhead">{{storageuser.attributes.weight}} Kg</span>
+                        <span>Gender</span>
+                        <span class="md-subhead">{{storageuser.attributes.gender}}</span>
+                        <span>Age</span>
+                        <span class="md-subhead">{{storageuser.attributes.age}} years old</span>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">
