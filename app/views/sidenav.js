@@ -26,7 +26,7 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
                 });
 
             $scope.timer = setInterval(function(){
-                $http.get(urlapi + "/notificationsNumber")//fem un get de les notificacions pendents
+                $http.get(urlapi + "notificationsNumber")//fem un get de les notificacions pendents
                   .then(function (data) {
                       console.log('notificationsNumber data success');
                       console.log(data); // for browser console

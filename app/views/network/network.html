@@ -78,6 +78,29 @@
                 </md-list-item>
               </md-list>
           </md-card>
+          <md-card>
+              <md-toolbar layout="row" class="o_bBlueDark">
+                  <div class="md-toolbar-tools">
+                    <span>
+                        Suggested users to follow
+                    </span>
+                  </div>
+              </md-toolbar>
+              <md-list flex>
+                <md-list-item class="md-3-line" ng-repeat="user in suggestions | orderBy:orderBy" ng-href="#!/user/{{user._id}}">
+                  <img ng-src="{{user.avatar}}" class="md-avatar" />
+                  <div class="md-list-item-text" layout="column">
+                    <h3>{{user.name}}</h3>
+                    <h4>{{user.role}}</h4>
+                    <p>{{user.email}}</p>
+                    <div class="md-secondary">
+                      <md-button class="o_floatRight o_bBlue" ng-click="doFollow(user)" style="width:50px;">Follow
+                      </md-button>
+                    </div>
+                  </div>
+                </md-list-item>
+              </md-list>
+          </md-card>
       </div><!-- end of COLUMN -->
   </md-content><!-- end of row of columns -->
 </md-content>
