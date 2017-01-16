@@ -22,6 +22,8 @@
     "ng-device-detector": "^3.0.1",
     "angular-toastr": "^2.1.1",
     "angularjs-datepicker": "^2.1.9",
-    "angular-scroll-glue": "^2.1.0"
+    "angular-scroll-glue": "^2.1.0",
+    "ngmap": "^1.17.8",
+    "ngGeolocation": "^0.0.8"
   }
 }
