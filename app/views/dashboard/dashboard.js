@@ -8,7 +8,7 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
     }])
     .controller('DashboardCtrl', function ($scope, $compile, uiCalendarConfig,
                                            $http, $window, $mdDialog, $mdToast,
-                                            $filter) {
+                                           $filter) {
         if (localStorage.getItem('fs_web_token')) {// adding token to the headers
             console.log("user logged");
             /*$http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
@@ -19,9 +19,8 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
             $window.location = "#!/login";
         }
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-
-        $scope.data=[];
-        $scope.labels=[];
+        $scope.data = [];
+        $scope.labels = [];
         /*
          /chart
          */
@@ -36,26 +35,23 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
                     //localStorage.setItem('fs_web_trainers', JSON.stringify($scope.trainers));
                     localStorage.setItem("fs_web_userdata", JSON.stringify(data.data));
                     $scope.storageuser = data.data;
-
                     /* aquí generem la data de la gràfica */
                     console.log("generant data de gràfic");
-                    $scope.data=[];
-                    $scope.labels=[];
-                    var actualDay=$scope.storageuser.points.history[0].date;
-                    var actualDayPoints=0;
-                    for(var i=0; i<$scope.storageuser.points.history.length; i++)
-                    {
-                        if($filter('date')(actualDay, 'dd.MM.y')==$filter('date')($scope.storageuser.points.history[i].date, 'dd.MM.y'))
-                        {
-                            actualDayPoints=(+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
+                    $scope.data = [];
+                    $scope.labels = [];
+                    var actualDay = $scope.storageuser.points.history[0].date;
+                    var actualDayPoints = 0;
+                    for (var i = 0; i < $scope.storageuser.points.history.length; i++) {
+                        if ($filter('date')(actualDay, 'dd.MM.y') == $filter('date')($scope.storageuser.points.history[i].date, 'dd.MM.y')) {
+                            actualDayPoints = (+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
                             console.log("operació " + $scope.storageuser.points.history[i].value + " --> " + "total: " + actualDayPoints);
-                        }else{
+                        } else {
                             $scope.data.push(actualDayPoints);
                             $scope.labels.push($filter('date')(actualDay, 'dd.MM.y'));
                             console.log("guardant dades del dia fins ara. canvi de dia.");
-                            actualDayPoints=0;
-                            actualDayPoints=(+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
-                            actualDay=$scope.storageuser.points.history[i].date;
+                            actualDayPoints = 0;
+                            actualDayPoints = (+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
+                            actualDay = $scope.storageuser.points.history[i].date;
                             console.log("dia nou: " + $filter('date')(actualDay, 'dd.MM.y'));
                             console.log("operació " + $scope.storageuser.points.history[i].value + " --> " + "total: " + actualDayPoints);
                         }
@@ -74,6 +70,31 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
                 .then(function (result) {
                     //users = result.data;
                 });
+            $scope.deleteSelectedDiets = function () {
+
+                var arrayOfDietsToDelete = [];
+                for (var i = 0; i < $scope.storageuser.diets.length; i++) {
+                    if ($scope.storageuser.diets[i].todelete == true) {
+                        arrayOfDietsToDelete.push($scope.storageuser.diets[i]);
+                    }
+                }
+                console.log(arrayOfDietsToDelete);
+                $http({
+                    url: urlapi + 'diets/choose',
+                    method: "DELETE",
+                    data: {dietsToDelete: arrayOfDietsToDelete}
+                })
+                    .then(function (data) {
+                            // success
+                            console.log(data);
+                            localStorage.setItem("fs_web_userdata", JSON.stringify(data.data));
+                            $scope.storageuser = data.data;
+                        },
+                        function (data) { // optional
+                            // failed
+                            console.log(data);
+                        });
+            };
             /* end SECCIÓ USER */
         } else if ($scope.storageuser.role == "trainer") {
             /* SECCiÓ TRAINER */
@@ -85,26 +106,23 @@ angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
                     //localStorage.setItem('fs_web_trainers', JSON.stringify($scope.trainers));
                     localStorage.setItem("fs_web_userdata", JSON.stringify(data.data));
                     $scope.storageuser = data.data;
-
                     /* aquí generem la data de la gràfica */
                     console.log("generant data de gràfic");
-                    $scope.data=[];
-                    $scope.labels=[];
-                    var actualDay=$scope.storageuser.points.history[0].date;
-                    var actualDayPoints=0;
-                    for(var i=0; i<$scope.storageuser.points.history.length; i++)
-                    {
-                        if($filter('date')(actualDay, 'dd.MM.y')==$filter('date')($scope.storageuser.points.history[i].date, 'dd.MM.y'))
-                        {
-                            actualDayPoints=(+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
+                    $scope.data = [];
+                    $scope.labels = [];
+                    var actualDay = $scope.storageuser.points.history[0].date;
+                    var actualDayPoints = 0;
+                    for (var i = 0; i < $scope.storageuser.points.history.length; i++) {
+                        if ($filter('date')(actualDay, 'dd.MM.y') == $filter('date')($scope.storageuser.points.history[i].date, 'dd.MM.y')) {
+                            actualDayPoints = (+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
                             console.log("operació " + $scope.storageuser.points.history[i].value + " --> " + "total: " + actualDayPoints);
-                        }else{
+                        } else {
                             $scope.data.push(actualDayPoints);
                             $scope.labels.push($filter('date')(actualDay, 'dd.MM.y'));
                             console.log("guardant dades del dia fins ara. canvi de dia.");
-                            actualDayPoints=0;
-                            actualDayPoints=(+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
-                            actualDay=$scope.storageuser.points.history[i].date;
+                            actualDayPoints = 0;
+                            actualDayPoints = (+actualDayPoints) + (+$scope.storageuser.points.history[i].value);
+                            actualDay = $scope.storageuser.points.history[i].date;
                             console.log("dia nou: " + $filter('date')(actualDay, 'dd.MM.y'));
                             console.log("operació " + $scope.storageuser.points.history[i].value + " --> " + "total: " + actualDayPoints);
                         }

@@ -9,6 +9,7 @@ angular.module('myApp', [
     'ngRoute',
     'cloudinary',
     '720kb.datepicker',
+    'angular-input-stars',
     'ngMaterial',
     'myApp.sidenav',
     'myApp.main',

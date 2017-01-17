@@ -42,4 +42,30 @@ angular.module('myApp.training', ['ngRoute'])
                 console.log(data);
             })
             .then(function(result) {});
+
+/*        $scope.valorate = function () {
+            //aqí el post
+            var valoration = {
+                message: data,
+                value: data.value,
+            };
+
+            console.log(valoration);
+            $http({
+                url: urlapi + 'trainers/valorateTrainer/' + $scope.storageuser._id,
+                method: "POST",
+                data: {valoration: valoration}
+            })
+                .then(function (data) {
+                        // success
+                        console.log(data);
+
+                        $scope.storageuser = data.data;
+                    },
+                    function (data) { // optional
+                        // failed
+                        console.log(data);
+                    });
+        };*/
+
     });

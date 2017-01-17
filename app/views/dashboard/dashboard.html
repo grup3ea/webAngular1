@@ -19,7 +19,7 @@
                     </canvas>
                 </md-card-actions>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
+                    <md-button class="md-raised ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
                 </md-card-actions>
             </md-card>
             <md-card flex-xs flex-gt-xs="40">
@@ -93,11 +93,15 @@
                             <h4>{{diet.description}}</h4>
                             <p>{{diet.price}}</p>
                         </div>
+                        <md-checkbox class="md-secondary" ng-model="token.todelete"></md-checkbox>
                     </md-list-item>
                 </md-list>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-raised md-warn">Delete Diet</md-button>
-                    <md-button ng-click="showPrompt($event)" class="md-raised">Add Diet (Buy)</md-button>
+                    <md-button class="md-raised" ng-click="deleteSelectedDiets()"
+                               md-colors="{background: 'red'}">
+                        Delete Selected Diets
+                    </md-button>
+                    <md-button ng-href="#!/eating" class="md-raised">Add Diet (Buy)</md-button>
                 </md-card-actions>
             </md-card>
             <md-card flex-xs flex-gt-xs="30">
@@ -216,7 +220,7 @@ trainer
                     </canvas>
                 </md-card-actions>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
+                    <md-button class="md-raised ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
                 </md-card-actions>
             </md-card>
         </div><!-- end of COLUMN -->

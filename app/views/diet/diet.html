@@ -3,51 +3,55 @@
 <md-content class="md-padding" layout-xs="column" layout="column">
     <md-card>
 
-    <md-toolbar layout="row" class="o_bRedDark">
-        <div class="md-toolbar-tools">
-            <span>{{diet.title}}}</span>
-        </div>
-    </md-toolbar>
-      <md-card-title>
-        <md-card-title-text>
+        <md-toolbar layout="row" class="o_bRedDark">
+            <div class="md-toolbar-tools">
+                <span>{{diet.title}}</span>
+            </div>
+            <md-button class="md-raised" ng-click="selectDiet(diet._id)">Select Diet</md-button>
+            <md-button class="md-raised" ng-click="unselectDiet(diet._id)">Unchoose Diet</md-button>
+        </md-toolbar>
+        <md-card-title>
+            <md-card-title-text>
           <span class="md-subhead">
             {{diet.description}}
           </span>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='chef'">
-        <md-button ng-href="#!/editDiet/{{diet._id}}">Edit</md-button>
-        <md-button>Delete diet</md-button>
-      </md-card-actions>
-      <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="{{day.title}}" ng-repeat="day in diet.days">
-          <md-content class="md-padding">
-            <h1 class="md-display-2">{{day.title}}</h1>
-            <h6> Has it been completed? {{day.done}}</h6>
-            <md-list class="md-dense" flex>
-              <md-subheader class="md-no-sticky">
-                {{day.description}}
-              </md-subheader>
-              <md-list-item class="md-3-line" ng-repeat="meal in day.meals">
-                <img ng-src="{{meal.img}}" class="md-avatar"/>
-                <div class="md-list-item-text" layout="column">
-                  <h3>{{meal.title}}</h3>
-                  <div ng-repeat="submeal in meal.submeals">
-                    <p ng-show="submeal.title">{{submeal.title}}</p>
-                    <p ng-show="submeal.description">{{submeal.description}}</p>
-                    <p ng-show="submeal.amount.quantity">{{submeal.amount.quantity}} {{submeal.amount.unit}}</p>
-                  </div>
-                </div>
-              </md-list-item>
-            </md-list>
-            <md-card-actions layout="row" layout-align="end center">
-              <md-button ng-click="markDayAsCompleted(day)"
-              class="md-raised" md-colors="{background: 'blue'}"
-              ng-hide="day.done=='true'">Mark day as completed</md-button>
-              <div ng-show="day.done=='true'">Day done</div>
-            </md-card-actions>
-          </md-content>
-        </md-tab>
-      </md-tabs>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='chef'">
+            <md-button ng-href="#!/editDiet/{{diet._id}}">Edit</md-button>
+            <md-button>Delete diet</md-button>
+        </md-card-actions>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="{{day.title}}" ng-repeat="day in diet.days">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">{{day.title}}</h1>
+                    <h6> Has it been completed? {{day.done}}</h6>
+                    <md-list class="md-dense" flex>
+                        <md-subheader class="md-no-sticky">
+                            {{day.description}}
+                        </md-subheader>
+                        <md-list-item class="md-3-line" ng-repeat="meal in day.meals">
+                            <img ng-src="{{meal.img}}" class="md-avatar"/>
+                            <div class="md-list-item-text" layout="column">
+                                <h3>{{meal.title}}</h3>
+                                <div ng-repeat="submeal in meal.submeals">
+                                    <p ng-show="submeal.title">{{submeal.title}}</p>
+                                    <p ng-show="submeal.description">{{submeal.description}}</p>
+                                    <p ng-show="submeal.amount.quantity">{{submeal.amount.quantity}}
+                                        {{submeal.amount.unit}}</p>
+                                </div>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="markDayAsCompleted(day)"
+                                   class="md-raised" md-colors="{background: 'blue'}"
+                                   ng-hide="day.done=='true'">Mark day as completed
+                        </md-button>
+                        <div ng-show="day.done=='true'">Day done</div>
+                    </md-card-actions>
+                </md-content>
+            </md-tab>
+        </md-tabs>
     </md-card>
 </md-content>
