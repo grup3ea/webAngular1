@@ -37,31 +37,51 @@
 
 <md-card flex md-whiteframe="9">
     <md-content class="md-padding">
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="one">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Login</h1>
+                    <md-input-container class="md-block">
+                        <label>Email</label>
+                        <input ng-model="loginData.email">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Password</label>
+                        <input ng-model="loginData.password" type="password">
+                    </md-input-container>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="doLogin()" class="md-raised" md-colors="{background: 'green'}">Login
+                        </md-button>
+                    </md-card-actions>
+                </md-content>
+            </md-tab>
+            <md-tab label="one">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Signup</h1>
+                    <md-input-container class="md-block">
+                      <label>Email</label>
+                      <input ng-model="signupData.email" required>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                      <label>Password</label>
+                      <input ng-model="signupData.password" type="password" required>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                      <label>Name</label>
+                      <input ng-model="signupData.name" required>
+                    </md-input-container>
+                    <md-select ng-model="signupData.role" value="user" class="md-no-underline" required>
+                      <md-option value="user" selected>User</md-option>
+                      <md-option value="trainer">Trainer</md-option>
+                      <md-option value="chef">Chef</md-option>
+                    </md-select>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="doSignup()" class="md-raised md-primary">Signup</md-button>
+                    </md-card-actions>
+            </md-tab>
+        </md-tabs>
         <p>
-            <md-input-container class="md-block">
-                <label>Email</label>
-                <input ng-model="loginData.email">
-            </md-input-container>
-            <md-input-container class="md-block">
-                <label>Password</label>
-                <input ng-model="loginData.password" type="password">
-            </md-input-container>
 
-            <md-select ng-model="loginData.role" value="user" class="md-no-underline" required>
-                <md-option value="user" selected>User</md-option>
-                <md-option value="trainer">Trainer</md-option>
-                <md-option value="chef">Chef</md-option>
-            </md-select>
-            <md-input-container layout-align="center center">
-                <div layout="row" layout-sm="column" layout-margin>
-                    <md-button href="landingpage.html" class="md-raised" md-colors="{background: 'red'}" flex="50"
-                               flex-sm="100">Cancel
-                    </md-button>
-                    <md-button ng-click="doLogin()" class="md-raised" md-colors="{background: 'green'}" flex="50"
-                               flex-sm="100">Login
-                    </md-button>
-                </div>
-            </md-input-container>
         </p>
     </md-content>
     <md-card-actions layout="row" layout-align="end center">

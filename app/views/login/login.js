@@ -26,7 +26,7 @@ angular.module('myApp.login', ['ngRoute', 'ng.deviceDetector'])
             $scope.loginData.ip = ip;
             $scope.loginData.browser_version=vm.data.browser_version;
             $http({
-                url: urlapi + $scope.loginData.role+ 's/login',
+                url: urlapi + 'users/login',
                 method: "POST",
                 data: $scope.loginData
             })
@@ -56,11 +56,58 @@ angular.module('myApp.login', ['ngRoute', 'ng.deviceDetector'])
                         // failed
                         console.log(response);
                     });
-        };/*
-         $scope.logout = function () {
-         localStorage.removeItem("fs_web_userdata");
-         $timeout(function () {
-         $window.location.reload(true);
-         }, 1000);
-         };*/
+        };
+
+
+        /* signup */
+        $scope.doSignup = function () {
+            console.log('Doing signup', $scope.signupData);
+            if ($scope.emptyParams($scope.signupData)) {
+                $http({
+                    url: urlapi + 'users/register',
+                    method: "POST",
+                    data: $scope.signupData
+                })
+                .then(function (response) {
+                        // success
+                        console.log("response: ");
+                        console.log(response.data);
+                        if (response.data.success == true) {
+                            localStorage.setItem("fs_web_token", response.data.token);
+                            localStorage.setItem("fs_web_userdata", JSON.stringify(response.data.user));
+                            window.location.reload();
+                            /*$timeout(function () {
+                             $window.location="#!/dashboard"; //peta pq fa la petició un cop al dashboard sense afegir el token, pq no ha afegit els httpProviders
+                             }, 1000);*/
+                        } else {
+                            console.log("login failed");
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent('Account not found')
+                                    .position("bottom right")
+                                    .hideDelay(3000)
+                            );
+                            //$ionicLoading.show({ template: 'Login failed, user or password error.', noBackdrop: true, duration: 2000 });
+                        }
+                    },
+                    function (response) { // optional
+                        // failed
+                        console.log('Email already in use');
+                    });
+            } else {
+                console.log('First complete all parameters');
+            }
+        };
+        $scope.emptyParams = function (obj) {
+            if (obj.name == undefined) {
+                return (false);
+            }
+            if (obj.password == undefined) {
+                return (false);
+            }
+            if (obj.email == undefined) {
+                return (false);
+            }
+            return (true);
+        };
     });
