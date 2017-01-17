@@ -34,7 +34,7 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
                       {
                           toastr.info("new notification!");
                       }
-                      $scope.storageuser.notifications=data.data;
+                      $scope.storageuser.pendentNotificationsNumber=data.data;
                   }, function (data, status) {
                       console.log('data error');
                       console.log(status);
