@@ -188,18 +188,18 @@ angular.module('myApp.network', ['ngRoute', 'ngAnimate', 'toastr'])
             });
         /* followers following system */
         $scope.doFollow = function(user){
-            toastr.info("follow user: " + user.name);
-            /*$http({
+            $http({
                 url: urlapi + 'users/follow',
                 method: "POST",
                 data: {userid: user._id}
             })
             .then(function (data) {
                 console.log(data.data);
+                toastr.info("User: " + user.name + " followed");
                 $route.reload();
             },
             function () {
                   toastr.error('Failed on following user');
-            });*/
+            });
         };
     });
