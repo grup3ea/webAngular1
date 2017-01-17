@@ -208,6 +208,24 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
 
 
         //TRAINER
+        $scope.valorate = function () {
+            var valoration = {
+                message: user.valorations.message,
+                value: user.valorations.value
+            }
+            $http({
+                url: urlapi + 'users/valorateTrainer/' + $scope.user._id,
+                method: "POST",
+                data: valoration
+            }).then(function (data) {
+                    console.log(data.data);
+                    $scope.user = data.data;
+                },
+                function () {
+                    toastr.error('Failed on valorating trainer');
+                });
+        };
+
         $scope.sendPetition = function(ev) {
           // Appending dialog to document.body to cover sidenav in docs app
           var confirm = $mdDialog.prompt()

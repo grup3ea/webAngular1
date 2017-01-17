@@ -1,34 +1,30 @@
 'use strict';
-
 angular.module('myApp.training', ['ngRoute'])
-
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/training', {
             templateUrl: 'views/training/training.html',
             controller: 'TrainingCtrl'
         });
     }])
-
-    .controller('TrainingCtrl', function($scope, $http) {
+    .controller('TrainingCtrl', function ($scope, $http) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-
         $scope.trainers = {};
         $http.get(urlapi + 'trainers')
-            .then(function(data) {
+            .then(function (data) {
                 console.log('data success');
                 console.log(data); // for browser console
                 $scope.trainers = data.data; // for UI
-            }, function(data, status) {
+            }, function (data, status) {
                 console.log('data error');
                 console.log(status);
                 console.log(data);
             })
-            .then(function(result) {
+            .then(function (result) {
                 //users = result.data;
             });
-        $scope.user={};
+        $scope.user = {};
         $http.get(urlapi + 'users/' + $scope.storageuser._id)
-            .then(function(data) {
+            .then(function (data) {
                 console.log('data success');
                 console.log(data); // for browser console
                 $scope.user = data.data; // for UI
@@ -36,36 +32,12 @@ angular.module('myApp.training', ['ngRoute'])
                     localStorage.setItem("fs_web_userdata", JSON.stringify($scope.user));
                     $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
                 }
-            }, function(data, status) {
+            }, function (data, status) {
                 console.log('data error');
                 console.log(status);
                 console.log(data);
             })
-            .then(function(result) {});
-
-/*        $scope.valorate = function () {
-            //aqí el post
-            var valoration = {
-                message: data,
-                value: data.value,
-            };
-
-            console.log(valoration);
-            $http({
-                url: urlapi + 'trainers/valorateTrainer/' + $scope.storageuser._id,
-                method: "POST",
-                data: {valoration: valoration}
-            })
-                .then(function (data) {
-                        // success
-                        console.log(data);
-
-                        $scope.storageuser = data.data;
-                    },
-                    function (data) { // optional
-                        // failed
-                        console.log(data);
-                    });
-        };*/
+            .then(function (result) {
+            });
 
     });

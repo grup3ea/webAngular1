@@ -131,6 +131,7 @@
                                     <div class="md-list-item-text" layout="column">
                                         <h4>{{trainer.name}}</h4>
                                         <p>{{trainer.description}}</p>
+                                        <p>{{trainer.description}}</p>
                                     </div>
                                 </md-list-item>
                             </md-list>
@@ -247,9 +248,21 @@ trainer
                 <md-card>
                     <md-toolbar layout="row" class="o_bBlue">
                         <div class="md-toolbar-tools">
-                            <span>{{user.name}}</span>
+                            <md-list>
+                                <md-list-item>{{user.name}}</md-list-item>
+                            </md-list>
                         </div>
                     </md-toolbar>
+                    <md-subheader>
+                        <md-list>
+                            <md-list-item>Total: {{user.valoration}}</md-list-item>
+                            <md-list-item><md-input-container>
+                                <label>Message:</label>
+                                <input ng-model="user.valorations.message">
+                            </md-input-container></md-list-item>
+                            <input-stars max="5" ng-model="user.valorations.value" on-star-click="valorate()"></input-stars>Valorate: {{user.valorations.value}}
+                        </md-list>
+                    </md-subheader>
                     <md-card-content>
                         <div layout="row">
                             <md-button class="o_bGreenDark" ng-href="#!/points/{{user._id}}">
