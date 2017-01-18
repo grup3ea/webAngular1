@@ -93,7 +93,7 @@ angular.module('myApp.sidenav', ['ngRoute', 'ngAnimate', 'toastr'])
                 //
               });
             };
-            function newPostCtrl($scope, $mdDialog, $rootScope, $location, Upload, cloudinary, toastr) {
+            $scope.newPostCtrl = function ($scope, $mdDialog, $rootScope, $location, Upload, cloudinary, toastr) {
 
               $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
 

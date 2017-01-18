@@ -322,6 +322,25 @@ trainer
                         </md-list>
                     </md-card-content>
                 </md-card>
+                <md-card>
+                    <md-toolbar layout="row" class="o_bBlueDark">
+                        <div class="md-toolbar-tools">
+                            <span>Trainer Valorations</span>
+                        </div>
+                    </md-toolbar>
+                    <md-card-content>
+
+                        <md-list class="md-dense" flex>
+                            <md-list-item class="md-4-line">
+                                <div class="md-list-item-text" layout="column">
+                                    <p ng-repeat="valorations in user.valorations">{{valorations.value}} {{valorations.message}}</p>
+                                    <p>Valorated By: Anonymous</p>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </md-card-content>
+                </md-card>
+
                 <div>
                     <!-- marks -->
                     <md-card>
