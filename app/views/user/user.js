@@ -231,15 +231,13 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
 
 
         //TRAINER
+        $scope.newValoration={};
         $scope.valorate = function () {
-            var valoration = {
-                message: user.valorations.message,
-                value: user.valorations.value
-            }
+            console.log("a");
             $http({
-                url: urlapi + 'users/valorateTrainer/' + $scope.user._id,
+                url: urlapi + 'trainers/valorate/' + $scope.user._id,
                 method: "POST",
-                data: valoration
+                data: $scope.newValoration
             }).then(function (data) {
                     console.log(data.data);
                     $scope.user = data.data;
