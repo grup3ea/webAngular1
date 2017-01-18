@@ -202,4 +202,5 @@ angular.module('myApp.network', ['ngRoute', 'ngAnimate', 'toastr'])
                   toastr.error('Failed on following user');
             });
         };
+        /* end of suggestions */
     });

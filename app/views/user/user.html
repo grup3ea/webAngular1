@@ -240,7 +240,19 @@ trainer
             <md-button class="o_bBlue" ng-click="sendMessage()">
                 Send message
             </md-button>
-            <md-button ng-click="sendPetition()">Ask for routine (send petition)</md-button>
+
+            <div ng-show="storageuser.role=='user' && user.role=='trainer'">
+                <md-button ng-click="sendPetition()" class="o_bBlueDark"
+                ng-show="userInPetitions()==-1 && userInClients()==-1">
+                    Send petition of contract
+                </md-button>
+                <md-button ng-show="userInPetitions()>-1" class="o_bOrange">
+                    Petition sended
+                </md-button>
+                <md-button ng-show="userInClients()>-1" class="o_bGreen">
+                    Is your trainer
+                </md-button>
+            </div>
         </md-card-actions>
         <md-content class="md-padding" layout-xs="row" layout="row">
             <div flex-xs flex-gt-xs="30" layout="column">

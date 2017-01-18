@@ -93,6 +93,29 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             }
             return -1;
         };
+        $scope.userInPetitions = function() {
+            if($scope.user.clientsPetitions){
+                for(var i = 0, len = $scope.user.clientsPetitions.length; i < len; i++) {
+                    if ($scope.user.clientsPetitions[i].clientid === $scope.storageuser._id){
+                        if($scope.user.clientsPetitions[i].state==="pendent")
+                        {
+                            return i;
+                        }
+                    }
+                }
+            }
+            return -1;
+        };
+        $scope.userInClients = function() {
+            if($scope.user.clients){
+                for(var i = 0, len = $scope.user.clients.length; i < len; i++) {
+                    if ($scope.user.clients[i].client._id === $scope.storageuser._id){
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        };
         $scope.sendLikeToPublication = function(publication, index){
           console.log(index);
           console.log("like - " + publication.title);
@@ -250,7 +273,7 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
                   // success
                   console.log("response: ");
                   console.log(response.data);
-                  $window.location = "#!/training";
+                  $route.reload();
               },
               function (response) {
                   toastr.error('Failed on generating new petition');
