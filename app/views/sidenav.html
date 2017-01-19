@@ -11,6 +11,13 @@
             <md-content class="o_bSidenav">
                 <md-list class="md-dense" flex>
                     <md-divider></md-divider>
+                    <md-list-item class="md-3-line o_bBlueDark" ng-href="#!/nodesMap" ng-show="storageuser.role=='admin'">
+                        <img ng-src="img/sidenav/training.png" class="md-avatar" alt="admin"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3 class="o_fWhiteLight">Admin page</h3>
+                        </div>
+                    </md-list-item>
+                    <md-divider></md-divider>
                     <md-list-item class="md-3-line" ng-href="#!/dashboard">
                         <img ng-src="img/sidenav/dashboard.png" class="md-avatar" alt="dashboard"/>
                         <div class="md-list-item-text" layout="column">

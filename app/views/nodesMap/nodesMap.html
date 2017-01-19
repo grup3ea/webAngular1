@@ -1,0 +1,102 @@
+<md-content>
+  <md-content class="md-padding" layout-xs="row" layout="row">
+      <div flex-xs flex-gt-xs="30" layout="column"><!-- start of COLUMN -->
+          <md-card>
+              <md-toolbar layout="row" class="o_bBlue">
+                  <div class="md-toolbar-tools">
+                    <span>
+                      {{user.marks.length}} Users
+                    </span>
+                    <span flex></span>
+                    <span>
+                        <md-button ng-click="orderByMe('title')">
+                          Sort Alphabetically
+                        </md-button>
+                    </span>
+                    <span>{{user.marks.length}}</span>
+                  </div>
+              </md-toolbar>
+              <md-list flex>
+                <md-list-item class="md-3-line" ng-repeat="user in users | orderBy:orderBy" ng-click="generateNodesMap(user)">
+                  <img ng-src="{{user.avatar}}" class="md-avatar" />
+                  <div class="md-list-item-text" layout="column">
+                    <h3>{{user.name}}</h3>
+                    <h4>{{user.role}}</h4>
+                    <p>{{user.email}}</p>
+                  </div>
+                </md-list-item>
+              </md-list>
+          </md-card>
+      </div><!-- end of COLUMN -->
+      <div flex-xs flex-gt-xs="70" layout="column"><!-- start of COLUMN -->
+          <md-card>
+              <md-toolbar layout="row" class="o_bBlueDark">
+                  <div class="md-toolbar-tools">
+                      <md-list-item class="md-3-line" ng-href="#!/user/{{user._id}}" ng-show="user.name">
+                          <img ng-src="{{user.avatar}}" class="md-avatar"/>
+                          <div class="md-list-item-text" layout="column">
+                              <h3>{{user.name}}</h3>
+                          </div>
+                      </md-list-item>
+                      <span>Nodes Map</span>
+                  </div>
+              </md-toolbar>
+              <md-card-actions>
+                  <div id="mynetwork">
+                  </div>
+              </md-card-actions>
+              <md-card-actions layout="row" layout-align="end center">
+                  <md-button ng-href="#!/points/{{user._id}}">View all points history</md-button>
+              </md-card-actions>
+          </md-card>
+          <md-content class="md-padding" layout-xs="row" layout="row">
+              <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
+                  <md-card>
+                      <md-toolbar layout="row" class="o_bBlueDark">
+                          <div class="md-toolbar-tools">
+                            <span>
+                              Following
+                            </span>
+                            <span flex></span>
+                            <span>{{user.following.length}}</span>
+                          </div>
+                      </md-toolbar>
+                      <md-list flex>
+                        <md-list-item class="md-3-line" ng-repeat="user in user.following | orderBy:orderBy" ng-href="#!/user/{{user._id}}">
+                          <img ng-src="{{user.avatar}}" class="md-avatar" />
+                          <div class="md-list-item-text" layout="column">
+                            <h3>{{user.name}}</h3>
+                            <h4>{{user.role}}</h4>
+                            <p>{{user.email}}</p>
+                          </div>
+                        </md-list-item>
+                      </md-list>
+                  </md-card>
+              </div><!-- end of COLUMN -->
+              <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
+                  <md-card>
+                      <md-toolbar layout="row" class="o_bBlueDark">
+                          <div class="md-toolbar-tools">
+                            <span>
+                              Followers
+                            </span>
+                            <span flex></span>
+                            <span>{{user.followers.length}}</span>
+                          </div>
+                      </md-toolbar>
+                      <md-list flex>
+                        <md-list-item class="md-3-line" ng-repeat="user in user.followers | orderBy:orderBy" ng-href="#!/user/{{user._id}}">
+                          <img ng-src="{{user.avatar}}" class="md-avatar" />
+                          <div class="md-list-item-text" layout="column">
+                            <h3>{{user.name}}</h3>
+                            <h4>{{user.role}}</h4>
+                            <p>{{user.email}}</p>
+                          </div>
+                        </md-list-item>
+                      </md-list>
+                  </md-card>
+              </div><!-- end of COLUMN -->
+          </md-content><!-- end of row of columns -->
+      </div><!-- end of COLUMN -->
+  </md-content><!-- end of row of columns -->
+</md-content>
