@@ -17,7 +17,7 @@
                             <span>{{user.name}}</span>
                             <span flex></span>
                             <span>
-                                <md-button class="o_bBlue" ng-click="sendMessage()">
+                                <md-button class="o_bBlue" ng-click="sendMessage()" ng-show="storageuser._id!=user._id">
                                     Send message
                                 </md-button>
                             </span>
