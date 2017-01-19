@@ -28,10 +28,6 @@
     <!-- Angular-Material -->
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
 
-    <!-- Angular Calendar -->
-    <link rel="stylesheet" href="./bower_components/fullcalendar/dist/fullcalendar.css"/>
-
-
 </head>
 
 <body ng-app="landingpageApp" ng-controller="landingpageCtrl">
@@ -209,26 +205,27 @@
                                 </div>
                                 <div class="mu-trainer-content">
                                     <ul class="mu-trainer-nav">
-                                      <li ng-repeat="trainer in trainers">
-                                          <div class="col-md-3">
-                                              <div class="mu-single-trainer">
-                                                  <figure class="mu-single-trainer-img">
-                                                      <img ng-src="{{trainer.avatar}}" class="md-card-image" alt="{{item.who}}" height="100" width="100" />
-                                                  </figure>
-                                                  <div class="mu-single-trainer-info">
-                                                      <h4>{{trainer.name}}</h4>
-                                                      <span>{{trainer.disciplines}}</span><br>
-                                                      <span>{{trainer.email}}</span>
-                                                  </div>
-                                                  <div class="mu-single-trainer-social">
-                                                      <a href="#"><i class="fa fa-facebook"></i></a>
-                                                      <a href="#"><i class="fa fa-twitter"></i></a>
-                                                      <a href="#"><i class="fa fa-google-plus"></i></a>
-                                                      <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </li>
+                                        <li ng-repeat="trainer in trainers">
+                                            <div class="col-md-3">
+                                                <div class="mu-single-trainer">
+                                                    <figure class="mu-single-trainer-img">
+                                                        <img ng-src="{{trainer.avatar}}" class="md-card-image"
+                                                             alt="{{item.who}}" height="100" width="100"/>
+                                                    </figure>
+                                                    <div class="mu-single-trainer-info">
+                                                        <h4>{{trainer.name}}</h4>
+                                                        <span>{{trainer.disciplines}}</span><br>
+                                                        <span>{{trainer.email}}</span>
+                                                    </div>
+                                                    <div class="mu-single-trainer-social">
+                                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -240,6 +237,42 @@
 
             <!-- Start Restaurant Menu -->
             <!-- Query DB for our diets -->
+            <!--            <section id="mu-restaurant-menu">
+                        <md-card>
+                        <md-tabs md-dynamic-height md-border-bottom>
+                            <md-tab label="{{day.title}}" ng-repeat="day in diet.days">
+                                <md-content class="md-padding">
+                                    <h1 class="md-display-2">{{day.title}}</h1>
+                                    <h6> Has it been completed? {{day.done}}</h6>
+                                    <md-list class="md-dense" flex>
+                                        <md-subheader class="md-no-sticky">
+                                            {{day.description}}
+                                        </md-subheader>
+                                        <md-list-item class="md-3-line" ng-repeat="meal in day.meals">
+                                            <img ng-src="{{meal.img}}" class="md-avatar"/>
+                                            <div class="md-list-item-text" layout="column">
+                                                <h3>{{meal.title}}</h3>
+                                                <div ng-repeat="submeal in meal.submeals">
+                                                    <p ng-show="submeal.title">{{submeal.title}}</p>
+                                                    <p ng-show="submeal.description">{{submeal.description}}</p>
+                                                    <p ng-show="submeal.amount.quantity">{{submeal.amount.quantity}}
+                                                        {{submeal.amount.unit}}</p>
+                                                </div>
+                                            </div>
+                                        </md-list-item>
+                                    </md-list>
+                                    <md-card-actions layout="row" layout-align="end center">
+                                        <md-button ng-click="markDayAsCompleted(day)"
+                                                   class="md-raised" md-colors="{background: 'blue'}"
+                                                   ng-hide="day.done=='true'">Mark day as completed
+                                        </md-button>
+                                        <div ng-show="day.done=='true'">Day done</div>
+                                    </md-card-actions>
+                                </md-content>
+                            </md-tab>
+                        </md-tabs>
+                        </md-card>
+                        </section>-->
             <section id="mu-restaurant-menu">
                 <div class="container">
                     <div class="row">
@@ -261,67 +294,6 @@
                                             <div class="mu-tab-content-area">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="mu-tab-content-left">
-                                                            <ul class="mu-menu-item-nav">
-                                                                <li>
-                                                                    <div class="media">
-                                                                        <div class="media-left">
-                                                                            <a href="#">
-                                                                                <img class="media-object"
-                                                                                     src=""
-                                                                                     alt="img">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading"><a href="#">English
-                                                                                Breakfast</a></h4>
-                                                                            <span class="mu-menu-price">$15.85</span>
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur
-                                                                                adipisicing elit. Facere nulla aliquid
-                                                                                praesentium dolorem commodi illo.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="media">
-                                                                        <div class="media-left">
-                                                                            <a href="#">
-                                                                                <img class="media-object"
-                                                                                     src=""
-                                                                                     alt="img">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading"><a href="#">Chines
-                                                                                Breakfast</a></h4>
-                                                                            <span class="mu-menu-price">$11.95</span>
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur
-                                                                                adipisicing elit. Facere nulla aliquid
-                                                                                praesentium dolorem commodi illo.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="media">
-                                                                        <div class="media-left">
-                                                                            <a href="#">
-                                                                                <img class="media-object"
-                                                                                     src=""
-                                                                                     alt="img">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading"><a href="#">Indian
-                                                                                Breakfast</a></h4>
-                                                                            <span class="mu-menu-price">$15.85</span>
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur
-                                                                                adipisicing elit. Facere nulla aliquid
-                                                                                praesentium dolorem commodi illo.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mu-tab-content-right">
@@ -406,8 +378,8 @@
                         <div class="col-md-12">
                             <div class="mu-subscription-area">
                                 <form class="mu-subscription-form">
-                                    <input type="text" placeholder="Type Your Email Address">
-                                    <button class="mu-readmore-btn" type="Submit">SUBSCRIBE</button>
+                                    <input type="text" ng-model="contactdata.email" placeholder="Type Your Email Address">
+                                    <md-button class="mu-readmore-btn" type="Submit" ng-click="giveInfo()">SUBSCRIBE</md-button>
                                 </form>
                             </div>
                         </div>
@@ -417,7 +389,6 @@
             <!-- End Subscription section -->
 
             <!-- Start Chef Section -->
-            <!-- Query DB for our chefs -->
             <section id="mu-chef">
                 <div class="container">
                     <div class="row">
@@ -429,80 +400,21 @@
                                     <i class="fa fa-spoon"></i>
                                     <span class="mu-title-bar"></span>
                                 </div>
-                                <div class="mu-chef-content">
-                                    <ul class="mu-chef-nav">
-                                        <li>
+                                <div class="mu-trainer-content">
+                                    <ul class="mu-trainer-nav">
+                                        <li ng-repeat="chef in chef">
                                             <div class="col-md-3">
                                                 <div class="mu-single-chef">
                                                     <figure class="mu-single-chef-img">
-                                                        <img src="../../img/chefs/1.jpg" alt="chef img" height="100"
-                                                             width="100">
+                                                        <img ng-src="{{chef.avatar}}" class="md-card-image"
+                                                             alt="{{item.who}}" height="100" width="100"/>
                                                     </figure>
                                                     <div class="mu-single-chef-info">
-                                                        <h4>Simon Jonson</h4>
-                                                        <span>Head Chef</span>
+                                                        <h4>{{chef.name}}</h4>
+                                                        <span>{{chef.description}}</span><br>
+                                                        <span>{{chef.email}}</span>
                                                     </div>
-                                                    <div class="mu-single-chef-social">
-                                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col-md-3">
-                                                <div class="mu-single-chef">
-                                                    <figure class="mu-single-chef-img">
-                                                        <img src="../../img/chefs/2.png" alt="chef img" height="100"
-                                                             width="100">
-                                                    </figure>
-                                                    <div class="mu-single-chef-info">
-                                                        <h4>Kelly Wenzel</h4>
-                                                        <span>Pizza Chef</span>
-                                                    </div>
-                                                    <div class="mu-single-chef-social">
-                                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col-md-3">
-                                                <div class="mu-single-chef">
-                                                    <figure class="mu-single-chef-img">
-                                                        <img src="../../img/chefs/3.png" alt="chef img" height="100"
-                                                             width="100">
-                                                    </figure>
-                                                    <div class="mu-single-chef-info">
-                                                        <h4>Greg Hong</h4>
-                                                        <span>Grill Chef</span>
-                                                    </div>
-                                                    <div class="mu-single-chef-social">
-                                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                                                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col-md-3">
-                                                <div class="mu-single-chef">
-                                                    <figure class="mu-single-chef-img">
-                                                        <img src="../../img/chefs/4.jpg" alt="chef img" height="100"
-                                                             width="100">
-                                                    </figure>
-                                                    <div class="mu-single-chef-info">
-                                                        <h4>Marty Fukuda</h4>
-                                                        <span>Burger Chef</span>
-                                                    </div>
-                                                    <div class="mu-single-chef-social">
+                                                    <div class="mu-single-trainer-social">
                                                         <a href="#"><i class="fa fa-facebook"></i></a>
                                                         <a href="#"><i class="fa fa-twitter"></i></a>
                                                         <a href="#"><i class="fa fa-google-plus"></i></a>
@@ -711,25 +623,25 @@
                                                 <form class="mu-contact-form">
                                                     <div class="form-group">
                                                         <label for="name">Your Name</label>
-                                                        <input type="text" class="form-control" id="name"
+                                                        <input type="text"  ng-model="contactdata.name"class="form-control" id="name"
                                                                placeholder="Name">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="email">Email address</label>
-                                                        <input type="email" class="form-control" id="email"
+                                                        <input type="email" ng-model="contactdata.email" class="form-control" id="email"
                                                                placeholder="Email">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="subject">Subject</label>
-                                                        <input type="text" class="form-control" id="subject"
+                                                        <input type="text" ng-model="contactdata.subject" class="form-control" id="subject"
                                                                placeholder="Subject">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="message">Message</label>
-                                                        <textarea class="form-control" id="message" cols="30" rows="10"
+                                                        <textarea class="form-control" ng-model="contactdata.description" id="message" cols="30" rows="10"
                                                                   placeholder="Type Your Message"></textarea>
                                                     </div>
-                                                    <button type="submit" class="mu-send-btn">Send Message</button>
+                                                    <button type="submit" class="mu-send-btn" ng-click="giveInfo()">Send Message</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -791,13 +703,10 @@
                 </div>
             </footer>
             <!-- End Footer -->
-
         </div>
         <!-- ./container-fluid -->
-
     </div>
     <!-- ./page-content-wrapper -->
-
 </div>
 <!-- ./wrapper -->
 
@@ -805,6 +714,11 @@
 <!-- Angular js -->
 <script src="./bower_components/angular/angular.js"></script>
 <script src="./bower_components/angular-route/angular-route.js"></script>
+
+<!-- Angular - material -->
+<script src="./bower_components/angular-aria/angular-aria.js"></script>
+<script src="./bower_components/angular-animate/angular-animate.js"></script>
+<script src="./bower_components/angular-material/angular-material.js"></script>
 
 <!-- landingpage app and controller -->
 <script src="landingpage.js"></script>
