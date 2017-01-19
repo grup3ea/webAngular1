@@ -35,6 +35,7 @@ angular.module('myApp.nodesMap', ['ngRoute', 'chart.js', 'ngAnimate', 'toastr'])
 
     $scope.nodes;
     $scope.edges;
+    $scope.user = {};
     $scope.generateNodesMap=function(user){
         $http.get(urlapi + "admin/nodesMap/" + user._id)
         .then(function (data) {
@@ -60,5 +61,18 @@ angular.module('myApp.nodesMap', ['ngRoute', 'chart.js', 'ngAnimate', 'toastr'])
             console.log(status);
             console.log(data);
         });
+
+        $http.get(urlapi + 'users/' + user._id + '/network')
+            .then(function (data) {
+                console.log('data success');
+                console.log(data); // for browser console
+                $scope.user = data.data; // for UI
+            }, function (data, status) {
+                console.log('data error');
+                console.log(status);
+                console.log(data);
+            })
+            .then(function (result) {
+            });
     };
 });
