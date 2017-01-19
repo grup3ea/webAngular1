@@ -37,6 +37,7 @@ angular.module('myApp', [
     'myApp.training',
     'myApp.trainersSearcher',
     'myApp.settings',
+    'myApp.nodesMap',
     'ui.calendar'
 ]).config(['$locationProvider', '$routeProvider', '$httpProvider', '$mdAriaProvider', function ($locationProvider, $routeProvider, $httpProvider, $mdAriaProvider) {
     $mdAriaProvider.disableWarnings();
