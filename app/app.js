@@ -12,7 +12,6 @@ angular.module('myApp', [
     'angular-input-stars',
     'ngMaterial',
     'myApp.sidenav',
-    'myApp.main',
     'myApp.login',
     'myApp.logout',
     'myApp.dashboard',
