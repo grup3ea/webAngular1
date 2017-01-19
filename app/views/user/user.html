@@ -60,6 +60,14 @@
                         <span class="md-subhead">
                             {{user.email}}
                         </span>
+                        <h3 class="md-headline">Disciplines</h3>
+                        <md-list class="md-dense" flex>
+                            <md-list-item class="md-4-line">
+                                <div class="md-list-item-text" layout="column">
+                                    <p ng-repeat="discipline in user.disciplines">{{discipline.name}}</p>
+                                </div>
+                            </md-list-item>
+                        </md-list>
                         <h3 class="md-headline">User attributes</h3>
                         <md-list class="md-dense" flex>
                             <md-list-item class="md-3-line">
@@ -312,7 +320,7 @@ trainer
                         <span class="md-subhead">
                             {{user.email}}
                         </span>
-                        <h3 class="md-headline">Trainer disciplines</h3>
+                        <h3 class="md-headline">Disciplines</h3>
                         <md-list class="md-dense" flex>
                             <md-list-item class="md-4-line">
                                 <div class="md-list-item-text" layout="column">

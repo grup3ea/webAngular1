@@ -9,7 +9,7 @@ angular.module('myApp.training', ['ngRoute'])
     .controller('TrainingCtrl', function ($scope, $http) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         $scope.trainers = {};
-        $http.get(urlapi + 'trainers')
+        $http.get(urlapi + 'trainersSuggestionsByDisciplines')
             .then(function (data) {
                 console.log('data success');
                 console.log(data); // for browser console
