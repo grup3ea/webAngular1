@@ -5,7 +5,7 @@ angular.module('myApp.runs', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/runs/:userid', {
             templateUrl: 'views/runs/runs.html',
-            controller: 'RunCtrl'
+            controller: 'RunCtrl as vm'
         });
     }])
 
@@ -24,17 +24,42 @@ angular.module('myApp.runs', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 
               console.log(data);
           });
         $scope.run={};
+        $scope.centerPos={
+            lat: 0,
+            long: 0
+        };
+        var vm = this;
+        vm.run={
+            name: "polyline",
+            path: [[]]
+        };
         $scope.selectRun=function(run){
             $http.get(urlapi + "/runs/byRunId/" + run._id)
               .then(function (data) {
                   console.log('data success');
                   console.log(data); // for browser console
                   $scope.run=data.data;
+                  /* ara pintem al mapa */
+                  vm.run={
+                      name: "polyline",
+                      path: []
+                  };
+                  for(var i=0; i<run.positions.length; i++)
+                  {
+                      vm.run.path.push([run.positions[i].lat, run.positions[i].long]);
+                  }
+                  $scope.centerPos.lat=run.positions[0].lat;
+                  $scope.centerPos.long=run.positions[0].long;
+
               }, function (data, status) {
                   console.log('data error');
                   console.log(status);
                   console.log(data);
               });
+        };
+        $scope.centerMap = function (pos) {
+            $scope.centerPos.lat=pos.lat;
+            $scope.centerPos.long=pos.long;
         };
 
         $scope.myPosition={};
