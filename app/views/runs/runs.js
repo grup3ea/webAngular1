@@ -1,32 +1,41 @@
 'use strict';
 
-angular.module('myApp.map', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 'toastr'])
+angular.module('myApp.runs', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 'toastr'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/map', {
-            templateUrl: 'views/map/map.html',
-            controller: 'MapCtrl'
+        $routeProvider.when('/runs/:userid', {
+            templateUrl: 'views/runs/runs.html',
+            controller: 'RunCtrl'
         });
     }])
 
-    .controller('MapCtrl', function ($scope, $http, $routeParams, $filter,
+    .controller('RunCtrl', function ($scope, $http, $routeParams, $filter,
                                     $mdDialog, toastr, $route, NgMap, $geolocation) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
-        $scope.user = {};
-        $http.get(urlapi + 'users/' + $scope.storageuser._id)
-        .then(function (data) {
-            console.log('data success');
-            console.log(data); // for browser console
-            $scope.user = data.data; // for UI
-
-        }, function (data, status) {
-            console.log('data error');
-            console.log(status);
-            console.log(data);
-        })
-        .then(function (result) {
-        });
-
+        $scope.user=[];
+        $http.get(urlapi + "/runs/byUserId/" + $routeParams.userid)
+          .then(function (data) {
+              console.log('data success');
+              console.log(data); // for browser console
+              $scope.user=data.data;
+          }, function (data, status) {
+              console.log('data error');
+              console.log(status);
+              console.log(data);
+          });
+        $scope.run={};
+        $scope.selectRun=function(run){
+            $http.get(urlapi + "/runs/byRunId/" + run._id)
+              .then(function (data) {
+                  console.log('data success');
+                  console.log(data); // for browser console
+                  $scope.run=data.data;
+              }, function (data, status) {
+                  console.log('data error');
+                  console.log(status);
+                  console.log(data);
+              });
+        };
 
         $scope.myPosition={};
         $scope.geoActivated=false;
