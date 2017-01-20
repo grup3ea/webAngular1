@@ -27,6 +27,77 @@ angular.module('myApp.user', ['ngRoute', 'ngAnimate', 'toastr'])
             .then(function (result) {
             });
 
+        $scope.userCategory=function(){
+            if($scope.user.role=="user")
+            {
+                if($scope.user.points)
+                {
+                    if($scope.user.points.total)
+                    {
+                        if($scope.user.points.total<50)
+                        {
+                            return "Noob";
+                        }else if($scope.user.points.total<200){
+                            return "cadet";
+                        }else if($scope.user.points.total<500){
+                            return "Begginer";
+                        }else if($scope.user.points.total<800){
+                            return "Haciendo IO";
+                        }else if($scope.user.points.total<1500){
+                            return "Master of Food & Sports";
+                        }else if($scope.user.points.total<3000){
+                            return "Aprobaste API";
+                        }else if($scope.user.points.total<5000){
+                            return "Acabando EA";
+                        }else if($scope.user.points.total<10000){
+                            return "4t de Carrera";
+                        }else if($scope.user.points.total<15000){
+                            return "Digievolucionando";
+                        }else if($scope.user.points.total<20000){
+                            return "4th Level Sayan";
+                        }else if($scope.user.points.total<50000){
+                            return "Overlord";
+                        }else{
+                            return "Master of Universe";
+                        }
+                    }
+                }
+            }else if($scope.user.role=="trainer")
+            {
+                if($scope.user.points)
+                {
+                    if($scope.user.points.total)
+                    {
+                        if($scope.user.points.total<50)
+                        {
+                            return "Bronze Trainer";
+                        }else if($scope.user.points.total<200){
+                            return "Silver Trainer";
+                        }else if($scope.user.points.total<500){
+                            return "Gold Trainer";
+                        }else if($scope.user.points.total<800){
+                            return "Haciendo IO";
+                        }else if($scope.user.points.total<1500){
+                            return "Master of Food & Sports";
+                        }else if($scope.user.points.total<3000){
+                            return "Aprobaste API";
+                        }else if($scope.user.points.total<5000){
+                            return "Acabando EA";
+                        }else if($scope.user.points.total<10000){
+                            return "4t de Carrera";
+                        }else if($scope.user.points.total<15000){
+                            return "Digievolucionando";
+                        }else if($scope.user.points.total<20000){
+                            return "4th Level Sayan";
+                        }else if($scope.user.points.total<50000){
+                            return "Overlord";
+                        }else{
+                            return "Master of Universe";
+                        }
+                    }
+                }
+            }
+        };
 
 
         $scope.showBackgroundImgDialog = function(ev) {
