@@ -13,7 +13,7 @@ angular.module('myApp.runs', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 
                                     $mdDialog, toastr, $route, NgMap, $geolocation) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         $scope.user=[];
-        $http.get(urlapi + "/runs/byUserId/" + $routeParams.userid)
+        $http.get(urlapi + "runs/byUserId/" + $routeParams.userid)
           .then(function (data) {
               console.log('data success');
               console.log(data); // for browser console
@@ -34,7 +34,7 @@ angular.module('myApp.runs', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 
             path: [[]]
         };
         $scope.selectRun=function(run){
-            $http.get(urlapi + "/runs/byRunId/" + run._id)
+            $http.get(urlapi + "runs/byRunId/" + run._id)
               .then(function (data) {
                   console.log('data success');
                   console.log(data); // for browser console
