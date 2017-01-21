@@ -70,6 +70,7 @@ angular.module('myApp.login', ['ngRoute', 'ng.deviceDetector'])
                 })
                 .then(function (response) {
                         // success
+                        console.log(signupData.myRecaptchaResponse)
                         console.log("response: ");
                         console.log(response.data);
                         if (response.data.success == true) {

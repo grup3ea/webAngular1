@@ -2,7 +2,7 @@
 
 
 //var urlapi = "http://localhost:3005/api/";
-var urlapi = "http://192.168.1.34:3005/api/";
+//var urlapi = "http://192.168.1.34:3005/api/";
 //var urlapi="http://147.83.7.158:3005/api/";
 
 // Declare app level module which depends on views, and components
@@ -12,6 +12,7 @@ angular.module('myApp', [
     '720kb.datepicker',
     'angular-input-stars',
     'ngMaterial',
+    'vcRecaptcha',
     'myApp.sidenav',
     'myApp.login',
     'myApp.logout',
@@ -37,28 +38,27 @@ angular.module('myApp', [
     'myApp.training',
     'myApp.trainersSearcher',
     'myApp.settings',
-    'myApp.nodesMap',
-    'ui.calendar'
+    'myApp.nodesMap'
 ]).config(['$locationProvider', '$routeProvider', '$httpProvider', '$mdAriaProvider', function ($locationProvider, $routeProvider, $httpProvider, $mdAriaProvider) {
     $mdAriaProvider.disableWarnings();
     $locationProvider.hashPrefix('!');
-    if((localStorage.getItem("fs_web_token"))&&(JSON.parse(localStorage.getItem("fs_web_userdata"))!="null")&&(JSON.parse(localStorage.getItem("fs_web_userdata"))!=null))
+    if((localStorage.getItem('fs_web_token'))&&(JSON.parse(localStorage.getItem('fs_web_userdata'))!=='null')&&(JSON.parse(localStorage.getItem('fs_web_userdata'))!==null))
     {
       console.log(window.location.hash);
-      if(window.location.hash=="#!/login")
+      if(window.location.hash==='#!/login')
       {
         window.location='#!/dashboard';
       }
 
       $routeProvider.otherwise({redirectTo: '/dashboard'});
     }else{
-      if((window.location!="#!/login")||(window.location!="#!/signup"))
+      if((window.location!=='#!/login')||(window.location!=='#!/signup'))
       {
-        console.log("app, user no logged");
+        console.log('app, user no logged');
 
-        localStorage.removeItem("fs_web_token");
-        localStorage.removeItem("fs_web_userdata");
-        window.location="#!/login";
+        localStorage.removeItem('fs_web_token');
+        localStorage.removeItem('fs_web_userdata');
+        window.location='#!/login';
         $routeProvider.otherwise({redirectTo: '/login'});
       }
     }
@@ -78,10 +78,10 @@ angular.module('myApp', [
 })
 .config(['cloudinaryProvider', function (cloudinaryProvider) {
   cloudinaryProvider
-      .set("cloud_name", "dr9eawlpy")
-      .set("upload_preset", "wbb0h4me");
+      .set('cloud_name', 'dr9eawlpy')
+      .set('upload_preset', 'wbb0h4me');
 }])
-.factory('httpInterceptor', function httpInterceptor ($q, $window, $location) {
+.factory('httpInterceptor', function httpInterceptor () {
   return {
     request: function(config) {
       return config;
@@ -98,13 +98,13 @@ angular.module('myApp', [
     responseError: function(res) {
       return res;
     }
-  }
+  };
 })
 .factory('api', function ($http) {
 	return {
 		init: function () {
-      $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem("fs_web_token");
-      $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem("fs_web_token");
+      $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('fs_web_token');
+      $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('fs_web_token');
 		}
 	};
 })
