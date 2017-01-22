@@ -13,16 +13,6 @@ angular.module('myApp.runs', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 
                                     $mdDialog, toastr, $route, NgMap, $geolocation) {
         $scope.storageuser = JSON.parse(localStorage.getItem("fs_web_userdata"));
         $scope.user=[];
-        $http.get(urlapi + "runs/byUserId/" + $routeParams.userid)
-          .then(function (data) {
-              console.log('data success');
-              console.log(data); // for browser console
-              $scope.user=data.data;
-          }, function (data, status) {
-              console.log('data error');
-              console.log(status);
-              console.log(data);
-          });
         $scope.run={};
         $scope.centerPos={
             lat: 0,
@@ -94,4 +84,18 @@ angular.module('myApp.runs', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 
             console.log('shapes', map.shapes);
           });
         /* end of map */
+
+
+
+        $http.get(urlapi + "runs/byUserId/" + $routeParams.userid)
+          .then(function (data) {
+              console.log('data success');
+              console.log(data); // for browser console
+              $scope.user=data.data;
+              $scope.selectRun($scope.user.runs[$scope.user.runs.length-1]);
+          }, function (data, status) {
+              console.log('data error');
+              console.log(status);
+              console.log(data);
+          });
     });
