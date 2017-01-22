@@ -179,11 +179,11 @@ angular.module('myApp.marks', ['ngRoute', 'chart.js', 'ngAnimate', 'toastr'])
                             // success
                             console.log("response: ");
                             console.log(response.data);
-                            toastr.success('Routine deleted!');
+                            toastr.success('Mark deleted!');
                             $route.reload();
                         },
                         function (response) {
-                            toastr.error('Failed on deleting routine');
+                            toastr.error('Failed on deleting mark');
                         });
             }, function () {
                 toastr.info('Operation canceled');
