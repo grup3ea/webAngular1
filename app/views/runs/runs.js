@@ -40,6 +40,7 @@ angular.module('myApp.runs', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 
                   }
                   $scope.centerPos.lat=run.positions[0].lat;
                   $scope.centerPos.long=run.positions[0].long;
+                  $scope.indexPos=0;
 
               }, function (data, status) {
                   console.log('data error');
@@ -47,9 +48,17 @@ angular.module('myApp.runs', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 
                   console.log(data);
               });
         };
+        $scope.indexPos=0;
         $scope.centerMap = function (pos) {
+            console.log(pos);
             $scope.centerPos.lat=pos.lat;
             $scope.centerPos.long=pos.long;
+            $scope.indexPos=$scope.indexPos +1;
+            if($scope.indexPos>($scope.run.positions.length-1))
+            {
+                $scope.indexPos=0;
+            }
+            console.log($scope.indexPos);
         };
 
         $scope.myPosition={};
@@ -85,6 +94,11 @@ angular.module('myApp.runs', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 
           });
         /* end of map */
 
+        $scope.nextPosition = function(){
+            console.log($scope.indexPos);
+            console.log($scope.run.positions[$scope.indexPos]);
+            $scope.centerMap($scope.run.positions[$scope.indexPos]);
+        };
 
 
         $http.get(urlapi + "runs/byUserId/" + $routeParams.userid)

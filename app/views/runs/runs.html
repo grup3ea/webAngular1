@@ -41,32 +41,7 @@
         </md-card>
     </div>
     <!-- end of COLUMN -->
-    <div flex-xs flex-gt-xs="20" layout="column">
-        <!-- start of COLUMN -->
-        <md-card>
-            <md-toolbar layout="row" class="o_bPurpleDark">
-                <div class="md-toolbar-tools">
-                    <span>
-                        Positions
-                    </span>
-                </div>
-            </md-toolbar>
-            <md-card-actions>
-                <md-list flex>
-                    <md-list-item class="md-3-line" ng-repeat="position in run.positions | orderBy: '-date'"
-                    ng-click="centerMap(position)">
-                        <div class="md-list-item-text" layout="column">
-                            <h3>{{position.distance | number : 3}} Km</h3>
-                            <h4>{{position.lat}} - {{position.long}}</h4>
-                            <p>{{position.date | date: "dd/MM/y HH:mm"}}</p>
-                        </div>
-                    </md-list-item>
-                </md-list>
-            </md-card-actions>
-        </md-card>
-    </div>
-    <!-- end of COLUMN -->
-    <div flex-xs flex-gt-xs="50" layout="column">
+    <div flex-xs flex-gt-xs="70" layout="column">
         <!-- start of COLUMN -->
         <md-card>
             <md-toolbar layout="row" class="o_bPurpleDark">
@@ -92,6 +67,21 @@
                     radius="{{vm.run.radius}}"
                     stroke-weight="10"></shape>
                 </ng-map>
+            </md-card-actions>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="nextPosition()">Next position</md-button>
+            </md-card-actions>
+            <md-card-actions>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="position in run.positions | orderBy: '-date'"
+                    ng-click="centerMap(position)">
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{position.distance | number : 3}} Km</h3>
+                            <h4>{{position.lat}} - {{position.long}}</h4>
+                            <p>{{position.date | date: "dd/MM/y HH:mm"}}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
             </md-card-actions>
         </md-card>
     </div>
