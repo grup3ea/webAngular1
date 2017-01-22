@@ -7,8 +7,8 @@
             <div class="md-toolbar-tools">
                 <span>{{diet.title}}</span>
             </div>
-            <md-button class="md-raised" ng-click="selectDiet(diet._id)">Select Diet</md-button>
-            <md-button class="md-raised" ng-click="unselectDiet(diet._id)">Unchoose Diet</md-button>
+            <md-button ng-show="storageuser.role!=='chef'" class="md-raised" ng-click="selectDiet(diet._id)">Select Diet</md-button>
+            <md-button ng-show="storageuser.role!=='chef'" class="md-raised" ng-click="unselectDiet(diet._id)">Unchoose Diet</md-button>
         </md-toolbar>
         <md-card-title>
             <md-card-title-text>
@@ -18,14 +18,14 @@
             </md-card-title-text>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='chef'">
-            <md-button ng-href="#!/editDiet/{{diet._id}}">Edit</md-button>
+            <md-button class="md-raised-warn" ng-href="#!/editDiet/{{diet._id}}">Edit</md-button>
             <md-button>Delete diet</md-button>
         </md-card-actions>
         <md-tabs md-dynamic-height md-border-bottom>
             <md-tab label="{{day.title}}" ng-repeat="day in diet.days">
                 <md-content class="md-padding">
                     <h1 class="md-display-2">{{day.title}}</h1>
-                    <h6> Has it been completed? {{day.done}}</h6>
+                    <h6 ng-show="storageuser.role!=='chef'" > Has it been completed? {{day.done}}</h6>
                     <md-list class="md-dense" flex>
                         <md-subheader class="md-no-sticky">
                             {{day.description}}
@@ -44,10 +44,12 @@
                         </md-list-item>
                     </md-list>
                     <md-card-actions layout="row" layout-align="end center">
+                        <div ng-show="storageuser.role!=='chef'">
                         <md-button ng-click="markDayAsCompleted(day)"
                                    class="md-raised" md-colors="{background: 'blue'}"
                                    ng-hide="day.done=='true'">Mark day as completed
                         </md-button>
+                        </div>
                         <div ng-show="day.done=='true'">Day done</div>
                     </md-card-actions>
                 </md-content>
