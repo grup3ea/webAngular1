@@ -92,7 +92,10 @@ angular.module('myApp.runs', ['ngRoute', 'ngMap', 'ngGeolocation', 'ngAnimate', 
               console.log('data success');
               console.log(data); // for browser console
               $scope.user=data.data;
-              $scope.selectRun($scope.user.runs[$scope.user.runs.length-1]);
+              if($scope.user.runs)
+              {
+                  $scope.selectRun($scope.user.runs[$scope.user.runs.length-1]);
+              }
           }, function (data, status) {
               console.log('data error');
               console.log(status);
