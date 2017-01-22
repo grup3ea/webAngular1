@@ -13,7 +13,7 @@ angular.module('myApp.eating', ['ngRoute'])
 
         $scope.diets = {};
         $http.get(urlapi + 'diets')
-            .success(function (data) {
+            .then(function (data) {
                 console.log('data success');
                 console.log(data); // for browser console
                 $scope.diets = data; // for UI
@@ -27,6 +27,9 @@ angular.module('myApp.eating', ['ngRoute'])
             .then(function (result) {
             });
         $scope.user={};
+
+
+
         $http.get(urlapi + 'users/' + $scope.storageuser._id)
             .then(function(data) {
                 console.log('data success');
