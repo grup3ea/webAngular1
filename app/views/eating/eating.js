@@ -18,14 +18,13 @@ angular.module('myApp.eating', ['ngRoute'])
                 console.log(data); // for browser console
                 $scope.diets = data; // for UI
                 localStorage.setItem('fs_web_diets', JSON.stringify($scope.diets));
-            })
-            .error(function (data, status) {
+            },
+                function (data, status) {
                 console.log('data error');
                 console.log(status);
                 console.log(data);
-            })
-            .then(function (result) {
             });
+
         $scope.user={};
 
 
@@ -43,6 +42,5 @@ angular.module('myApp.eating', ['ngRoute'])
                 console.log('data error');
                 console.log(status);
                 console.log(data);
-            })
-            .then(function(result) {});
+            });
     });
