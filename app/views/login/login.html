@@ -40,7 +40,8 @@
         <md-tabs md-dynamic-height md-border-bottom>
             <md-tab label="Login">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">Login</h1>
+                    <md-button ng-href="http://localhost:3005/api/auth/twitter" class="o_bBlue">Access with Twitter
+                    </md-button>
                     <md-input-container class="md-block">
                         <label>Email</label>
                         <input ng-model="loginData.email">
@@ -57,7 +58,6 @@
             </md-tab>
             <md-tab label="Signup">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">Signup</h1>
                     <md-input-container class="md-block">
                       <label>Email</label>
                       <input ng-model="signupData.email" required>
@@ -89,7 +89,4 @@
 
         </p>
     </md-content>
-    <md-card-actions layout="row" layout-align="end center">
-        <a href="#!/signup">Not registered? Signup!</a>
-    </md-card-actions>
 </md-card>

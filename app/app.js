@@ -1,9 +1,9 @@
 'use strict';
 
 
-//var urlapi = "http://localhost:3005/api/";
+var urlapi = "http://localhost:3005/api/";
 //var urlapi = "http://192.168.1.34:3005/api/";
-var urlapi="http://147.83.7.158:3005/api/";
+//var urlapi="http://147.83.7.158:3005/api/";
 
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
@@ -38,7 +38,8 @@ angular.module('myApp', [
     'myApp.training',
     'myApp.trainersSearcher',
     'myApp.settings',
-    'myApp.nodesMap'
+    'myApp.nodesMap',
+    'myApp.passport'
 ]).config(['$locationProvider', '$routeProvider', '$httpProvider', '$mdAriaProvider', function ($locationProvider, $routeProvider, $httpProvider, $mdAriaProvider) {
     $mdAriaProvider.disableWarnings();
     $locationProvider.hashPrefix('!');
