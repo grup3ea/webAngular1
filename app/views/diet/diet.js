@@ -29,7 +29,7 @@ angular.module('myApp.diet', ['ngRoute'])
             });
         $scope.selectDiet = function (diet) {
             $http({
-                url: urlapi + 'diets/choose',
+                url: urlapi + 'diets/choose/' + diet._id,
                 method: "POST",
                 data: {"dietid": diet}
             })
@@ -47,7 +47,7 @@ angular.module('myApp.diet', ['ngRoute'])
         };
         $scope.unselectDiet = function (diet) {
             $http({
-                url: urlapi + 'diets/choose',
+                url: urlapi + 'diets/choose/' + diet._id,
                 method: "DELETE",
                 data: {"dietid": diet}
             })

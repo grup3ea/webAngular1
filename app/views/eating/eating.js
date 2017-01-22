@@ -16,7 +16,7 @@ angular.module('myApp.eating', ['ngRoute'])
             .then(function (data) {
                 console.log('data success');
                 console.log(data); // for browser console
-                $scope.diets = data; // for UI
+                $scope.diets = data.data; // for UI
                 localStorage.setItem('fs_web_diets', JSON.stringify($scope.diets));
             },
                 function (data, status) {
