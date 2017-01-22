@@ -3,12 +3,12 @@
 <md-content class="md-padding" layout-xs="column" layout="column">
     <md-card>
 
-        <md-toolbar layout="row" class="o_bRedDark">
+        <md-toolbar layout="row" class="o_bYellow">
             <div class="md-toolbar-tools">
                 <span>{{diet.title}}</span>
             </div>
-            <md-button ng-show="storageuser.role!=='chef'" class="md-raised" ng-click="selectDiet(diet._id)">Select Diet</md-button>
-            <md-button ng-show="storageuser.role!=='chef'" class="md-raised" ng-click="unselectDiet(diet._id)">Unchoose Diet</md-button>
+            <md-button ng-show="storageuser.role!=='chef'" class="md-raised" ng-click="selectDiet(diet)">Select Diet</md-button>
+            <md-button ng-show="storageuser.role!=='chef'" class="md-raised" ng-click="unselectDiet(diet)">Unchoose Diet</md-button>
         </md-toolbar>
         <md-card-title>
             <md-card-title-text>
