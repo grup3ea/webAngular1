@@ -11,7 +11,6 @@
                 </md-toolbar>
                 <md-subheader class="md-primary">Choose your desired trainer!</md-subheader>
                 <md-list flex>
-                    (es mostren tots els trainers disponibles (falta posar paginació))
                     <md-list-item class="md-3-line" ng-repeat="trainer in trainers" ng-href="#!/user/{{trainer._id}}">
                         <img ng-show="trainer.avatar" ng-src="{{trainer.avatar}}" class="md-avatar" />
                         <div class="md-list-item-text" layout="column">
@@ -25,7 +24,7 @@
                     </md-list-item>
                 </md-list>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-href="#!/trainersSearcher" class="md-raised" md-colors="{background: 'green'}">Search by discipline</md-button>
+                    <md-button ng-href="#!/trainersSearcher" class="md-raised" md-colors="{background: 'grey'}">Search by discipline</md-button>
                 </md-card-actions>
             </md-card>
 
