@@ -588,47 +588,7 @@ chef
                         </md-list>
                     </md-card-content>
                 </md-card>
-                <md-card>
-                    <md-toolbar layout="row" class="o_bBlueDark">
-                        <div class="md-toolbar-tools">
-                            <span>Chef Valorations</span>
-                        </div>
-                    </md-toolbar>
-                    <md-card-content>
 
-                        <md-list class="md-dense" flex>
-                            <md-list-item class="md-4-line">
-                                <div class="md-list-item-text" layout="column">
-                                    <p ng-repeat="valorations in user.valorations">{{valorations.value}} {{valorations.message}}</p>
-                                    <p>Valorated By: Anonymous</p>
-                                </div>
-                            </md-list-item>
-                        </md-list>
-                    </md-card-content>
-                </md-card>
-                <div>
-                    <!-- marks -->
-                    <md-card>
-                        <md-toolbar layout="row" class="o_bBlueDark">
-                            <div class="md-toolbar-tools">
-                                <span>Clients</span>
-                            </div>
-                        </md-toolbar>
-                        <md-list flex>
-                            <md-list-item class="md-3-line" ng-repeat="client in user.clients" ng-href="#!/user/{{client.client._id}}">
-                                <img ng-show="client.client.avatar" ng-src="{{client.client.avatar}}" class="md-avatar" />
-                                <div class="md-list-item-text" layout="column">
-                                    <h3>{{client.client.name}}</h3>
-                                    <p>client since: {{client.date | date: "dd/MM/yyyy, HH:mm"}}</p>
-                                </div>
-                            </md-list-item>
-                        </md-list>
-                        <md-card-actions layout="row" layout-align="end center">
-                            <md-button ng-href="#!/marks/{{user._id}}" class="md-raised">Go Marks Pannel</md-button>
-                        </md-card-actions>
-                    </md-card>
-                </div>
-                <!-- end of marks -->
                 <div>
                     <!-- training -->
                     <md-card>

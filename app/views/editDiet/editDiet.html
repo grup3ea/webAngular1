@@ -23,10 +23,6 @@
             </span>
             </md-card-title-text>
         </md-card-title>
-        <md-card-actions layout="row" layout-align="end center" ng-show="storageuser.role=='chef'">
-            <md-button class="md-raised md-warn">Edit</md-button>
-            <md-button class="md-raised md-warn">Delete Diet</md-button>
-        </md-card-actions>
         <md-tabs md-dynamic-height md-border-bottom>
             <md-tab label="{{day.title}}" ng-repeat="day in diet.days">
                 <md-content class="md-padding">
@@ -62,12 +58,12 @@
                     <div ng-repeat="meal in meals" layout="row">
                         <div flex-xs flex-gt-xs="30" layout="column">
                             <md-input-container class="md-block" flex-gt-sm class="md-block">
-                                <label>Meal Image</label>
+                                <label></label>
                                 <div class="form_controls">
                                     <div class="upload_button_holder">
-                                        <div href="#" class="upload_button" ngf-select="uploadFile($file, $index)"
-                                             title="upload" resetOnClick="true"> -
-                                        </div>
+                                        <md-button class="md-raised" ngf-select="uploadFile($file, $index)" title="upload" resetOnClick="true" >
+                                            Meal Image
+                                        </md-button>
                                     </div>
 
                                 </div>
@@ -94,24 +90,26 @@
                                 <label>Meal title</label>
                                 <input ng-model="meal.title">
                             </md-input-container>
-                            <md-button class="md-raised md-warn" ng-click="delMeal(meal)" title="delete meal" class="md-block"
-                                       ng-show="meals.length>1">
-                                <img src="img/trash_grey.png"></img>
-                            </md-button>
                             <div ng-repeat="submeal in meal.submeals" layout="row">
                                 <md-input-container class="md-block" flex-gt-sm class="md-block">
                                     <label>Submeal title</label>
                                     <input ng-model="submeal.title">
                                 </md-input-container>
                             </div><!-- end of ng-repeat="meal in meals" div -->
-                            <md-button class="md-raised md-warn" ng-click="addSubmeal(meal)" title="new submeal" flex="grow">
+                            <md-button class="" ng-click="addSubmeal(meal)" title="new submeal">
                                 <h4>+</h4>
                             </md-button>
+
                         </div><!-- end of div column of meals-->
+
+                                                    <md-button class="md-block" ng-click="delMeal(meal)" title="delete meal" class="md-block"
+                                                               ng-show="meals.length>1">
+                                                        <img src="img/trash_grey.png"></img>
+                                                    </md-button>
                     </div>
 
                     <div layout="row">
-                        <md-button class="md-raised md-warn" ng-click="addMeal()" title="new meal" flex="grow">
+                        <md-button class="" ng-click="addMeal()" title="new meal" flex="grow">
                             <h4>+</h4>
                         </md-button>
                     </div>

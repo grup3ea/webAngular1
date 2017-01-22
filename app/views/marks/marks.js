@@ -138,7 +138,7 @@ angular.module('myApp.marks', ['ngRoute', 'chart.js', 'ngAnimate', 'toastr'])
 
             $scope.sendAddDayToMark = function(){
                 $http({
-                    url: urlapi + 'users/' + markWhereAddingDay._id + '/addDayToMark',
+                    url: urlapi + 'users/marks/' + markWhereAddingDay._id + '/addDayToMark',
                     method: "POST",
                     data: $scope.newDay
                 })

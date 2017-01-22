@@ -74,8 +74,7 @@
                     </md-list-item>
                 </md-list>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-raised md-warn">Delete contract</md-button>
-                    <md-button class="md-raised">Search Trainers</md-button>
+                    <md-button ng-href="#!/training" class="md-raised">Add Routines</md-button>
                 </md-card-actions>
             </md-card>
             <md-card flex-xs flex-gt-xs="35">
@@ -101,7 +100,7 @@
                                md-colors="{background: 'red'}">
                         Delete Selected Diets
                     </md-button>
-                    <md-button ng-href="#!/eating" class="md-raised">Add Diet (Buy)</md-button>
+                    <md-button ng-href="#!/eating" class="md-raised">Add Diets (Buy)</md-button>
                 </md-card-actions>
             </md-card>
             <md-card flex-xs flex-gt-xs="30">
@@ -225,26 +224,25 @@ chef
             </md-card>
         </div><!-- end of COLUMN -->
         <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
-            <md-card flex-xs flex-gt-xs="40">
+            <md-card>
                 <md-toolbar layout="row" class="o_bBlue">
                     <div class="md-toolbar-tools">
                         <span>Chef Profile</span>
                     </div>
                 </md-toolbar>
                 <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">{{storageuser.name}}</span>
-                        <span class="md-headline">{{storageuser.surname}}</span>
-                        <span class="md-subhead">{{storageuser.points.total}} points</span>
-                        <p>{{storageuser.email}}</p>
-                        <p>{{storageuser.description}}</p>
-                    </md-card-title-text>
                     <md-card-title-media>
                         <div class="md-media-lg card-media">
                             <img ng-hide="storageuser.avatar" ng-src="img/user.png"/>
                             <img ng-show="storageuser.avatar" ng-src="{{storageuser.avatar}}"/>
                         </div>
                     </md-card-title-media>
+                    <md-card-title-text class="md-padding">
+                        <span class="md-headline">{{storageuser.name}}</span>
+                        <span class="md-headline">{{storageuser.surname}}</span>
+                        <span class="md-subhead">{{storageuser.points.total}} points</span>
+                        <p>{{storageuser.email}}</p>
+                    </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">
                     <md-button class="md-raised" ng-href="#!/user/{{storageuser._id}}">Full Profile</md-button>
