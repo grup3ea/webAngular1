@@ -1,12 +1,12 @@
 'use strict';
-angular.module('myApp.dashboard', ['ngRoute', 'ui.calendar', 'chart.js'])
+angular.module('myApp.dashboard', ['ngRoute', 'chart.js'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/dashboard', {
             templateUrl: 'views/dashboard/dashboard.html',
             controller: 'DashboardCtrl'
         });
     }])
-    .controller('DashboardCtrl', function ($scope, $compile, uiCalendarConfig,
+    .controller('DashboardCtrl', function ($scope, $compile,
                                            $http, $window, $mdDialog, $mdToast,
                                            $filter) {
         if (localStorage.getItem('fs_web_token')) {// adding token to the headers
