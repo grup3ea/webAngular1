@@ -51,6 +51,16 @@
                         <input ng-model="loginData.password" type="password">
                     </md-input-container>
                     <md-card-actions layout="row" layout-align="end center">
+                        <div layout-align="center">
+                            <div
+                                    vc-recaptcha
+                                    theme="'light'"
+                                    key="model.key"
+                                    on-create="setWidgetId(widgetId)"
+                                    on-success="setResponse(response)"
+                                    on-expire="cbExpiration()"
+                            ></div>
+                        </div>
                         <md-button ng-click="doLogin()" class="md-raised" md-colors="{background: 'green'}">Login
                         </md-button>
                     </md-card-actions>
@@ -59,23 +69,24 @@
             <md-tab label="Signup">
                 <md-content class="md-padding">
                     <md-input-container class="md-block">
-                      <label>Email</label>
-                      <input ng-model="signupData.email" required>
+                        <label>Email</label>
+                        <input ng-model="signupData.email" required>
                     </md-input-container>
                     <md-input-container class="md-block">
-                      <label>Password</label>
-                      <input ng-model="signupData.password" type="password" required>
+                        <label>Password</label>
+                        <input ng-model="signupData.password" type="password" required>
                     </md-input-container>
                     <md-input-container class="md-block">
-                      <label>Name</label>
-                      <input ng-model="signupData.name" required>
+                        <label>Name</label>
+                        <input ng-model="signupData.name" required>
                     </md-input-container>
                     <md-select ng-model="signupData.role" value="user" class="md-no-underline" required>
-                      <md-option value="user" selected>User</md-option>
-                      <md-option value="trainer">Trainer</md-option>
-                      <md-option value="chef">Chef</md-option>
+                        <md-option value="user" selected>User</md-option>
+                        <md-option value="trainer">Trainer</md-option>
+                        <md-option value="chef">Chef</md-option>
                     </md-select>
                     <md-card-actions layout="row" layout-align="end center">
+
                         <md-button ng-click="doSignup()" class="md-raised md-primary">Signup</md-button>
                     </md-card-actions>
             </md-tab>

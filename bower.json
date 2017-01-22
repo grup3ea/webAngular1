@@ -23,6 +23,7 @@
     "angular-input-stars": "1.5.5",
     "angular-scroll-glue": "2.1.0",
     "ngmap": "1.17.8",
-    "ngGeolocation": "0.0.7"
+    "ngGeolocation": "0.0.7",
+    "angular-recaptcha": "^4.0.1"
   }
 }

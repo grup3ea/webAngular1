@@ -13,10 +13,30 @@ angular.module('myApp.login', ['ngRoute', 'ng.deviceDetector'])
             ip = JSON.stringify(data);
             console.log(ip);
         });
-
+        $scope.response = null;
+        $scope.widgetId = null;
+        $scope.model = {
+            key: '6LcyxhIUAAAAAOJdzM6c9KKv80LVkc2TkJcF4YcN'
+        };
+        $scope.setResponse = function (response) {
+            console.info('Response available');
+            $scope.response = response;
+        };
+        $scope.setWidgetId = function (widgetId) {
+            console.info('Created widget ID: %s', widgetId);
+            $scope.widgetId = widgetId;
+        };
+        $scope.cbExpiration = function() {
+            console.info('Captcha expired. Resetting response object');
+            vcRecaptchaService.reload($scope.widgetId);
+            $scope.response = null;
+        };
         console.log("userAgent: " + vm.data.raw.userAgent);
+
         $scope.loginData = {};
         $scope.doLogin = function () {
+            var valid;
+
             console.log('Doing login', $scope.loginData);
             $scope.loginData.userAgent=vm.data.raw.userAgent;//aquí li afegin el userAgent al post del loginData
             $scope.loginData.os=vm.data.os;
@@ -25,12 +45,17 @@ angular.module('myApp.login', ['ngRoute', 'ng.deviceDetector'])
             $scope.loginData.os_version=vm.data.os_version;
             $scope.loginData.ip = ip;
             $scope.loginData.browser_version=vm.data.browser_version;
+            /**
+             * SERVER SIDE VALIDATION
+             **/
             $http({
                 url: urlapi + 'users/login',
                 method: "POST",
                 data: $scope.loginData
+
             })
                 .then(function (response) {
+                        console.log('sending the captcha response to the server', $scope.response);
                         // success
                         console.log("response: ");
                         console.log(response.data);
@@ -43,6 +68,7 @@ angular.module('myApp.login', ['ngRoute', 'ng.deviceDetector'])
                              }, 1000);*/
                         } else {
                             console.log("login failed");
+                            vcRecaptchaService.reload($scope.widgetId);
                             $mdToast.show(
                                 $mdToast.simple()
                                     .textContent('Account not found')

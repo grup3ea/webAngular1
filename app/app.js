@@ -12,6 +12,7 @@ angular.module('myApp', [
     '720kb.datepicker',
     'angular-input-stars',
     'ngMaterial',
+    'vcRecaptcha',
     'myApp.sidenav',
     'myApp.login',
     'myApp.logout',
