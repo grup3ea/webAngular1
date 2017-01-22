@@ -52,6 +52,7 @@ module.exports = function (grunt) {
                 files: {                                   // Dictionary of files
                     './app/build/index.html': ['./app/index.html'],
                     './app/build/landingpage.html': ['./app/landingpage.html'],
+                    './app/build/passport.html': ['./app/passport.html'],
                     './app/build/views/client/client.html': ['./app/views/client/client.html'],
                     './app/build/views/clients/clients.html': ['./app/views/clients/clients.html'],
                     './app/build/views/dashboard/dashboard.html': ['./app/views/dashboard/dashboard.html'],
@@ -63,7 +64,6 @@ module.exports = function (grunt) {
                     './app/build/views/editUser/editUser.html': ['./app/views/editUser/editUser.html'],
                     './app/build/views/follows/follows.html': ['./app/views/follows/follows.html'],
                     './app/build/views/login/login.html': ['./app/views/login/login.html'],
-                    './app/build/views/login/logout.html': ['./app/views/login/logout.html'],
                     './app/build/views/marks/marks.html': ['./app/views/marks/marks.html'],
                     './app/build/views/marks/adddaytomark.tmpl.html': ['./app/views/marks/adddaytomark.tmpl.html'],
                     './app/build/views/marks/newmark.tmpl.html': ['./app/views/marks/newmark.tmpl.html'],
