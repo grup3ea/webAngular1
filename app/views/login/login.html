@@ -14,7 +14,7 @@
                 </button>
                 <!-- LOGO -->
                 <!--  Image based logo  -->
-                <a class="navbar-brand" href="landingpage.html"><img src="../../img/logo.png" alt="Logo img"></a>
+                <a class="navbar-brand" href="landingpage.html"><b>FoodSports</b></a>
                 <!--  Text based logo  -->
                 <!--           <a class="navbar-brand" href="index.html"><span>FoodSports</span></a>   -->
             </div>
@@ -44,8 +44,8 @@
     <md-tabs md-dynamic-height md-border-bottom>
         <md-tab label="Login">
             <md-content class="md-padding">
-                <md-button ng-href="http://localhost:3005/api/auth/twitter" class="o_bBlue">Access with Twitter
-                </md-button>
+                <!--<md-button ng-href="http://localhost:3005/api/auth/twitter" class="o_bBlue">Access with Twitter
+                </md-button>-->
                 <md-input-container class="md-block">
                     <label>Email</label>
                     <input ng-model="loginData.email">
@@ -65,7 +65,7 @@
                                 on-expire="cbExpiration()"
                         ></div>
                     </div>
-                    <md-button ng-click="doLogin()" class="md-raised" md-colors="{background: 'green'}">Login
+                    <md-button ng-show="response" ng-click="doLogin()" class="md-raised" md-colors="{background: 'green'}">Login
                     </md-button>
                 </md-card-actions>
             </md-content>
@@ -100,7 +100,7 @@
                                 on-expire="cbExpiration()"
                         ></div>
                     </div>
-                    <md-button ng-click="doSignup()" class="md-raised md-primary">Signup</md-button>
+                    <md-button ng-show="response" ng-click="doSignup()" class="md-raised md-primary">Signup</md-button>
                 </md-card-actions>
         </md-tab>
     </md-tabs>

@@ -52,7 +52,7 @@
                             </button>
                             <!-- LOGO -->
                             <!--  Image based logo  -->
-                            <a class="navbar-brand" href="#mu-slider"><img src="../../img/logo.png" alt="Logo img"></a>
+                            <a class="navbar-brand" href="#mu-slider"><b>FoodSports</b></a>
                             <!--  Text based logo  -->
                             <!--           <a class="navbar-brand" href="index.html"><span>FoodSports</span></a>   -->
                         </div>
@@ -65,7 +65,7 @@
                                 <li><a href="#mu-chef">OUR COOKS</a></li>
                                 <li><a href="#mu-trainer">OUR TRAINERS</a></li>
 
-                                <li><a href="/"><b>SIGN IN</b></a></li>
+                                <li><a href="/"><b>ACCESS APP</b></a></li>
                             </ul>
                         </div><!--/.nav-collapse -->
                     </div>
@@ -112,37 +112,8 @@
                                     <span class="mu-title-bar"></span>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mu-about-us-left">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam minus
-                                                aliquid, itaque illum assumenda repellendus dolorem, dolore numquam
-                                                totam saepe, porro delectus, libero enim odio quo. Explicabo ex sapiente
-                                                sit eligendi, facere voluptatum! Quia vero rerum sunt porro architecto
-                                                corrupti eaque corporis eum, enim soluta, perferendis dignissimos,
-                                                repellendus, beatae laboriosam.</p>
-                                            <ul>
-                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia.</li>
-                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia.</li>
-                                            </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque similique
-                                                molestias est quod reprehenderit, quibusdam nam qui, quam magnam.
-                                                Ex.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mu-about-us-right">
-                                            <ul class="mu-abtus-slider">
-                                                <li><img src="../../img/user.png" alt="img"></li>
-                                                <li><img src="../../img/user.png" alt="img"></li>
-                                                <li><img src="../../img/user.png" alt="img"></li>
-                                                <li><img src="../../img/user.png" alt="img"></li>
-                                                <li><img src="../../img/user.png" alt="img"></li>
-                                            </ul>
-                                        </div>
+                                    <div style="text-align: center;">
+                                        Som el grup 3
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +147,7 @@
                                                         <p>Simplement m'encanta</p>
                                                     </div>
                                                     <div class="mu-testimonial-bio">
-                                                        <p>- Arnau</p>
+                                                        <p>- Zuckerberg</p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -214,7 +185,7 @@
                                                     </figure>
                                                     <div class="mu-single-trainer-info">
                                                         <h4>{{trainer.name}}</h4>
-                                                        <span>{{trainer.disciplines}}</span><br>
+                                                        <span>{{trainer.disciplines[0].name}}</span><br>
                                                         <span>{{trainer.email}}</span>
                                                     </div>
                                                     <div class="mu-single-trainer-social">
@@ -239,7 +210,7 @@
             <!-- Query DB for our diets -->
             <section id="mu-menu">
                         <md-card>
-                        <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tabs md-dynamic-height md-border-bottom ng-repeat="diet in diets">
                             <md-tab label="{{day.title}}" ng-repeat="day in diet.days">
                                 <md-content class="md-padding">
                                     <h1 class="md-display-2">{{day.title}}</h1>
@@ -286,78 +257,14 @@
                                 </div>
                                 <div class="mu-restaurant-menu-content">
                                     <ul class="nav nav-tabs mu-restaurant-menu">
-                                        <li class="active"><a href="#breakfast" data-toggle="tab">Breakfast</a></li>
+                                        <li class="active"><a href="#breakfast" data-toggle="tab">Menus</a></li>
                                     </ul>
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                         <div class="tab-pane fade in active" id="breakfast">
                                             <div class="mu-tab-content-area">
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="mu-tab-content-right">
-                                                            <ul class="mu-menu-item-nav">
-                                                                <li>
-                                                                    <div class="media">
-                                                                        <div class="media-left">
-                                                                            <a href="#">
-                                                                                <img class="media-object"
-                                                                                     src=""
-                                                                                     alt="img">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading"><a href="#">English
-                                                                                Breakfast</a></h4>
-                                                                            <span class="mu-menu-price">$15.85</span>
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur
-                                                                                adipisicing elit. Facere nulla aliquid
-                                                                                praesentium dolorem commodi illo.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="media">
-                                                                        <div class="media-left">
-                                                                            <a href="#">
-                                                                                <img class="media-object"
-                                                                                     src=""
-                                                                                     alt="img">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading"><a href="#">Chinese
-                                                                                Breakfast</a></h4>
-                                                                            <span class="mu-menu-price">$11.95</span>
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur
-                                                                                adipisicing elit. Facere nulla aliquid
-                                                                                praesentium dolorem commodi illo.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="media">
-                                                                        <div class="media-left">
-                                                                            <a href="#">
-                                                                                <img class="media-object"
-                                                                                     src=""
-                                                                                     alt="img">
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading"><a href="#">Indian
-                                                                                Breakfast</a></h4>
-                                                                            <span class="mu-menu-price">$15.85</span>
-                                                                            <p>Lorem ipsum dolor sit amet, consectetur
-                                                                                adipisicing elit. Facere nulla aliquid
-                                                                                praesentium dolorem commodi illo.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+                                                        <img src="../../img/diets_img.png" />
                                                 </div>
                                             </div>
                                         </div>

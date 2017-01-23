@@ -1,4 +1,5 @@
-var urlapi = "http://localhost:3005/api/";
+//var urlapi = "http://localhost:3005/api/";
+var urlapi="http://147.83.7.158:3005/api/";
 var app = angular.module('landingpageApp', []);
 app.controller('landingpageCtrl', function ($scope, $http) {
     console.log("landingpage");
@@ -19,7 +20,7 @@ app.controller('landingpageCtrl', function ($scope, $http) {
         .then(function (data) {
                 console.log('data success');
                 console.log(data);
-                $scope.trainers = data.data;
+                $scope.chefs = data.data;
                 localStorage.setItem('fs_web_chefs', JSON.stringify($scope.chefs));
             }
             , function (data, status) {
