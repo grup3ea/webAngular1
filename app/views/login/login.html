@@ -35,69 +35,73 @@
 
 <br><br><br><br><br><br><br>
 
-<md-card flex md-whiteframe="9">
-    <form style="width: 50%;
+<form style="width: 45%;
 	margin: 4em auto;
 	padding: 3em 2em 2em 2em;
 	background: #fafafa;
 	border: 1px solid #ebebeb;
 	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;">
-        <md-tabs md-dynamic-height md-border-bottom>
-            <md-tab label="Login">
-                <md-content class="md-padding">
-                    <md-button ng-href="http://localhost:3005/api/auth/twitter" class="o_bBlue">Access with Twitter
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Login">
+            <md-content class="md-padding">
+                <md-button ng-href="http://localhost:3005/api/auth/twitter" class="o_bBlue">Access with Twitter
+                </md-button>
+                <md-input-container class="md-block">
+                    <label>Email</label>
+                    <input ng-model="loginData.email">
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Password</label>
+                    <input ng-model="loginData.password" type="password">
+                </md-input-container>
+                <md-card-actions layout="row" layout-align="end center">
+                    <div layout-align="center">
+                        <div
+                                vc-recaptcha
+                                theme="'light'"
+                                key="model.key"
+                                on-create="setWidgetId(widgetId)"
+                                on-success="setResponse(response)"
+                                on-expire="cbExpiration()"
+                        ></div>
+                    </div>
+                    <md-button ng-click="doLogin()" class="md-raised" md-colors="{background: 'green'}">Login
                     </md-button>
-                    <md-input-container class="md-block">
-                        <label>Email</label>
-                        <input ng-model="loginData.email">
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Password</label>
-                        <input ng-model="loginData.password" type="password">
-                    </md-input-container>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <div layout-align="center">
-                            <div
-                                    vc-recaptcha
-                                    theme="'light'"
-                                    key="model.key"
-                                    on-create="setWidgetId(widgetId)"
-                                    on-success="setResponse(response)"
-                                    on-expire="cbExpiration()"
-                            ></div>
-                        </div>
-                        <md-button ng-click="doLogin()" class="md-raised" md-colors="{background: 'green'}">Login
-                        </md-button>
-                    </md-card-actions>
-                </md-content>
-            </md-tab>
-            <md-tab label="Signup">
-                <md-content class="md-padding">
-                    <md-input-container class="md-block">
-                        <label>Email</label>
-                        <input ng-model="signupData.email" required>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Password</label>
-                        <input ng-model="signupData.password" type="password" required>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Name</label>
-                        <input ng-model="signupData.name" required>
-                    </md-input-container>
-                    <md-select ng-model="signupData.role" value="user" class="md-no-underline" required>
-                        <md-option value="user" selected>User</md-option>
-                        <md-option value="trainer">Trainer</md-option>
-                        <md-option value="chef">Chef</md-option>
-                    </md-select>
-                    <md-card-actions layout="row" layout-align="end center">
-
-                        <md-button ng-click="doSignup()" class="md-raised md-primary">Signup</md-button>
-                    </md-card-actions>
-            </md-tab>
-        </md-tabs>
-        <p>
-
-        </p>
-    </form>
-</md-card>
+                </md-card-actions>
+            </md-content>
+        </md-tab>
+        <md-tab label="Signup">
+            <md-content class="md-padding">
+                <md-input-container class="md-block">
+                    <label>Email</label>
+                    <input ng-model="signupData.email" required>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Password</label>
+                    <input ng-model="signupData.password" type="password" required>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Name</label>
+                    <input ng-model="signupData.name" required>
+                </md-input-container>
+                <md-select ng-model="signupData.role" value="user" class="md-no-underline" required>
+                    <md-option value="user" selected>User</md-option>
+                    <md-option value="trainer">Trainer</md-option>
+                    <md-option value="chef">Chef</md-option>
+                </md-select>
+                <md-card-actions layout="row" layout-align="end center">
+                    <div layout-align="center">
+                        <div
+                                vc-recaptcha
+                                theme="'light'"
+                                key="model.key"
+                                on-create="setWidgetId(widgetId)"
+                                on-success="setResponse(response)"
+                                on-expire="cbExpiration()"
+                        ></div>
+                    </div>
+                    <md-button ng-click="doSignup()" class="md-raised md-primary">Signup</md-button>
+                </md-card-actions>
+        </md-tab>
+    </md-tabs>
+</form>
