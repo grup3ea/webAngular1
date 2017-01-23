@@ -19,7 +19,7 @@
                     </canvas>
                 </md-card-actions>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-raised" ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
+                    <md-button class="" ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
                 </md-card-actions>
             </md-card>
             <md-card flex-xs flex-gt-xs="40">
@@ -51,7 +51,7 @@
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-href="#!/user/{{storageuser._id}}" class="md-raised">Full Profile</md-button>
+                    <md-button ng-href="#!/user/{{storageuser._id}}" class="">Full Profile</md-button>
                 </md-card-actions>
             </md-card>
         </div><!-- end of COLUMN -->
@@ -74,8 +74,7 @@
                     </md-list-item>
                 </md-list>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-raised md-warn">Delete contract</md-button>
-                    <md-button class="md-raised">Search Trainers</md-button>
+                    <md-button ng-href="#!/training" class="">Add Routines</md-button>
                 </md-card-actions>
             </md-card>
             <md-card flex-xs flex-gt-xs="35">
@@ -97,11 +96,10 @@
                     </md-list-item>
                 </md-list>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-raised" ng-click="deleteSelectedDiets()"
-                               md-colors="{background: 'red'}">
+                    <md-button class="" ng-click="deleteSelectedDiets()">
                         Delete Selected Diets
                     </md-button>
-                    <md-button ng-href="#!/eating" class="md-raised">Add Diet (Buy)</md-button>
+                    <md-button ng-href="#!/eating">Add Diets</md-button>
                 </md-card-actions>
             </md-card>
             <md-card flex-xs flex-gt-xs="30">
@@ -121,8 +119,155 @@
                     </md-list-item>
                 </md-list>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-href="#!/marks/{{storageuser._id}}" class="md-raised">Go Marks Pannel</md-button>
+                    <md-button ng-href="#!/marks/{{storageuser._id}}" class="">Marks Pannel</md-button>
                 </md-card-actions>
+            </md-card>
+        </div><!-- end of COLUMN -->
+    </md-content>
+</div>
+<!-- end DASHBOARD TRAINER-->
+
+<!--
+
+
+trainer
+****************
+chef
+
+
+(separador amb espai, pq es pugui trobar fàcil visualment on comença i on acaba el dashboard del trainer i el dashboard del chef)
+-->
+
+<!-- DASHBOARD CHEF -->
+<div ng-show="storageuser.role=='chef'">
+
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
+            <!--<md-card>
+                <md-card-title-text>
+                    <md-toolbar layout="row" class="o_bBlueDark">
+                        <div class="md-toolbar-tools">
+                            <span>Clients</span>
+                        </div>
+                    </md-toolbar>
+                </md-card-title-text>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="client in storageuser.clients"
+                                  ng-href="#!/client/{{client.client._id}}">
+                        <img ng-hide="client.client.avatar" ng-src="img/user.png" class="md-avatar"/>
+                        <img ng-show="client.client.avatar" ng-src="{{client.client.avatar}}" class="md-avatar"
+                             alt="{{item.who}}"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{client.client.name}}</h3>
+                            <h3>{{client.client.surname}}</h3>
+                            <h4>{{client.client.email}}</h4>
+                            <p>{{client.client.discipline}}</p>
+                            <p>points: {{client.client.points.total}}</p>
+                            <p>client since: {{client.date | date: "dd/MM/yyyy, HH:mm"}}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class=" md-warn">Delete contract</md-button>
+                    <md-button>Search Clients</md-button>
+                </md-card-actions>
+            </md-card>-->
+            <!--<md-card>
+                <md-toolbar layout="row" class="o_bOrange">
+                    <div class="md-toolbar-tools">
+                        <span>Clients Petitions for tailored Diet(FUTURE)</span>
+                    </div>
+                </md-toolbar>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="petition in storageuser.clientsPetitions"
+                                  ng-show="petition.state=='pendent'">
+                        <img ng-src="{{petition.clientid.avatar}}" class="md-avatar"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{petition.clientid.name}}</h3>
+                            <h3>{{petition.clientid.surname}}</h3>
+                            <h4>state: {{petition.state}}</h4>
+                            <p>{{petition.message}}</p>
+                            <md-button class="md-icon-button md-secondary" title="view user">
+                                <img ng-src="img/view.png" class="md-avatar o_imgBtn1"/>
+                            </md-button>
+                            <md-button class="md-icon-button md-secondary" title="decline">
+                                <img ng-src="img/decline.png" class="md-avatar o_imgBtn1"/>
+                            </md-button>
+                            <md-button ng-click="acceptPetition($event, petition._id)"
+                                       class="md-icon-button md-secondary" title="accept">
+                                <img ng-src="img/accept.png" class="md-avatar o_imgBtn1"/>
+                            </md-button>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card>-->
+            <md-card>
+                <md-toolbar layout="row" class="o_bGreenDark">
+                    <div class="md-toolbar-tools">
+                        <span>Chef Points</span>
+                    </div>
+                </md-toolbar>
+                <md-card-title>
+                    <md-card-title-text>
+
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-actions>
+                    <canvas id="bar" class="chart chart-bar"
+                            chart-data="data" chart-labels="labels">
+                    </canvas>
+                </md-card-actions>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="" ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
+                </md-card-actions>
+            </md-card>
+        </div><!-- end of COLUMN -->
+        <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
+            <md-card>
+                <md-toolbar layout="row" class="o_bBlue">
+                    <div class="md-toolbar-tools">
+                        <span>Chef Profile</span>
+                    </div>
+                </md-toolbar>
+                <md-card-title>
+                    <md-card-title-media>
+                        <div class="md-media-lg card-media">
+                            <img ng-hide="storageuser.avatar" ng-src="img/user.png"/>
+                            <img ng-show="storageuser.avatar" ng-src="{{storageuser.avatar}}"/>
+                        </div>
+                    </md-card-title-media>
+                    <md-card-title-text class="md-padding">
+                        <span class="md-headline">{{storageuser.name}}</span>
+                        <span class="md-headline">{{storageuser.surname}}</span>
+                        <span class="md-subhead">{{storageuser.points.total}} points</span>
+                        <p>{{storageuser.email}}</p>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="" ng-href="#!/user/{{storageuser._id}}">Full Profile</md-button>
+                </md-card-actions>
+            </md-card>
+            <md-card>
+                <md-toolbar layout="row" class="o_bRed">
+                    <div class="md-toolbar-tools">
+                        <span>Diets</span>
+                    </div>
+                </md-toolbar>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="routine in storageuser.diets" ng-click="null"
+                                  ng-href="#!/editDiet/{{diet._id}}">
+                        <img ng-src="img/diet.png" class="md-avatar" alt="{{item.who}}"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{diet.title}}</h3>
+                            <h4>{{diet.description}}</h4>
+                            <p>{{diet.price}}</p>
+                        </div>
+                    </md-list-item>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button class="" >Search Diets</md-button>
+                        <md-button class=" md-warn" ng-click="createDiet($event)">Add New Diet</md-button>
+                    </md-card-actions>
+                </md-list>
             </md-card>
         </div><!-- end of COLUMN -->
     </md-content>
@@ -169,10 +314,10 @@ trainer
                         </div>
                     </md-list-item>
                 </md-list>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-raised md-warn">Delete contract</md-button>
+                <!--<md-card-actions layout="row" layout-align="end center">
+                    <md-button class=" md-warn">Delete contract</md-button>
                     <md-button>Search Clients</md-button>
-                </md-card-actions>
+                </md-card-actions>-->
             </md-card>
             <md-card>
                 <md-toolbar layout="row" class="o_bOrange">
@@ -220,7 +365,7 @@ trainer
                     </canvas>
                 </md-card-actions>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-raised" ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
+                    <md-button class="" ng-href="#!/points/{{storageuser._id}}">View all points history</md-button>
                 </md-card-actions>
             </md-card>
         </div><!-- end of COLUMN -->
@@ -247,7 +392,7 @@ trainer
                     </md-card-title-media>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-raised" ng-href="#!/user/{{storageuser._id}}">Full Profile</md-button>
+                    <md-button class="" ng-href="#!/user/{{storageuser._id}}">Full Profile</md-button>
                 </md-card-actions>
             </md-card>
             <md-card>
@@ -267,92 +412,6 @@ trainer
                         </div>
                     </md-list-item>
                 </md-list>
-            </md-card>
-        </div><!-- end of COLUMN -->
-    </md-content>
-</div>
-<!-- end DASHBOARD TRAINER-->
-
-<!--
-
-
-user (client)
-****************
-trainer
-
-
-(separador amb espai, pq es pugui trobar fàcil visualment on comença i on acaba el dashboard del trainer i el dashboard del chef)
--->
-
-<!-- DASHBOARD CHEF -->
-<div ng-show="storageuser.role=='chef'">
-
-    <md-content class="md-padding" layout-xs="column" layout="row">
-        <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-            <span class="md-headline">
-              Diets
-            </span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-list flex>
-                    <md-list-item class="md-3-line" ng-repeat="diet in storageuser.diets" ng-click="null"
-                                  ng-href="#!/diet/{{diet._id}}">
-                        <img ng-src="img/essential/apple.png" class="md-avatar" alt="{{item.who}}"/>
-                        <div class="md-list-item-text" layout="column">
-                            <h3>{{diet.title}}</h3>
-                            <h4>{{diet.description}}</h4>
-                            <p>{{diet.price}}</p>
-                        </div>
-                    </md-list-item>
-                </md-list>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button>Search Diets</md-button>
-                    <md-button ng-click="createDiet($event)">Add New Diet</md-button>
-                </md-card-actions>
-            </md-card>
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-            <span class="md-headline">
-              Graphs (per ara són hardcoded, però seran sobre la info dels clients, o econòmics)
-            </span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-actions>
-                    <canvas id="bar" class="chart chart-line"
-                            chart-data="data" chart-labels="labels" chart-series="series">
-                    </canvas>
-                </md-card-actions>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button>opció1</md-button>
-                    <md-button>opció2</md-button>
-                </md-card-actions>
-            </md-card>
-        </div><!-- end of COLUMN -->
-        <div flex-xs flex-gt-xs="50" layout="column"><!-- start of COLUMN -->
-            <md-card flex-xs flex-gt-xs="40">
-                <md-card-title>
-                    <md-card-title-text>
-                    <md-card-title-text>
-                        <span class="md-headline">{{storageuser.name}}</span>
-                        <span class="md-headline">{{storageuser.surname}}</span>
-                        <span class="md-subhead">{{storageuser.points.total}} points</span>
-                        <p>{{storageuser.email}}</p>
-                        <p>{{storageuser.description}}</p>
-                    </md-card-title-text>
-                    <md-card-title-media>
-                        <div class="md-media-lg card-media">
-                            <img ng-hide="storageuser.avatar" ng-src="img/user.png"/>
-                            <img ng-show="storageuser.avatar" ng-src="{{storageuser.avatar}}"/>
-                        </div>
-                    </md-card-title-media>
-                </md-card-title>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-href="#!/chef/{{storageuser._id}}">Full Profile</md-button>
-                </md-card-actions>
             </md-card>
         </div><!-- end of COLUMN -->
     </md-content>

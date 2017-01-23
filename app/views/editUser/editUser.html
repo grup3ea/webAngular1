@@ -115,7 +115,8 @@
                     <md-card-content>
                         <!-- disciplines -->
                         <div>
-                            <h3 class="md-headline">Disciplines</h3>
+                            <h3 ng-show="user.role!=='chef'" class="md-headline">Disciplines</h3>
+                            <h3 ng-show="user.role=='chef'" class="md-headline">Specialties</h3>
                             <md-list-item ng-repeat="discipline in user.disciplines">
                                 <md-input-container class="md-block">
                                     <label>Disciplines</label>

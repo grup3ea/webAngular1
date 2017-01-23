@@ -38,7 +38,8 @@ angular.module('myApp', [
     'myApp.training',
     'myApp.trainersSearcher',
     'myApp.settings',
-    'myApp.nodesMap'
+    'myApp.nodesMap',
+    'myApp.passport'
 ]).config(['$locationProvider', '$routeProvider', '$httpProvider', '$mdAriaProvider', function ($locationProvider, $routeProvider, $httpProvider, $mdAriaProvider) {
     $mdAriaProvider.disableWarnings();
     $locationProvider.hashPrefix('!');

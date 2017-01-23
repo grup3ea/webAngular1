@@ -2,10 +2,14 @@
     <div flex-xs flex-gt-xs="30" layout="column">
         <!-- start of COLUMN -->
         <md-card>
-            <md-toolbar layout="row" class="o_bGreen">
+            <md-toolbar layout="row" class="o_bPurple">
                 <div class="md-toolbar-tools">
                     <span>
-                      Places
+                      Runs
+                    </span>
+                    <span flex></span>
+                    <span>
+                      {{user.runs.length}}
                     </span>
                 </div>
             </md-toolbar>
@@ -24,7 +28,7 @@
                     <md-list-item class="md-3-line" ng-click="selectRun(run)" ng-repeat="run in user.runs | orderBy: '-datefinish'">
                         <div class="md-list-item-text" layout="column">
                             <h3>{{run.title}}</h3>
-                            <h4>{{run.distance}} Km</h4>
+                            <h4>{{run.distance | number : 3}} Km</h4>
                             <div class="md-secondary">
                                 {{run.datefinish | date: "dd/MM/yyyy"}}
                             </div>
@@ -40,7 +44,7 @@
     <div flex-xs flex-gt-xs="70" layout="column">
         <!-- start of COLUMN -->
         <md-card>
-            <md-toolbar layout="row" class="o_bGreenDark">
+            <md-toolbar layout="row" class="o_bPurpleDark">
                 <div class="md-toolbar-tools">
                     <span>
                         {{run.title}}
@@ -50,6 +54,8 @@
             <md-card-actions>
                 <!--<ng-map center="[{{myPosition.coords.latitude}}, {{myPosition.coords.longitude}}]"></ng-map>-->
                 <ng-map zoom="18" center="[{{centerPos.lat}}, {{centerPos.long}}]">
+
+                    <marker position="[{{centerPos.lat}}, {{centerPos.long}}]"></marker>
                     <shape
                     name="{{vm.run.name}}"
                     stroke-color="#68c3f0"
@@ -62,12 +68,15 @@
                     stroke-weight="10"></shape>
                 </ng-map>
             </md-card-actions>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="nextPosition()">Next position</md-button>
+            </md-card-actions>
             <md-card-actions>
                 <md-list flex>
                     <md-list-item class="md-3-line" ng-repeat="position in run.positions | orderBy: '-date'"
                     ng-click="centerMap(position)">
                         <div class="md-list-item-text" layout="column">
-                            <h3>{{position.distance}} Km</h3>
+                            <h3>{{position.distance | number : 3}} Km</h3>
                             <h4>{{position.lat}} - {{position.long}}</h4>
                             <p>{{position.date | date: "dd/MM/y HH:mm"}}</p>
                         </div>

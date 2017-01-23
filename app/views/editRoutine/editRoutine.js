@@ -30,6 +30,7 @@ angular.module('myApp.editRoutine', ['ngRoute', 'ngFileUpload', 'ngAnimate', 'to
             })
             .then(function (result) {
             });
+        $scope.newDay = {};
         $scope.exercises = [{}];
         $scope.addExercise = function () {
             $scope.exercises.push({

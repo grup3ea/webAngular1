@@ -13,20 +13,22 @@ angular.module('myApp.eating', ['ngRoute'])
 
         $scope.diets = {};
         $http.get(urlapi + 'diets')
-            .success(function (data) {
+            .then(function (data) {
                 console.log('data success');
                 console.log(data); // for browser console
-                $scope.diets = data; // for UI
+                $scope.diets = data.data; // for UI
                 localStorage.setItem('fs_web_diets', JSON.stringify($scope.diets));
-            })
-            .error(function (data, status) {
+            },
+                function (data, status) {
                 console.log('data error');
                 console.log(status);
                 console.log(data);
-            })
-            .then(function (result) {
             });
+
         $scope.user={};
+
+
+
         $http.get(urlapi + 'users/' + $scope.storageuser._id)
             .then(function(data) {
                 console.log('data success');
@@ -40,6 +42,5 @@ angular.module('myApp.eating', ['ngRoute'])
                 console.log('data error');
                 console.log(status);
                 console.log(data);
-            })
-            .then(function(result) {});
+            });
     });

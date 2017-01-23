@@ -18,7 +18,7 @@
                   </div>
               </md-list-item>
             </span>
-            <span class="md-subhead">
+            <span class="md-subhead" ng-show="routine.description">
               Description: {{routine.description}}
             </span>
           </md-card-title-text>
@@ -29,6 +29,7 @@
         </md-card-actions>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="{{day.title}}" ng-repeat="day in routine.days">
+              <h6> Has it been completed? {{day.done}}</h6>
             <md-content class="md-padding">
               <h1 class="md-display-1">{{day.title}}</h1>
               <md-list class="md-dense" flex>
@@ -64,7 +65,7 @@
       						<label></label>
                   <div class="form_controls">
                       <div class="upload_button_holder">
-                          <md-button href="#" class="md-raised" ngf-select="uploadFile($file, $index)" title="upload" resetOnClick="true" > Exercise Image </md-button>
+                          <md-button class="md-raised" ngf-select="uploadFile($file, $index)" title="upload" resetOnClick="true" > Exercise Image </md-button>
                       </div>
 
                   </div>
